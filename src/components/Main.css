@@ -1,0 +1,28 @@
+.eventImage{ /*공연 이미지*/
+  width: 300px;
+  height: 400px;
+}
+
+.eventSlot{ /*공연 슬롯이 차지하는 공간*/
+  float: left;
+  margin: 10px;
+}
+
+.eventBoard{ /*공연 슬롯들이 모여있는 공간*/
+  width:200px;
+}
+
+.ticketsOpen{ /*제목 글 관련*/
+  color: var(--theme-navy, #2B3252);
+  text-align: center;
+  font-size: 48px;
+  font-family: Playfair Display;
+}
+
+.eventName{
+  color: #000;
+  text-align: center;
+  font-size: 24px;
+  font-family: Noto Sans KR;
+  font-weight: 500;
+}
