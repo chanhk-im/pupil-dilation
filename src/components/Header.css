@@ -1,0 +1,37 @@
+.header {
+    height: 169px;
+    /* background-color: yellow; */
+    border-bottom: solid rgba(0, 0, 0, 0.25);
+}
+
+.header-red {
+    height: 50px;
+    background-color: #EF5455;
+}
+
+.header-image {
+    height: 32px;
+    width: 212.738px;
+    padding-left: 143px;
+    margin-top: 18px;
+}
+
+.pupil-dilation {
+    width: 212.738px;
+}
+
+input[type="text"] {
+    font-size: 25px;
+    width: 200%;
+    box-sizing: border-box;
+    margin-top: 18px;
+    border-radius: 39px;
+    border: 2px solid #EF5455;
+    
+}
+
+.line {
+    display: grid;
+        grid-template-columns: 1200px 200px 15fr 10fr;
+        gap: 1px;
+}

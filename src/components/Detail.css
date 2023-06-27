@@ -1,0 +1,113 @@
+.detail {
+    height: calc(100 * 866 / 1035vh);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.detail-contents {
+    padding-top: calc(100vh * 31 / 1024);
+    padding-bottom: calc(100vh * 44 / 1024);
+    padding-left: calc(100vw * 143 / 1440);
+    padding-right: calc(100vw * 24 / 1440);
+    display: flex;
+    flex-direction: column;
+}
+
+.information {
+    display: flex;
+    flex-direction: row;
+}
+
+.show-image {
+    background-color: #d89999;
+    width: calc(100vw * 331 / 1440);
+    height: calc(100vw * 468 / 1440);
+    border-radius: 8px;
+}
+
+.show-main {
+    margin-left: calc(100vw * 22 / 1440);
+    text-align: left;
+}
+
+.show-title {
+    display: flex;
+    height: 79px;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    font-size: 48px;
+    font-weight: 500;
+    margin-bottom: calc(100vh * 46 / 1024);
+}
+
+.info-title {
+    flex-direction: column;
+    justify-content: center;
+    height: 48px;
+    margin: 0;
+    margin-bottom: 11px;
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.info-content {
+    width: calc(100vw * 448 / 1440);
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.show-detail {
+    margin-left: calc(100vw * 24 / 1440);
+    padding-top: 4px;
+    text-align: left;
+}
+
+.detail-title {
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    margin-top: calc(100vh * 23 / 1024);
+    margin-bottom: calc(100vh * 11 / 1024);
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.detail-info {
+    width: calc(100vw * 448 / 1440);
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: -1.08px;
+}
+
+.detail-footer {
+    margin-top: 56px;
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: center;
+}
+
+.calendar {
+    width: 330px;
+    height: 267px;
+    box-shadow: 0px 2px 14px 2px rgba(0, 0, 0, 0.25);
+}
+
+.calendar-setting {
+    height: 267px;
+    margin-left: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.bold {
+    font-weight: 500;
+}
+
+p {
+    margin: 0;
+}
