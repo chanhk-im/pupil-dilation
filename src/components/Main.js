@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import 'swiper/swiper.min.css';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import PropTypes from 'prop-types';
 import { fetchShowList } from '../features/show/slices/showSlice';
 import './Main.css';
-import PropTypes from 'prop-types';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/swiper.min.css';
 import slides from './image.json';
 import getShows from '../features/show/api/getShows';
 
@@ -36,7 +36,7 @@ Slider.propTypes = {
 };
 
 function Main() {
-  const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const showList = useSelector((state) => state.show.showList);
     async function onRefresh() {
         await getShows().then((value) => {
