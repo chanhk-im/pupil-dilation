@@ -2,7 +2,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage/session';
 import persistStore from 'redux-persist/es/persistStore';
-import showReducer from '../features/slices/showSlice';
+import showReducer from '../features/show/slices/showSlice';
 
 const persistConfig = {
     key: 'root',

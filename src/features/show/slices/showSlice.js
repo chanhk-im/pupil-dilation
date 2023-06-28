@@ -49,9 +49,13 @@ export const showSlice = createSlice({
         addShow: (state, action) => {
             state.showList.push(action.payload);
         },
+        fetchShowList: (state, action) => {
+            // eslint-disable-next-line no-param-reassign
+            state.showList = action.payload;
+        },
     },
 });
 
-export const { addShow } = showSlice.actions;
+export const { addShow, fetchShowList } = showSlice.actions;
 
 export default showSlice.reducer;
