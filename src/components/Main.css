@@ -1,15 +1,21 @@
 .eventImage{ /*공연 이미지*/
   width: 300px;
   height: 400px;
+  border-radius: 8px;
 }
 
 .eventSlot{ /*공연 슬롯이 차지하는 공간*/
   float: left;
   margin: 10px;
+  border-radius: 8px;
 }
 
 .eventBoard{ /*공연 슬롯들이 모여있는 공간*/
-  width:200px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .ticketsOpen{ /*제목 글 관련*/

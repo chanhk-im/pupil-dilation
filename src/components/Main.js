@@ -5,7 +5,7 @@ function Main() {
     return (
         <div>
             <h3 className="ticketsOpen">Tickets Open</h3>
-            <div>
+            <div className="eventBoard">
                 <div className="eventSlot">
                     <img
                         className="eventImage"
