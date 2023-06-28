@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import './Detail.css';
 
 function DetailContent({ show }) {
+    console.log(show.schedule);
     const schedule = show.schedule.map((value, i) => (
         <div>
             <strong>{i + 1}공</strong> {value}

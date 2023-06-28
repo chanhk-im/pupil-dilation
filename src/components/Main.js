@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchShowList } from '../features/show/slices/showSlice';
 import './Main.css';
 import PropTypes from 'prop-types';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.min.css';
 import slides from './image.json';
+import getShows from '../features/show/api/getShows';
 
 // eslint-disable-next-line no-shadow
 function Slider({ slides }) {
@@ -33,6 +36,18 @@ Slider.propTypes = {
 };
 
 function Main() {
+  const dispatch = useDispatch();
+    const showList = useSelector((state) => state.show.showList);
+    async function onRefresh() {
+        await getShows().then((value) => {
+            dispatch(fetchShowList(value));
+            console.log(showList[0]);
+        });
+    }
+
+    useEffect(() => {
+        onRefresh();
+    }, []);
     return (
         <div>
             <h3 className="ticketsOpen">Tickets Open</h3>
