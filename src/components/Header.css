@@ -1,11 +1,11 @@
 .header {
-    height: 169px;
+    height: 118px;
     /* background-color: yellow; */
     border-bottom: solid rgba(0, 0, 0, 0.25);
 }
 
 .header-red {
-    height: 50px;
+    height: 37px;
     background-color: #ef5455;
     padding-right: 55px;
     display: flex;
@@ -22,7 +22,7 @@
 }
 
 .line {
-    height: 119px;
+    height: 81px;
     padding-left: calc(100vw * 143 / 1440);
     padding-right: calc(100vw * 47 / 1440);
     display: flex; 
@@ -32,7 +32,7 @@
 }
 
 .pupil-dilation {
-    width: 212.738px;
+    width:211px;
 }
 
 .line-right {
@@ -42,11 +42,13 @@
 }
 
 .search-button {
-    width: 24px;
+    width: calc(100vw*24/1440);
 }
 
 .user-button {
     padding-left: calc(100vw * 70 / 1440);
+    width: calc(100vw*24/1440);
+    height: 24px;
 }
 
 .search-input {
@@ -55,8 +57,8 @@
     box-sizing: border-box;
     border-radius: 39px;
     border: 2px solid #ef5455;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: calc(100vw * 20 / 1440);
+    padding-right: calc(100vw * 20 / 1440);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -64,6 +66,7 @@
 }
 
 input[name='search'] {
+    background-color: rgba(255, 255, 255, 0);
     border: none;
     font-size: 24px;
     font-weight: 400;

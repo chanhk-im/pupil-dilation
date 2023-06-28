@@ -12,7 +12,7 @@ function Header() {
                 <img
                     className="pupil-dilation"
                     alt="my-header"
-                    src="img/header_img.png"
+                    src="/img/header_img.png"
                 />
                 <div className="line-right">
                     <div className="search-input">
@@ -25,13 +25,13 @@ function Header() {
                         <img
                             className="search-button"
                             alt="search-button"
-                            src="images/search.png"
+                            src="/images/search.png"
                         />
                     </div>
                     <img
                         className="user-button"
                         alt="search-button"
-                        src="images/user.svg"
+                        src="/images/user.svg"
                     />
                 </div>
             </div>
