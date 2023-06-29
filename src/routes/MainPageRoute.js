@@ -15,6 +15,8 @@ function MainPageRoute() {
                 <Route path="detail/:id" element={<Detail />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/signup" element={<SignUpPage />} />
+                <Route path="/seats" element={<Seats />} />
+                <Route path="/ticketlist" element={<TicketList />} />
             </Routes>
         </div>
     );
