@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Detail.css';
+import './DetailContent.css';
 
 function DetailContent({ show }) {
     console.log(show.schedule);
@@ -10,34 +10,29 @@ function DetailContent({ show }) {
         </div>
     ));
     return (
-        <div className="detail">
-            <div className="detail-contents">
-                <div className="information">
-                    <div className="show-image" />
-                    <div className="show-main">
-                        <h2 className="show-title">{show.title}</h2>
-                        <h3 className="info-title">소개</h3>
-                        <div className="info-content">{show.introduction}</div>
-                    </div>
-                    <div className="show-detail">
-                        <h3 className="detail-title">공연기간</h3>
-                        <p className="detail-info">{show.period}</p>
-                        <h3 className="detail-title">공연일정</h3>
-                        <p className="detail-info">{schedule}</p>
-                        <h3 className="detail-title">장소</h3>
-                        <p className="detail-info">{show.place}</p>
-                        <h3 className="detail-title">가격</h3>
-                        <p className="detail-info">{show.price}원</p>
-                    </div>
+        <div className="detail-contents">
+            <div className="information">
+                <div className="show-image" />
+                <div className="show-main">
+                    <h2 className="show-title">{show.title}</h2>
+                    <h3 className="info-title">소개</h3>
+                    <div className="info-content">{show.introduction}</div>
                 </div>
-                <div className="detail-footer">
-                    <div className="calendar">달력</div>
-                    <div className="calendar-setting">
-                        <div>dd</div>
-                        <div>dd</div>
-                        <div>dd</div>
-                        <div>dd</div>
+                <div className="show-detail">
+                    <h3 className="detail-title">공연기간</h3>
+                    <p className="detail-info">{show.period}</p>
+                    <div className="place-and-price">
+                        <div className="show-detail-content">
+                            <h3 className="detail-title">가격</h3>
+                            <p className="detail-info">{show.price}원</p>
+                        </div>
+                        <div className="show-detail-content">
+                            <h3 className="detail-title">장소</h3>
+                            <p className="detail-info">{show.place}</p>
+                        </div>
                     </div>
+                    <h3 className="detail-title">공연일정</h3>
+                    <p className="detail-info">{schedule}</p>
                 </div>
             </div>
         </div>
