@@ -27,14 +27,14 @@
     justify-content: space-between;
 }
 
-.login-text {
+.login-text1 {
     color: #000;
     font-size: calc(100vw * 32 / 1440);
     font-family: Noto Sans KR;
     font-weight: 700;
 }
 
-.id {
+.id1 {
     border: none;
     width: calc(100vw * 448 / 1440);
     height: calc(100vh * 63 / 820);
@@ -45,13 +45,13 @@
     box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.25) inset;
 }
 
-.id::placeholder {
+.id1::placeholder {
     color: rgba(0, 0, 0, 0.55);
     font-size: calc(100vw * 32 / 1440);
     font-family: Noto Sans KR;
 }
 
-.password {
+.password1 {
     border: none;
     width: calc(100vw * 448 / 1440);
     height: calc(100vh * 63 / 820);
@@ -62,13 +62,13 @@
     box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.25) inset;
 }
 
-.password::placeholder {
+.password1::placeholder {
     color: rgba(0, 0, 0, 0.55);
     font-size: calc(100vw * 32 / 1440);
     font-family: Noto Sans KR;
 }
 
-.sign-up {
+.sign-up1 {
     border: none;
     width: calc(100vw * 134 / 1440);
     height: calc(100vh * 46 / 820);
@@ -77,7 +77,7 @@
     background: var(--theme-navy, #2B3252);
 }
 
-.sign-up-text {
+.sign-up-text1 {
     color: var(--theme-yellow, #FAD744);
     font-size: calc(100vw * 20 / 1440);
     font-family: Noto Sans KR;
@@ -105,7 +105,7 @@
     font-weight: 300;
 }
 
-.login {
+.login1 {
     border: none;
     width: calc(100vw * 448 / 1440);
     height: calc(100vh * 84 / 820);
