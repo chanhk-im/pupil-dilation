@@ -1,6 +1,7 @@
 import React from 'react';
 import 'swiper/swiper-bundle.min.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Navigation, Pagination, A11y, Zoom, Autoplay } from 'swiper';
 import './Main.css';
@@ -20,13 +21,15 @@ function Slider({ slides }) {
         >
             {slides.map((slide) => (
                 <SwiperSlide className="eventBoard" key={slide.image}>
-                    <img
-                        className="eventImage"
-                        src={slide.image}
-                        alt={slide.title}
-                    />
-                    <p className="eventName">{slide.title}</p>
-                    <p className="eventDate">{slide.date}</p>
+                    <Link to="/detail/BkmL00lDIRKbcwMLPqDc">
+                        <img
+                            className="eventImage"
+                            src={slide.image}
+                            alt={slide.title}
+                        />
+                        <p className="eventName">{slide.title}</p>
+                        <p className="eventDate">{slide.date}</p>
+                    </Link>
                 </SwiperSlide>
             ))}
         </Swiper>
