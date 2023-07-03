@@ -6,6 +6,7 @@ import LoginPage from '../components/LoginPage';
 import SignUpPage from '../components/SignUpPage';
 import Seats from '../components/Seats/Seats';
 import HostMainPage from '../components/HostMainPage';
+import HostEventManage from '../components/HostEventManage';
 
 function MainPageRoute() {
     return (
@@ -17,6 +18,10 @@ function MainPageRoute() {
                 <Route path="/signup" element={<SignUpPage />} />
                 <Route path="/seats" element={<Seats />} />
                 <Route path="/HostMain" element={<HostMainPage />} />
+                <Route
+                    path="/HostEventManage/:id"
+                    element={<HostEventManage />}
+                />
             </Routes>
         </div>
     );

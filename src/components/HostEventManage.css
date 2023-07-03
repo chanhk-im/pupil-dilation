@@ -1,0 +1,50 @@
+.CheckButton {
+  width: calc(100vw * 212 / 1440);;
+  height: calc(100vw * 52 / 1440);
+  border-radius: 11px;
+  background-color: #2b3252;
+
+  margin-right: calc(100vw * 260 / 1440);
+  color: #fad744;
+  font-size: calc(100vw * 20 / 1440);
+  text-align: center;
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.buttonBoard {
+  display: flex;
+  margin-top: 50px;
+  margin-right: 495px;
+}
+
+.updateButton{
+  width: 94px;
+  height: 39px;
+  background: #D9D9D9;
+  border-radius: 11px;
+  color: var(--theme-navy, #2B3252);
+  text-align: center;
+  font-size: 16px;
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.delateButton{
+  width: 94px;
+  height: 39px;
+  background: #D9D9D9;
+  border-radius: 11px;
+  margin-left: 20px;
+  color: #FA4444;
+  text-align: center;
+  font-size: 16px;
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
