@@ -75,6 +75,9 @@
     flex-shrink: 0;
     border-radius: 23px;
     background: var(--theme-navy, #2B3252);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .sign-up-text1 {
