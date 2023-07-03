@@ -20,7 +20,7 @@ function DetailContent({ show }) {
                 </div>
                 <div className="show-detail">
                     <h3 className="detail-title">공연기간</h3>
-                    <p className="detail-info">{show.period}</p>
+                    <p className="detail-info-period">{show.period}</p>
                     <div className="place-and-price">
                         <div className="show-detail-content">
                             <h3 className="detail-title">가격</h3>
