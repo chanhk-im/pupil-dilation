@@ -1,19 +1,27 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Header.css';
 
 function Header() {
     return (
         <div className="header">
             <div className="header-red">
-                <div className="auth">로그인</div>
-                <div className="auth">회원가입</div>
+                <Link to="/login" className="auth">
+                    로그인
+                </Link>
+                <Link to="/signup" className="auth">
+                    회원가입
+                </Link>
             </div>
             <div className="line">
-                <img
-                    className="pupil-dilation"
-                    alt="my-header"
-                    src="/img/header_img.png"
-                />
+                <Link to="/">
+                    <img
+                        className="pupil-dilation"
+                        alt="my-header"
+                        src="/img/header_img.png"
+                    />
+                </Link>
+
                 <div className="line-right">
                     <div className="search-input">
                         <input
