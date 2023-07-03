@@ -5,6 +5,7 @@ import Detail from '../components/Detail/Detail';
 import LoginPage from '../components/LoginPage';
 import SignUpPage from '../components/SignUpPage';
 import Seats from '../components/Seats/Seats';
+import TicketList from '../components/TicketList';
 import HostMainPage from '../components/HostMainPage';
 
 function MainPageRoute() {
@@ -16,6 +17,7 @@ function MainPageRoute() {
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/signup" element={<SignUpPage />} />
                 <Route path="/seats" element={<Seats />} />
+                <Route path="/ticketlist" element={<TicketList />} />
                 <Route path="/HostMain" element={<HostMainPage />} />
             </Routes>
         </div>
