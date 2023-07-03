@@ -110,7 +110,7 @@ function SignUpPage() {
                         placeholder=""
                         onChange={onChangeAccount}
                     />
-                </dev>
+                </div>
                 <button
                     className="sign-up"
                     type="button"

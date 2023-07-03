@@ -54,7 +54,7 @@ function LoginPage() {
                 <div className="checker">
                     <input className="id-check" type="checkbox" />
                     <dev className="save-id">아이디 저장</dev>
-                </dev>
+                </div>
                 <button
                     className="login1"
                     type="button"
