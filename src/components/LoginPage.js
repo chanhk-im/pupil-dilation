@@ -26,15 +26,15 @@ function LoginPage() {
     };
 
     return (
-        <dev className="container">
+        <div className="container">
             <img className="logo" alt="pupil-dilation" src="/images/Logo.svg" />
-            <dev className="right-page">
-                <dev className="right-high">
-                    <dev className="login-text1">로그인</dev>
+            <div className="right-page">
+                <div className="right-high">
+                    <div className="login-text1">로그인</div>
                     <button className="sign-up1" type="button">
-                        <dev className="sign-up-text1"> 회원가입</dev>
+                        <div className="sign-up-text1"> 회원가입</div>
                     </button>
-                </dev>
+                </div>
                 <input
                     type="text"
                     className="id1"
@@ -51,7 +51,7 @@ function LoginPage() {
                     placeholder="비밀번호"
                     onChange={onChangeAccount}
                 />
-                <dev className="checker">
+                <div className="checker">
                     <input className="id-check" type="checkbox" />
                     <dev className="save-id">아이디 저장</dev>
                 </dev>
@@ -62,8 +62,8 @@ function LoginPage() {
                 >
                     <dev className="login-text2">로그인</dev>
                 </button>
-            </dev>
-        </dev>
+            </div>
+        </div>
     );
 }
 

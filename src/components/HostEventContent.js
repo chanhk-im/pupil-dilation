@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './DetailContent.css';
+import './Detail/DetailContent.css';
 
-function DetailContent({ show }) {
+function HostEventContent({ show }) {
     console.log(show.schedule);
     const schedule = show.schedule.map((value, i) => (
         <div>
@@ -38,8 +38,8 @@ function DetailContent({ show }) {
         </div>
     );
 }
-DetailContent.propTypes = {
+HostEventContent.propTypes = {
     show: PropTypes.node.isRequired,
 };
 
-export default DetailContent;
+export default HostEventContent;
