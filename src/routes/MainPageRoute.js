@@ -9,6 +9,7 @@ import TicketList from '../components/TicketList';
 import HostMainPage from '../components/HostMainPage';
 import HostEventManage from '../components/HostEventManage';
 import Loading from '../components/Loading';
+import HostCreate from '../components/HostCreate';
 
 function MainPageRoute() {
     return (
@@ -26,6 +27,7 @@ function MainPageRoute() {
                     element={<HostEventManage />}
                 />
                 <Route path="/loading" element={<Loading />} />
+                <Route path="/hostcreate" element={<HostCreate />} />
             </Routes>
         </div>
     );
