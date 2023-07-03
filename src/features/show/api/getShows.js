@@ -1,5 +1,5 @@
 import { collection, getDocs } from 'firebase/firestore';
-import fireStore from '../../../Firebase';
+import { fireStore } from '../../../Firebase';
 
 export default async function getShows() {
     const showList = [];
