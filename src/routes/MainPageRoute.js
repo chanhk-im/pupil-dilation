@@ -7,6 +7,7 @@ import SignUpPage from '../components/SignUpPage';
 import Seats from '../components/Seats/Seats';
 import TicketList from '../components/TicketList';
 import HostMainPage from '../components/HostMainPage';
+import Loading from '../components/Loading';
 
 function MainPageRoute() {
     return (
@@ -19,6 +20,7 @@ function MainPageRoute() {
                 <Route path="/seats" element={<Seats />} />
                 <Route path="/ticketlist" element={<TicketList />} />
                 <Route path="/HostMain" element={<HostMainPage />} />
+                <Route path="/loading" element={<Loading />} />
             </Routes>
         </div>
     );
