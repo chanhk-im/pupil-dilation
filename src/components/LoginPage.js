@@ -53,14 +53,14 @@ function LoginPage() {
                 />
                 <div className="checker">
                     <input className="id-check" type="checkbox" />
-                    <dev className="save-id">아이디 저장</dev>
+                    <div className="save-id">아이디 저장</div>
                 </div>
                 <button
                     className="login1"
                     type="button"
                     onClick={onClickButton}
                 >
-                    <dev className="login-text2">로그인</dev>
+                    <div className="login-text2">로그인</div>
                 </button>
             </div>
         </div>

@@ -116,7 +116,7 @@ function SignUpPage() {
                     type="button"
                     onClick={onButtonClick}
                 >
-                    <dev className="sign-up-text2">가입 완료</dev>
+                    <div className="sign-up-text2">가입 완료</div>
                 </button>
             </div>
         </div>
