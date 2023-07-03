@@ -21,12 +21,10 @@
         "jsx-a11y/label-has-associated-control": [
             2,
             {
-              "labelAttributes": ["htmlFor"]
+                "labelAttributes": ["htmlFor"]
             }
-          ],
-          "import/no-unresolved": [
-            2, 
-            { "caseSensitive": false }
-         ]
+        ],
+        "import/no-unresolved": [2, { "caseSensitive": false }],
+        "no-param-reassign": "off"
     }
 }
