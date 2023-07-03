@@ -23,6 +23,10 @@
             {
               "labelAttributes": ["htmlFor"]
             }
-          ]
+          ],
+          "import/no-unresolved": [
+            2, 
+            { "caseSensitive": false }
+         ]
     }
 }
