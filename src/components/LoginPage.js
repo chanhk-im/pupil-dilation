@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { loginUser } from '../features/user/api/firebase_auth';
 import './LoginPage.css';
 
@@ -31,9 +31,9 @@ function LoginPage() {
             <div className="right-page">
                 <div className="right-high">
                     <div className="login-text1">로그인</div>
-                    <button className="sign-up1" type="button">
+                    <Link className="sign-up1" to="/signup">
                         <div className="sign-up-text1"> 회원가입</div>
-                    </button>
+                    </Link>
                 </div>
                 <input
                     type="text"

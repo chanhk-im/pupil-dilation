@@ -10,6 +10,7 @@ import HostMainPage from '../components/HostMainPage';
 import HostEventManage from '../components/HostEventManage';
 import Loading from '../components/Loading';
 import HostCreate from '../components/HostCreate';
+import TicketerListPage from '../components/TicketerListPage';
 
 function MainPageRoute() {
     return (
@@ -26,6 +27,7 @@ function MainPageRoute() {
                     path="/HostEventManage/:id"
                     element={<HostEventManage />}
                 />
+                <Route path="/TicketerList" element={<TicketerListPage />} />
                 <Route path="/loading" element={<Loading />} />
                 <Route path="/hostcreate" element={<HostCreate />} />
             </Routes>
