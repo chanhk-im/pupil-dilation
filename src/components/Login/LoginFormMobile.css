@@ -1,87 +1,91 @@
 .right-page {
-    width: calc(100vw * 455 / 1440);
-    height: calc(100vh * 416 / 820);
+    margin-top: 80px;
+    width: 393px;
+    height: 552px;
     flex-shrink: 0;
-    margin-left: calc(100vw * 140 / 1440);
-    margin-top: calc(100vh * 131 / 820);
-    display: grid;
-    grid-template-columns: 5;
-    align-items: center;
+    /* margin-left: calc(100vw * 140 / 393);
+    margin-top: calc(100vh * 131 / 852); */
+    justify-content: center;
 }
 
 .right-high {
     display: flex;
     justify-content: space-between;
+    margin-bottom: calc(100vh * 37 / 852);
 }
 
 .login-text1 {
     color: #000;
-    font-size: calc(100vw * 32 / 1440);
+    font-size: calc(100vw * 24 / 393);
     font-family: Noto Sans KR;
     font-weight: 700;
+    margin-left: calc(100vw * 20 / 393);
 }
 
 .id1 {
-    border: none;
-    width: calc(100vw * 448 / 1440);
-    height: calc(100vh * 63 / 820);
-    font-size: calc(100vw * 32 / 1440);
+    /* border: none; */
+    width: calc(100vw * 351 / 393);
+    height: calc(100vh * 63 / 852);
+    font-size: calc(100vw * 24 / 393);
     flex-shrink: 0;
     border-radius: 7px;
     background: #FFF;
     box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.25) inset;
+    margin-bottom: calc(100vh * 28 / 852);
 }
 
 .id1::placeholder {
     color: rgba(0, 0, 0, 0.55);
-    font-size: calc(100vw * 32 / 1440);
+    font-size: calc(100vw * 24 / 393);
     font-family: Noto Sans KR;
 }
 
 .password1 {
-    border: none;
-    width: calc(100vw * 448 / 1440);
-    height: calc(100vh * 63 / 820);
-    font-size: calc(100vw * 32 / 1440);
+    /* border: none; */
+    width: calc(100vw * 351 / 393);
+    height: calc(100vh * 63 / 852);
+    font-size: calc(100vw * 24 / 393);
     flex-shrink: 0;
     border-radius: 7px;
     background: #FFF;
     box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.25) inset;
+    margin-bottom: calc(100vh * 28 / 852);
 }
 
 .password1::placeholder {
     color: rgba(0, 0, 0, 0.55);
-    font-size: calc(100vw * 32 / 1440);
+    font-size: calc(100vw * 24 / 393);
     font-family: Noto Sans KR;
 }
 
 .sign-up1 {
     border: none;
-    width: calc(100vw * 134 / 1440);
-    height: calc(100vh * 46 / 820);
+    width: calc(100vw * 134 / 393);
+    height: calc(100vh * 46 / 852);
     flex-shrink: 0;
     border-radius: 23px;
     background: var(--theme-navy, #2B3252);
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: calc(100vw * 21 / 393);
 }
 
 .sign-up-text1 {
     color: var(--theme-yellow, #FAD744);
-    font-size: calc(100vw * 20 / 1440);
+    font-size: calc(100vw * 20 / 393);
     font-family: Noto Sans KR;
 }
 
 .checker {
     display: flex;
-
+    justify-content: center;
 }
 
 .id-check {
     border: none;
-    width: calc(100vw * 25 / 1440);
-    height: calc(100vh * 25 / 820);
+    width: calc(100vw * 25 / 393);
+    height: calc(100vh * 25 / 852);
     flex-shrink: 0;
     border-radius: 4px;
     background: #FFF;
@@ -90,15 +94,15 @@
 
 .save-id {
     color: #000;
-    font-size: calc(100vw * 20 / 1440);
+    font-size: calc(100vw * 20 / 393);
     font-family: Noto Sans KR;
     font-weight: 300;
 }
 
 .login1 {
     border: none;
-    width: calc(100vw * 448 / 1440);
-    height: calc(100vh * 84 / 820);
+    width: calc(100vw * 353 / 393);
+    height: calc(100vh * 60 / 852);
     flex-shrink: 0;
     border-radius: 34px;
     background: var(--theme-yellow, #FAD744);
@@ -106,7 +110,13 @@
 
 .login-text2 {
     color: var(--theme-red, #EF5455);
-    font-size: calc(100vw * 32 / 1440);
+    font-size: calc(100vw * 32 / 393);
     font-family: Noto Sans KR;
     font-weight: 700;
+}
+
+.button-location {
+    display: flex;
+    justify-content: center;
+    margin-top: calc(100vh * 80 / 852);
 }

@@ -1,12 +1,18 @@
 import React from 'react';
-import './LoginPage.css';
-import LoginForm from './LoginForm';
+import Desktop from '../MediaQuery/Desktop';
+import Mobile from '../MediaQuery/Mobile';
+import LoginPageDesktop from './LoginPageDesktop';
+import LoginPageMobile from './LoginPageMobile';
 
 function LoginPage() {
     return (
-        <div className="container">
-            <img className="logo" alt="pupil-dilation" src="/images/Logo.svg" />
-            <LoginForm />
+        <div>
+            <Desktop>
+                <LoginPageDesktop />
+            </Desktop>
+            <Mobile>
+                <LoginPageMobile />
+            </Mobile>
         </div>
     );
 }

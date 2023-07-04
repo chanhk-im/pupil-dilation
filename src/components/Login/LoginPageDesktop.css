@@ -1,8 +1,8 @@
-.container {
+.container-desktop {
     display: flex;
 }
 
-.logo {
+.logo-desktop {
     width: calc(100vw * 333 / 1440);
     height: calc(100vh * 360 / 820);
     flex-shrink: 0;
