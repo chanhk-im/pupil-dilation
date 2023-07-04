@@ -3,9 +3,7 @@ import {
     signInWithEmailAndPassword,
 } from 'firebase/auth';
 import { collection, addDoc, getDocs, where, query } from 'firebase/firestore';
-// import { useDispatch } from 'react-redux';
 import { authService, fireStore } from '../../../Firebase';
-// import { stageUser } from '../slices/userSlice';
 
 const handleError = (code) => {
     switch (code) {
@@ -55,8 +53,7 @@ export async function createUser(newUserInfo) {
 }
 
 export async function loginUser(id, password) {
-    let res = true;
-    // const dispatch = useDispatch();
+    let res;
     const col = collection(fireStore, 'users');
     const q = query(col, where('id', '==', id));
     const loginUserInfo = await getDocs(q);
@@ -73,12 +70,10 @@ export async function loginUser(id, password) {
         password,
     )
         .then(() => {
-            // dispatch(stageUser(loginUserInfo));
-            res = true;
+            res = loginUserInfo;
         })
         .catch((error) => {
             alert(handleError(error.code));
-            res = false;
         });
 
     return res;
