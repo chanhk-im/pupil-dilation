@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getShowById from './getShowByIndex';
+import getShowById from './getShowById';
 import './DetailFooter.css';
 
 function DetailFooter({ id }) {
