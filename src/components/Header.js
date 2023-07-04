@@ -26,13 +26,15 @@ function Header() {
                         로그아웃
                     </button>
                 ) : (
-                    <Link to="/login" className="auth">
-                        로그인
-                    </Link>
+                    <div>
+                        <Link to="/login" className="auth">
+                            로그인
+                        </Link>
+                        <Link to="/login/signup" className="auth">
+                            회원가입
+                        </Link>
+                    </div>
                 )}
-                <Link to="/login/signup" className="auth">
-                    회원가입
-                </Link>
             </div>
             <div className="line">
                 <Link to="/">
