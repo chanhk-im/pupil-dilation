@@ -25,6 +25,7 @@
             }
         ],
         "import/no-unresolved": [2, { "caseSensitive": false }],
-        "no-param-reassign": "off"
+        "no-param-reassign": "off",
+        "react/prop-types": "off"
     }
 }
