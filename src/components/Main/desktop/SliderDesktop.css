@@ -1,8 +1,6 @@
 .eventBoard{ /*공연 슬롯들이 차지하는 공간*/
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: start;
+  justify-content: space-evenly;
   align-items: center;
   margin-top: 50px;
   margin-bottom: 50px;
@@ -11,31 +9,28 @@
 }
 
 .dday{
+  display: flex;
   color: var(--theme-yellow, #FAD744);
-  text-align: center;
   font-size: 35px;
   font-family: "Playfair Display";
-  font-weight: 1000;
+  font-weight: 600;
   line-height: normal;
-  position:fixed;
-  margin-top: 180px;
-  margin-left: 126px;
+  position:absolute;
   z-index: 2;
 }
 
 .ddayImg{
-  width: 200Px;
+  width: 200px;
   height: 200px;
+  display: flex;
   flex-shrink: 0;
   position: absolute;
-  margin-top: 105px;
-  margin-left: 50px;
   z-index: 1;
 }
 
 .eventImage{ /*공연 이미지*/
-  width: 300px;
-  height: 400px;
+  width: 330px;
+  height: 430px;
   border-radius: 12px;
   flex-shrink: 0;
   transition: all 0.2s linear;
@@ -64,4 +59,10 @@
   font-weight: 500;
   line-height: normal;
   text-decoration: none;
+}
+
+.poster{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

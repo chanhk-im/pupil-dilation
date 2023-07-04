@@ -4,14 +4,14 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Navigation, Pagination, A11y, Zoom, Autoplay } from 'swiper';
-import './Slider.css';
+import './SliderDesktop.css';
 
 // eslint-disable-next-line no-shadow
-function Slider({ slides }) {
+function SliderDesktop({ slides }) {
     return (
         <Swiper
             modules={[Navigation, Pagination, A11y, Zoom, Autoplay]}
-            spaceBetween={50}
+            spaceBetween={0.1}
             slidesPerView={4} // 몇개를 한 슬라이드에 담는지
             navigation
             //     nextEl: '.swiper-button-next',
@@ -37,17 +37,19 @@ function Slider({ slides }) {
                         to="/detail/BkmL00lDIRKbcwMLPqDc"
                         style={{ textDecoration: 'none' }}
                     >
-                        <h2 className="dday">TODAY</h2>
-                        <img
-                            className="ddayImg"
-                            src="images/dday2.svg"
-                            alt="dday"
-                        />
-                        <img
-                            className="eventImage"
-                            src={slide.image}
-                            alt={slide.title}
-                        />
+                        <div className="poster">
+                            <h2 className="dday">TODAY</h2>
+                            <img
+                                className="ddayImg"
+                                src="images/dday2.svg"
+                                alt="dday"
+                            />
+                            <img
+                                className="eventImage"
+                                src={slide.image}
+                                alt={slide.title}
+                            />
+                        </div>
                         <p className="eventName">{slide.title}</p>
                         <p className="eventDate">{slide.date}</p>
                     </Link>
@@ -56,8 +58,8 @@ function Slider({ slides }) {
         </Swiper>
     );
 }
-Slider.propTypes = {
+SliderDesktop.propTypes = {
     slides: PropTypes.node.isRequired,
 };
 
-export default Slider;
+export default SliderDesktop;
