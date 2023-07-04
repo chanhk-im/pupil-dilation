@@ -1,14 +1,12 @@
 import React from 'react';
-import Header from '../components/Header';
 import MainPageRoute from '../routes/MainPageRoute';
 
-function MainPage() {
+function MainPageContainer() {
     return (
         <div>
-            <Header />
             <MainPageRoute />
         </div>
     );
 }
 
-export default MainPage;
+export default MainPageContainer;

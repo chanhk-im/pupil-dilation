@@ -1,14 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import getShowById from './getShowByIndex';
 import './DetailContent.css';
 
-function DetailContent({ show }) {
-    console.log(show.schedule);
+function DetailContent({ id }) {
+    const show = getShowById(id);
+
     const schedule = show.schedule.map((value, i) => (
         <div>
             <strong>{i + 1}공</strong> {value}
         </div>
     ));
+
     return (
         <div className="detail-contents">
             <div className="information">
@@ -39,7 +42,7 @@ function DetailContent({ show }) {
     );
 }
 DetailContent.propTypes = {
-    show: PropTypes.node.isRequired,
+    id: PropTypes.node.isRequired,
 };
 
 export default DetailContent;

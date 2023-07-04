@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchShowList } from '../features/show/slices/showSlice';
-import './Main.css';
+import { fetchShowList } from '../../features/show/slices/showSlice';
+import './MainPage.css';
 import slides from './image.json';
-import getShows from '../features/show/api/getShows';
+import getShows from '../../features/show/api/getShows';
 import Slider from './Slider';
 
-function Main() {
+function MainPage() {
     const dispatch = useDispatch();
     const showList = useSelector((state) => state.show.showList);
     async function onRefresh() {
@@ -32,4 +32,4 @@ function Main() {
     );
 }
 
-export default Main;
+export default MainPage;

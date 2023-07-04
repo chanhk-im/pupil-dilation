@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchShowList } from '../features/show/slices/showSlice';
+import { fetchShowList } from '../../features/show/slices/showSlice';
 import './TicketerListPage.css';
-import getShows from '../features/show/api/getShows';
+import getShows from '../../features/show/api/getShows';
 
 function TicketerListPage() {
     const dispatch = useDispatch();
