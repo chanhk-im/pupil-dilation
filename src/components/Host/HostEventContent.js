@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Detail/DetailContent.css';
+import '../Detail/DetailContent.css';
 
 function HostEventContent({ show }) {
     console.log(show.schedule);
