@@ -29,7 +29,7 @@ function LoginForm() {
         <div className="right-page">
             <div className="right-high">
                 <div className="login-text1">로그인</div>
-                <Link className="sign-up1" to="/signup">
+                <Link className="sign-up1" to="/login/signup">
                     <div className="sign-up-text1"> 회원가입</div>
                 </Link>
             </div>
