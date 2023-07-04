@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './SignUpPage.css';
-import { createUser } from '../features/user/api/firebase_auth';
+import { createUser } from '../../features/user/api/firebase_auth';
 
 function SignUpPage() {
     const navigate = useNavigate();
