@@ -75,7 +75,7 @@ flex-direction: row;
 }
 
 .ticket-picture {
-    background-image: url("../../public/images/ticket.png");
+    background-image: url("../../../public/images/ticket.png");
     background-size : calc(100vw * 430 / 1440);
     background-repeat: no-repeat;
     width: calc(100vw * 500 / 1440);

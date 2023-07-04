@@ -9,7 +9,7 @@ function Header() {
                 <Link to="/login" className="auth">
                     로그인
                 </Link>
-                <Link to="/signup" className="auth">
+                <Link to="/login/signup" className="auth">
                     회원가입
                 </Link>
             </div>

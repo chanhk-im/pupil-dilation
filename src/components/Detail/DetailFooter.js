@@ -1,8 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import getShowById from './getShowByIndex';
 import './DetailFooter.css';
 
-function DetailFooter({ show }) {
+function DetailFooter({ id }) {
+    const show = getShowById(id);
+
     const schedule = show.schedule.map((value, i) => (
         <option value={i}>
             {i + 1}공 {value}
@@ -24,7 +27,7 @@ function DetailFooter({ show }) {
     );
 }
 DetailFooter.propTypes = {
-    show: PropTypes.node.isRequired,
+    id: PropTypes.node.isRequired,
 };
 
 export default DetailFooter;

@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Navigation, Pagination, A11y, Zoom, Autoplay } from 'swiper';
-import './Main.css';
+import './Slider.css';
 
 // eslint-disable-next-line no-shadow
 function Slider({ slides }) {
