@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchShowList } from '../../../features/show/slices/showSlice';
+import {
+    fetchShowList,
+    addShow,
+} from '../../../features/show/slices/showSlice';
 import './MainPageDesktop.css';
-import getShows from '../../../features/show/api/getShows';
+import {
+    getShowsDocument,
+    createShowsDocument,
+} from '../../../features/show/api/showsDocument';
 import SliderDesktop from './SliderDesktop';
 import Loading from '../../Loading';
 
@@ -10,11 +16,20 @@ function MainPageDesktop() {
     const dispatch = useDispatch();
     const [isLoaded, setIsLoaded] = useState(false);
     async function onRefresh() {
-        await getShows().then((value) => {
+        await getShowsDocument().then((value) => {
             dispatch(fetchShowList(value));
             setIsLoaded(true);
         });
     }
+
+    const test = async () => {
+        setIsLoaded(false);
+        await createShowsDocument().then((res) => {
+            alert('success!');
+            dispatch(addShow(res));
+            setIsLoaded(true);
+        });
+    };
 
     useEffect(() => {
         onRefresh();
@@ -28,6 +43,9 @@ function MainPageDesktop() {
                     <SliderDesktop />
                 </div>
             </div>
+            <button onClick={test} type="button">
+                test
+            </button>
         </div>
     ) : (
         <Loading />

@@ -7,6 +7,7 @@ export const showSlice = createSlice({
     },
     reducers: {
         addShow: (state, action) => {
+            console.log(action.payload);
             state.showList.push(action.payload);
         },
         fetchShowList: (state, action) => {

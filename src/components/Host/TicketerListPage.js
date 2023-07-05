@@ -2,13 +2,13 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchShowList } from '../../features/show/slices/showSlice';
 import './TicketerListPage.css';
-import getShows from '../../features/show/api/getShows';
+import { getShowsDocument } from '../../features/show/api/showsDocument';
 
 function TicketerListPage() {
     const dispatch = useDispatch();
     const showList = useSelector((state) => state.show.showList);
     async function onRefresh() {
-        await getShows().then((value) => {
+        await getShowsDocument().then((value) => {
             dispatch(fetchShowList(value));
             console.log(showList[0]);
         });
