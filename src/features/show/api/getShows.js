@@ -13,6 +13,7 @@ export default async function getShows() {
             schedule: doc.data().schedule,
             place: doc.data().place,
             price: doc.data().price,
+            image: doc.data().image,
         };
         showList.push(show);
     });
