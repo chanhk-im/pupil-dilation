@@ -1,14 +1,37 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import 'swiper/swiper-bundle.min.css';
+import { ref, getDownloadURL } from 'firebase/storage';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Navigation, Pagination, A11y, Zoom, Autoplay } from 'swiper';
 import './SliderDesktop.css';
+import { fStorage } from '../../../Firebase';
+import { markAsDownloadImage } from '../../../features/show/slices/showSlice';
 
 // eslint-disable-next-line no-shadow
 function SliderDesktop() {
+    const dispatch = useDispatch();
     const showList = useSelector((state) => state.show.showList);
+
+    const getImageUrl = async (storageUrl) => {
+        let downloadUrl;
+        const imageRef = ref(fStorage, storageUrl);
+        await getDownloadURL(imageRef).then((url) => {
+            downloadUrl = url;
+        });
+        return downloadUrl;
+    };
+
+    useEffect(() => {
+        showList.forEach((element, index) => {
+            if (!element.imageDownloaded) {
+                getImageUrl(element.image).then((url) => {
+                    dispatch(markAsDownloadImage({ index, url }));
+                });
+            }
+        });
+    }, []);
 
     return (
         <Swiper
@@ -34,7 +57,7 @@ function SliderDesktop() {
             onSwiper={(swiper) => console.log(swiper)}
         >
             {showList.map((slide) => (
-                <SwiperSlide className="eventBoard" key={slide.image}>
+                <SwiperSlide className="eventBoard" key={slide.id}>
                     <Link
                         to={`/detail/${slide.id}`}
                         style={{ textDecoration: 'none' }}
@@ -46,11 +69,19 @@ function SliderDesktop() {
                                 src="images/dday2.svg"
                                 alt="dday"
                             />
-                            <img
-                                className="eventImage"
-                                src="images/Dongari1.png"
-                                alt={slide.title}
-                            />
+                            {slide.imageDownloaded ? (
+                                <img
+                                    className="eventImage"
+                                    src={slide.image}
+                                    alt={slide.title}
+                                />
+                            ) : (
+                                <img
+                                    className="eventImage"
+                                    src="images/Dongari3.jpg"
+                                    alt={slide.title}
+                                />
+                            )}
                         </div>
                         <p className="eventName">{slide.title}</p>
                         <p className="eventDate">{slide.period}</p>

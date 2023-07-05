@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
+import { getStorage } from 'firebase/storage';
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_API_KEY,
@@ -17,3 +18,4 @@ const firebase = initializeApp(firebaseConfig);
 
 export const fireStore = getFirestore(firebase);
 export const authService = getAuth(firebase);
+export const fStorage = getStorage(firebase);
