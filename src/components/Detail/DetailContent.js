@@ -15,7 +15,19 @@ function DetailContent({ id }) {
     return (
         <div className="detail-contents">
             <div className="information">
-                <div className="show-image" />
+                {show.imageDownloaded ? (
+                    <img
+                        className="show-image"
+                        src={show.image}
+                        alt={show.title}
+                    />
+                ) : (
+                    <img
+                        className="eventImage"
+                        src="images/Dongari3.jpg"
+                        alt={show.title}
+                    />
+                )}
                 <div className="show-main">
                     <h2 className="show-title">{show.title}</h2>
                     <h3 className="info-title">소개</h3>

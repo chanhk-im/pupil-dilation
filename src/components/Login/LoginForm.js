@@ -3,7 +3,6 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../../features/user/api/firebase_auth';
 import { stageUser } from '../../features/user/slices/userSlice';
-import './LoginForm.css';
 
 function LoginForm() {
     const navigate = useNavigate();

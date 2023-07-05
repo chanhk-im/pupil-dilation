@@ -1,34 +1,54 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchShowList } from '../../../features/show/slices/showSlice';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import {
+    fetchShowList,
+    addShow,
+} from '../../../features/show/slices/showSlice';
 import './MainPageDesktop.css';
-import slides from '../image.json';
-import getShows from '../../../features/show/api/getShows';
+import {
+    getShowsDocument,
+    createShowsDocument,
+} from '../../../features/show/api/showsDocument';
 import SliderDesktop from './SliderDesktop';
+import Loading from '../../Loading';
 
 function MainPageDesktop() {
     const dispatch = useDispatch();
-    const showList = useSelector((state) => state.show.showList);
+    const [isLoaded, setIsLoaded] = useState(false);
     async function onRefresh() {
-        await getShows().then((value) => {
+        await getShowsDocument().then((value) => {
             dispatch(fetchShowList(value));
-            console.log(showList[0]);
+            setIsLoaded(true);
         });
     }
+
+    const test = async () => {
+        setIsLoaded(false);
+        await createShowsDocument().then((res) => {
+            alert('success!');
+            dispatch(addShow(res));
+            setIsLoaded(true);
+        });
+    };
 
     useEffect(() => {
         onRefresh();
     }, []);
 
-    return (
+    return isLoaded ? (
         <div>
             <h3 className="ticketsOpen">📽️Tickets Open🎞</h3>
             <div className="slider">
                 <div>
-                    <SliderDesktop slides={slides} />
+                    <SliderDesktop />
                 </div>
             </div>
+            <button onClick={test} type="button">
+                test
+            </button>
         </div>
+    ) : (
+        <Loading />
     );
 }
 
