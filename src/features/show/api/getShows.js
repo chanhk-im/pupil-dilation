@@ -14,6 +14,7 @@ export default async function getShows() {
             place: doc.data().place,
             price: doc.data().price,
             image: doc.data().image,
+            imageDownloaded: false,
         };
         showList.push(show);
     });
