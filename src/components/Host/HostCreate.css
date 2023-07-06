@@ -1,0 +1,356 @@
+.host-create-container {
+    display: flex;
+}
+
+.host-create-left {
+    margin-top: calc(100vw*41/1440);
+    margin-left: calc(100vw*143/1440);
+    margin-right: calc(100vw*25/1440);
+}
+
+.image-upload {
+    width: calc(100vw*330/1440);
+    height: calc(100vw*467/1440);
+}
+
+.host-create-right {
+    margin-top: calc(100vw*44/1440);
+}
+
+.host-create-right-1 {
+    display: flex;
+}
+
+.host-create-title {
+    width: calc(100vw*448/1440);
+    height: calc(100vw*48/1440);
+    flex-shrink: 0;
+    border-radius: 7px;
+    border: 1px solid rgba(0, 0, 0, 0.60);
+}
+
+.host-create-title::placeholder {
+    color: rgba(0, 0, 0, 0.55);
+    font-size: calc(100vw*36/1440);
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.host-create-right-2 {
+    display: flex;
+    margin-top: calc(100vw*10/1440);
+}
+
+.host-create-introduction-title {
+    display: flex;
+    color: #000;
+        font-size: calc(100vw*32/1440);
+        font-family: Noto Sans KR;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+}
+
+.host-create-introduction-content {
+    width: calc(100vw*448/1440);
+    height: calc(100vw*277/1440);
+    flex-shrink: 0;
+    border-radius: 7px;
+    border: 1px solid rgba(0, 0, 0, 0.60);
+    font-size: calc(100vw*24/1440);
+}
+
+.host-create-introduction-content::placeholder {
+    color: rgba(0, 0, 0, 0.55);
+    font-size: calc(100vw*24/1440);
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: -1.08px;
+}
+
+.host-create-right-2-right {
+    margin-left: calc(100vw*25/1440);
+}
+
+.host-create-place {
+    margin-bottom: calc(100vw*20/1440);
+}
+
+.host-create-place-title {
+    display: flex;
+}
+
+.host-create-price-content {
+    width: calc(100vw*329/1440);
+    height: calc(100vw*48/1440);
+    flex-shrink: 0;
+    border-radius: 7px;
+    border: 1px solid rgba(0, 0, 0, 0.60);
+    color: rgba(0, 0, 0, 0.55);
+    font-size: calc(100vw*24/1440);
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: -1.08px;
+}
+
+.host-create-place-title {
+    display: flex;
+    color: #000;
+    font-size: calc(100vw*32/1440);
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.host-create-price-title {
+    display: flex;
+    color: #000;
+    font-size: calc(100vw*32/1440);
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.host-create-ticket-date-start {
+    display: flex;
+    gap: calc(100vw*20/1440);
+    margin-bottom: calc(100vw*8/1440);
+}
+
+.host-create-date-start-month {
+    margin-left: calc(100vw*25/1440);
+    display: flex;
+}
+
+.host-create-ticket-start-text2 {
+    height: calc(100vw*36/1440);
+    display: flex;
+    align-items: center;
+    color: #000;
+        font-size: calc(100vw*24/1440);
+        font-family: Noto Sans KR;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+}
+
+.host-create-date {
+    margin-top: calc(100vw*15/1440);
+    display: flex;
+    width: calc(100vw*270/1440);
+    height: calc(100vw*48/1440);
+    flex-shrink: 0;
+    color: #000;
+    font-size: calc(100vw*32/1440);
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.host-create-ticket-start-text {
+    height: calc(100vw*36/1440);
+    display: flex;
+    align-items: center;
+}
+
+.select-month-start {
+    width: calc(100vw*80/1440);
+    height: calc(100vw*36/1440);
+    border-radius: 7px;
+    border: 1px solid rgba(0, 0, 0, 0.60);
+    color: #000;
+        font-size: 20px;
+        font-family: Noto Sans KR;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+}
+
+.select-day-start {
+    width: calc(100vw*80/1440);
+    height: calc(100vw*36/1440);
+    border-radius: 7px;
+    border: 1px solid rgba(0, 0, 0, 0.60);
+    color: #000;
+        font-size: 20px;
+        font-family: Noto Sans KR;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+}
+
+.select-dayOfWeek-start {
+    width: calc(100vw*80/1440);
+    height: calc(100vw*36/1440);
+    border-radius: 7px;
+    border: 1px solid rgba(0, 0, 0, 0.60);
+    color: #000;
+        font-size: 20px;
+        font-family: Noto Sans KR;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+}
+
+.select-month-finish {
+    width: calc(100vw*80/1440);
+    height: calc(100vw*36/1440);
+    border-radius: 7px;
+    border: 1px solid rgba(0, 0, 0, 0.60);
+    color: #000;
+        font-size: 20px;
+        font-family: Noto Sans KR;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+}
+
+.select-place {
+    width: calc(100vw*330/1440);
+    height: calc(100vw*48/1440);
+    flex-shrink: 0;
+    border-radius: 7px;
+    border: 1px solid rgba(0, 0, 0, 0.60);
+    color: #000;
+    font-size: calc(100vw*24/1440);
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: -1.08px;
+}
+
+.select-day-finish {
+    width: calc(100vw*80/1440);
+    height: calc(100vw*36/1440);
+    border-radius: 7px;
+    border: 1px solid rgba(0, 0, 0, 0.60);
+    color: #000;
+        font-size: calc(100vw*20/1440);
+        font-family: Noto Sans KR;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+}
+
+.select-dayOfWeek-finish {
+    width: calc(100vw*80/1440);
+    height: calc(100vw*36/1440);
+    border-radius: 7px;
+    border: 1px solid rgba(0, 0, 0, 0.60);
+    color: #000;
+        font-size: calc(100vw*20/1440);
+        font-family: Noto Sans KR;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+}
+
+.host-create-date-start-day {
+    display: flex;
+}
+
+.host-create-date-start-dayOfWeek {
+    display: flex;
+}
+
+.host-create-ticket-date-finish {
+    display: flex;
+    gap: calc(100vw*20/1440);
+}
+
+.host-create-date-finish-month {
+    margin-left: calc(100vw*25/1440);
+    display: flex;
+}
+
+.host-create-date-finish-day {
+    display: flex;
+}
+
+.host-create-date-finish-dayOfWeek {
+    display: flex;
+}
+
+.host-create-date-start-time {
+    margin-left: calc(100vw*20/1440);
+    width: calc(100vw*250/1440);
+    height: calc(100vw*36/1440);
+    flex-shrink: 0;
+    border-radius: 7px;
+    border: 1px solid rgba(0, 0, 0, 0.60);
+}
+
+.host-create-date-start-time::placeholder {
+    color: rgba(0, 0, 0, 0.55);
+        font-size: calc(100vw*24/1440);
+        font-family: Noto Sans KR;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+        letter-spacing: -1.08px;
+}
+
+.host-create-date-finish-time {
+    margin-left: calc(100vw*20/1440);
+    width: calc(100vw*250/1440);
+    height: calc(100vw*36/1440);
+    flex-shrink: 0;
+    border-radius: 7px;
+    border: 1px solid rgba(0, 0, 0, 0.60);
+}
+
+.host-create-date-finish-time::placeholder {
+    color: rgba(0, 0, 0, 0.55);
+    font-size: calc(100vw*24/1440);
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: -1.08px;
+}
+
+.host-create-add-button {
+    margin-top: calc(100vw*8/1440);
+    margin-left: calc(100vw*400/1440);
+    width: calc(100vw*257/1440);
+    height: calc(100vw*38/1440);
+    flex-shrink: 0;
+    border-radius: 7px;
+    border: 1px solid rgba(0, 0, 0, 0.60);
+    color: #000;
+    font-size: calc(100vw*20/1440);
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.9px;
+    background: #FFF;
+}
+
+.host-create-button {
+    margin-left: calc(100vw*222/1440);
+    margin-top: calc(100vw*24/1440);
+    margin-bottom: calc(100vw*28/1440);
+    width: calc(100vw*448/1440);
+        height: calc(100vw*82/1440);
+        flex-shrink: 0;
+        color: #FAD744;
+            text-align: center;
+            font-size: calc(100vw*32/1440);
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            background-color: #2B3252;
+            border-radius: 45px;
+}

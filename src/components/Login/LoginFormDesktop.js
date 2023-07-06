@@ -5,7 +5,7 @@ import { loginUser } from '../../features/user/api/firebase_auth';
 import { stageUser } from '../../features/user/slices/userSlice';
 import './LoginFormDesktop.css';
 
-function LoginForm() {
+function LoginFormDesktop() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [account, setAccount] = useState({
@@ -68,4 +68,4 @@ function LoginForm() {
     );
 }
 
-export default LoginForm;
+export default LoginFormDesktop;

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchShowList } from '../../features/show/slices/showSlice';
 import './css/TicketerListPage.css';
-import getShows from '../../features/show/api/getShows';
+// import getShows from '../../features/show/api/getShows';
 import { getShowsDocument } from '../../features/show/api/showsDocument';
 
 function TicketerListPage() {
