@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { loginUser } from '../../features/user/api/firebase_auth';
 import './LoginFormMobile.css';
 
-function LoginForm() {
+function LoginFormMobile() {
     const navigate = useNavigate();
     const [account, setAccount] = useState({
         id: '',
@@ -66,4 +66,4 @@ function LoginForm() {
     );
 }
 
-export default LoginForm;
+export default LoginFormMobile;

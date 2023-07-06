@@ -5,7 +5,7 @@ import { loginUser } from '../../features/user/api/firebase_auth';
 import { stageUser } from '../../features/user/slices/userSlice';
 import './LoginFormDesktop.css';
 
-function LoginForm() {
+function LoginFormDesktop() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [account, setAccount] = useState({
@@ -30,16 +30,16 @@ function LoginForm() {
     };
 
     return (
-        <div className="right-page">
-            <div className="right-high">
-                <div className="login-text1">로그인</div>
-                <Link className="sign-up1" to="/login/signup">
-                    <div className="sign-up-text1"> 회원가입</div>
+        <div className="right-page-desktop">
+            <div className="right-high-desktop">
+                <div className="login-text1-desktop">로그인</div>
+                <Link className="sign-up1-desktop" to="/login/signup">
+                    <div className="sign-up-text1-desktop"> 회원가입</div>
                 </Link>
             </div>
             <input
                 type="text"
-                className="id1"
+                className="id1-desktop"
                 id="id"
                 name="id"
                 placeholder="아이디"
@@ -47,21 +47,25 @@ function LoginForm() {
             />
             <input
                 type="password"
-                className="password1"
+                className="password1-desktop"
                 id="password"
                 name="password"
                 placeholder="비밀번호"
                 onChange={onChangeAccount}
             />
-            <div className="checker">
-                <input className="id-check" type="checkbox" />
-                <div className="save-id">아이디 저장</div>
+            <div className="checker-desktop">
+                <input className="id-check-desktop" type="checkbox" />
+                <div className="save-id-desktop">아이디 저장</div>
             </div>
-            <button className="login1" type="button" onClick={onClickButton}>
-                <div className="login-text2">로그인</div>
+            <button
+                className="login1-desktop"
+                type="button"
+                onClick={onClickButton}
+            >
+                <div className="login-text2-desktop">로그인</div>
             </button>
         </div>
     );
 }
 
-export default LoginForm;
+export default LoginFormDesktop;
