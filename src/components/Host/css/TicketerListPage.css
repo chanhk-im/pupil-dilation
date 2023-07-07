@@ -7,6 +7,11 @@ body {
   background: #eee;
 }
 
+section {
+  display: flex;
+  justify-content: center;
+}
+
 
 /*=====================*/
 .checkbox {
@@ -67,14 +72,6 @@ body {
   left: calc(100vw * 25 / 1440);
 }
 
-.model-1{
-  display: flex;
-  justify-content: center;
-  width: 400px;
-  height: 30px;
-  
-}
-
 .model-1 .checkbox input:checked + label {
   background: #2B3252;
 }
@@ -97,11 +94,6 @@ body {
   margin:auto;
 }
 
-.title{
-  margin-top: calc(100vw * 50 / 1440);
-  margin-left: calc(100vw * 130 / 1440);
-}
-
 table {
   border-collapse: separate;
   border-spacing: 0;
@@ -110,7 +102,7 @@ table {
 
 th, td {
   padding: 6px 15px;
-  font-size: 20px;
+  font-size: 25px;
 }
 
 th {
@@ -151,3 +143,22 @@ tr:last-child td:first-child {
 tr:last-child td:last-child {
   border-bottom-right-radius: 6px;
 }
+
+/*===========================<Header에 대한 css>========================*/
+.ticketer-header{
+  display: flex;
+  margin-top: calc(100vw * 50 / 1440);
+  margin-left: calc(100vw * 140 / 1440);
+  align-items: end;
+  justify-content: space-between;
+  width: calc(100vw * 1150 / 1440);
+}
+
+.title-main{
+  font-size: calc(100vw * 40 / 1440);
+}
+
+.title-sub{
+  font-size: calc(100vw * 20 / 1440);
+}
+
