@@ -1,19 +1,26 @@
-import { collection, getDocs, addDoc, getDoc } from 'firebase/firestore';
+import {
+    collection,
+    doc,
+    getDocs,
+    addDoc,
+    getDoc,
+    setDoc,
+} from 'firebase/firestore';
 import { fireStore } from '../../../Firebase';
 
 export async function getShowsDocument() {
     const showList = [];
     const querySnapshot = await getDocs(collection(fireStore, 'shows'));
-    querySnapshot.forEach((doc) => {
+    querySnapshot.forEach((elementDoc) => {
         const show = {
-            id: doc.id,
-            title: doc.data().title,
-            introduction: doc.data().introduction,
-            period: doc.data().period,
-            schedule: doc.data().schedule,
-            place: doc.data().place,
-            price: doc.data().price,
-            image: doc.data().image,
+            id: elementDoc.id,
+            title: elementDoc.data().title,
+            introduction: elementDoc.data().introduction,
+            period: elementDoc.data().period,
+            schedule: elementDoc.data().schedule,
+            place: elementDoc.data().place,
+            price: elementDoc.data().price,
+            image: elementDoc.data().image,
             imageDownloaded: false,
         };
         showList.push(show);
@@ -48,7 +55,33 @@ export async function createShowsDocument() {
             };
             return show;
         })
-        .catch(() => {
+        .catch((e) => {
+            alert(e);
+            return show;
+        });
+    return show;
+}
+
+export async function updateShowsDocument(updateData) {
+    let show = {};
+    await setDoc(doc(fireStore, 'shows'), updateData.id)
+        .then(async (value) => {
+            const updatedSnapshot = await getDoc(value);
+            show = {
+                id: updatedSnapshot.id,
+                title: updatedSnapshot.data().title,
+                introduction: updatedSnapshot.data().introduction,
+                period: updatedSnapshot.data().period,
+                schedule: updatedSnapshot.data().schedule,
+                place: updatedSnapshot.data().place,
+                price: updatedSnapshot.data().price,
+                image: updatedSnapshot.data().image,
+                imageDownloaded: updateData.imageDownloaded,
+            };
+            return show;
+        })
+        .catch((e) => {
+            alert(e);
             return show;
         });
     return show;
