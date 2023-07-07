@@ -6,6 +6,7 @@ import {
     getDoc,
     setDoc,
     deleteDoc,
+    Timestamp,
 } from 'firebase/firestore';
 import { fireStore } from '../../../Firebase';
 
@@ -15,15 +16,13 @@ export async function getShowsDocument() {
     querySnapshot.forEach((elementDoc) => {
         const show = {
             id: elementDoc.id,
-            title: elementDoc.data().title,
-            introduction: elementDoc.data().introduction,
-            period: elementDoc.data().period,
-            schedule: elementDoc.data().schedule,
-            place: elementDoc.data().place,
-            price: elementDoc.data().price,
-            image: elementDoc.data().image,
+            ...elementDoc.data(),
             imageDownloaded: false,
         };
+        const scheduleConvertToDate = show.schedule.map((e) => e.toDate());
+        show.schedule = scheduleConvertToDate;
+        show.startDate = show.startDate.toDate();
+        show.endDate = show.endDate.toDate();
         showList.push(show);
     });
 
@@ -32,11 +31,19 @@ export async function getShowsDocument() {
 
 export async function createShowsDocument() {
     let show = {};
+    const date = new Date(Date.now());
+    let endDate = new Date(Date.now());
+    endDate = endDate.setDate(endDate.getDate() + 2);
     await addDoc(collection(fireStore, 'shows'), {
         title: '미르',
         introduction: '자공 많관부!',
-        period: '2023.10.11 ~ 2023.10.13',
-        schedule: ['(10.11 ?) 20:00', '(10.12 ?) 20:00', '(10.13 ?) 20:00'],
+        startDate: Timestamp.fromDate(date),
+        endDate: Timestamp.fromDate(endDate),
+        schedule: [
+            Timestamp.fromDate(new Date(Date.now())),
+            Timestamp.fromDate(new Date(Date.now())),
+            Timestamp.fromDate(new Date(Date.now())),
+        ],
         place: 'TBD',
         price: 6000,
         image: 'show-image/Dongari1.png',
@@ -47,13 +54,16 @@ export async function createShowsDocument() {
                 id: createdSnapshot.id,
                 title: createdSnapshot.data().title,
                 introduction: createdSnapshot.data().introduction,
-                period: createdSnapshot.data().period,
+                startDate: createdSnapshot.data().startDate.toDate(),
+                endDate: createdSnapshot.data().endDate.toDate(),
                 schedule: createdSnapshot.data().schedule,
                 place: createdSnapshot.data().place,
                 price: createdSnapshot.data().price,
                 image: createdSnapshot.data().image,
                 imageDownloaded: false,
             };
+            const scheduleConvertToDate = show.schedule.map((e) => e.toDate());
+            show.schedule = scheduleConvertToDate;
             return show;
         })
         .catch((e) => {
@@ -72,7 +82,8 @@ export async function updateShowsDocument(updateData) {
                 id: updatedSnapshot.id,
                 title: updatedSnapshot.data().title,
                 introduction: updatedSnapshot.data().introduction,
-                period: updatedSnapshot.data().period,
+                startDate: updatedSnapshot.data().startDate.toDate(),
+                endDate: updatedSnapshot.data().endDate.toDate(),
                 schedule: updatedSnapshot.data().schedule,
                 place: updatedSnapshot.data().place,
                 price: updatedSnapshot.data().price,

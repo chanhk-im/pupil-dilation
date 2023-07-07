@@ -6,7 +6,7 @@ function HostEventContent({ show }) {
     console.log(show.schedule);
     const schedule = show.schedule.map((value, i) => (
         <div>
-            <strong>{i + 1}공</strong> {value}
+            <strong>{i + 1}공</strong> {value.getDate()}
         </div>
     ));
     return (
@@ -20,7 +20,10 @@ function HostEventContent({ show }) {
                 </div>
                 <div className="show-detail">
                     <h3 className="detail-title">공연기간</h3>
-                    <p className="detail-info-period">{show.period}</p>
+                    <p className="detail-info-period">
+                        {show.startDate.getDate()}
+                        {show.endDate.getDate()}
+                    </p>
                     <div className="place-and-price">
                         <div className="show-detail-content">
                             <h3 className="detail-title">가격</h3>

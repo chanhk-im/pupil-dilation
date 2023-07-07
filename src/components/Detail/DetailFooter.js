@@ -8,7 +8,7 @@ function DetailFooter({ id }) {
 
     const schedule = show.schedule.map((value, i) => (
         <option value={i}>
-            {i + 1}공 {value}
+            {i + 1}공 {value.getDate()}
         </option>
     ));
     return (
