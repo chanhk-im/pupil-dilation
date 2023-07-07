@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchShowList } from '../../features/show/slices/showSlice';
 import './css/TicketerListPage.css';
 // import getShows from '../../features/show/api/getShows';
-import { getShowsDocument } from '../../features/show/api/showsDocument';
+import { getShowsDocument } from '../../features/show/api/showsDocumentApi';
 
 function TicketerListPage() {
     const dispatch = useDispatch();

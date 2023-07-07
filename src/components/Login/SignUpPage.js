@@ -12,6 +12,7 @@ function SignUpPage() {
         name: '',
         phone: '',
         email: '',
+        isHost: false,
     });
 
     const onChangeAccount = (e) => {

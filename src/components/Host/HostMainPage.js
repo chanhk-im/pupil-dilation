@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchShowList } from '../../features/show/slices/showSlice';
 import './HostMainPage.css';
-import { getShowsDocument } from '../../features/show/api/showsDocument';
+import { getShowsDocument } from '../../features/show/api/showsDocumentApi';
 import Loading from '../Loading';
 
 function HostMainPage() {

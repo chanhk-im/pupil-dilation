@@ -9,6 +9,7 @@ export const userSlice = createSlice({
             name: '',
             phone: '',
             email: '',
+            isHost: false,
         },
         isLogged: false,
     },
@@ -24,6 +25,7 @@ export const userSlice = createSlice({
                 name: '',
                 phone: '',
                 email: '',
+                isHost: false,
             };
             state.isLogged = false;
         },
