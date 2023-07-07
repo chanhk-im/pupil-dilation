@@ -5,6 +5,7 @@ import {
     addDoc,
     getDoc,
     setDoc,
+    deleteDoc,
 } from 'firebase/firestore';
 import { fireStore } from '../../../Firebase';
 
@@ -64,7 +65,7 @@ export async function createShowsDocument() {
 
 export async function updateShowsDocument(updateData) {
     let show = {};
-    await setDoc(doc(fireStore, 'shows'), updateData.id)
+    await setDoc(doc(fireStore, 'shows', updateData.id))
         .then(async (value) => {
             const updatedSnapshot = await getDoc(value);
             show = {
@@ -85,4 +86,16 @@ export async function updateShowsDocument(updateData) {
             return show;
         });
     return show;
+}
+
+export async function deleteShowsDocument(deleteId) {
+    await deleteDoc(doc(fireStore, 'shows', deleteId))
+        .then(() => {
+            return true;
+        })
+        .catch((e) => {
+            alert(e);
+            return false;
+        });
+    return false;
 }
