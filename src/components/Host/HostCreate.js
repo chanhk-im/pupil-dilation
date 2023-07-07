@@ -28,9 +28,7 @@ function HostCreate() {
     }
 
     places.push(
-        <option value={1}>
-            &nbsp;장소선택&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-        </option>,
+        <option value={1}>&nbsp;장소선택&emsp;&emsp;&emsp;&emsp;&emsp;</option>,
     );
 
     for (let i = 1; i <= 3; i += 1) {
@@ -220,8 +218,8 @@ function HostCreate() {
                                 type="button"
                                 className="host-create-add-button"
                             >
-                                +&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;열
-                                추가하기
+                                <div>+</div>
+                                <div>열 추가하기</div>
                             </button>
                         </div>
                     </div>
