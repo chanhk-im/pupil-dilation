@@ -8,7 +8,7 @@ import './MainPageDesktop.css';
 import {
     getShowsDocument,
     createShowsDocument,
-} from '../../../features/show/api/showsDocument';
+} from '../../../features/show/api/showsDocumentApi';
 import SliderDesktop from './SliderDesktop';
 import Loading from '../../Loading';
 
