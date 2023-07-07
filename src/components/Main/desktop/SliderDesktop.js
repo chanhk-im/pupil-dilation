@@ -84,7 +84,10 @@ function SliderDesktop() {
                             )}
                         </div>
                         <p className="eventName">{slide.title}</p>
-                        <p className="eventDate">{slide.period}</p>
+                        <p className="eventDate">
+                            {slide.startDate.getDate()}
+                            {slide.endDate.getDate()}
+                        </p>
                     </Link>
                 </SwiperSlide>
             ))}
