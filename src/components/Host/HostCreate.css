@@ -5,7 +5,7 @@
 .host-create-left {
     margin-top: calc(100vw*41/1440);
     margin-left: calc(100vw*143/1440);
-    margin-right: calc(100vw*25/1440);
+    margin-right: calc(100vw*40/1440);
 }
 
 .image-upload {
@@ -14,6 +14,7 @@
 }
 
 .host-create-right {
+    width: calc(100vw*900/1440);
     margin-top: calc(100vw*44/1440);
 }
 
@@ -39,6 +40,7 @@
 }
 
 .host-create-right-2 {
+    width: calc(100vw*841/1440);
     display: flex;
     margin-top: calc(100vw*10/1440);
 }
@@ -46,16 +48,16 @@
 .host-create-introduction-title {
     display: flex;
     color: #000;
-        font-size: 32px;
-        font-family: Noto Sans KR;
-        font-style: normal;
-        font-weight: 500;
-        line-height: normal;
+    font-size: 32px;
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }
 
 .host-create-introduction-content {
-    width: calc(100vw*448/1440);
-    height: calc(100vw*277/1440);
+    width: 448px;
+    height: 277px;
     flex-shrink: 0;
     border-radius: 7px;
     border: 1px solid rgba(0, 0, 0, 0.60);
@@ -73,7 +75,7 @@
 }
 
 .host-create-right-2-right {
-    margin-left: calc(100vw*25/1440);
+    margin-left: calc(100vw*40/1440);
 }
 
 .host-create-place {
@@ -85,8 +87,8 @@
 }
 
 .host-create-price-content {
-    width: calc(100vw*329/1440);
-    height: calc(100vw*48/1440);
+    width: 329px;
+    height: 48px;
     flex-shrink: 0;
     border-radius: 7px;
     border: 1px solid rgba(0, 0, 0, 0.60);
@@ -131,22 +133,22 @@
 }
 
 .host-create-ticket-start-text2 {
-    height: calc(100vw*36/1440);
+    height: 36px;
     display: flex;
     align-items: center;
     color: #000;
-        font-size: 24px;
-        font-family: Noto Sans KR;
-        font-style: normal;
-        font-weight: 500;
-        line-height: normal;
+    font-size: 24px;
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }
 
 .host-create-date {
     margin-top: calc(100vw*15/1440);
     display: flex;
-    width: calc(100vw*270/1440);
-    height: calc(100vw*48/1440);
+    width: 270px;
+    height: 48px;
     flex-shrink: 0;
     color: #000;
     font-size: 32px;
@@ -157,14 +159,14 @@
 }
 
 .host-create-ticket-start-text {
-    height: calc(100vw*36/1440);
+    height: 36px;
     display: flex;
     align-items: center;
 }
 
 .select-month-start {
-    width: calc(100vw*80/1440);
-    height: calc(100vw*36/1440);
+    width: 80px;
+    height: 36px;
     border-radius: 7px;
     border: 1px solid rgba(0, 0, 0, 0.60);
     color: #000;
@@ -176,8 +178,8 @@
 }
 
 .select-day-start {
-    width: calc(100vw*80/1440);
-    height: calc(100vw*36/1440);
+    width: 80px;
+    height: 36px;
     border-radius: 7px;
     border: 1px solid rgba(0, 0, 0, 0.60);
     color: #000;
@@ -189,8 +191,8 @@
 }
 
 .select-dayOfWeek-start {
-    width: calc(100vw*80/1440);
-    height: calc(100vw*36/1440);
+    width: 80px;
+    height: 36px;
     border-radius: 7px;
     border: 1px solid rgba(0, 0, 0, 0.60);
     color: #000;
@@ -202,8 +204,8 @@
 }
 
 .select-month-finish {
-    width: calc(100vw*80/1440);
-    height: calc(100vw*36/1440);
+    width: 80px;
+    height: 36px;
     border-radius: 7px;
     border: 1px solid rgba(0, 0, 0, 0.60);
     color: #000;
@@ -215,8 +217,8 @@
 }
 
 .select-place {
-    width: calc(100vw*330/1440);
-    height: calc(100vw*48/1440);
+    width: 330px;
+    height: 48px;
     flex-shrink: 0;
     border-radius: 7px;
     border: 1px solid rgba(0, 0, 0, 0.60);
@@ -230,8 +232,8 @@
 }
 
 .select-day-finish {
-    width: calc(100vw*80/1440);
-    height: calc(100vw*36/1440);
+    width: 80px;
+    height: 36px;
     border-radius: 7px;
     border: 1px solid rgba(0, 0, 0, 0.60);
     color: #000;
@@ -243,8 +245,8 @@
 }
 
 .select-dayOfWeek-finish {
-    width: calc(100vw*80/1440);
-    height: calc(100vw*36/1440);
+    width: 80px;
+    height: 36px;
     border-radius: 7px;
     border: 1px solid rgba(0, 0, 0, 0.60);
     color: #000;
@@ -283,8 +285,8 @@
 
 .host-create-date-start-time {
     margin-left: 20px;
-    width: calc(100vw*250/1440);
-    height: calc(100vw*36/1440);
+    width: 250px;
+    height: 36px;
     flex-shrink: 0;
     border-radius: 7px;
     border: 1px solid rgba(0, 0, 0, 0.60);
@@ -302,8 +304,8 @@
 
 .host-create-date-finish-time {
     margin-left: 20px;
-    width: calc(100vw*250/1440);
-    height: calc(100vw*36/1440);
+    width: 250px;
+    height: 36px;
     flex-shrink: 0;
     border-radius: 7px;
     border: 1px solid rgba(0, 0, 0, 0.60);
@@ -327,8 +329,8 @@
     margin-left: calc(100vw*400/1440);
     padding-left: 11px;
     padding-right: 11px;
-    width: calc(100vw*257/1440);
-    height: calc(100vw*38/1440);
+    width: 257px;
+    height: 38px;
     flex-shrink: 0;
     border-radius: 7px;
     border: 1px solid rgba(0, 0, 0, 0.60);
