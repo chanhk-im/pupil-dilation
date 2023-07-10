@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './css/TicketerListPage.css';
 
+
 /*eslint-disable*/
 function TicketerListPage() {
     const [totalRowCnt, setTotalRowCnt] = useState(0);
@@ -15,7 +16,7 @@ function TicketerListPage() {
         const totalRowCnt = table?.rows?.length || 0;
         setTotalRowCnt(totalRowCnt);
     }, []);
-
+  
     return (
         <>
             <div className="ticketer-header">

@@ -2,13 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import getShowById from './getShowById';
 import './DetailContent.css';
+import {
+    getDateShortFormat,
+    getDateScheduleFormat,
+} from '../../functions/dateFeature';
 
 function DetailContent({ id }) {
     const show = getShowById(id);
 
     const schedule = show.schedule.map((value, i) => (
         <div>
-            <strong>{i + 1}공</strong> {value.getDate()}
+            <strong>{i + 1}공</strong> {getDateScheduleFormat(value)}
         </div>
     ));
 
@@ -36,8 +40,8 @@ function DetailContent({ id }) {
                 <div className="show-detail">
                     <h3 className="detail-title">공연기간</h3>
                     <p className="detail-info-period">
-                        {show.startDate.getDate()}
-                        {show.endDate.getDate()}
+                        {getDateShortFormat(show.startDate)} ~{' '}
+                        {getDateShortFormat(show.endDate)}
                     </p>
                     <div className="place-and-price">
                         <div className="show-detail-content">
