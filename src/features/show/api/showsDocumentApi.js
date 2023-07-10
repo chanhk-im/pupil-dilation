@@ -6,7 +6,6 @@ import {
     getDoc,
     setDoc,
     deleteDoc,
-    Timestamp,
 } from 'firebase/firestore';
 import { fireStore } from '../../../Firebase';
 
@@ -29,38 +28,22 @@ export async function getShowsDocument() {
     return showList;
 }
 
-export async function createShowsDocument() {
+export async function createShowsDocument(newShow) {
     let show = {};
-    const date = new Date(Date.now());
-    let endDate = new Date(Date.now());
-    endDate = endDate.setDate(endDate.getDate() + 2);
-    await addDoc(collection(fireStore, 'shows'), {
-        title: '미르',
-        introduction: '자공 많관부!',
-        startDate: Timestamp.fromDate(date),
-        endDate: Timestamp.fromDate(endDate),
-        schedule: [
-            Timestamp.fromDate(new Date(Date.now())),
-            Timestamp.fromDate(new Date(Date.now())),
-            Timestamp.fromDate(new Date(Date.now())),
-        ],
-        place: 'TBD',
-        price: 6000,
-        image: 'show-image/Dongari1.png',
-    })
+    await addDoc(collection(fireStore, 'shows'), newShow)
         .then(async (value) => {
             const createdSnapshot = await getDoc(value);
             show = {
-                id: createdSnapshot.id,
+                // id: createdSnapshot.id,
                 title: createdSnapshot.data().title,
                 introduction: createdSnapshot.data().introduction,
-                startDate: createdSnapshot.data().startDate.toDate(),
-                endDate: createdSnapshot.data().endDate.toDate(),
-                schedule: createdSnapshot.data().schedule,
-                place: createdSnapshot.data().place,
+                // startDate: createdSnapshot.data().startDate.toDate(),
+                // endDate: createdSnapshot.data().endDate.toDate(),
+                // schedule: createdSnapshot.data().schedule,
+                // place: createdSnapshot.data().place,
                 price: createdSnapshot.data().price,
-                image: createdSnapshot.data().image,
-                imageDownloaded: false,
+                // image: createdSnapshot.data().image,
+                // imageDownloaded: false,
             };
             const scheduleConvertToDate = show.schedule.map((e) => e.toDate());
             show.schedule = scheduleConvertToDate;
