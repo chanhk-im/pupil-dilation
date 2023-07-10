@@ -2,7 +2,10 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import './HostEventManage.css';
 import { useParams, useNavigate } from 'react-router-dom';
+import { ref, deleteObject } from 'firebase/storage';
 import HostEventContent from './HostEventContent';
+import { fStorage } from '../../Firebase';
+import { deleteShowsDocument } from '../../features/show/api/showsDocumentApi';
 
 function HostEventManage() {
     const navigate = useNavigate();
@@ -14,7 +17,8 @@ function HostEventManage() {
     console.log(id);
     const showList = useSelector((state) => state.show.showList);
     const index = getIndex(showList, id);
-    console.log(showList[index]);
+    console.log(showList[index].image);
+    const imageRef = ref(fStorage, showList[index].image);
 
     return (
         <div className="detail">
@@ -26,7 +30,15 @@ function HostEventManage() {
                 >
                     정보 수정
                 </button>
-                <button className="delateButton" type="button">
+                <button
+                    className="delateButton"
+                    type="button"
+                    onClick={() => {
+                        deleteShowsDocument(id);
+                        navigate('/host');
+                        deleteObject(imageRef);
+                    }}
+                >
                     공연 삭제
                 </button>
             </div>
