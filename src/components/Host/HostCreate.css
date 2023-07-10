@@ -123,16 +123,15 @@
 
 .host-create-ticket-date-start {
     display: flex;
-    gap: 20px;
-    margin-bottom: calc(100vw*8/1440);
+    margin-bottom: 8px;
 }
 
 .host-create-date-start-month {
-    margin-left: calc(100vw*25/1440);
     display: flex;
 }
 
 .host-create-ticket-start-text2 {
+    width: 60px;
     height: 36px;
     display: flex;
     align-items: center;
@@ -203,7 +202,7 @@
         line-height: normal;
 }
 
-.select-month-finish {
+.select-month-end {
     width: 80px;
     height: 36px;
     border-radius: 7px;
@@ -231,7 +230,7 @@
     letter-spacing: -1.08px;
 }
 
-.select-day-finish {
+.select-day-end {
     width: 80px;
     height: 36px;
     border-radius: 7px;
@@ -244,7 +243,7 @@
         line-height: normal;
 }
 
-.select-dayOfWeek-finish {
+.select-dayOfWeek-end {
     width: 80px;
     height: 36px;
     border-radius: 7px;
@@ -265,21 +264,21 @@
     display: flex;
 }
 
-.host-create-ticket-date-finish {
+.host-create-ticket-date-end {
     display: flex;
-    gap: 20px;
+    margin-bottom: 8px;
 }
 
-.host-create-date-finish-month {
+.host-create-date-end-month {
     margin-left: calc(100vw*25/1440);
     display: flex;
 }
 
-.host-create-date-finish-day {
+.host-create-date-end-day {
     display: flex;
 }
 
-.host-create-date-finish-dayOfWeek {
+.host-create-date-end-dayOfWeek {
     display: flex;
 }
 
@@ -302,7 +301,7 @@
         letter-spacing: -1.08px;
 }
 
-.host-create-date-finish-time {
+.host-create-date-end-time {
     margin-left: 20px;
     width: 250px;
     height: 36px;
@@ -311,7 +310,7 @@
     border: 1px solid rgba(0, 0, 0, 0.60);
 }
 
-.host-create-date-finish-time::placeholder {
+.host-create-date-end-time::placeholder {
     color: rgba(0, 0, 0, 0.55);
     font-size: 24px;
     font-family: Noto Sans KR;
