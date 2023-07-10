@@ -8,6 +8,7 @@ import { Navigation, Pagination, A11y, Zoom, Autoplay } from 'swiper';
 import './SliderDesktop.css';
 import { fStorage } from '../../../Firebase';
 import { markAsDownloadImage } from '../../../features/show/slices/showSlice';
+import { getDateFormat } from '../../../functions/dateFeature';
 
 // eslint-disable-next-line no-shadow
 function SliderDesktop() {
@@ -85,8 +86,7 @@ function SliderDesktop() {
                         </div>
                         <p className="eventName">{slide.title}</p>
                         <p className="eventDate">
-                            {slide.startDate.getDate()}
-                            {slide.endDate.getDate()}
+                            {getDateFormat(slide.startDate)}
                         </p>
                     </Link>
                 </SwiperSlide>
