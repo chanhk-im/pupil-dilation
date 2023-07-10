@@ -1,68 +1,70 @@
-.eventBoard{ /*공연 슬롯들이 차지하는 공간*/
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  background: rgba(43, 50, 82, 0);
-  position: relative;
+.eventBoard {
+    /*공연 슬롯들이 차지하는 공간*/
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background: rgba(43, 50, 82, 0);
+    position: relative;
 }
 
-.dday{
-  display: flex;
-  color: var(--theme-yellow, #FAD744);
-  font-size: 35px;
-  font-family: "Playfair Display";
-  font-weight: 600;
-  line-height: normal;
-  position:absolute;
-  z-index: 2;
+.dday {
+    display: flex;
+    color: var(--theme-yellow, #fad744);
+    font-size: 35px;
+    font-family: 'Playfair Display';
+    font-weight: 600;
+    line-height: normal;
+    position: absolute;
+    z-index: 2;
 }
 
-.ddayImg{
-  width: 200px;
-  height: 200px;
-  display: flex;
-  flex-shrink: 0;
-  position: absolute;
-  z-index: 1;
+.ddayImg {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-shrink: 0;
+    position: absolute;
+    z-index: 1;
 }
 
-.eventImage{ /*공연 이미지*/
-  width: 330px;
-  height: 430px;
-  border-radius: 12px;
-  flex-shrink: 0;
-  transition: all 0.2s linear;
+.eventImage {
+    /*공연 이미지*/
+    width: 330px;
+    height: 430px;
+    border-radius: 12px;
+    flex-shrink: 0;
+    transition: all 0.2s linear;
 }
 
 .eventImage:hover {
-  transform: scale(1.05);
+    transform: scale(1.05);
 }
 
-.eventName{ /*공연 제목*/
-  color: black;
-  text-align: center;
-  font-size: calc(100vw * 20 / 1440);
-  font-family: "Noto Sans KR";
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
+.eventName {
+    /*공연 제목*/
+    color: black;
+    text-align: center;
+    font-size: calc(100vw * 32 / 1440);
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
 }
 
-.eventDate{ /*공연 날짜*/
-  color: black;
-  text-align: center;
-  font-size: calc(100vw * 15 / 1440);
-  font-family: Noto Sans KR;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  text-decoration: none;
+.eventDate {
+    /*공연 날짜*/
+    color: black;
+    text-align: center;
+    font-size: calc(100vw * 24 / 1440);
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-decoration: none;
 }
 
-.poster{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.poster {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

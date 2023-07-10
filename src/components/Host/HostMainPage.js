@@ -38,9 +38,13 @@ function HostMainPage() {
                 <h1 className="title">주최한 공연</h1>
             </div>
             {displayShowContent}
-            <div className="create">
+            <button
+                type="button"
+                className="create"
+                onClick={() => navigate('create')}
+            >
                 <p className="Text"> + 공연 추가하기</p>
-            </div>
+            </button>
         </div>
     ) : (
         <Loading />
