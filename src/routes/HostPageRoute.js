@@ -14,7 +14,7 @@ function HostPageRoute() {
                 <Route path="/manage/:id" element={<HostEventManage />} />
                 <Route path="/ticketer" element={<TicketerListPage />} />
                 <Route path="/create" element={<HostCreate />} />
-                <Route path="/update" element={<HostUpdate />} />
+                <Route path="/update/:id" element={<HostUpdate />} />
             </Routes>
         </div>
     );
