@@ -26,7 +26,7 @@ function HostEventManage() {
                 <button
                     className="updateButton"
                     type="button"
-                    onClick={() => navigate('/host/update')}
+                    onClick={() => navigate(`/host/update/${id}`)}
                 >
                     정보 수정
                 </button>
