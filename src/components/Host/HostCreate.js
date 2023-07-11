@@ -9,8 +9,7 @@ import { fStorage } from '../../Firebase';
 
 function HostCreate() {
     function makeDate(info) {
-        console.log(info);
-        const timeArray = info.time.split(':');
+        const timeArray = (info.time || '').split(':');
         const hour = Number(timeArray[0]);
         const minute = Number(timeArray[1]);
         const resDate = new Date();
@@ -20,7 +19,6 @@ function HostCreate() {
         resDate.setDate(info.day);
         resDate.setHours(hour);
         resDate.setMinutes(minute);
-        console.log(resDate);
 
         return resDate;
     }
@@ -43,9 +41,6 @@ function HostCreate() {
         schedule: [],
         startDate: new Date(),
         endDate: new Date(),
-        hasImage: true,
-        isHost: false,
-        image: '',
     });
     const [scheduleCount, setScheduleCount] = useState(1);
     const [timeInfo, setTimeInfo] = useState({
@@ -71,18 +66,11 @@ function HostCreate() {
         ],
     });
 
-    const upload = () => {
+    const upload = async () => {
         if (imageUpload === null) return;
-        setNewShowInfo({
-            ...newShowInfo,
-            image: `show-image/${imageUpload.name}`,
-        });
         const imageRef = ref(fStorage, `show-image/${imageUpload.name}`);
-        // `images === 참조값이름(폴더이름), / 뒤에는 파일이름 어떻게 지을지
-        uploadBytes(imageRef, imageUpload).then((snapshot) => {
-            // 업로드 되자마자 뜨게 만들기
+        await uploadBytes(imageRef, imageUpload).then((snapshot) => {
             getDownloadURL(snapshot.ref);
-            //
         });
     };
 
@@ -118,32 +106,42 @@ function HostCreate() {
         setTimeInfo(newTimeInfo);
     };
 
+    const onChangeSchedule = (e) => {
+        const newSchedule = timeInfo.schedule;
+        newSchedule[Number(e.target.id)] = {
+            ...newSchedule[Number(e.target.id)],
+            [e.target.name]: e.target.value,
+        };
+
+        setTimeInfo({
+            ...timeInfo,
+            schedule: newSchedule,
+        });
+    };
+
+    const mappedSchedule = timeInfo.schedule.map((item) => makeDate(item));
+
     const onButtonClick = async () => {
         const values = Object.values(newShowInfo);
-
-        setNewShowInfo({
-            ...newShowInfo,
-            schedule: [],
-            startDate: makeDate(timeInfo.start),
-            endDate: makeDate(timeInfo.end),
-        });
+        await upload();
 
         const info = {
             ...newShowInfo,
+            image: `show-image/${imageUpload.name}`,
+            schedule: mappedSchedule,
             startDate: makeDate(timeInfo.start),
             endDate: makeDate(timeInfo.end),
         };
-        console.log(info);
+        console.log(values);
         if (!values.includes('') && !values.includes(undefined)) {
             await createShowsDocument(info).then((res) => {
-                // TODO: navigate main
                 if (res) {
-                    alert('회원가입 완료!');
+                    alert('추가 완료!');
                     navigate('/host');
                 }
             });
         } else {
-            alert('ㅁ');
+            alert('추가 실패,,');
         }
     };
 
@@ -173,14 +171,19 @@ function HostCreate() {
         places.push(<option value={halls[i - 1]}>{halls[i - 1]}</option>);
     }
 
-    for (let i = 1; i <= scheduleCount; i += 1) {
+    for (let i = 0; i < scheduleCount; i += 1) {
         schedules.push(
             <div className="host-create-ticket-date-end" id={i}>
                 <div className="host-create-ticket-start-text2">
-                    {i}공&nbsp;&nbsp;
+                    {i + 1}공&nbsp;&nbsp;
                 </div>
                 <div className="host-create-date-end-month">
-                    <select name="month-end" className="select-month-end">
+                    <select
+                        name="month"
+                        className="select-month-end"
+                        onChange={onChangeSchedule}
+                        id={i}
+                    >
                         {months}
                     </select>
                     <div className="host-create-ticket-start-text">
@@ -188,7 +191,12 @@ function HostCreate() {
                     </div>
                 </div>
                 <div className="host-create-date-end-day">
-                    <select name="day-end" className="select-day-end">
+                    <select
+                        name="day"
+                        className="select-day-end"
+                        onChange={onChangeSchedule}
+                        id={i}
+                    >
                         {days}
                     </select>
                     <div className="host-create-ticket-start-text">
@@ -210,7 +218,9 @@ function HostCreate() {
                     type="text"
                     className="host-create-date-end-time"
                     placeholder="&nbsp;시간 입력(24:00)"
-                    name="time-end"
+                    name="time"
+                    onChange={onChangeSchedule}
+                    id={i}
                 />
             </div>,
         );
@@ -225,12 +235,14 @@ function HostCreate() {
                         setImageUpload(event.target.files[0]);
                     }}
                 />
-                <button type="button" onClick={upload}>
-                    업로드
-                </button>
             </div>
             <div className="host-create-right">
                 <div className="host-create-right-1">
+                    <img
+                        src="/images/upload-image.png"
+                        alt="업로드"
+                        className="upload-image"
+                    />
                     <input
                         className="host-create-title"
                         type="text"
@@ -244,9 +256,9 @@ function HostCreate() {
                         <div className="host-create-introduction-title">
                             소개
                         </div>
-                        <input
+                        <textarea
                             className="host-create-introduction-content"
-                            type="text"
+                            type="textarea"
                             placeholder="&nbsp;소개 입력"
                             name="introduction"
                             onChange={onChangeAccount}
@@ -380,19 +392,21 @@ function HostCreate() {
                                 className="host-create-add-button"
                                 onClick={() => {
                                     setScheduleCount(scheduleCount + 1);
+                                    const newScheduleItem = {
+                                        year: 2023,
+                                        month: 0,
+                                        day: 0,
+                                        time: '',
+                                    };
                                     const newSchedule = [
                                         ...timeInfo.schedule,
-                                        {
-                                            year: 2023,
-                                            month: 0,
-                                            day: 0,
-                                            time: '',
-                                        },
+                                        newScheduleItem,
                                     ];
                                     const newTimeInfo = {
                                         ...timeInfo,
                                         schedule: newSchedule,
                                     };
+
                                     setTimeInfo(newTimeInfo);
                                 }}
                             >
