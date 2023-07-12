@@ -7,7 +7,7 @@ import {
 } from '../../functions/dateFeature';
 
 function HostEventContent({ show }) {
-    console.log(show.schedule);
+    // console.log(show.schedule);
     const schedule = show.schedule.map((value, i) => (
         <div>
             <strong>{i + 1}공</strong> {getDateScheduleFormat(value)}
