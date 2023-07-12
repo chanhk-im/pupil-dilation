@@ -4,9 +4,10 @@ import { useParams, useNavigate } from 'react-router-dom';
 import './HostUpdate.css';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
-import { createShowsDocument } from '../../features/show/api/showsDocumentApi';
+import { updateShowsDocument } from '../../features/show/api/showsDocumentApi';
 
 import { fStorage } from '../../Firebase';
+import { element } from 'prop-types';
 
 function HostUpdate() {
     const navigate = useNavigate();
@@ -20,54 +21,23 @@ function HostUpdate() {
     const index = getIndex(showList, id);
     console.log(showList[index]);
 
-    const [introduction, setIntroduction] = useState(
-        showList[index].introduction,
-    );
-    const [price, setPrice] = useState(showList[index].price);
-    const [title, setTitle] = useState(showList[index].title);
-    const [place, setPlace] = useState(showList[index].place);
-    const [time, setTime] = useState('');
-    const [startYear, setStartYear] = useState(
-        showList[index].startDate.getYear(),
-    );
-    const [startMonth, setStartMonth] = useState(
-        showList[index].startDate.getMonth(),
-    );
-    const [startDay, setStartDay] = useState(
-        showList[index].startDate.getDay(),
-    );
-    const [endYear, setEndYear] = useState(showList[index].endDate.getYear());
-    const [endMonth, setEndMonth] = useState(
-        showList[index].endDate.getMonth(),
-    );
-    const [endDay, setEndDay] = useState(showList[index].endDate.getDay());
-
     const [newShowInfo, setNewShowInfo] = useState({
-        title: '',
-        introduction: '',
-        place: '',
-        price: '',
-        schedule: [],
-        startDate: new Date(),
-        endDate: new Date(),
-        hasImage: true,
-        isHost: false,
-        image: '',
-    });
-
-    useEffect(() => {
-        setTitle(showList[index].title);
-        setIntroduction(showList[index].introduction);
-        setPrice(showList[index].price);
-        setPlace(showList[index].place);
-        setStartMonth(showList[index].startDate.getMonth());
-        setTime(showList[index].time);
-        setEndDay(showList[index].endday);
+        title: showList[index].title,
+        introduction: showList[index].introduction,
+        place: showList[index].place,
+        price: showList[index].price,
+        schedule: showList[index].schedule,
+        startDate: showList[index].startDate,
+        endDate: showList[index].endDate,
+        // hasImage: true,
+        // isHost: false,
+        // image: showList[index].image,
+        bankName: showList[index].bankName,
+        bankNumber: showList[index].bankNumber,
     });
 
     function makeDate(info) {
-        console.log(info);
-        const timeArray = info.time.split(':');
+        const timeArray = (info.time || '').split(':');
         const hour = Number(timeArray[0]);
         const minute = Number(timeArray[1]);
         const resDate = new Date();
@@ -77,7 +47,6 @@ function HostUpdate() {
         resDate.setDate(info.day);
         resDate.setHours(hour);
         resDate.setMinutes(minute);
-        console.log(resDate);
 
         return resDate;
     }
@@ -92,42 +61,59 @@ function HostUpdate() {
     const weeks = ['월', '화', '수', '목', '금', '토', '일'];
     const schedules = [];
 
-    const [scheduleCount, setScheduleCount] = useState(1);
+    const [scheduleCount, setScheduleCount] = useState(
+        showList[index].schedule.length,
+    );
+    const eventList = showList[index].schedule.map((element) => {
+        return {
+            year: element.getFullYear(),
+            month: element.getMonth(),
+            day: element.getDate(),
+            time:
+                (element.getHours() < 10
+                    ? '0' + String(element.getHours())
+                    : String(element.getHours())) +
+                ':' +
+                (element.getMinutes() < 10
+                    ? '0' + String(element.getMinutes())
+                    : String(element.getMinutes())),
+        };
+    });
     const [timeInfo, setTimeInfo] = useState({
         start: {
-            year: 2023,
-            month: 0,
-            day: 0,
-            time: '',
+            year: showList[index].startDate.getFullYear(),
+            month: showList[index].startDate.getMonth(),
+            day: showList[index].startDate.getDate(),
+            time:
+                (showList[index].startDate.getHours() < 10
+                    ? '0' + String(showList[index].startDate.getHours())
+                    : String(showList[index].startDate.getHours())) +
+                ':' +
+                (showList[index].startDate.getMinutes() < 10
+                    ? '0' + String(showList[index].startDate.getMinutes())
+                    : String(showList[index].startDate.getMinutes())),
         },
         end: {
-            year: 2023,
-            month: 0,
-            day: 0,
-            time: '',
+            year: showList[index].endDate.getFullYear(),
+            month: showList[index].endDate.getMonth(),
+            day: showList[index].endDate.getDate(),
+            time:
+                (showList[index].endDate.getHours() < 10
+                    ? '0' + String(showList[index].endDate.getHours())
+                    : String(showList[index].endDate.getHours())) +
+                ':' +
+                (showList[index].endDate.getMinutes() < 10
+                    ? '0' + String(showList[index].endDate.getMinutes())
+                    : String(showList[index].endDate.getMinutes())),
         },
-        schedule: [
-            {
-                year: 2023,
-                month: 0,
-                day: 0,
-                time: '',
-            },
-        ],
+        schedule: eventList,
     });
 
-    const upload = () => {
+    const upload = async () => {
         if (imageUpload === null) return;
-        setNewShowInfo({
-            ...newShowInfo,
-            image: `show-image/${imageUpload.name}`,
-        });
         const imageRef = ref(fStorage, `show-image/${imageUpload.name}`);
-        // `images === 참조값이름(폴더이름), / 뒤에는 파일이름 어떻게 지을지
-        uploadBytes(imageRef, imageUpload).then((snapshot) => {
-            // 업로드 되자마자 뜨게 만들기
+        await uploadBytes(imageRef, imageUpload).then((snapshot) => {
             getDownloadURL(snapshot.ref);
-            //
         });
     };
 
@@ -161,32 +147,73 @@ function HostUpdate() {
         setTimeInfo(newTimeInfo);
     };
 
+    const onChangeScheduleDate = (e) => {
+        const newSchedule = timeInfo.schedule;
+        newSchedule[e.target.id] = {
+            ...newSchedule[e.target.id],
+            [e.target.name]: e.target.value,
+        };
+
+        const newTimeInfo = {
+            ...timeInfo,
+            schedule: newSchedule,
+        };
+
+        setTimeInfo(newTimeInfo);
+    };
+
+    // const onChangeSchedule = (e) => {
+    //     const newSchedule = timeInfo.schedule;
+    //     newSchedule[Number(e.target.id)] = {
+    //         ...newSchedule[Number(e.target.id)],
+    //         [e.target.name]: e.target.value,
+    //     };
+
+    //     setTimeInfo({
+    //         ...timeInfo,
+    //         schedule: newSchedule,
+    //     });
+    // };
+
+    const mappedSchedule = timeInfo.schedule.map((item) => makeDate(item));
+
+    const onSubtractClick = () => {
+        if (scheduleCount > 1) setScheduleCount(scheduleCount - 1);
+        // eslint-disable-next-line no-alert
+        else alert('더 이상 삭제할 수 없습니다!');
+    };
+
     const onButtonClick = async () => {
         const values = Object.values(newShowInfo);
+        // await upload();
 
         setNewShowInfo({
             ...newShowInfo,
-            schedule: [],
+            image: `show-image/${imageUpload.name}`,
+            schedule: timeInfo.schedule.map((element) => makeDate(element)),
             startDate: makeDate(timeInfo.start),
             endDate: makeDate(timeInfo.end),
         });
 
         const info = {
             ...newShowInfo,
+            image: `show-image/${imageUpload.name}`,
+            id,
+            schedule: timeInfo.schedule.map((element) => makeDate(element)),
             startDate: makeDate(timeInfo.start),
             endDate: makeDate(timeInfo.end),
         };
-        console.log(info);
         if (!values.includes('') && !values.includes(undefined)) {
-            await createShowsDocument(info).then((res) => {
-                // TODO: navigate main
+            await updateShowsDocument(info).then((res) => {
                 if (res) {
-                    alert('회원가입 완료!');
+                    // eslint-disable-next-line no-alert
+                    alert('추가 완료!');
                     navigate('/host');
                 }
             });
         } else {
-            alert('ㅁ');
+            // eslint-disable-next-line no-alert
+            alert('추가 실패,,');
         }
     };
 
@@ -216,14 +243,20 @@ function HostUpdate() {
         places.push(<option value={halls[i - 1]}>{halls[i - 1]}</option>);
     }
 
-    for (let i = 1; i <= scheduleCount; i += 1) {
+    for (let i = 0; i < scheduleCount; i += 1) {
         schedules.push(
             <div className="host-create-ticket-date-end" id={i}>
                 <div className="host-create-ticket-start-text2">
-                    {i}공&nbsp;&nbsp;
+                    {i + 1}공&nbsp;&nbsp;
                 </div>
                 <div className="host-create-date-end-month">
-                    <select name="month-end" className="select-month-end">
+                    <select
+                        name="month"
+                        className="select-month-end"
+                        defaultValue={timeInfo.schedule[i].month + 1}
+                        id={i}
+                        onChange={onChangeScheduleDate}
+                    >
                         {months}
                     </select>
                     <div className="host-create-ticket-start-text">
@@ -231,7 +264,13 @@ function HostUpdate() {
                     </div>
                 </div>
                 <div className="host-create-date-end-day">
-                    <select name="day-end" className="select-day-end">
+                    <select
+                        name="day"
+                        className="select-day-end"
+                        defaultValue={timeInfo.schedule[i].day}
+                        id={i}
+                        onChange={onChangeScheduleDate}
+                    >
                         {days}
                     </select>
                     <div className="host-create-ticket-start-text">
@@ -253,7 +292,10 @@ function HostUpdate() {
                     type="text"
                     className="host-create-date-end-time"
                     placeholder="&nbsp;시간 입력(24:00)"
-                    name="time-end"
+                    name="time"
+                    defaultValue={timeInfo.schedule[i].time}
+                    id={i}
+                    onChange={onChangeScheduleDate}
                 />
             </div>,
         );
@@ -268,12 +310,14 @@ function HostUpdate() {
                         setImageUpload(event.target.files[0]);
                     }}
                 />
-                <button type="button" onClick={upload}>
-                    업로드
-                </button>
             </div>
             <div className="host-create-right">
                 <div className="host-create-right-1">
+                    <img
+                        src="/images/upload-image.png"
+                        alt="업로드"
+                        className="upload-image"
+                    />
                     <input
                         className="host-create-title"
                         type="text"
@@ -288,9 +332,9 @@ function HostUpdate() {
                         <div className="host-create-introduction-title">
                             소개
                         </div>
-                        <input
+                        <textarea
                             className="host-create-introduction-content"
-                            type="text"
+                            type="textarea"
                             placeholder="&nbsp;소개 입력"
                             name="introduction"
                             onChange={onChangeAccount}
@@ -321,6 +365,29 @@ function HostUpdate() {
                                 value={newShowInfo.price}
                             />
                         </div>
+                        <div className="host-create-bank">
+                            <div className="host-create-price-title">
+                                입금계좌
+                            </div>
+                            <div className="host-create-bank-set">
+                                <input
+                                    className="host-create-bank-name"
+                                    type="text"
+                                    placeholder="&nbsp;은행명 입력"
+                                    name="bankName"
+                                    onChange={onChangeAccount}
+                                    value={newShowInfo.bankName}
+                                />
+                                <input
+                                    className="host-create-price-content"
+                                    type="text"
+                                    placeholder='&nbsp;"-"포함 계좌번호 입력'
+                                    name="bankNumber"
+                                    onChange={onChangeAccount}
+                                    value={newShowInfo.bankNumber}
+                                />
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className="host-create-right-3">
@@ -335,7 +402,7 @@ function HostUpdate() {
                                     name="month"
                                     className="select-month-start"
                                     onChange={onChangeStartDate}
-                                    value={timeInfo.start.month}
+                                    defaultValue={timeInfo.start.month + 1}
                                 >
                                     {months}
                                 </select>
@@ -348,7 +415,7 @@ function HostUpdate() {
                                     name="day"
                                     className="select-day-start"
                                     onChange={onChangeStartDate}
-                                    value={newShowInfo.day}
+                                    defaultValue={timeInfo.start.day}
                                 >
                                     {days}
                                 </select>
@@ -373,7 +440,7 @@ function HostUpdate() {
                                 placeholder="&nbsp;시간 입력(24:00)"
                                 name="time"
                                 onChange={onChangeStartDate}
-                                value={newShowInfo.time}
+                                value={timeInfo.start.time}
                             />
                         </div>
                         <div className="host-create-ticket-date-end">
@@ -385,7 +452,7 @@ function HostUpdate() {
                                     name="month"
                                     className="select-month-end"
                                     onChange={onChangeEndDate}
-                                    value={newShowInfo.month}
+                                    defaultValue={timeInfo.end.month + 1}
                                 >
                                     {months}
                                 </select>
@@ -398,7 +465,7 @@ function HostUpdate() {
                                     name="day"
                                     className="select-day-end"
                                     onChange={onChangeEndDate}
-                                    value={newShowInfo.day}
+                                    defaultValue={timeInfo.end.day}
                                 >
                                     {days}
                                 </select>
@@ -423,7 +490,7 @@ function HostUpdate() {
                                 placeholder="&nbsp;시간 입력(24:00)"
                                 name="time"
                                 onChange={onChangeEndDate}
-                                value={newShowInfo.time}
+                                value={timeInfo.end.time}
                             />
                         </div>
                         <div className="host-create-date">공연일정</div>
@@ -434,24 +501,34 @@ function HostUpdate() {
                                 className="host-create-add-button"
                                 onClick={() => {
                                     setScheduleCount(scheduleCount + 1);
+                                    const newScheduleItem = {
+                                        year: 2023,
+                                        month: 0,
+                                        day: 0,
+                                        time: '',
+                                    };
                                     const newSchedule = [
                                         ...timeInfo.schedule,
-                                        {
-                                            year: 2023,
-                                            month: 0,
-                                            day: 0,
-                                            time: '',
-                                        },
+                                        newScheduleItem,
                                     ];
                                     const newTimeInfo = {
                                         ...timeInfo,
                                         schedule: newSchedule,
                                     };
+
                                     setTimeInfo(newTimeInfo);
                                 }}
                             >
                                 <div>+</div>
                                 <div>열 추가하기</div>
+                            </button>
+                            <button
+                                type="button"
+                                className="host-create-subtract-button"
+                                onClick={onSubtractClick}
+                            >
+                                <div>-</div>
+                                <div>열 삭제하기</div>
                             </button>
                         </div>
                     </div>
@@ -471,43 +548,3 @@ function HostUpdate() {
 }
 
 export default HostUpdate;
-
-// import React, { useEffect, useState } from 'react';
-// import './HostUpdate.css';
-// import { useSelector } from 'react-redux';
-// import { useParams, useNavigate } from 'react-router-dom';
-// import HostCreate from './HostCreate';
-
-// /*eslint-disable*/
-// function HostUpdate() {
-//     let [introduction, setIntroduction] = useState('');
-//     let [price, setPrice] = useState('');
-//     // let [saveImage, setSaveImage] = useState([]); // 이미 저장된 이미지를 담을 State
-//     // let [keep, setKeep] = useState(false); // 수정버튼을 눌렀지만 수정을 안할 때를 대비
-//     const navigate = useNavigate();
-//     function getIndex(showList, id) {
-//         return showList.findIndex((element) => element.id === id);
-//     }
-
-//     const { id } = useParams();
-//     console.log(id);
-//     const showList = useSelector((state) => state.show.showList);
-//     const index = getIndex(showList, id);
-//     console.log(showList[index]);
-
-//     useEffect(() => {
-//         setIntroduction(showList[index].introduction);
-//         console.log(showList[index].introduction);
-//         setPrice(showList[index].price);
-//     });
-//     //     let copySaveImage = [...saveImage];
-//     //     if (.url !== undefined) {
-//     //         copySaveImage.push(...posts.url);
-//     //     }
-//     //     setSaveImage(copySaveImage);
-//     //     //저장된 이미지가 있으면 posts.url의 데이터를 saveImage로 전송
-//     // }, [posts]);
-//     return <HostCreate />;
-// }
-
-// export default HostUpdate;

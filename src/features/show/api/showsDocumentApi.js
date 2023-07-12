@@ -6,6 +6,7 @@ import {
     getDoc,
     setDoc,
     deleteDoc,
+    updateDoc,
 } from 'firebase/firestore';
 import { fireStore } from '../../../Firebase';
 
@@ -58,7 +59,7 @@ export async function createShowsDocument(newShow) {
 
 export async function updateShowsDocument(updateData) {
     let show = {};
-    await setDoc(doc(fireStore, 'shows', updateData.id))
+    await updateDoc(doc(fireStore, 'shows', updateData.id), updateData)
         .then(async (value) => {
             const updatedSnapshot = await getDoc(value);
             show = {
