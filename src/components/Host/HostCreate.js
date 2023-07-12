@@ -288,7 +288,8 @@ function HostCreate() {
                             <div className="host-create-price-title">가격</div>
                             <input
                                 className="host-create-price-content"
-                                type="text"
+                                type="number"
+                                step="500"
                                 placeholder="&nbsp;가격 입력"
                                 name="price"
                                 onChange={onChangeAccount}
