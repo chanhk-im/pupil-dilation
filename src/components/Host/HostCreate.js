@@ -132,15 +132,16 @@ function HostCreate() {
             startDate: makeDate(timeInfo.start),
             endDate: makeDate(timeInfo.end),
         };
-        console.log(values);
         if (!values.includes('') && !values.includes(undefined)) {
             await createShowsDocument(info).then((res) => {
                 if (res) {
+                    // eslint-disable-next-line no-alert
                     alert('추가 완료!');
                     navigate('/host');
                 }
             });
         } else {
+            // eslint-disable-next-line no-alert
             alert('추가 실패,,');
         }
     };

@@ -41,6 +41,7 @@ input[type=file] {
 }
 
 .host-create-title {
+    font-size: 36px;
     width: 448px;
     height: 48px;
     border-radius: 7px;
@@ -82,6 +83,7 @@ input[type=file] {
     border-radius: 7px;
     border: 1px solid rgba(0, 0, 0, 0.60);
     font-size: 24px;
+    font-family: Noto Sans KR;
 }
 
 .host-create-introduction-content::placeholder {
@@ -147,11 +149,12 @@ input[type=file] {
 }
 
 .host-create-date-start-month {
+    margin-left: calc(100vw*25/1440);
     display: flex;
 }
 
 .host-create-ticket-start-text2 {
-    width: 60px;
+    width: 100px;
     height: 36px;
     display: flex;
     align-items: center;
@@ -179,6 +182,8 @@ input[type=file] {
 
 .host-create-ticket-start-text {
     height: 36px;
+    width: 40px;
+    margin-right: calc(100vw*15/1440);
     display: flex;
     align-items: center;
 }
@@ -303,7 +308,7 @@ input[type=file] {
 }
 
 .host-create-date-start-time {
-    margin-left: 20px;
+    margin-left: calc(100vw*20/1440);
     width: 250px;
     height: 36px;
     flex-shrink: 0;
@@ -322,7 +327,7 @@ input[type=file] {
 }
 
 .host-create-date-end-time {
-    margin-left: 20px;
+    margin-left: calc(100vw*20/1440);
     width: 250px;
     height: 36px;
     flex-shrink: 0;
@@ -345,10 +350,10 @@ input[type=file] {
     justify-content: space-between;
     align-items: center;
     margin-top: calc(100vw*8/1440);
-    margin-left: calc(100vw*400/1440);
+    margin-left: calc((100vw * 90 / 1440) + 459px);
     padding-left: 11px;
     padding-right: 11px;
-    width: 257px;
+    width: 251px;
     height: 38px;
     flex-shrink: 0;
     border-radius: 7px;
@@ -364,7 +369,7 @@ input[type=file] {
 }
 
 .host-create-button {
-    margin-left: calc(100vw*222/1440);
+    margin-left: 100px;
     margin-top: 24px;
     margin-bottom: calc(100vw*28/1440);
     width: 448px;
