@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from 'react';
+import { React, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
 import './HostUpdate.css';
@@ -7,7 +7,6 @@ import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { updateShowsDocument } from '../../features/show/api/showsDocumentApi';
 
 import { fStorage } from '../../Firebase';
-import { element } from 'prop-types';
 
 function HostUpdate() {
     const navigate = useNavigate();
@@ -29,9 +28,6 @@ function HostUpdate() {
         schedule: showList[index].schedule,
         startDate: showList[index].startDate,
         endDate: showList[index].endDate,
-        // hasImage: true,
-        // isHost: false,
-        // image: showList[index].image,
         bankName: showList[index].bankName,
         bankNumber: showList[index].bankNumber,
     });
@@ -174,8 +170,6 @@ function HostUpdate() {
     //         schedule: newSchedule,
     //     });
     // };
-
-    const mappedSchedule = timeInfo.schedule.map((item) => makeDate(item));
 
     const onSubtractClick = () => {
         if (scheduleCount > 1) setScheduleCount(scheduleCount - 1);
