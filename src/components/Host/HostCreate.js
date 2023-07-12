@@ -41,6 +41,8 @@ function HostCreate() {
         schedule: [],
         startDate: new Date(),
         endDate: new Date(),
+        bankName: '',
+        bankNumber: '',
     });
     const [scheduleCount, setScheduleCount] = useState(1);
     const [timeInfo, setTimeInfo] = useState({
@@ -285,6 +287,27 @@ function HostCreate() {
                                 name="price"
                                 onChange={onChangeAccount}
                             />
+                        </div>
+                        <div className="host-create-bank">
+                            <div className="host-create-price-title">
+                                입금계좌
+                            </div>
+                            <div className="host-create-bank-set">
+                                <input
+                                    className="host-create-bank-name"
+                                    type="text"
+                                    placeholder="&nbsp;은행명 입력"
+                                    name="bankName"
+                                    onChange={onChangeAccount}
+                                />
+                                <input
+                                    className="host-create-price-content"
+                                    type="text"
+                                    placeholder='&nbsp;"-"포함 계좌번호 입력'
+                                    name="bankNumber"
+                                    onChange={onChangeAccount}
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>

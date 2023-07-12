@@ -108,7 +108,12 @@ input[type=file] {
     display: flex;
 }
 
+.host-create-price {
+    margin-bottom: 20px;
+}
+
 .host-create-price-content {
+    margin-left:0px;
     width: 329px;
     height: 48px;
     flex-shrink: 0;
@@ -121,6 +126,31 @@ input[type=file] {
     font-weight: 300;
     line-height: normal;
     letter-spacing: -1.08px;
+}
+
+.host-create-bank {
+    margin-bottom: 20px;;
+}
+
+.host-create-bank-set {
+    display: flex;
+    flex-direction: column;
+}
+
+.host-create-bank-name {
+    margin-bottom: 8px;
+    width: 329px;
+        height: 48px;
+        flex-shrink: 0;
+        border-radius: 7px;
+        border: 1px solid rgba(0, 0, 0, 0.60);
+        color: rgba(0, 0, 0, 0.55);
+        font-size: 24px;
+        font-family: Noto Sans KR;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+        letter-spacing: -1.08px;
 }
 
 .host-create-place-title {
