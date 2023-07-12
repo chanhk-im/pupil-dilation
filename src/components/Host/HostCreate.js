@@ -123,6 +123,12 @@ function HostCreate() {
 
     const mappedSchedule = timeInfo.schedule.map((item) => makeDate(item));
 
+    const onSubtractClick = () => {
+        if (scheduleCount > 1) setScheduleCount(scheduleCount - 1);
+        // eslint-disable-next-line no-alert
+        else alert('더 이상 삭제할 수 없습니다!');
+    };
+
     const onButtonClick = async () => {
         const values = Object.values(newShowInfo);
         await upload();
@@ -436,6 +442,14 @@ function HostCreate() {
                             >
                                 <div>+</div>
                                 <div>열 추가하기</div>
+                            </button>
+                            <button
+                                type="button"
+                                className="host-create-subtract-button"
+                                onClick={onSubtractClick}
+                            >
+                                <div>-</div>
+                                <div>열 삭제하기</div>
                             </button>
                         </div>
                     </div>
