@@ -8,6 +8,7 @@ import { updateShowsDocument } from '../../features/show/api/showsDocumentApi';
 
 import { fStorage } from '../../Firebase';
 
+
 function HostUpdate() {
     const navigate = useNavigate();
     function getIndex(showList, id) {
