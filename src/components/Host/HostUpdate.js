@@ -1,8 +1,9 @@
 import React from 'react';
-import HostCreate from './HostCreate';
-import './HostUpdate.css';
-import { useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import HostCreate from './HostCreate';
+
+import './HostUpdate.css';
 
 /*eslint-disable*/
 function HostUpdate() {
