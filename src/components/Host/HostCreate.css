@@ -8,9 +8,27 @@
     margin-right: calc(100vw*40/1440);
 }
 
-.image-upload {
+.upload-image {
     width: calc(100vw*330/1440);
     height: calc(100vw*467/1440);
+    position: absolute;
+    left: calc(100vw*150/1440);
+    z-index: 1;
+    cursor: pointer;
+}
+
+input[type=file]::file-selector-button {
+    src: "images/upload-image.png";
+    width: calc(100vw*330/1440);
+    height: calc(100vw*467/1440);
+    opacity: 0;
+    cursor: pointer;
+}
+
+input[type=file] {
+    /* opacity: 0; */
+    position: relative;
+    z-index: 2;
 }
 
 .host-create-right {
@@ -23,11 +41,14 @@
 }
 
 .host-create-title {
+    font-size: 36px;
     width: 448px;
     height: 48px;
-    flex-shrink: 0;
     border-radius: 7px;
     border: 1px solid rgba(0, 0, 0, 0.60);
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
 .host-create-title::placeholder {
@@ -62,6 +83,7 @@
     border-radius: 7px;
     border: 1px solid rgba(0, 0, 0, 0.60);
     font-size: 24px;
+    font-family: Noto Sans KR;
 }
 
 .host-create-introduction-content::placeholder {
@@ -86,7 +108,12 @@
     display: flex;
 }
 
+.host-create-price {
+    margin-bottom: 20px;
+}
+
 .host-create-price-content {
+    margin-left:0px;
     width: 329px;
     height: 48px;
     flex-shrink: 0;
@@ -99,6 +126,31 @@
     font-weight: 300;
     line-height: normal;
     letter-spacing: -1.08px;
+}
+
+.host-create-bank {
+    margin-bottom: 20px;;
+}
+
+.host-create-bank-set {
+    display: flex;
+    flex-direction: column;
+}
+
+.host-create-bank-name {
+    margin-bottom: 8px;
+    width: 329px;
+        height: 48px;
+        flex-shrink: 0;
+        border-radius: 7px;
+        border: 1px solid rgba(0, 0, 0, 0.60);
+        color: rgba(0, 0, 0, 0.55);
+        font-size: 24px;
+        font-family: Noto Sans KR;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+        letter-spacing: -1.08px;
 }
 
 .host-create-place-title {
@@ -127,11 +179,12 @@
 }
 
 .host-create-date-start-month {
+    margin-left: calc(100vw*25/1440);
     display: flex;
 }
 
 .host-create-ticket-start-text2 {
-    width: 60px;
+    width: 100px;
     height: 36px;
     display: flex;
     align-items: center;
@@ -159,6 +212,8 @@
 
 .host-create-ticket-start-text {
     height: 36px;
+    width: 40px;
+    margin-right: calc(100vw*15/1440);
     display: flex;
     align-items: center;
 }
@@ -283,7 +338,7 @@
 }
 
 .host-create-date-start-time {
-    margin-left: 20px;
+    margin-left: calc(100vw*20/1440);
     width: 250px;
     height: 36px;
     flex-shrink: 0;
@@ -302,7 +357,7 @@
 }
 
 .host-create-date-end-time {
-    margin-left: 20px;
+    margin-left: calc(100vw*20/1440);
     width: 250px;
     height: 36px;
     flex-shrink: 0;
@@ -320,15 +375,15 @@
     letter-spacing: -1.08px;
 }
 
-.host-create-add-button {
+.host-create-subtract-button {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: calc(100vw*8/1440);
-    margin-left: calc(100vw*400/1440);
+    margin-top: calc(100vw*25/1440);
+    margin-left: 22px;
     padding-left: 11px;
     padding-right: 11px;
-    width: 257px;
+    width: 251px;
     height: 38px;
     flex-shrink: 0;
     border-radius: 7px;
@@ -343,8 +398,35 @@
     background: #FFF;
 }
 
+.host-create-add-buttons {
+    display: flex;
+}
+
+.host-create-add-button {
+    display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: calc(100vw*25/1440);
+        margin-left: calc((100vw * 90 / 1440) + 186px);
+        padding-left: 11px;
+        padding-right: 11px;
+        width: 251px;
+        height: 38px;
+        flex-shrink: 0;
+        border-radius: 7px;
+        border: 1px solid rgba(0, 0, 0, 0.60);
+        color: #000;
+        font-size: 20px;
+        font-family: Noto Sans KR;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -0.9px;
+        background: #FFF;
+}
+
 .host-create-button {
-    margin-left: calc(100vw*222/1440);
+    margin-left: 100px;
     margin-top: 24px;
     margin-bottom: calc(100vw*28/1440);
     width: 448px;

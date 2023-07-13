@@ -1,3 +1,21 @@
+.user-mypage-container {
+    margin-left: calc(100vw*142/1440);
+}
+
+.user-mypage-text {
+    display: flex;
+        width: 212px;
+        height: 57px;
+        flex-shrink: 0;
+        color: #000;
+            font-size: 40px;
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            margin-bottom: calc(100vw*29/1440);
+}
+
 .ticket-list {
 text-align: start;
 }
@@ -15,10 +33,17 @@ text-align: start;
             font-weight: 500;
             line-height: normal;
 }
-
+.opened-ticket-high {
+    padding-top: 10px;
+    border-radius: 17px;
+    border: 1px solid;
+    height: 65px;
+}
 .opened-ticket {
-    background-color: aquamarine;
-text-align: start;
+    border-radius: 17px;
+        border: 1px solid #000;
+        width: calc(100vw*1156/1440);
+    text-align: start;
 }
 
 .opened-ticket-high {
@@ -28,12 +53,14 @@ flex-direction: row;
 }
 
 .arrow-down {
-
+    margin: 8px;
+    height: 25px;
 }
 
 .ticket-show-title {
     display: flex;
-        width: calc(100vw * 212 / 1440);
+    margin-left: calc(100vw*79/1440);
+        width: calc(100vw * 310 / 1440);
         height: calc(100vw * 57 / 820);
         flex-direction: column;
         flex-shrink: 0;
@@ -67,6 +94,7 @@ flex-direction: row;
         font-style: normal;
         font-weight: 300;
         line-height: normal;
+        margin-left: 235px;
 }
 
 .ticket-hidden {
@@ -75,13 +103,14 @@ flex-direction: row;
 }
 
 .ticket-picture {
-    background-image: url("../../../public/images/ticket.png");
+    background-image: url("../../../../public/images/ticket.png");
     background-size : calc(100vw * 430 / 1440);
     background-repeat: no-repeat;
     width: calc(100vw * 500 / 1440);
     height: calc(100vw * 300 / 1440);
     display: flex;
     overflow: hidden;
+    flex-shrink: 0;
 }
 
 .dongari1 {
@@ -107,11 +136,16 @@ flex-direction: row;
 }
 
 .ticket-hidden-middle {
-
+    width:450px;
 }
 
 .location {
-
+margin-bottom: 20px;
+}
+.ticket-hidden-right {
+    display: flex;
+    flex-direction: row;
+    margin-top:140px;
 }
 
 .location-title {
