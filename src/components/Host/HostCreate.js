@@ -2,7 +2,6 @@ import { React, useState } from 'react';
 import './HostCreate.css';
 import { useNavigate } from 'react-router-dom';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-
 import { createShowsDocument } from '../../features/show/api/showsDocumentApi';
 
 import { fStorage } from '../../Firebase';
@@ -417,42 +416,37 @@ function HostCreate() {
                         </div>
                         <div className="host-create-date">공연일정</div>
                         {schedules}
-                        <div className="host-create-add-buttons">
-                            <button
-                                type="button"
-                                className="host-create-add-button"
-                                onClick={() => {
-                                    setScheduleCount(scheduleCount + 1);
-                                    const newScheduleItem = {
-                                        year: 2023,
-                                        month: 0,
-                                        day: 0,
-                                        time: '',
-                                    };
-                                    const newSchedule = [
-                                        ...timeInfo.schedule,
-                                        newScheduleItem,
-                                    ];
-                                    const newTimeInfo = {
-                                        ...timeInfo,
-                                        schedule: newSchedule,
-                                    };
+                    </div>
+                    <div className="host-create-add-buttons">
+                        <button
+                            type="button"
+                            onClick={() => {
+                                setScheduleCount(scheduleCount + 1);
+                                const newScheduleItem = {
+                                    year: 2023,
+                                    month: 0,
+                                    day: 0,
+                                    time: '',
+                                };
+                                const newSchedule = [
+                                    ...timeInfo.schedule,
+                                    newScheduleItem,
+                                ];
+                                const newTimeInfo = {
+                                    ...timeInfo,
+                                    schedule: newSchedule,
+                                };
 
-                                    setTimeInfo(newTimeInfo);
-                                }}
-                            >
-                                <div>+</div>
-                                <div>열 추가하기</div>
-                            </button>
-                            <button
-                                type="button"
-                                className="host-create-subtract-button"
-                                onClick={onSubtractClick}
-                            >
-                                <div>-</div>
-                                <div>열 삭제하기</div>
-                            </button>
-                        </div>
+                                setTimeInfo(newTimeInfo);
+                            }}
+                            className="event-add-button"
+                        >
+                            <p>+</p>
+                            <p>열 추가하기</p>
+                        </button>
+                        <button type="button" onClick={onSubtractClick}>
+                            공연 삭제
+                        </button>
                     </div>
                 </div>
                 <div className="host-create-right-4">
