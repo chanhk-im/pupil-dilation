@@ -93,11 +93,54 @@
 /*============등록된==========*/
 
 .already{
-  width: 448px;
+  width: 500px;
   height: 51px;
   flex-shrink: 0;
   border-radius: 13px;
   background: rgba(43, 50, 82, 0.20);
   margin-bottom: 20px;
+  display: flex;
 }
 
+.already-title{
+  color: #000;
+  text-align: center;
+  font-family: Noto Sans KR;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  padding-left: 12px;
+  padding-top: 5px;
+  width: 30%;
+  display: flex;
+}
+
+.user-id{
+  text-align: start;
+  width: 30%;
+}
+
+.user-info-title{
+  color: #000;
+  font-family: Noto Sans KR;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  padding-top: 5px;
+}
+
+.user-info-text{
+  color: #000;
+  font-family: Noto Sans KR;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.user-email{
+  width: 40%;
+  text-align: start;
+}
