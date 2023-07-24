@@ -20,10 +20,15 @@ function LoginFormDesktop() {
         });
     };
 
-    const onClickButton = async () => {
+    const onButtonClick = async () => {
         await loginUser(account.id, account.password).then((res) => {
             if (res) {
-                dispatch(stageUser(res));
+                dispatch(
+                    stageUser({
+                        user: res.user,
+                        userCredential: res.userCredential,
+                    }),
+                );
                 navigate('/');
             }
         });
@@ -60,7 +65,7 @@ function LoginFormDesktop() {
             <button
                 className="login1-desktop"
                 type="button"
-                onClick={onClickButton}
+                onClick={onButtonClick}
             >
                 <div className="login-text2-desktop">로그인</div>
             </button>

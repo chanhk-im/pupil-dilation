@@ -1,4 +1,6 @@
 import {
+    getAuth,
+    updatePassword,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
 } from 'firebase/auth';
@@ -69,12 +71,44 @@ export async function loginUser(id, password) {
         loginUserInfo.docs[0].data().email,
         password,
     )
-        .then(() => {
-            res = loginUserInfo;
+        .then((userCredential) => {
+            res = { user: loginUserInfo.docs[0].data(), userCredential };
         })
         .catch((error) => {
             alert(handleError(error.code));
         });
 
+    return res;
+}
+
+export async function changePassword(
+    id,
+    currentPassword,
+    newPassword,
+    checkPassword,
+) {
+    let res;
+    const col = collection(fireStore, 'users');
+    const q = query(col, where('id', '==', id));
+    const userInfo = await getDocs(q);
+    // if (userInfo.docs.length > 0) {
+    //     console.log(userInfo.docs[0].data());
+    // } else {
+    //     alert('존재하지 않는 id입니다.');
+    //     return false;
+    // }
+
+    const user = authService.currentUser;
+    console.log(user);
+    updatePassword(user, newPassword)
+        .then(() => {
+            res = userInfo;
+        })
+
+        .catch((error) => {
+            //An error ocurred
+            alert(error);
+        });
+    alert(1);
     return res;
 }

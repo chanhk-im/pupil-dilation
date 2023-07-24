@@ -12,10 +12,12 @@ export const userSlice = createSlice({
             isHost: false,
         },
         isLogged: false,
+        userCredential: undefined,
     },
     reducers: {
         stageUser: (state, action) => {
-            state.user = action.payload;
+            state.user = action.payload.user;
+            state.userCredential = action.payload.userCredential;
             state.isLogged = true;
         },
         restoreUser: (state) => {
