@@ -8,6 +8,10 @@
     margin-right: calc(100vw*40/1440);
 }
 
+.host-create-left input:hover{
+    transform: scale(0.97);
+}
+
 .upload-image {
     width: calc(100vw*330/1440);
     height: calc(100vw*467/1440);
@@ -39,6 +43,7 @@ input[type=file] {
 .host-create-right-1 {
     display: flex;
 }
+
 
 .host-create-title {
     font-size: 36px;
@@ -84,6 +89,17 @@ input[type=file] {
     border: 1px solid rgba(0, 0, 0, 0.60);
     font-size: 24px;
     font-family: Noto Sans KR;
+    
+}
+
+.host-create-introduction-content:focus{
+    outline-width: 2px;
+    outline-color: var(--theme-red, #EF5455);
+}
+
+.host-create-introduction-content:hover{
+    border-width: 2px;
+    border-color: rgba(239, 84, 85, 0.25);
 }
 
 .host-create-introduction-content::placeholder {
@@ -94,6 +110,26 @@ input[type=file] {
     font-weight: 300;
     line-height: normal;
     letter-spacing: -1.08px;
+}
+
+input:hover{
+    border-width: 2px;
+    border-color: rgba(239, 84, 85, 0.25);
+}
+
+input:focus{
+    outline-width: 2px;
+    outline-color: var(--theme-red, #EF5455);
+}
+
+select:hover{
+    border-width: 2px;
+    border-color: rgba(239, 84, 85, 0.25);
+}
+
+select:focus{
+    outline-width: 2px;
+    outline-color: var(--theme-red, #EF5455); 
 }
 
 .host-create-right-2-right {
