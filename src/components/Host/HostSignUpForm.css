@@ -1,0 +1,124 @@
+.container {
+    display: flex;
+}
+
+.logo {
+    width: calc(100vw * 333 / 1440);
+    flex-shrink: 0;
+    display: flex;
+    margin-left: calc(100vw * 260 / 1440);
+    margin-top: 159px;
+}
+
+.host-signup-right-page1 {
+    width: 455px;
+    padding: 10px;
+    flex-shrink: 0;
+    margin-left: calc(100vw * 140 / 1440);
+    margin-top: 14px;
+    margin-bottom: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.host-signup-right-high {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    margin-bottom: 7px;
+}
+
+.host-signup-sign-up-text {
+    color: #000;
+    font-size: 32px;
+    font-family: Noto Sans KR;
+    font-weight: 700;
+}
+
+.host-signup-return-button {
+    border: none;
+    width: 135px;
+    height: 39px;
+    border-radius: 23px;
+    background: var(--theme-navy, #2b3252);
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+.host-signup-return-text {
+    color: var(--theme-yellow, #fad744);
+    font-size: 13px;
+    text-align: center;
+    font-family: Noto Sans KR;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.host-signup-title {
+    color: #000;
+    font-size: 24px;
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    display: flex;
+    margin-bottom: 8px;
+}
+
+.host-signup-input-container {
+    width: 100%;
+}
+
+.host-signup-input {
+    border: none;
+    width: 100%;
+    height: 45px;
+    font-size: 20px;
+    flex-shrink: 0;
+    border-radius: 7px;
+    background: #fff;
+    box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.25) inset;
+    margin-bottom: 8px;
+    padding-left: 13px;
+}
+
+.host-signup-email-notification {
+    width: 433px;
+    color: var(--theme-red, #ef5455);
+    font-family: Noto Sans KR;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-align: left;
+    padding-left: 8px;
+    margin-bottom: 10px;
+}
+
+.host-signup-input::placeholder {
+    color: rgba(0, 0, 0, 0.55);
+    font-size: 20px;
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 350;
+    line-height: normal;
+}
+
+.host-signup-request {
+    margin-top: 17px;
+    border: none;
+    width: 100%;
+    height: 67px;
+    flex-shrink: 0;
+    border-radius: 34px;
+    background: var(--theme-yellow, #fad744);
+}
+
+.host-signup-request-text2 {
+    color: var(--theme-red, #ef5455);
+    font-size: calc(100vw * 32 / 1440);
+    font-family: Noto Sans KR;
+    font-weight: 700;
+}
