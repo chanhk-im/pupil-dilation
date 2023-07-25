@@ -19,20 +19,35 @@
     color: #fff;
     font-size: 16px;
     font-weight: 700;
+    text-decoration: none;
+}
+
+.header__auth-logout {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: none;
 }
 
 .line {
     height: 81px;
     padding-left: calc(100vw * 143 / 1440);
     padding-right: calc(100vw * 47 / 1440);
-    display: flex; 
+    display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
 }
 
 .pupil-dilation {
-    width:211px;
+    width: 211px;
 }
 
 .line-right {
@@ -42,12 +57,12 @@
 }
 
 .search-button {
-    width: calc(100vw*24/1440);
+    width: calc(100vw * 24 / 1440);
 }
 
 .user-button {
     padding-left: calc(100vw * 70 / 1440);
-    width: calc(100vw*24/1440);
+    width: calc(100vw * 24 / 1440);
     height: 24px;
 }
 
@@ -71,4 +86,3 @@ input[name='search'] {
     font-size: 24px;
     font-weight: 400;
 }
-

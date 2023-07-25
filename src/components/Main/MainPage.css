@@ -1,0 +1,17 @@
+.ticketsOpen{ /*제목 글 관련*/
+  color: var(--theme-navy, #2B3252);
+  text-align: center;
+  font-size: 48px;
+  font-family: "Playfair Display";
+}
+
+.slider{ /*슬라이더 div*/
+  background-color: white;
+  border-radius: 28px;
+  margin-left: 150px;
+  margin-right: 150px;
+  border-style: groove;
+  border-width: 6px;
+  border-color:  rgba(43, 50, 82, 0.55);
+  background: rgba(43, 50, 82, 0.25) ;
+}

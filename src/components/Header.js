@@ -1,19 +1,50 @@
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import './Header.css';
+import { restoreUser } from '../features/user/slices/userSlice';
 
 function Header() {
+    const isLogged = useSelector((state) => state.user.isLogged);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const onClickLogout = () => {
+        dispatch(restoreUser());
+        navigate('/login');
+    };
+
     return (
         <div className="header">
             <div className="header-red">
-                <div className="auth">로그인</div>
-                <div className="auth">회원가입</div>
+                {isLogged ? (
+                    <button
+                        type="button"
+                        onClick={onClickLogout}
+                        className="header__auth-logout"
+                    >
+                        로그아웃
+                    </button>
+                ) : (
+                    <div>
+                        <Link to="/login" className="auth">
+                            로그인
+                        </Link>
+                        <Link to="/login/signup" className="auth">
+                            회원가입
+                        </Link>
+                    </div>
+                )}
             </div>
             <div className="line">
-                <img
-                    className="pupil-dilation"
-                    alt="my-header"
-                    src="/img/header_img.png"
-                />
+                <Link to="/">
+                    <img
+                        className="pupil-dilation"
+                        alt="my-header"
+                        src="/img/header_img.png"
+                    />
+                </Link>
+
                 <div className="line-right">
                     <div className="search-input">
                         <input

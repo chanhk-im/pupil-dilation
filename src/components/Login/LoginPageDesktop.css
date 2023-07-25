@@ -1,0 +1,12 @@
+.container-desktop {
+    display: flex;
+}
+
+.logo-desktop {
+    width: calc(100vw * 333 / 1440);
+    height: calc(100vh * 360 / 820);
+    flex-shrink: 0;
+    display: flex;
+    margin-left: calc(100vw * 260 / 1440);
+    margin-top: calc(100vh * 159 / 820);
+}

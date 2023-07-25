@@ -1,18 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import getShowById from './getShowById';
 import './DetailContent.css';
+import {
+    getDateShortFormat,
+    getDateScheduleFormat,
+} from '../../functions/dateFeature';
 
-function DetailContent({ show }) {
-    console.log(show.schedule);
+function DetailContent({ id }) {
+    const show = getShowById(id);
+
     const schedule = show.schedule.map((value, i) => (
         <div>
-            <strong>{i + 1}공</strong> {value}
+            <strong>{i + 1}공</strong> {getDateScheduleFormat(value)}
         </div>
     ));
+
     return (
         <div className="detail-contents">
             <div className="information">
-                <div className="show-image" />
+                {show.imageDownloaded ? (
+                    <img
+                        className="show-image"
+                        src={show.image}
+                        alt={show.title}
+                    />
+                ) : (
+                    <img
+                        className="eventImage"
+                        src="images/Dongari3.jpg"
+                        alt={show.title}
+                    />
+                )}
                 <div className="show-main">
                     <h2 className="show-title">{show.title}</h2>
                     <h3 className="info-title">소개</h3>
@@ -20,7 +39,10 @@ function DetailContent({ show }) {
                 </div>
                 <div className="show-detail">
                     <h3 className="detail-title">공연기간</h3>
-                    <p className="detail-info">{show.period}</p>
+                    <p className="detail-info-period">
+                        {getDateShortFormat(show.startDate)} ~{' '}
+                        {getDateShortFormat(show.endDate)}
+                    </p>
                     <div className="place-and-price">
                         <div className="show-detail-content">
                             <h3 className="detail-title">가격</h3>
@@ -39,7 +61,7 @@ function DetailContent({ show }) {
     );
 }
 DetailContent.propTypes = {
-    show: PropTypes.node.isRequired,
+    id: PropTypes.node.isRequired,
 };
 
 export default DetailContent;

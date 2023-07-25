@@ -1,11 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import getShowById from './getShowById';
 import './DetailFooter.css';
+import { getDateScheduleFormat } from '../../functions/dateFeature';
 
-function DetailFooter({ show }) {
+function DetailFooter({ id }) {
+    const show = getShowById(id);
+
     const schedule = show.schedule.map((value, i) => (
         <option value={i}>
-            {i + 1}공 {value}
+            {i + 1}공 {getDateScheduleFormat(value)}
         </option>
     ));
     return (
@@ -24,7 +28,7 @@ function DetailFooter({ show }) {
     );
 }
 DetailFooter.propTypes = {
-    show: PropTypes.node.isRequired,
+    id: PropTypes.node.isRequired,
 };
 
 export default DetailFooter;
