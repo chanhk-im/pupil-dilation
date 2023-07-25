@@ -415,7 +415,21 @@ function HostCreate() {
                             />
                         </div>
                         <div className="host-create-date">공연일정</div>
-                        {schedules}
+                        <div className="event-function">
+                            <div className="event-schedules">{schedules}</div>
+                            <div className="delete-button-space">
+                                <button
+                                    type="button"
+                                    className="event-delete-button"
+                                    onClick={onSubtractClick}
+                                >
+                                    <img
+                                        src="/images/Trash.svg"
+                                        alt="열 삭제하기"
+                                    />
+                                </button>
+                            </div>
+                        </div>
                     </div>
                     <div className="host-create-add-buttons">
                         <button
@@ -443,9 +457,6 @@ function HostCreate() {
                         >
                             <p>+</p>
                             <p>열 추가하기</p>
-                        </button>
-                        <button type="button" onClick={onSubtractClick}>
-                            공연 삭제
                         </button>
                     </div>
                 </div>
