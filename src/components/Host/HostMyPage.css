@@ -1,0 +1,159 @@
+.host-mypage-text {
+    margin-left: 144px;
+    display: flex;
+        width: 212px;
+        height: 57px;
+        flex-direction: column;
+        flex-shrink: 0;
+        color: #000;
+            font-size: 40px;
+            font-family: Noto Sans KR;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+}
+
+.host-mypage-data {
+    display: flex;
+    margin-top: 17px;
+    margin-left: 260px;
+}
+
+.host-mypage-account-data {
+    width:120px;
+    color: #000;
+    font-size: 32px;
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.host-mypage-data-box {
+    width: 732px;
+    height: 483px;
+    flex-shrink: 0;
+    margin-left: 87px;
+    border-radius: 36px;
+    background: rgba(43, 50, 82, 0.20);
+}
+
+.host-mypage-box-name {
+    display: flex;
+    margin-top: 18px;
+    margin-left: 24px;
+    color: #000;
+    font-size: 40px;
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.host-mypage-id {
+    display: flex;
+    margin-top: 2px;
+    margin-left: 142px;
+}
+
+.host-mypage-id-text {
+    color: #000;
+    font-size: 24px;
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.host-mypage-id-data {
+    margin-left: 169px;
+    color: #000;
+    font-size: 24px;
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 350;
+    line-height: normal;
+}
+
+.host-mypage-pw {
+    display: flex;
+    margin-top: 22px;
+    margin-left: 142px;
+}
+
+.host-mypage-pw-text {
+    color: #000;
+    font-size: 24px;
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    width: 86px;
+}
+
+.host-mypage-pw-inputs {
+    margin-left: 147px;
+    display: flex;
+    flex-direction: column;
+}
+
+.host-mypage-pw-input {
+    border: none;
+    width: 330px;
+    height: 44px;
+    flex-shrink: 0;
+    border-radius: 7px;
+    background: #FFF;
+    font-size: 20px;
+    box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.25) inset;
+    margin-bottom: 12px;
+}
+
+.host-mypage-pw-input::placeholder {
+    color: #737373;
+    font-size: 20px;
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 350;
+    line-height: normal;
+}
+
+.host-mypage-change-pw-button {
+    width: 212px;
+    height: 39px;
+    flex-shrink: 0;
+    border-radius: 23px;
+    background: var(--theme-navy, #2B3252);
+    color: var(--theme-yellow, #FAD744);
+    text-align: center;
+    font-size: 13px;
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.host-email {
+    display: flex;
+    margin-top: 54px;
+    margin-left: 142px;
+}
+
+.host-email-text {
+    color: #000;
+    font-size: 24px;
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.host-email-data {
+    margin-left: 98px;
+    color: #000;
+    font-size: 24px;
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 350;
+    line-height: normal;
+}

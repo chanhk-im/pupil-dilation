@@ -37,9 +37,12 @@ export const userSlice = createSlice({
         setIsHost: (state, action) => {
             state.isHost = action.payload;
         },
+        changePasswordUser: (state, action) => {
+            state.user.password = action.payload;
+        },
     },
 });
 
-export const { stageUser, restoreUser } = userSlice.actions;
+export const { stageUser, restoreUser, changePasswordUser } = userSlice.actions;
 
 export default userSlice.reducer;
