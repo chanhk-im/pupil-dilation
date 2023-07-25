@@ -1,0 +1,134 @@
+.payment-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.accountBox {
+    padding-top: 10px;
+    /* width: calc(100vw * 550 / 1440);
+    height: calc(100vw * 150 / 820); */
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+}
+.content-box {
+    border-radius: 17px;
+    border: 5px solid;
+    color: var(--theme-navy, #2b3252);
+    width: calc(100vw * 550 / 1440);
+}
+
+.pay-ticket {
+    display: flex;
+    justify-content: center;
+}
+.ticket-content {
+    display: flex;
+    margin-top: 40px;
+}
+.event-title {
+    width: calc(100vw * 480 / 1440);
+    height: calc(100vw * 60 / 1440);
+    flex-shrink: 0;
+    color: #000;
+    text-align: center;
+    font-family: Noto Sans KR;
+    font-size: calc(100vw * 30 / 1440);
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin: 0;
+    padding-top: calc(100vw * 40 / 1440);
+}
+.ticket-picture {
+    background-image: url('../../../../public/images/ticket.png');
+    background-size: calc(100vw * 470 / 1440);
+    background-repeat: no-repeat;
+    width: calc(100vw * 500 / 1440);
+    height: calc(100vw * 300 / 1440);
+    display: flex;
+    overflow: hidden;
+    flex-shrink: 0;
+    flex-direction: column;
+}
+
+.ticket-pic {
+    /* display: flex; */
+    width: calc(100vw * 120 / 1440);
+    height: calc(100vw * 170 / 1440);
+    border-radius: 8px;
+    margin-left: calc(100vw * 84 / 1440);
+    margin-top: calc(100vw * 10 / 1440);
+}
+
+.ticket-lines {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    margin-top: 15px;
+}
+
+.dateLine {
+    margin: 0;
+}
+
+.dateLine-title,
+.timeLine-title,
+.seatLine-title {
+    padding-left: 20px;
+    color: #000;
+    font-family: Noto Sans KR;
+    font-size: calc(100vw * 16 / 1440);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 5px;
+    letter-spacing: -0.72px;
+    text-align: left;
+    /* display: flex;
+    text-align: center;
+    width: calc(100vw * 100 / 1440);
+    height: calc(100vw * 48 / 1440);
+    flex-direction: column;
+    flex-shrink: 0;
+    color: #000;
+    font-size: calc(100vw * 27 / 1440);
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal; */
+}
+
+.dateLine-content,
+.timeLine-content,
+.seatLine-content {
+    padding-left: 24px;
+    color: #000;
+    font-family: Noto Sans KR;
+    font-size: calc(100vw * 20 / 1440);
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: -0.9px;
+    text-align: left;
+    /* display: flex;
+    width: calc(100vw * 200 / 1440);
+    flex-direction: column;
+    flex-shrink: 0;
+    color: #000;
+    font-size: calc(100vw * 24 / 1440);
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: calc(100vw * -1.08 / 1440); */
+}
+
+.timeLine {
+}
+
+.seatLine {
+}
+
+.pay-price {
+}
