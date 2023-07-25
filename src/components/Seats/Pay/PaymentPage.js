@@ -69,6 +69,9 @@ function PaymentPage() {
                             ></input>
                         </div>
                     </div>
+                    <div className="sending-check">
+                        <input className="confirm-send" type="checkbox"></input>
+                    </div>
                 </div>
             </div>
         </div>
