@@ -37,7 +37,37 @@ function PaymentPage() {
             <div className="accountBox">
                 <div className="content-box">
                     <div className="pay-price">
-                        <p>최종결제금액</p>
+                        <div className="final">
+                            <div className="final-title">최종결제금액</div>
+                            <div className="final-title-content">10000원</div>
+                        </div>
+                        <div className="account">
+                            <div className="account-title">입금계좌</div>
+                            <div className="account-content">
+                                국민 123123123123123
+                            </div>
+                        </div>
+                        <div className="sending">
+                            <div className="sending-title">송금계좌</div>
+                            <input
+                                className="sending-name"
+                                type="text"
+                                name="name"
+                                placeholder="예금주 입력"
+                            ></input>
+                            <input
+                                className="sending-bank"
+                                type="text"
+                                name="bank"
+                                placeholder="은행명 입력"
+                            ></input>
+                            <input
+                                className="sending-account"
+                                type="text"
+                                name="account"
+                                placeholder='"-" 포함 계좌번호 입력'
+                            ></input>
+                        </div>
                     </div>
                 </div>
             </div>

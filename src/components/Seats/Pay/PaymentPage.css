@@ -13,9 +13,9 @@
 }
 .content-box {
     border-radius: 17px;
-    border: 5px solid;
-    color: var(--theme-navy, #2b3252);
-    width: calc(100vw * 550 / 1440);
+    border: 5px solid var(--theme-navy, #2b3252);
+    background: var(--theme-navy, #2b3252);
+    width: calc(100vw * 684 / 1440);
 }
 
 .pay-ticket {
@@ -41,7 +41,7 @@
     padding-top: calc(100vw * 40 / 1440);
 }
 .ticket-picture {
-    background-image: url('../../../../public/images/ticket.png');
+    background-image: url('../../../../public/images/ticketWhite.png');
     background-size: calc(100vw * 470 / 1440);
     background-repeat: no-repeat;
     width: calc(100vw * 500 / 1440);
@@ -103,6 +103,7 @@
 .timeLine-content,
 .seatLine-content {
     padding-left: 24px;
+    padding-bottom: 24px;
     color: #000;
     font-family: Noto Sans KR;
     font-size: calc(100vw * 20 / 1440);
@@ -111,6 +112,7 @@
     line-height: normal;
     letter-spacing: -0.9px;
     text-align: left;
+
     /* display: flex;
     width: calc(100vw * 200 / 1440);
     flex-direction: column;
@@ -131,4 +133,97 @@
 }
 
 .pay-price {
+}
+.final,
+.account {
+    display: flex;
+    flex-direction: row;
+    padding-top: 20px;
+    width: 50%;
+}
+.sending {
+    display: flex;
+    flex-direction: row;
+    padding-top: 20px;
+}
+.final-title,
+.account-title,
+.sending-title {
+    color: #dbdbdb;
+    font-family: Noto Sans KR;
+    font-size: calc(100vw * 15 / 1440);
+    font-style: normal;
+    font-weight: 350;
+    line-height: normal;
+    letter-spacing: -0.675px;
+    text-align: left;
+    padding-left: 15px;
+    width: calc(100vw * 100 / 1440);
+}
+
+.final-title-content,
+.account-content {
+    color: #fff;
+    font-family: Roboto;
+    font-size: calc(100vw * 20 / 1440);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.9px;
+}
+
+.sending-name,
+.sending-bank,
+.sending-account {
+    background-color: transparent;
+    border-radius: 9px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    height: calc(100vw * 30 / 1440);
+    color: #fff;
+    font-family: Noto Sans KR;
+    font-size: calc(100vw * 15 / 1440);
+    font-style: normal;
+    font-weight: 350;
+    line-height: normal;
+    letter-spacing: -0.675px;
+    padding-left: 10px;
+}
+.sending-name::placeholder,
+.sending-bank::placeholder,
+.sending-account::placeholder {
+    color: #fff;
+    font-family: Noto Sans KR;
+    font-size: calc(100vw * 15 / 1440);
+    font-style: normal;
+    font-weight: 350;
+    line-height: normal;
+    letter-spacing: -0.675px;
+}
+.sending-name,
+.sending-bank {
+    width: calc(100vw * 94 / 1440);
+    margin-right: 24px;
+}
+.sending-account {
+    width: calc(100vw * 298 / 1440);
+}
+.sending-name:hover,
+.sending-bank:hover,
+.sending-account:hover {
+    border-width: 2px;
+    border-color: rgba(255, 230, 131, 0.5);
+}
+
+.sending-name:focus,
+.sending-bank:focus,
+.sending-account:focus {
+    background-color: rgba(255, 255, 255, 0.25);
+    outline-width: 2px;
+    outline-color: var(--theme-yellow, #fad744);
+}
+.sending-name:focus::placeholder,
+.sending-bank:focus::placeholder,
+.sending-account:focus::placeholder {
+    color: transparent;
+    font-weight: 500px;
 }
