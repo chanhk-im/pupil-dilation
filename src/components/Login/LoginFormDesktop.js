@@ -27,9 +27,12 @@ function LoginFormDesktop() {
                     stageUser({
                         user: res.user,
                         userCredential: res.userCredential,
+                        isHost: res.isHost,
                     }),
                 );
-                navigate('/');
+                console.log(res);
+                if (res.user.userType == 0) navigate('/');
+                else if (res.user.userType == 1) navigate('/host');
             }
         });
     };

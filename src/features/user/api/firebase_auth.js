@@ -7,6 +7,7 @@ import {
 import { collection, addDoc, getDocs, where, query } from 'firebase/firestore';
 import { authService, fireStore } from '../../../Firebase';
 import { setDoc, doc, updateDoc } from 'firebase/firestore';
+import { hasHostPermission } from '../../../functions/checkAuthentication';
 
 const handleError = (code) => {
     switch (code) {
@@ -56,7 +57,7 @@ export async function createUser(newUserInfo) {
 }
 
 export async function loginUser(id, password) {
-    let res;
+    let res = {};
     const col = collection(fireStore, 'users');
     const q = query(col, where('id', '==', id));
     const loginUserInfo = await getDocs(q);
@@ -72,8 +73,15 @@ export async function loginUser(id, password) {
         loginUserInfo.docs[0].data().email,
         password,
     )
-        .then((userCredential) => {
-            res = { user: loginUserInfo.docs[0].data(), userCredential };
+        .then(async (userCredential) => {
+            const isHost = await hasHostPermission(
+                loginUserInfo.docs[0].data(),
+            );
+            res = {
+                user: loginUserInfo.docs[0].data(),
+                userCredential,
+                isHost,
+            };
         })
         .catch((error) => {
             alert(handleError(error.code));
@@ -138,3 +146,4 @@ export async function updateUsersDocument(updateData) {
         password: updateData.password,
     });
 }
+

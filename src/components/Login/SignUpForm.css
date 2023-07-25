@@ -1,0 +1,123 @@
+.container {
+    display: flex;
+}
+
+.logo {
+    width: calc(100vw * 333 / 1440);
+    height: calc(100vw * 360 / 1440);
+    flex-shrink: 0;
+    display: flex;
+    margin-left: calc(100vw * 260 / 1440);
+    margin-top: 159px;
+}
+
+.right-page1 {
+    width: calc(100vw * 455 / 1440);
+    height: calc(100vh * 700 / 820);
+    flex-shrink: 0;
+    margin-left: calc(100vw * 140 / 1440);
+    margin-top: 14px;
+    margin-bottom: 14px;
+    display: grid;
+    grid-template-columns: 5;
+    align-items: center;
+}
+
+.right-high {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+.sign-up-text {
+    color: #000;
+    font-size: 32px;
+    font-family: Noto Sans KR;
+    font-weight: 700;
+}
+
+.host-signup-button {
+    border: none;
+    width: 113px;
+    height: 39px;
+    border-radius: 23px;
+    background: var(--theme-navy, #2B3252);
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+.host-signup-text {
+    color: var(--theme-yellow, #FAD744);
+    font-size: 14px;
+    text-align: center;
+    font-family: Noto Sans KR;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.login {
+    border: none;
+    width: 113px;
+    height: 39px;
+    border-radius: 23px;
+    background: var(--theme-yellow, #fad744);
+    cursor: pointer;
+}
+
+.login-text {
+    color: var(--theme-navy, #2b3252);
+    font-size: 20px;
+    text-align: center;
+    font-family: Noto Sans KR;
+    text-decoration: none;
+}
+
+.sign-up-title {
+    color: #000;
+    font-size: 24px;
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    display: flex;
+    margin-bottom: 8px;
+}
+
+.sign-up-input {
+    border: none;
+    width: 448px;
+    height: 45px;
+    font-size: 20px;
+    flex-shrink: 0;
+    border-radius: 7px;
+    background: #fff;
+    box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.25) inset;
+    margin-bottom: 5px;
+    padding-left: 13px;
+}
+
+.sign-up-input::placeholder {
+    color: rgba(0, 0, 0, 0.55);
+    font-size: 20px;
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 350;
+    line-height: normal;
+}
+
+.sign-up {
+    margin-top: 17px;
+    border: none;
+    width: calc(100vw * 448 / 1440);
+    height: 67px;
+    flex-shrink: 0;
+    border-radius: 34px;
+    background: var(--theme-yellow, #fad744);
+}
+
+.sign-up-text2 {
+    color: var(--theme-red, #ef5455);
+    font-size: calc(100vw * 32 / 1440);
+    font-family: Noto Sans KR;
+    font-weight: 700;
+}
