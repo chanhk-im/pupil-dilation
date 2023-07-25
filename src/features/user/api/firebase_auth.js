@@ -6,6 +6,7 @@ import {
 } from 'firebase/auth';
 import { collection, addDoc, getDocs, where, query } from 'firebase/firestore';
 import { authService, fireStore } from '../../../Firebase';
+import { setDoc, doc, updateDoc } from 'firebase/firestore';
 
 const handleError = (code) => {
     switch (code) {
@@ -38,7 +39,7 @@ export async function createUser(newUserInfo) {
     )
         .then(async () => {
             // TODO: firebase에 user정보 추가
-            await addDoc(collection(fireStore, 'users'), newUserInfo)
+            await setDoc(doc(fireStore, 'users', newUserInfo.id), newUserInfo)
                 .then(() => {
                     res = true;
                 })
@@ -84,6 +85,7 @@ export async function loginUser(id, password) {
 export async function changePassword(
     id,
     currentPassword,
+    realPassword,
     newPassword,
     checkPassword,
 ) {
@@ -99,16 +101,40 @@ export async function changePassword(
     // }
 
     const user = authService.currentUser;
+    const newData = {
+        id: id,
+        password: newPassword,
+    };
     console.log(user);
+    if (currentPassword !== realPassword) {
+        alert('비밀번호가 일치하지 않습니다');
+        return false;
+    }
+    if (newPassword === '') {
+        alert('새 비밀번호를 입력해주세요');
+        return false;
+    }
+    if (newPassword !== checkPassword) {
+        alert('새 비밀번호와 비밀번호 확인 부분이 다릅니다');
+        return false;
+    }
+
     updatePassword(user, newPassword)
         .then(() => {
-            res = userInfo;
+            updateUsersDocument(newData);
         })
 
         .catch((error) => {
             //An error ocurred
             alert(error);
         });
-    alert(1);
-    return res;
+    alert('수정 완료');
+    return true;
+    // alert(1);
+}
+
+export async function updateUsersDocument(updateData) {
+    await updateDoc(doc(fireStore, 'users', updateData.id), {
+        password: updateData.password,
+    });
 }

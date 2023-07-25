@@ -31,9 +31,12 @@ export const userSlice = createSlice({
             };
             state.isLogged = false;
         },
+        changePasswordUser: (state, action) => {
+            state.user.password = action.payload;
+        },
     },
 });
 
-export const { stageUser, restoreUser } = userSlice.actions;
+export const { stageUser, restoreUser, changePasswordUser } = userSlice.actions;
 
 export default userSlice.reducer;

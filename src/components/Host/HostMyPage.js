@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { changePassword } from '../../features/user/api/firebase_auth';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { stageUser } from '../../features/user/slices/userSlice';
+import { changePasswordUser } from '../../features/user/slices/userSlice';
 import './HostMyPage.css';
 
 function HostMyPage() {
@@ -25,18 +25,20 @@ function HostMyPage() {
     };
 
     const id = userData.id;
+    const realPassword = userData.password;
     const email = userData.email;
 
     const onButtonClick = async () => {
         await changePassword(
             id,
             hostInfo.currentPassword,
+            realPassword,
             hostInfo.newPassword,
             hostInfo.checkPassword,
-        ).then((res) => {
-            if (res) {
-                dispatch(stageUser(res));
-                navigate('/');
+        ).then((e) => {
+            if (e == true) {
+                dispatch(changePasswordUser(hostInfo.newPassword));
+                navigate('/host');
             }
         });
     };
