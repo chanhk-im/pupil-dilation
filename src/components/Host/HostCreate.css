@@ -8,10 +8,6 @@
     margin-right: calc(100vw*40/1440);
 }
 
-.host-create-left input:hover{
-    transform: scale(0.97);
-}
-
 .upload-image {
     width: calc(100vw*330/1440);
     height: calc(100vw*467/1440);
@@ -43,7 +39,6 @@ input[type=file] {
 .host-create-right-1 {
     display: flex;
 }
-
 
 .host-create-title {
     font-size: 36px;
@@ -81,20 +76,9 @@ input[type=file] {
     line-height: normal;
 }
 
-.host-create-introduction-content {
-    width: 448px;
-    height: 277px;
-    flex-shrink: 0;
-    border-radius: 7px;
-    border: 1px solid rgba(0, 0, 0, 0.60);
-    font-size: 24px;
-    font-family: Noto Sans KR;
-    
-}
-
 .host-create-introduction-content:focus{
     outline-width: 2px;
-    outline-color: var(--theme-red, #EF5455);
+    outline-color: var(—theme-red, #EF5455);
 }
 
 .host-create-introduction-content:hover{
@@ -102,14 +86,9 @@ input[type=file] {
     border-color: rgba(239, 84, 85, 0.25);
 }
 
-.host-create-introduction-content::placeholder {
-    color: rgba(0, 0, 0, 0.55);
-    font-size: 24px;
-    font-family: Noto Sans KR;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
-    letter-spacing: -1.08px;
+.host-create-introduction-content:focus{
+    outline-width: 2px;
+    outline-color: var(--theme-red, #EF5455);
 }
 
 input:hover{
@@ -129,7 +108,27 @@ select:hover{
 
 select:focus{
     outline-width: 2px;
-    outline-color: var(--theme-red, #EF5455); 
+    outline-color: var(--theme-red, #EF5455);
+}
+
+.host-create-introduction-content {
+    width: 448px;
+    height: 277px;
+    flex-shrink: 0;
+    border-radius: 7px;
+    border: 1px solid rgba(0, 0, 0, 0.60);
+    font-size: 24px;
+    font-family: Noto Sans KR;
+}
+
+.host-create-introduction-content::placeholder {
+    color: rgba(0, 0, 0, 0.55);
+    font-size: 24px;
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: -1.08px;
 }
 
 .host-create-right-2-right {
@@ -411,55 +410,10 @@ select:focus{
     letter-spacing: -1.08px;
 }
 
-.host-create-subtract-button {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: calc(100vw*25/1440);
-    margin-left: 22px;
-    padding-left: 11px;
-    padding-right: 11px;
-    width: 251px;
-    height: 38px;
-    flex-shrink: 0;
-    border-radius: 7px;
-    border: 1px solid rgba(0, 0, 0, 0.60);
-    color: #000;
-    font-size: 20px;
-    font-family: Noto Sans KR;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -0.9px;
-    background: #FFF;
-}
-
 .host-create-add-buttons {
     display: flex;
 }
 
-.host-create-add-button {
-    display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: calc(100vw*25/1440);
-        margin-left: calc((100vw * 90 / 1440) + 186px);
-        padding-left: 11px;
-        padding-right: 11px;
-        width: 251px;
-        height: 38px;
-        flex-shrink: 0;
-        border-radius: 7px;
-        border: 1px solid rgba(0, 0, 0, 0.60);
-        color: #000;
-        font-size: 20px;
-        font-family: Noto Sans KR;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        letter-spacing: -0.9px;
-        background: #FFF;
-}
 
 .host-create-button {
     margin-left: 100px;
@@ -477,4 +431,39 @@ select:focus{
             line-height: normal;
             background-color: #2B3252;
             border-radius: 45px;
+}
+
+.event-add-button{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 7px;
+    width: 212px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 7px;
+    background: #231F20;
+    color: white;
+    font-family: Noto Sans KR;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: normal;
+    letter-spacing: -0.9px;
+}
+
+
+
+.event-delete-button{
+    display: flex;
+    text-align: end;
+    border: none;
+}
+
+.event-schedules{
+    display: flex;
+    flex-direction: column;
+}
+
+.event-function{
+    display: flex;
+    height: auto;
 }

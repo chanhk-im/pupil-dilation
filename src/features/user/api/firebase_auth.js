@@ -1,9 +1,13 @@
 import {
+    getAuth,
+    updatePassword,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
 } from 'firebase/auth';
 import { collection, addDoc, getDocs, where, query } from 'firebase/firestore';
 import { authService, fireStore } from '../../../Firebase';
+import { setDoc, doc, updateDoc } from 'firebase/firestore';
+import { hasHostPermission } from '../../../functions/checkAuthentication';
 
 const handleError = (code) => {
     switch (code) {
@@ -36,7 +40,7 @@ export async function createUser(newUserInfo) {
     )
         .then(async () => {
             // TODO: firebase에 user정보 추가
-            await addDoc(collection(fireStore, 'users'), newUserInfo)
+            await setDoc(doc(fireStore, 'users', newUserInfo.id), newUserInfo)
                 .then(() => {
                     res = true;
                 })
@@ -53,7 +57,7 @@ export async function createUser(newUserInfo) {
 }
 
 export async function loginUser(id, password) {
-    let res;
+    let res = {};
     const col = collection(fireStore, 'users');
     const q = query(col, where('id', '==', id));
     const loginUserInfo = await getDocs(q);
@@ -69,8 +73,15 @@ export async function loginUser(id, password) {
         loginUserInfo.docs[0].data().email,
         password,
     )
-        .then(() => {
-            res = loginUserInfo;
+        .then(async (userCredential) => {
+            const isHost = await hasHostPermission(
+                loginUserInfo.docs[0].data(),
+            );
+            res = {
+                user: loginUserInfo.docs[0].data(),
+                userCredential,
+                isHost,
+            };
         })
         .catch((error) => {
             alert(handleError(error.code));
@@ -78,3 +89,61 @@ export async function loginUser(id, password) {
 
     return res;
 }
+
+export async function changePassword(
+    id,
+    currentPassword,
+    realPassword,
+    newPassword,
+    checkPassword,
+) {
+    let res;
+    const col = collection(fireStore, 'users');
+    const q = query(col, where('id', '==', id));
+    const userInfo = await getDocs(q);
+    // if (userInfo.docs.length > 0) {
+    //     console.log(userInfo.docs[0].data());
+    // } else {
+    //     alert('존재하지 않는 id입니다.');
+    //     return false;
+    // }
+
+    const user = authService.currentUser;
+    const newData = {
+        id: id,
+        password: newPassword,
+    };
+    console.log(user);
+    if (currentPassword !== realPassword) {
+        alert('비밀번호가 일치하지 않습니다');
+        return false;
+    }
+    if (newPassword === '') {
+        alert('새 비밀번호를 입력해주세요');
+        return false;
+    }
+    if (newPassword !== checkPassword) {
+        alert('새 비밀번호와 비밀번호 확인 부분이 다릅니다');
+        return false;
+    }
+
+    updatePassword(user, newPassword)
+        .then(() => {
+            updateUsersDocument(newData);
+        })
+
+        .catch((error) => {
+            //An error ocurred
+            alert(error);
+        });
+    alert('수정 완료');
+    return true;
+    // alert(1);
+}
+
+export async function updateUsersDocument(updateData) {
+    await updateDoc(doc(fireStore, 'users', updateData.id), {
+        password: updateData.password,
+    });
+}
+
