@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getShowById from './getShowById';
-import './DetailContent.css';
+import getShowById from '../getShowById';
+import './DetailContentDesktop.css';
 import {
     getDateShortFormat,
     getDateScheduleFormat,
-} from '../../functions/dateFeature';
+} from '../../../functions/dateFeature';
 
-function DetailContent({ id }) {
+function DetailContentDesktop({ id }) {
     const show = getShowById(id);
 
     const schedule = show.schedule.map((value, i) => (
@@ -60,8 +60,8 @@ function DetailContent({ id }) {
         </div>
     );
 }
-DetailContent.propTypes = {
+DetailContentDesktop.propTypes = {
     id: PropTypes.node.isRequired,
 };
 
-export default DetailContent;
+export default DetailContentDesktop;

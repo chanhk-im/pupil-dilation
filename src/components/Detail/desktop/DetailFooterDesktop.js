@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getShowById from './getShowById';
-import './DetailFooter.css';
-import { getDateScheduleFormat } from '../../functions/dateFeature';
+import getShowById from '../getShowById';
+import './DetailFooterDesktop.css';
+import { getDateScheduleFormat } from '../../../functions/dateFeature';
 
-function DetailFooter({ id }) {
+function DetailFooterDesktop({ id }) {
     const show = getShowById(id);
 
     const schedule = show.schedule.map((value, i) => (
@@ -27,8 +27,8 @@ function DetailFooter({ id }) {
         </div>
     );
 }
-DetailFooter.propTypes = {
+DetailFooterDesktop.propTypes = {
     id: PropTypes.node.isRequired,
 };
 
-export default DetailFooter;
+export default DetailFooterDesktop;

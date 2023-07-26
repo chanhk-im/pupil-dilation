@@ -1,0 +1,54 @@
+.detail-container-mobile{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background-color: red;
+  margin-left: 22px;
+  margin-right: 22px;
+}
+
+.event-title-mobile{
+  display: flex;
+  justify-content:start;
+  width: 350px;
+  height: 51px;
+  flex-shrink: 0;
+  color: #000;
+  font-family: Noto Sans KR;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.event-image-mobile{
+  width: 169px;
+  height: 238px;
+  margin-right: 16px;
+  border-radius: 8px;
+}
+
+.first-detail-mobile{
+  display: flex;
+}
+
+.second-detail-mobile{
+  width: 169px;
+  height: 238px;
+}
+
+.second-detail-mobile p{
+  display: flex;
+  justify-content: start;
+}
+
+.content-title{
+  color: #000;
+  font-family: Noto Sans KR;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-top: 12px;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../Detail/DetailContent.css';
+import '../Detail/desktop/DetailContentDesktop.css';
 import {
     getDateShortFormat,
     getDateScheduleFormat,
