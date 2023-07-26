@@ -1,11 +1,12 @@
 import React from 'react';
 import './PaymentPage.css';
 
+/*eslint-disable*/
 function PaymentPage() {
     return (
         <div className="payment-container">
             <div className="pay-ticket">
-                <div className="ticket-picture">
+                <div className="ticket-white">
                     <h3 className="event-title">즉새두</h3>
                     <div className="ticket-content">
                         <img
@@ -54,23 +55,31 @@ function PaymentPage() {
                                 type="text"
                                 name="name"
                                 placeholder="예금주 입력"
-                            ></input>
+                            />
                             <input
                                 className="sending-bank"
                                 type="text"
                                 name="bank"
                                 placeholder="은행명 입력"
-                            ></input>
+                            />
                             <input
                                 className="sending-account"
                                 type="text"
                                 name="account"
                                 placeholder='"-" 포함 계좌번호 입력'
-                            ></input>
+                            />
                         </div>
                     </div>
                     <div className="sending-check">
-                        <input className="confirm-send" type="checkbox"></input>
+                        <input
+                            className="confirm-send"
+                            id="send-yes"
+                            type="checkbox"
+                        />
+                        <label for="send-yes" className="select-none">
+                            <i></i>
+                            Yes
+                        </label>
                     </div>
                 </div>
             </div>

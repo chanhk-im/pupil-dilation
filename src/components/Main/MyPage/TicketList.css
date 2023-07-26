@@ -1,37 +1,37 @@
 .user-mypage-container {
-    margin-left: calc(100vw*142/1440);
+    margin-left: calc(100vw * 144 / 1440);
 }
 
 .user-mypage-text {
     display: flex;
-        width: 212px;
-        height: 57px;
-        flex-shrink: 0;
-        color: #000;
-            font-size: 40px;
-            font-family: Noto Sans KR;
-            font-style: normal;
-            font-weight: 500;
-            line-height: normal;
-            margin-bottom: calc(100vw*29/1440);
+    width: calc(100vw * 212 / 1440);
+    height: calc(100vw * 52 / 1440);
+    flex-shrink: 0;
+    color: #000;
+    font-size: calc(100vw * 40 / 1440);
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: calc(100vw * 29 / 1440);
 }
 
 .ticket-list {
-text-align: start;
+    text-align: start;
 }
 
 .ticket-reservation {
     display: flex;
-        width: calc(100vw * 212 / 1440);
-        height: calc(100vw * 57 / 820);
-        flex-direction: column;
-        flex-shrink: 0;
-        color: #000;
-            font-size: calc(100vw * 40 / 1440);
-            font-family: Noto Sans KR;
-            font-style: normal;
-            font-weight: 500;
-            line-height: normal;
+    width: calc(100vw * 212 / 1440);
+    height: calc(100vw * 52 / 1440);
+    flex-direction: column;
+    flex-shrink: 0;
+    color: #000;
+    font-size: calc(100vw * 36 / 1440);
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
 }
 .opened-ticket-high {
     padding-top: 10px;
@@ -41,76 +41,100 @@ text-align: start;
 }
 .opened-ticket {
     border-radius: 17px;
-        border: 1px solid #000;
-        width: calc(100vw*1156/1440);
+    border: 1px solid #000;
+    width: calc(100vw * 1156 / 1440);
     text-align: start;
 }
 
 .opened-ticket-high {
-display: flex;
-flex-direction: row;
-
+    display: flex;
+    flex-direction: row;
 }
 
-.arrow-down {
-    margin: 8px;
+.arrow {
+    border: none;
+    margin: 10px;
     height: 25px;
 }
 
 .ticket-show-title {
     display: flex;
-    margin-left: calc(100vw*79/1440);
-        width: calc(100vw * 310 / 1440);
-        height: calc(100vw * 57 / 820);
-        flex-direction: column;
-        flex-shrink: 0;
-        color: #000;
-            font-size: calc(100vw * 32 / 1440);
-            font-family: Noto Sans KR;
-            font-style: normal;
-            font-weight: 500;
-            line-height: normal;
+    margin-left: calc(100vw * 118 / 1440);
+    margin-top: calc(100vw * 7 / 1440);
+    margin-bottom: calc(100vw * 1 / 1440);
+    width: calc(100vw * 212 / 1440);
+    height: calc(100vw * 57 / 1440);
+    flex-direction: column;
+    flex-shrink: 0;
+    color: #000;
+    font-size: calc(100vw * 32 / 1440);
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }
 
 .ticket-show-time {
     display: flex;
-        width: calc(100vw * 270 / 1440);
-        height: calc(100vw * 48 / 820);
-        flex-direction: column;
-        flex-shrink: 0;
-        color: #000;
-            text-align: center;
-            font-size: calc(100vw * 24 / 1440);
-            font-family: Noto Sans KR;
-            font-style: normal;
-            font-weight: 300;
-            line-height: normal;
+    margin-left: calc(100vw * 1 / 1440);
+    margin-top: calc(100vw * 15 / 1440);
+    width: calc(100vw * 270 / 1440);
+    height: calc(100vw * 48 / 1440);
+    flex-direction: column;
+    flex-shrink: 0;
+    color: #000;
+    text-align: center;
+    font-size: calc(100vw * 24 / 1440);
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
 }
 
 .ticket-show-info {
-    color: var(--theme-navy, #2B3252);
-        font-size: calc(100vw * 20 / 1440);
-        font-family: Noto Sans KR;
-        font-style: normal;
-        font-weight: 300;
-        line-height: normal;
-        margin-left: 235px;
-}
-
-.ticket-hidden {
     display: flex;
-    /* gap: */
+    color: var(--theme-navy, #2b3252);
+    font-size: calc(100vw * 20 / 1440);
+    width: calc(100vw * 74 / 1440);
+    height: calc(100vw * 29 / 1440);
+    flex-direction: column;
+    flex-shrink: 0;
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    margin-left: calc(100vw * 410 / 1440);
+    margin-top: calc(100vw * 17 / 1440);
+    margin-bottom: calc(100vw * 17 / 1440);
+    margin-right: calc(100vw * 21 / 1440);
 }
+nav {
+    margin-top: calc(100vw * -364 / 1440);
+    height: calc(100vw * 364 / 1440);
+    display: flex;
+    align-items: center;
 
+    display: none;
+
+    &.ticket-hidden {
+        display: flex;
+        margin-top: 0;
+    }
+    transition: 0.5s;
+}
 .ticket-picture {
-    background-image: url("../../../../public/images/ticket.png");
-    background-size : calc(100vw * 430 / 1440);
+    background-image: url('../../../../public/images/ticket.png');
+    background-size: calc(100vw * 430 / 1440);
     background-repeat: no-repeat;
-    width: calc(100vw * 500 / 1440);
-    height: calc(100vw * 300 / 1440);
+    width: calc(100vw * 450 / 1440);
+    height: calc(100vw * 270 / 1440);
     display: flex;
     overflow: hidden;
     flex-shrink: 0;
+    margin-left: calc(100vw * 52 / 1440);
+    margin-top: calc(100vw * 47 / 1440);
+    margin-bottom: calc(100vw * 60 / 1440);
+    margin-right: calc(100vw * 107 / 1440);
 }
 
 .dongari1 {
@@ -124,135 +148,73 @@ flex-direction: row;
 
 .seat-data {
     color: #000;
-        text-align: center;
-        font-size: calc(100vw * 48 / 1440);
-        font-family: Playfair Display;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        display: flex;
-        margin-left: calc(100vw * 37 / 1440);
-        margin-top: calc(100vw * 102 / 1440);
+    text-align: center;
+    font-size: calc(100vw * 48 / 1440);
+    font-family: Playfair Display;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: flex;
+    margin-left: calc(100vw * 37 / 1440);
+    margin-top: calc(100vw * 102 / 1440);
 }
 
 .ticket-hidden-middle {
-    width:450px;
+    width: calc(100vw * 270 / 1440);
+    padding-top: 36px;
 }
 
-.location {
-margin-bottom: 20px;
+.location,
+.seat-detail,
+.enter-time {
+    margin-bottom: 20px;
 }
+
+.location-title,
+.seat-detail-title,
+.enter-time-title {
+    display: flex;
+    width: calc(100vw * 270 / 1440);
+    height: calc(100vw * 48 / 1440);
+    flex-direction: column;
+    flex-shrink: 0;
+    color: #000;
+    font-size: calc(100vw * 32 / 1440);
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.location-content,
+.seat-detail-content,
+.enter-time-content {
+    display: flex;
+    width: calc(100vw * 270 / 1440);
+    flex-direction: column;
+    flex-shrink: 0;
+    color: #000;
+    font-size: calc(100vw * 24 / 1440);
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: calc(100vw * -1.08 / 1440);
+}
+
 .ticket-hidden-right {
     display: flex;
+    width: calc(100vw * 270 / 1440);
+    height: calc(100vw * 48 / 1440);
     flex-direction: row;
-    margin-top:140px;
-}
-
-.location-title {
-display: flex;
-    width: calc(100vw * 270 / 1440);
-    height: calc(100vw * 48 / 1440);
-    flex-direction: column;
+    margin-top: calc(100vw * 148 / 1440);
+    margin-bottom: calc(100vw * 148 / 1440);
+    margin-left: calc(100vw * 84 / 1440);
     flex-shrink: 0;
-    color: #000;
-        font-size: calc(100vw * 32 / 1440);
-        font-family: Noto Sans KR;
-        font-style: normal;
-        font-weight: 500;
-        line-height: normal;
-}
-
-.location-content {
-display: flex;
-    width: calc(100vw * 448 / 1440);
-    flex-direction: column;
-    flex-shrink: 0;
-    color: #000;
-        font-size: calc(100vw * 24 / 1440);
-        font-family: Noto Sans KR;
-        font-style: normal;
-        font-weight: 300;
-        line-height: normal;
-        letter-spacing: calc(100vw * -1.08 / 1440);
-}
-
-.seat-detail {
-
-}
-
-.seat-detail-title {
-display: flex;
-    width: calc(100vw * 270 / 1440);
-    height: calc(100vw * 48 / 1440);
-    flex-direction: column;
-    flex-shrink: 0;
-    color: #000;
-    font-size: calc(100vw * 32 / 1440);
+    color: #d34444;
+    font-size: calc(100vw * 24 / 1440);
     font-family: Noto Sans KR;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-}
-
-.seat-detail-content {
-display: flex;
-    width: calc(100vw * 448 / 1440);
-    margin-top: calc(100vw * 8 / 1440);
-    flex-direction: column;
-    flex-shrink: 0;
-    color: #000;
-    font-size: calc(100vw * 24 / 1440);
-    font-family: Noto Sans KR;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
-    letter-spacing: calc(100vw * -1.08 / 1440);
-    margin-top: 0px;
-    margin-bottom: calc(100vw * 15 / 1440);
-}
-
-.enter-time {
-
-}
-
-.enter-time-title {
-display: flex;
-    width: calc(100vw * 270 / 1440);
-    height: calc(100vh * 48 / 820);
-    flex-direction: column;
-    flex-shrink: 0;
-    color: #000;
-    font-size: calc(100vw * 32 / 1440);
-    font-family: Noto Sans KR;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-}
-
-.enter-time-content {
-display: flex;
-    width: calc(100vw * 448 / 1440);
-    flex-direction: column;
-    flex-shrink: 0;
-    color: #000;
-    font-size: calc(100vw * 24 / 1440);
-    font-family: Noto Sans KR;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
-    letter-spacing: calc(100vw * -1.08 / 1440);
-}
-
-.ticket-hidden-right {
-display: flex;
-    width: calc(100vw * 270 / 1440);
-    height: calc(100vh * 48 / 820);
-    flex-direction: column;
-    flex-shrink: 0;
-    color: #D34444;
-        font-size: calc(100vw * 24 / 1440);
-        font-family: Noto Sans KR;
-        font-style: normal;
-        font-weight: 500;
-        line-height: normal;
 }
