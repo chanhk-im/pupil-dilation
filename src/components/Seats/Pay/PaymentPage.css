@@ -40,7 +40,7 @@
     margin: 0;
     padding-top: calc(100vw * 40 / 1440);
 }
-.ticket-picture {
+.ticket-white {
     background-image: url('../../../../public/images/ticketWhite.png');
     background-size: calc(100vw * 470 / 1440);
     background-repeat: no-repeat;
@@ -85,18 +85,6 @@
     margin: 5px;
     letter-spacing: -0.72px;
     text-align: left;
-    /* display: flex;
-    text-align: center;
-    width: calc(100vw * 100 / 1440);
-    height: calc(100vw * 48 / 1440);
-    flex-direction: column;
-    flex-shrink: 0;
-    color: #000;
-    font-size: calc(100vw * 27 / 1440);
-    font-family: Noto Sans KR;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal; */
 }
 
 .dateLine-content,
@@ -226,4 +214,6 @@
 .sending-account:focus::placeholder {
     color: transparent;
     font-weight: 500px;
+}
+.confirm-send {
 }
