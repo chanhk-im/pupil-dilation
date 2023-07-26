@@ -3,6 +3,9 @@ import MainPageRoute from '../routes/MainPageRoute';
 import Header from '../components/Header';
 import useMainPageLoading from '../hooks/useMainPageLoading';
 import Loading from '../components/Loading';
+import Mobile from '../components/MediaQuery/Mobile';
+import Desktop from '../components/MediaQuery/Desktop';
+import MobileHeader from '../components/MobileHeader';
 
 function MainPageContainer() {
     const [isLoaded, setIsLoaded, onRefresh] = useMainPageLoading();
@@ -10,10 +13,15 @@ function MainPageContainer() {
     if (isLoaded)
         return (
             <div>
-                <Header />
-                <MainPageRoute />
+              <Desktop>
+                  <Header />
+              </Desktop>
+              <Mobile>
+                  <MobileHeader />
+              </Mobile>
+              <MainPageRoute />
             </div>
-        );
+          );
     else return <Loading />;
 }
 
