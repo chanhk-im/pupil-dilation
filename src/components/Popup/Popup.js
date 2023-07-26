@@ -45,10 +45,7 @@ function Popup({ open, setPopup, message, title, callback }) {
     return (
         <>
             <Modal className="myModal" show={open} onHide={handleClose}>
-                {/* <Modal.Header closeButton>
-                        <Modal.Title>{title}</Modal.Title>
-                    </Modal.Header> */}
-                <Modal.Body>{message}</Modal.Body>
+                <Modal.Body className="myModal-message">{message}</Modal.Body>
                 <Modal.Footer>
                     <Button
                         className="popup-button"
