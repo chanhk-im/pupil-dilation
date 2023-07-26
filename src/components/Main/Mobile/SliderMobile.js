@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Navigation, Pagination, A11y, Zoom, Autoplay } from 'swiper';
-import '../desktop/SliderDesktop.css';
+import './SliderMobile.css';
 import { fStorage } from '../../../Firebase';
 import { markAsDownloadImage } from '../../../features/show/slices/showSlice';
 import { getDateFormat } from '../../../functions/dateFeature';
@@ -38,7 +38,7 @@ function SliderMobile() {
         <Swiper
             modules={[Navigation, Pagination, A11y, Zoom, Autoplay]}
             spaceBetween={0.1}
-            slidesPerView={1} // 몇개를 한 슬라이드에 담는지
+            slidesPerView={2} // 몇개를 한 슬라이드에 담는지
             navigation
             //     nextEl: '.swiper-button-next',
             //     prevEl: '.swiper-button-prev',
@@ -58,34 +58,34 @@ function SliderMobile() {
             onSwiper={(swiper) => console.log(swiper)}
         >
             {showList.map((slide) => (
-                <SwiperSlide className="eventBoard" key={slide.id}>
+                <SwiperSlide className="eventBoard-mobile" key={slide.id}>
                     <Link
                         to={`/detail/${slide.id}`}
                         style={{ textDecoration: 'none' }}
                     >
-                        <div className="poster">
-                            <h2 className="dday">TODAY</h2>
+                        <div className="poster-mobile">
+                            <h2 className="dday-mobile">TODAY</h2>
                             <img
-                                className="ddayImg"
+                                className="ddayImg-mobile"
                                 src="images/dday2.svg"
                                 alt="dday"
                             />
                             {slide.imageDownloaded ? (
                                 <img
-                                    className="eventImage"
+                                    className="eventImage-mobile"
                                     src={slide.image}
                                     alt={slide.title}
                                 />
                             ) : (
                                 <img
-                                    className="eventImage"
+                                    className="eventImage-mobile"
                                     src="images/Dongari3.jpg"
                                     alt={slide.title}
                                 />
                             )}
                         </div>
-                        <p className="eventName">{slide.title}</p>
-                        <p className="eventDate">
+                        <p className="eventName-mobile">{slide.title}</p>
+                        <p className="eventDate-mobile">
                             {getDateFormat(slide.startDate)}
                         </p>
                     </Link>

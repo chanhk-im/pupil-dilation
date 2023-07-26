@@ -37,7 +37,7 @@ function MainPageMobile() {
 
     return isLoaded ? (
         <div>
-            <h3>📽️네, 모바일 맞아요 맞다구욧🎞</h3>
+            <p className="mobile-main-header">Tickets Open</p>
             <div>
                 <div>
                     <SliderMobile />
