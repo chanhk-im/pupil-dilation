@@ -33,11 +33,13 @@ function MobileHeader() {
                 </div>
             </div>
             <div className="second-header-button">
-                <img
-                    src="/img/header_img.png"
-                    alt="동공확장"
-                    className="mobile-header-logo"
-                />
+                <Link to="/">
+                    <img
+                        src="/img/header_img.png"
+                        alt="동공확장"
+                        className="mobile-header-logo"
+                    />
+                </Link>
                 <img
                     src="/images/search.png"
                     alt="검색"
