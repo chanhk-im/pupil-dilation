@@ -63,7 +63,7 @@ function SeatTicketingFrame({ id, selected, completedSeats, user }) {
                     selected.forEach((e) => {
                         if (
                             res.findIndex((resE) => {
-                                return e.index.toString() === resE.id;
+                                return e.index === resE.data().index;
                             }) > -1
                         ) {
                             flag = true;
