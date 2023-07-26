@@ -92,6 +92,7 @@
 }
 
 .ticket-show-info {
+    border: none;
     display: flex;
     color: var(--theme-navy, #2b3252);
     font-size: calc(100vw * 20 / 1440);
@@ -107,6 +108,12 @@
     margin-top: calc(100vw * 17 / 1440);
     margin-bottom: calc(100vw * 17 / 1440);
     margin-right: calc(100vw * 21 / 1440);
+    padding: 0;
+}
+.ticket-show-info:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--theme-navy, #2b3252);
+    text-decoration-thickness: 0.9px;
 }
 nav {
     margin-top: calc(100vw * -364 / 1440);
@@ -119,6 +126,7 @@ nav {
     &.ticket-hidden {
         display: flex;
         margin-top: 0;
+        margin-bottom: 11px;
     }
     transition: 0.5s;
 }
