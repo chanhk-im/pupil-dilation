@@ -1,0 +1,58 @@
+.first-header{
+  display: flex;
+  width: 393px;
+  height: 40px;
+  background: var(--theme-red, #EF5455);
+  padding: 8px 30px 9px 221px;
+}
+
+.first-header-button{
+  display: flex;
+}
+
+.first-header-button button{
+  border: none;
+  background-color: transparent;
+  width: 70px;
+  height: 23px;
+  color: #FFFFFF;
+  font-family: Noto Sans KR;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+/*===============================================*/
+
+.second-header-button{
+  display: flex;
+  width: 393px;
+  height: 70px;
+  background: #FFF;
+  box-shadow: 0px 3px 6px -1px rgba(0, 0, 0, 0.25);
+}
+
+.mobile-header-logo{
+  width: 70px;
+  height: 20px;
+  margin-top: 24.5px;
+  margin-right: 203px;
+  margin-left: 20px;
+  margin-bottom: 26.5px;
+}
+
+.mobile-header-search{
+  width: 20px;
+  height: 20px;
+  margin-top: 24px;
+  margin-right: 34px;
+  margin-bottom: 26px;
+}
+
+.mobile-mypage{
+  width: 20px;
+  height: 20px;
+  margin-top: 24px;
+  margin-right: 50px;
+}
