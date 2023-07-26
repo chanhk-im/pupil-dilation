@@ -34,7 +34,7 @@ export const userSlice = createSlice({
             state.isLogged = false;
             state.isHost = false;
         },
-        changePassword: (state, action) => {
+        changePasswordUser: (state, action) => {
             state.user.password = action.payload;
         },
         setIsHost: (state, action) => {

@@ -7,6 +7,9 @@ import {
     setDoc,
     deleteDoc,
     updateDoc,
+    query,
+    where,
+    and,
 } from 'firebase/firestore';
 import { fireStore } from '../../../Firebase';
 
@@ -22,31 +25,26 @@ export async function getShowDocumentById(id) {
 }
 
 export async function getShowSeatsByIdAndShowNumber(id, showNum) {
-    const reference = collection(
-        fireStore,
-        'shows',
-        id,
-        'showNumber',
-        showNum.toString(),
-        'seats',
+    const reference = collection(fireStore, 'seats');
+    const q = query(
+        reference,
+        and(where('showId', '==', id), where('showNum', '==', showNum)),
     );
-    const querySnapshot = await getDocs(reference);
+    const querySnapshot = await getDocs(q);
     return querySnapshot.docs;
 }
 
 export async function createShowSeatsToProgress(id, showNum, seats, userId) {
     seats.forEach(async (e) => {
-        const reference = doc(
+        const reference = collection(
             fireStore,
-            'shows',
-            id,
-            'showNumber',
-            showNum.toString(),
             'seats',
-            e.index.toString(),
         );
-        await setDoc(reference, {
+        await addDoc(reference, {
+            index: e.index,
             name: e.name,
+            showId: id,
+            showNum,
             userId,
             state: 3,
             time: new Date(Date.now()),
