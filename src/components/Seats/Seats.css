@@ -1,6 +1,3 @@
-.container {
-    
-}
 .seats-container {
     height: 400px;
     display: grid;
@@ -27,7 +24,7 @@
     font-size: 20px;
     font-family: Roboto;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 600;
     line-height: normal;
 }
 
@@ -40,16 +37,28 @@
     font-size: 20px;
     font-family: Roboto;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 600;
     line-height: normal;
 }
 
 .seat {
-    width: 28px;
-    height: 24px;
-    padding-top: 5.5px;
-    padding-bottom: 5.5px;
-    padding-left: 5px;
-    padding-right: 5px;
-    background: #d9d9d9;
+    width: 36px;
+    height: 36px;
+}
+
+.seat-available {
+    background-color: #727272;
+}
+
+.seat-unavailable {
+    background-color: #d9d9d9;
+}
+
+.seat-selected {
+    background-color: #fad744;
+}
+
+.seat-progress {
+    border: 1px solid #000;
+    background-color: #f2f2f2;
 }

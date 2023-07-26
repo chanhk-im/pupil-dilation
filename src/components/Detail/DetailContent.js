@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getShowById from './getShowById';
+import useShowById from '../../hooks/useShowById';
 import './DetailContent.css';
 import {
     getDateShortFormat,
@@ -8,11 +8,11 @@ import {
 } from '../../functions/dateFeature';
 
 function DetailContent({ id }) {
-    const show = getShowById(id);
+    const show = useShowById(id);
 
     const schedule = show.schedule.map((value, i) => (
         <div>
-            <strong>{i + 1}공</strong> {getDateScheduleFormat(value)}
+            <strong key={i}>{i + 1}공</strong> {getDateScheduleFormat(value)}
         </div>
     ));
 

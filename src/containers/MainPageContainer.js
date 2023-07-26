@@ -1,14 +1,20 @@
 import React from 'react';
 import MainPageRoute from '../routes/MainPageRoute';
 import Header from '../components/Header';
+import useMainPageLoading from '../hooks/useMainPageLoading';
+import Loading from '../components/Loading';
 
 function MainPageContainer() {
-    return (
-        <div>
-            <Header />
-            <MainPageRoute />
-        </div>
-    );
+    const [isLoaded, setIsLoaded, onRefresh] = useMainPageLoading();
+
+    if (isLoaded)
+        return (
+            <div>
+                <Header />
+                <MainPageRoute />
+            </div>
+        );
+    else return <Loading />;
 }
 
 export default MainPageContainer;

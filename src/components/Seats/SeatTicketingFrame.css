@@ -113,6 +113,14 @@
     font-weight: 500;
 }
 
+.seat-final-check-content-selected-name {
+    width: 120px;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    flex-wrap: wrap;
+}
+
 .seat-ticketing-submit {
     width: 192px;
     height: 67px;

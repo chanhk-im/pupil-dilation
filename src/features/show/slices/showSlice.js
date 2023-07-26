@@ -4,6 +4,7 @@ export const showSlice = createSlice({
     name: 'show',
     initialState: {
         showList: [],
+        showLoaded: false,
     },
     reducers: {
         addShow: (state, action) => {
@@ -12,6 +13,7 @@ export const showSlice = createSlice({
         },
         fetchShowList: (state, action) => {
             state.showList = action.payload;
+            state.showLoaded = true;
         },
         markAsDownloadImage: (state, action) => {
             state.showList[action.payload.index].imageDownloaded = true;

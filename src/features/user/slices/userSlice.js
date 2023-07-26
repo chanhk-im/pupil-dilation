@@ -34,12 +34,15 @@ export const userSlice = createSlice({
             state.isLogged = false;
             state.isHost = false;
         },
+        changePassword: (state, action) => {
+            state.user.password = action.payload;
+        },
         setIsHost: (state, action) => {
             state.isHost = action.payload;
         },
     },
 });
 
-export const { stageUser, restoreUser } = userSlice.actions;
+export const { stageUser, restoreUser, changePassword, setIsHost } = userSlice.actions;
 
 export default userSlice.reducer;
