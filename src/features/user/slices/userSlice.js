@@ -43,6 +43,6 @@ export const userSlice = createSlice({
     },
 });
 
-export const { stageUser, restoreUser, changePassword, setIsHost } = userSlice.actions;
+export const { stageUser, restoreUser, changePasswordUser, setIsHost } = userSlice.actions;
 
 export default userSlice.reducer;
