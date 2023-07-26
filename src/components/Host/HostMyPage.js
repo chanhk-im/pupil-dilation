@@ -4,6 +4,7 @@ import { changePassword } from '../../features/user/api/firebase_auth';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { changePasswordUser } from '../../features/user/slices/userSlice';
+import Popup from '../Popup/Popup';
 import './HostMyPage.css';
 
 function HostMyPage() {
@@ -11,6 +12,12 @@ function HostMyPage() {
         currentPassword: '',
         newPassword: '',
         checkPassword: '',
+    });
+
+    const [popup, setPopup] = useState({
+        open: false,
+        message: '',
+        callback: false,
     });
 
     const navigate = useNavigate();
@@ -36,7 +43,26 @@ function HostMyPage() {
             hostInfo.newPassword,
             hostInfo.checkPassword,
         ).then((e) => {
-            if (e == true) {
+            if (e == 1)
+                setPopup({
+                    open: true,
+                    message: '비밀번호가 일치하지 않습니다',
+                });
+            else if (e == 2)
+                setPopup({
+                    open: true,
+                    message: '새 비밀번호를 입력해주세요',
+                });
+            else if (e == 3)
+                setPopup({
+                    open: true,
+                    message: '새 비밀번호와 비밀번호 확인 부분이 다릅니다',
+                });
+            else {
+                setPopup({
+                    open: true,
+                    message: '수정 완료!',
+                });
                 dispatch(changePasswordUser(hostInfo.newPassword));
                 navigate('/host');
             }
@@ -45,6 +71,13 @@ function HostMyPage() {
 
     return (
         <div className="host-mypage-container">
+            <Popup
+                open={popup.open}
+                setPopup={setPopup}
+                message={popup.message}
+                title={popup.title}
+                callback={popup.callback}
+            />
             <div className="host-mypage-text">마이페이지</div>
             <div className="host-mypage-data">
                 <div className="host-mypage-account-data">계정 정보</div>

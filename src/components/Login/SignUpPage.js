@@ -9,7 +9,6 @@ function SignUpPage() {
 
     const [popup, setPopup] = useState({
         open: false,
-        title: '',
         message: '',
         callback: false,
     });
@@ -36,15 +35,17 @@ function SignUpPage() {
             await createUser(newUserInfo).then((res) => {
                 // TODO: navigate main
                 if (res) {
-                    alert('회원가입 완료!');
+                    setPopup({
+                        open: true,
+                        message: '회원가입 완료!',
+                    });
                     navigate('/login');
                 }
             });
         } else {
             setPopup({
                 open: true,
-                title: 'Error',
-                message: 'Please make sure all fields are filled in correctly.',
+                message: '회원가입 실패..',
             });
         }
     };
