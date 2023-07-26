@@ -3,6 +3,9 @@ import './ErrorPage.css';
 import { Link } from 'react-router-dom';
 
 function ErrorPage() {
+    function goBack() {
+        window.history.back();
+    }
     return (
         <div className="page-board">
             <div className="error-image">
@@ -19,8 +22,7 @@ function ErrorPage() {
                 <Link to="/">
                     <button>메인으로 &gt;</button>
                 </Link>
-
-                <button>이전 페이지 &gt;</button>
+                <button onClick={goBack}>이전 페이지 &gt;</button>
             </div>
         </div>
     );
