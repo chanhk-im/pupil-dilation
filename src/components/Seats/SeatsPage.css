@@ -1,0 +1,43 @@
+.seats-page {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+}
+
+.seats-left {
+    margin-right: calc(100vw * 152 / 1440);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.seats-select-text {
+    margin-bottom: 10px;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.seats-place-name {
+    color: #000;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.seats-stage {
+    width: 278px;
+    height: 44px;
+    background: #d9d9d9;
+    color: #000;
+    text-align: center;
+    font-size: 32px;
+    font-family: 'Playfair Display';
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
