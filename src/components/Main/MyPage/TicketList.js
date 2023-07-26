@@ -7,7 +7,7 @@ function TicketList() {
         <div className="user-mypage-container">
             <div className="user-mypage-text">My Page</div>
             <div className="ticket-list">
-                <div className="ticket-reservation">최근 예매내역</div>
+                <div className="ticket-reservation">예매내역</div>
                 <div className="opened-ticket">
                     <div className="opened-ticket-high">
                         <button
@@ -28,11 +28,11 @@ function TicketList() {
                                 />
                             )}
                         </button>
-                        <div className="ticket-show-title">공연 제목</div>
+                        <div className="ticket-show-title">즉새두</div>
                         <div className="ticket-show-time">
-                            2000.00.00(토) 22:00
+                            2023.09.27(토) 22:00
                         </div>
-                        <div className="ticket-show-info">공연정보</div>
+                        <button className="ticket-show-info">공연정보</button>
                     </div>
                     <nav className={ticketDown ? 'ticket-hidden' : ''}>
                         {/* <div className="ticket-hidden"> */}
@@ -47,7 +47,9 @@ function TicketList() {
                         <div className="ticket-hidden-middle">
                             <div className="location">
                                 <div className="location-title">장소</div>
-                                <div className="location-content">장소이름</div>
+                                <div className="location-content">
+                                    학관 101호
+                                </div>
                             </div>
                             <div className="seat-detail">
                                 <div className="seat-detail-title">
@@ -70,6 +72,7 @@ function TicketList() {
                         {/* </div> */}
                     </nav>
                 </div>
+                <div></div>
             </div>
         </div>
     );
