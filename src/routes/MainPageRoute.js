@@ -9,7 +9,6 @@ import AdminPage from '../components/Admin/AdminPage';
 import PaymentPage from '../components/Seats/Pay/PaymentPage';
 import ErrorPage from '../components/Error/ErrorPage';
 
-
 function MainPageRoute() {
     return (
         <div>
