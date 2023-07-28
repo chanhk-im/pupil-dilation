@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getShowById from '../getShowById';
+import useShowById from '../../../hooks/useShowById';
 import './DetailFooterMobile.css';
 import { getDateScheduleFormat } from '../../../functions/dateFeature';
 
 function DetailFooterMobile({ id }) {
-    const show = getShowById(id);
+    const show = useShowById(id);
 
     const schedule = show.schedule.map((value, i) => (
         <option value={i}>
