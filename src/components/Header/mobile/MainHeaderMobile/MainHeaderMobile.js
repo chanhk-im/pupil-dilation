@@ -1,10 +1,10 @@
 import React from 'react';
-import './MobileHeader.css';
+import './MainHeaderMobile.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { restoreUser } from '../features/user/slices/userSlice';
+import { restoreUser } from '../../../../features/user/slices/userSlice';
 
-function MobileHeader() {
+function MainHeaderMobile() {
     const isLogged = useSelector((state) => state.user.isLogged);
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -55,4 +55,4 @@ function MobileHeader() {
     );
 }
 
-export default MobileHeader;
+export default MainHeaderMobile;

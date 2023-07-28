@@ -1,11 +1,11 @@
 import React from 'react';
 import MainPageRoute from '../routes/MainPageRoute';
-import Header from '../components/Header';
+import MainHeaderDesktop from '../components/Header/desktop/MainHeaderDesktop/MainHeaderDesktop';
 import useMainPageLoading from '../hooks/useMainPageLoading';
 import Loading from '../components/Loading';
 import Mobile from '../components/MediaQuery/Mobile';
 import Desktop from '../components/MediaQuery/Desktop';
-import MobileHeader from '../components/MobileHeader';
+import MainHeaderMobile from '../components/Header/mobile/MainHeaderMobile/MainHeaderMobile';
 
 function MainPageContainer() {
     const [isLoaded, setIsLoaded, onRefresh] = useMainPageLoading();
@@ -13,15 +13,15 @@ function MainPageContainer() {
     if (isLoaded)
         return (
             <div>
-              <Desktop>
-                  <Header />
-              </Desktop>
-              <Mobile>
-                  <MobileHeader />
-              </Mobile>
-              <MainPageRoute />
+                <Desktop>
+                    <MainHeaderDesktop />
+                </Desktop>
+                <Mobile>
+                    <MainHeaderMobile />
+                </Mobile>
+                <MainPageRoute />
             </div>
-          );
+        );
     else return <Loading />;
 }
 

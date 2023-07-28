@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import './Header.css';
-import { restoreUser } from '../features/user/slices/userSlice';
+import './MainHeaderDesktop.css';
+import { restoreUser } from '../../../../features/user/slices/userSlice';
 
-function Header() {
+function MainHeaderDesktop() {
     const isLogged = useSelector((state) => state.user.isLogged);
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -70,4 +70,4 @@ function Header() {
     );
 }
 
-export default Header;
+export default MainHeaderDesktop;
