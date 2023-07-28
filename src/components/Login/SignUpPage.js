@@ -38,8 +38,9 @@ function SignUpPage() {
                     setPopup({
                         open: true,
                         message: '회원가입 완료!',
+                        callback: () => navigate('/login'),
                     });
-                    navigate('/login');
+                    // navigate('/login');
                 }
             });
         } else {
@@ -56,7 +57,6 @@ function SignUpPage() {
                 open={popup.open}
                 setPopup={setPopup}
                 message={popup.message}
-                title={popup.title}
                 callback={popup.callback}
             />
             <SignUpForm

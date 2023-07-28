@@ -1,16 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import './css/TicketerListPage.css';
+import Popup from '../Popup/Popup';
 
 /*eslint-disable*/
 function TicketerListPage() {
+    const [popup, setPopup] = useState({
+        open: false,
+        message: '',
+        callback: false,
+    });
+
     const handleCopyClipBoard = async (text) => {
         try {
             await navigator.clipboard.writeText(text);
-            alert('copied!!');
+            setPopup({
+                open: true,
+                message: 'copied!!',
+            });
         } catch (e) {
-            alert('복사 실패...');
+            setPopup({
+                open: true,
+                message: '복사 실패...',
+            });
         }
     };
+
     const [totalRowCnt, setTotalRowCnt] = useState(0);
     const [toggleState, setToggleState] = useState(false);
 
@@ -26,6 +40,13 @@ function TicketerListPage() {
 
     return (
         <>
+            <Popup
+                open={popup.open}
+                setPopup={setPopup}
+                message={popup.message}
+                title={popup.title}
+                callback={popup.callback}
+            />
             <div className="ticketer-header">
                 <h1 className="title-main">예매자 목록</h1>
                 <h1 className="title-sub">총 {totalRowCnt - 1}명</h1>

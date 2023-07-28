@@ -15,7 +15,7 @@ function SignUpForm({ onChangeAccount, onButtonClick }) {
                         <button
                             className="host-signup-button"
                             type="button"
-                            onClick={() => navigate('/login')}
+                            onClick={() => navigate('/login/signup-host')}
                         >
                             <div className="host-signup-text">주최자 가입</div>
                         </button>
