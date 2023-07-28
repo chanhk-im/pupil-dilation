@@ -15,19 +15,15 @@ function SliderDesktop() {
         slidesPerView: 1,
         spaceBetween: 0.1,
         breakpoints: {
-            993: {
-                slidesPerView: 1,
-                spaceBetween: 0.1,
-            },
-            1170: {
+            893: {
                 slidesPerView: 2,
                 spaceBetween: 0.1,
             },
-            1400: {
+            1330: {
                 slidesPerView: 3,
                 spaceBetween: 0.1,
             },
-            1770: {
+            1650: {
                 slidesPerView: 4,
                 spaceBetween: 0.1,
             },
