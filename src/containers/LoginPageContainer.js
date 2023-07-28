@@ -2,16 +2,16 @@ import React from 'react';
 import Desktop from '../components/MediaQuery/Desktop';
 import Mobile from '../components/MediaQuery/Mobile';
 import LoginPageRoute from '../routes/LoginPageRoute';
-import MainHeaderDesktop from '../components/Header/desktop/MainHeaderDesktop/MainHeaderDesktop';
+import LoginHeaderDesktop from '../components/Header/desktop/LoginHeaderDesktop/LoginHeaderDesktop';
 
 function LoginPageContainer() {
     return (
         <div>
             <Desktop>
-                <MainHeaderDesktop />
+                <LoginHeaderDesktop />
             </Desktop>
             <Mobile>
-                <MainHeaderDesktop />
+                <LoginHeaderDesktop />
             </Mobile>
             <LoginPageRoute />
         </div>
