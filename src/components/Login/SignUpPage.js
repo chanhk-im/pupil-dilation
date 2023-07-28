@@ -33,14 +33,12 @@ function SignUpPage() {
         const values = Object.values(newUserInfo);
         if (!values.includes('') && !values.includes(undefined)) {
             await createUser(newUserInfo).then((res) => {
-                // TODO: navigate main
                 if (res) {
                     setPopup({
                         open: true,
                         message: '회원가입 완료!',
                         callback: () => navigate('/login'),
                     });
-                    // navigate('/login');
                 }
             });
         } else {

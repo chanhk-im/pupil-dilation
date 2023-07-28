@@ -7,14 +7,18 @@ import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { updateShowsDocument } from '../../features/show/api/showsDocumentApi';
 
 import { fStorage } from '../../Firebase';
-
+import Popup from '../Popup/Popup';
 
 function HostUpdate() {
     const navigate = useNavigate();
     function getIndex(showList, id) {
         return showList.findIndex((element) => element.id === id);
     }
-
+    const [popup, setPopup] = useState({
+        open: false,
+        message: '',
+        callback: false,
+    });
     const { id } = useParams();
     console.log(id);
     const showList = useSelector((state) => state.show.showList);
@@ -174,13 +178,15 @@ function HostUpdate() {
 
     const onSubtractClick = () => {
         if (scheduleCount > 1) setScheduleCount(scheduleCount - 1);
-        // eslint-disable-next-line no-alert
-        else alert('더 이상 삭제할 수 없습니다!');
+        else
+            setPopup({
+                open: true,
+                message: '더 이상 삭제할 수 없습니다!',
+            });
     };
 
     const onButtonClick = async () => {
         const values = Object.values(newShowInfo);
-        // await upload();
 
         setNewShowInfo({
             ...newShowInfo,
@@ -202,8 +208,11 @@ function HostUpdate() {
             await updateShowsDocument(info).then((res) => {
                 if (res) {
                     // eslint-disable-next-line no-alert
-                    alert('추가 완료!');
-                    navigate('/host');
+                    setPopup({
+                        open: true,
+                        message: '추가 완료!',
+                        callback: () => navigate('/host'),
+                    });
                 }
             });
         } else {
@@ -298,6 +307,13 @@ function HostUpdate() {
 
     return (
         <div className="host-create-container">
+            <Popup
+                open={popup.open}
+                setPopup={setPopup}
+                message={popup.message}
+                title={popup.title}
+                callback={popup.callback}
+            />
             <div className="host-create-left">
                 <input
                     type="file"
