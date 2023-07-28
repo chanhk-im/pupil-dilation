@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './LoginHeaderDesktop.css';
 
 function LoginHeaderDesktop() {
@@ -6,11 +7,13 @@ function LoginHeaderDesktop() {
         <div>
             <div className="first-header" />
             <div className="second-header">
-                <img
-                    src="img/header_img.png"
-                    alt="동공확장"
-                    className="header-image"
-                />
+                <Link to="/">
+                    <img
+                        src="img/header_logo.svg"
+                        alt="동공확장"
+                        className="header-image"
+                    />
+                </Link>
             </div>
         </div>
     );
