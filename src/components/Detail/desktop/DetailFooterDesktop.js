@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import './DetailFooterDesktop.css';
 import { getDateScheduleFormat } from '../../../functions/dateFeature';
-import useShowById from '../../hooks/useShowById';
+import useShowById from '../../../hooks/useShowById';
 
 function DetailFooterDesktop({ id }) {
     const show = useShowById(id);

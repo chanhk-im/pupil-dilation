@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getShowById from '../getShowById';
+import useShowById from '../../../hooks/useShowById';
 import './DetailContentMobile.css';
 import {
     getDateShortFormat,
@@ -8,7 +8,7 @@ import {
 } from '../../../functions/dateFeature';
 
 function DetailContentMobile({ id }) {
-    const show = getShowById(id);
+    const show = useShowById(id);
 
     const schedule = show.schedule.map((value, i) => (
         <div>

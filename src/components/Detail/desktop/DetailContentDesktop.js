@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './DetailContentDesktop.css';
-import useShowById from '../../hooks/useShowById';
+import useShowById from '../../../hooks/useShowById';
 import {
     getDateShortFormat,
     getDateScheduleFormat,
