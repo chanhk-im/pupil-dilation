@@ -5,11 +5,9 @@ import Loading from '../../Loading';
 import { useDispatch } from 'react-redux';
 import {
     fetchShowList,
-    addShow,
 } from '../../../features/show/slices/showSlice';
 import {
     getShowsDocument,
-    createShowsDocument,
 } from '../../../features/show/api/showsDocumentApi';
 
 function MainPageMobile() {
@@ -21,15 +19,6 @@ function MainPageMobile() {
             setIsLoaded(true);
         });
     }
-
-    const test = async () => {
-        setIsLoaded(false);
-        await createShowsDocument().then((res) => {
-            alert('success!');
-            dispatch(addShow(res));
-            setIsLoaded(true);
-        });
-    };
 
     useEffect(() => {
         onRefresh();
@@ -43,7 +32,6 @@ function MainPageMobile() {
                     <SliderMobile />
                 </div>
             </div>
-            <button onClick={test}>test</button>
         </div>
     ) : (
         <div>

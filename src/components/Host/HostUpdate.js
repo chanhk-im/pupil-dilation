@@ -207,17 +207,18 @@ function HostUpdate() {
         if (!values.includes('') && !values.includes(undefined)) {
             await updateShowsDocument(info).then((res) => {
                 if (res) {
-                    // eslint-disable-next-line no-alert
                     setPopup({
                         open: true,
-                        message: '추가 완료!',
+                        message: '수정 완료!',
                         callback: () => navigate('/host'),
                     });
                 }
             });
         } else {
-            // eslint-disable-next-line no-alert
-            alert('추가 실패,,');
+            setPopup({
+                open: true,
+                message: '수정 실패...',
+            });
         }
     };
 
