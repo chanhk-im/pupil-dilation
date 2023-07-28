@@ -3,12 +3,6 @@
     grid-template-rows: 2;
 }
 
-.logo-mobile-location {
-    display: flex;
-    justify-content: center;
-    width: 393px;
-}
-
 .logo-mobile {
     width: calc(100vw * 113 / 393);
     height: calc(100vh * 122 / 852);
