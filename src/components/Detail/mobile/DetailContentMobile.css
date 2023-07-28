@@ -3,7 +3,6 @@
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  background-color: red;
   margin-left: 22px;
   margin-right: 22px;
 }
@@ -52,3 +51,57 @@
   line-height: normal;
   margin-top: 12px;
 }
+
+.content-text{
+  color: #000;
+  font-family: Noto Sans KR;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: -0.63px;
+  display: flex;
+  text-align: left;
+}
+
+.third-detail-mobile p{ 
+  display: flex;
+  justify-content: start;
+  text-align: left;
+}
+
+.content-intro{
+  color: #000;
+  font-family: Noto Sans KR;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-top: 2px;
+}
+
+.intro-text{
+  width: 353px;
+  height: 80px;
+  color: #000;
+  font-family: Noto Sans KR;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: -0.63px;
+}
+
+.schedule-text{
+  margin-bottom: 40px;
+  color: #000;
+  font-family: Noto Sans KR;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: -0.63px;
+  display: flex;
+  flex-direction: column;
+}
+

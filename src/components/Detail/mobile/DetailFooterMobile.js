@@ -13,9 +13,15 @@ function DetailFooterMobile({ id }) {
         </option>
     ));
     return (
-        <div>
-            <select name="schedule">{schedule}</select>
-            <button type="button" onClick={() => {}}>
+        <div className="detailpage-button-mobile">
+            <select name="schedule" className="schedule-button-mobile">
+                {schedule}
+            </select>
+            <button
+                type="button"
+                className="revervation-button-mobile"
+                onClick={() => {}}
+            >
                 예매하기
             </button>
         </div>
