@@ -2,9 +2,16 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createUser } from '../../features/user/api/firebase_auth';
 import SignUpForm from './SignUpForm';
+import Popup from '../Popup/Popup';
 
 function SignUpPage() {
     const navigate = useNavigate();
+
+    const [popup, setPopup] = useState({
+        open: false,
+        message: '',
+        callback: false,
+    });
 
     const [newUserInfo, setNewUserInfo] = useState({
         id: '',
@@ -28,17 +35,35 @@ function SignUpPage() {
             await createUser(newUserInfo).then((res) => {
                 // TODO: navigate main
                 if (res) {
-                    alert('회원가입 완료!');
+                    setPopup({
+                        open: true,
+                        message: '회원가입 완료!',
+                    });
                     navigate('/login');
                 }
             });
         } else {
-            alert('ㅁ');
+            setPopup({
+                open: true,
+                message: '회원가입 실패..',
+            });
         }
     };
 
     return (
-        <SignUpForm onChangeAccount={onChangeAccount} onButtonClick={onButtonClick}/>
+        <div>
+            <Popup
+                open={popup.open}
+                setPopup={setPopup}
+                message={popup.message}
+                title={popup.title}
+                callback={popup.callback}
+            />
+            <SignUpForm
+                onChangeAccount={onChangeAccount}
+                onButtonClick={onButtonClick}
+            />
+        </div>
     );
 }
 

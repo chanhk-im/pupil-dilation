@@ -7,8 +7,50 @@ import {
     setDoc,
     deleteDoc,
     updateDoc,
+    query,
+    where,
+    and,
 } from 'firebase/firestore';
 import { fireStore } from '../../../Firebase';
+
+export async function getShowDocumentById(id) {
+    const documentSnapshot = await getDoc(doc(fireStore, 'shows', id));
+    console.log(documentSnapshot.data());
+    const document = {
+        id: documentSnapshot.id,
+        ...documentSnapshot.data(),
+        imageDownloaded: false,
+    };
+    return document;
+}
+
+export async function getShowSeatsByIdAndShowNumber(id, showNum) {
+    const reference = collection(fireStore, 'seats');
+    const q = query(
+        reference,
+        and(where('showId', '==', id), where('showNum', '==', showNum)),
+    );
+    const querySnapshot = await getDocs(q);
+    return querySnapshot.docs;
+}
+
+export async function createShowSeatsToProgress(id, showNum, seats, userId) {
+    seats.forEach(async (e) => {
+        const reference = collection(
+            fireStore,
+            'seats',
+        );
+        await addDoc(reference, {
+            index: e.index,
+            name: e.name,
+            showId: id,
+            showNum,
+            userId,
+            state: 3,
+            time: new Date(Date.now()),
+        });
+    });
+}
 
 export async function getShowsDocument() {
     const showList = [];
@@ -34,17 +76,29 @@ export async function createShowsDocument(newShow) {
     await addDoc(collection(fireStore, 'shows'), newShow)
         .then(async (value) => {
             const createdSnapshot = await getDoc(value);
+            createdSnapshot.data().schedule.forEach(async (e, index) => {
+                await setDoc(
+                    doc(
+                        fireStore,
+                        'shows',
+                        createdSnapshot.id,
+                        'showNumber',
+                        (index + 1).toString(),
+                    ),
+                    { date: e },
+                );
+            });
             show = {
-                // id: createdSnapshot.id,
+                id: createdSnapshot.id,
                 title: createdSnapshot.data().title,
                 introduction: createdSnapshot.data().introduction,
-                // startDate: createdSnapshot.data().startDate.toDate(),
-                // endDate: createdSnapshot.data().endDate.toDate(),
-                // schedule: createdSnapshot.data().schedule,
-                // place: createdSnapshot.data().place,
+                startDate: createdSnapshot.data().startDate.toDate(),
+                endDate: createdSnapshot.data().endDate.toDate(),
+                schedule: createdSnapshot.data().schedule,
+                place: createdSnapshot.data().place,
                 price: createdSnapshot.data().price,
-                // image: createdSnapshot.data().image,
-                // imageDownloaded: false,
+                image: createdSnapshot.data().image,
+                imageDownloaded: false,
             };
             const scheduleConvertToDate = show.schedule.map((e) => e.toDate());
             show.schedule = scheduleConvertToDate;

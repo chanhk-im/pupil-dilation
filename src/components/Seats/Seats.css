@@ -1,20 +1,64 @@
-.container {
-    display: flex;
-}
 .seats-container {
+    height: 400px;
     display: grid;
-    row-gap: 5px;
+    row-gap: 10px;
     column-gap: 10px;
     grid-template-columns: 1fr 1fr 1fr 48px repeat(8, 1fr) 48px 1fr 1fr;
     grid-template-rows: repeat(9, 1fr);
 }
 
+.start {
+    grid-row: 1;
+    grid-column: 1;
+}
+
+.col-num {
+    grid-row: 1;
+    grid-column: auto / span 1;
+
+    display: flex;
+    align-items: end;
+    justify-content: center;
+
+    text-align: center;
+    font-size: 20px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.row-alpha {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    font-size: 20px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
 .seat {
-    width: 36.7px;
-    height: 33.3px;
-    padding-top: 5.5px;
-    padding-bottom: 5.5px;
-    padding-left: 5px;
-    padding-right: 5px;
-    background: #d9d9d9;
+    width: 36px;
+    height: 36px;
+}
+
+.seat-available {
+    background-color: #727272;
+}
+
+.seat-unavailable {
+    background-color: #d9d9d9;
+}
+
+.seat-selected {
+    background-color: #fad744;
+}
+
+.seat-progress {
+    border: 1px solid #000;
+    background-color: #f2f2f2;
 }

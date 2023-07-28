@@ -85,6 +85,7 @@ export async function loginUser(id, password) {
         })
         .catch((error) => {
             alert(handleError(error.code));
+            return false;
         });
 
     return res;
@@ -115,16 +116,16 @@ export async function changePassword(
     };
     console.log(user);
     if (currentPassword !== realPassword) {
-        alert('비밀번호가 일치하지 않습니다');
-        return false;
+        // alert('비밀번호가 일치하지 않습니다');
+        return 1;
     }
     if (newPassword === '') {
-        alert('새 비밀번호를 입력해주세요');
-        return false;
+        // alert('새 비밀번호를 입력해주세요');
+        return 2;
     }
     if (newPassword !== checkPassword) {
-        alert('새 비밀번호와 비밀번호 확인 부분이 다릅니다');
-        return false;
+        // alert('새 비밀번호와 비밀번호 확인 부분이 다릅니다');
+        return 3;
     }
 
     updatePassword(user, newPassword)
@@ -136,8 +137,8 @@ export async function changePassword(
             //An error ocurred
             alert(error);
         });
-    alert('수정 완료');
-    return true;
+    // alert('수정 완료');
+    return 4;
     // alert(1);
 }
 

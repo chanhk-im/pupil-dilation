@@ -31,8 +31,11 @@ function LoginFormDesktop() {
                     }),
                 );
                 console.log(res);
-                if (res.user.userType == 0) navigate('/');
-                else if (res.user.userType == 1) navigate('/host');
+                if (res) {
+                    if (res.user.userType == 0) navigate('/');
+                    else if (res.user.userType == 1) navigate('/host');
+                }
+                
             }
         });
     };
