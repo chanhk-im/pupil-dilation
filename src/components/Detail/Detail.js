@@ -1,18 +1,19 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
-import DetailContent from './DetailContent';
-import DetailFooter from './DetailFooter';
-import './Detail.css';
+import Desktop from '../MediaQuery/Desktop';
+import Mobile from '../MediaQuery/Mobile';
+import DetailDesktop from './desktop/DetailDesktop';
+import DetailMobile from './mobile/DetailMobile';
 
 function Detail() {
-    const { id } = useParams();
-    console.log(id);
-
     return (
-        <div className="detail">
-            <DetailContent id={id} />
-            <DetailFooter id={id} />
-        </div>
+        <>
+            <Desktop>
+                <DetailDesktop />
+            </Desktop>
+            <Mobile>
+                <DetailMobile />
+            </Mobile>
+        </>
     );
 }
 
