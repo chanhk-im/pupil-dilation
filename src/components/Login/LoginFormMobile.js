@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { loginUser } from '../../features/user/api/firebase_auth';
+import { stageUser } from '../../features/user/slices/userSlice';
 import './LoginFormMobile.css';
 
 function LoginFormMobile() {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [account, setAccount] = useState({
         id: '',
         password: '',
@@ -20,7 +23,18 @@ function LoginFormMobile() {
     const onClickButton = async () => {
         await loginUser(account.id, account.password).then((res) => {
             if (res) {
-                navigate('/');
+                dispatch(
+                    stageUser({
+                        user: res.user,
+                        userCredential: res.userCredential,
+                        isHost: res.isHost,
+                    }),
+                );
+                console.log(res);
+                if (res) {
+                    if (res.user.userType == 0) navigate('/');
+                    else if (res.user.userType == 1) navigate('/host');
+                }
             }
         });
     };

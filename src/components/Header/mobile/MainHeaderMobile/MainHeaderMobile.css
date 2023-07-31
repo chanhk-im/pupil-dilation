@@ -1,9 +1,13 @@
 .first-header{
   display: flex;
-  width: 393px;
+  width: 500px;
   height: 40px;
   background: var(--theme-red, #EF5455);
   padding: 8px 30px 9px 221px;
+}
+
+.first-header-signed{
+  margin-left: 75px;
 }
 
 .first-header-button{
@@ -27,7 +31,7 @@
 
 .second-header-button{
   display: flex;
-  width: 393px;
+  width: 500px;
   height: 70px;
   background: #FFF;
   box-shadow: 0px 3px 6px -1px rgba(0, 0, 0, 0.25);
