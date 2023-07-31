@@ -1,0 +1,43 @@
+.host-first-header{
+  display: flex;
+  width: 500px;
+  height: 40px;
+  background: var(--theme-red, #EF5455);
+  padding: 8px 30px 9px 221px;
+  background: #2B3252;
+}
+
+.host-first-header-signed{
+  margin-left: 75px;
+}
+
+.host-first-header-button{
+  display: flex;
+}
+
+.host-first-header-button button{
+  border: none;
+  background-color: transparent;
+  width: 70px;
+  height: 23px;
+  color: #FFFFFF;
+  font-family: Noto Sans KR;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.second-host-header{
+  display: flex;
+  width: 500px;
+  height: 70px;
+  background: #FFF;
+  box-shadow: 0px 3px 6px -1px rgba(0, 0, 0, 0.25);
+}
+
+.host-header-image{
+  width: 112.85px;
+  height: 122px;
+  flex-shrink: 0;
+}
