@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import './MainHeaderDesktop.css';
@@ -9,9 +9,18 @@ function MainHeaderDesktop() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    const [searchInfo, setSearchInfo] = useState({ search: '' });
+
     const onClickLogout = () => {
         dispatch(restoreUser());
         navigate('/login');
+    };
+
+    const onChangeSearch = (e) => {
+        setSearchInfo({
+            ...searchInfo,
+            [e.target.name]: e.target.value,
+        });
     };
 
     return (
@@ -51,7 +60,8 @@ function MainHeaderDesktop() {
                             type="text"
                             id="search"
                             name="search"
-                            placeholder="공연/동아리 검색"
+                            placeholder="&nbsp;공연/동아리 검색"
+                            onchange={onChangeSearch}
                         />
                         <img
                             className="search-button"
