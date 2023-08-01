@@ -3,6 +3,34 @@ import './PaymentPage.css';
 
 /*eslint-disable*/
 function PaymentPage() {
+    const Timer = () => {
+        const [min, setMin] = useState(15);
+        const [sec, setSec] = useState(0);
+        const time = useRef(180);
+        const timerId = useRef(null);
+
+        useEffect(() => {
+            timerId.current = setInterval(() => {
+                setMin(parseInt(time.current / 60));
+                setSec(time.current % 60);
+                time.current -= 1;
+            }, 1000);
+
+            return () => clearInterval(timerId.current);
+        }, []);
+
+        useEffect(() => {
+            if (time.current <= 0) {
+                clearInterval(timerId.current);
+            }
+        }, [sec]);
+
+        return (
+            <div className="timer">
+                {min}:{sec}
+            </div>
+        );
+    };
     return (
         <div className="payment-container">
             <div className="pay-ticket">
@@ -48,6 +76,7 @@ function PaymentPage() {
                                 국민 123123123123123
                             </div>
                         </div>
+                        <div className="timer">{Timer}</div>
                         <div className="sending">
                             <div className="sending-title">송금계좌</div>
                             <input
@@ -72,15 +101,21 @@ function PaymentPage() {
                     </div>
                     <div className="sending-check">
                         <input
-                            className="confirm-send"
                             id="send-yes"
                             type="checkbox"
+                            className="send-box"
                         />
-                        <label for="send-yes" className="select-none">
-                            <i></i>
-                            Yes
-                        </label>
+                        <label for="send-yes" />
+                        <p className="send-text">송금을 완료했습니다.</p>
+                        <p className="send-alert">
+                            예금주 명으로 송금확인이 되지 않거나 송금된 금액이
+                            틀린 경우 예매가 취소될 수 있습니다. 송금계좌는
+                            환불계좌로 사용됩니다.
+                        </p>
                     </div>
+                    <button type="button" className="payment-submit">
+                        예매 완료
+                    </button>
                 </div>
             </div>
         </div>
