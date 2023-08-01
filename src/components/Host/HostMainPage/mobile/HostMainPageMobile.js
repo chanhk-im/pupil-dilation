@@ -40,7 +40,7 @@ function HostMainPageMobile() {
             {displayShowContent}
             <button
                 type="button"
-                className="create"
+                className="event-create-mobile"
                 onClick={() => navigate('create')}
             >
                 <p className="event-text-mobile"> + 공연 추가하기</p>

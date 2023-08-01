@@ -19,13 +19,16 @@
   height: 47px;
   padding: 12px 71px 12px 13px;
   align-items: center;
-  flex-shrink: 0;border-radius: 10px;
+  flex-shrink: 0;
+  border-radius: 10px;
   border: 1px solid var(--theme-red, #EF5455);
   background: #FFF;
   margin-bottom: 10px;
 }
 
 .event-text-mobile{
+  display: flex;
+  justify-content: start;
   width: 270px;
   height: 23px;
   color: var(--theme-navy, #2B3252);
@@ -38,7 +41,7 @@
 
 .event-create-mobile{
   display: inline-flex;
-  padding: 12px 51px 12px 6px;
+  padding: 12px 71px 12px 13px;
   align-items: flex-start;
   gap: 3px;
   border-radius: 10px;
