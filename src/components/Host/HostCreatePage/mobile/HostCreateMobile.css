@@ -1,0 +1,143 @@
+.host-create-container-mobile{
+  padding: 15px 20px 0px 20px;
+}
+
+.host-create-title-mobile{
+  width: 353px;
+  height: 31px;
+  flex-shrink: 0;
+  border-radius: 7px;
+  border: 1px solid rgba(0, 0, 0, 0.60);
+  color: rgba(0, 0, 0, 0.55);
+  font-family: Noto Sans KR;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.second-input-mobile{
+  margin-top: 15px;
+}
+
+.third-input-mobile{
+
+}
+
+.host-create-introduction-title-mobile{
+  display: flex;
+  justify-content: start;
+  width: 73px;
+  height: 25px;
+  flex-shrink: 0;
+  color: #000;
+  font-family: Noto Sans KR;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.host-create-introduction-content-mobile{
+  width: 353px;
+  height: 146px;
+  flex-shrink: 0;
+  border-radius: 7px;
+  border: 1px solid rgba(0, 0, 0, 0.60);
+  margin-top: 5px;
+  color: rgba(0, 0, 0, 0.55);
+  font-family: Noto Sans KR;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.675px;
+}
+
+.host-create-date-mobile{
+  display: flex;
+  justify-content: start;
+  width: 80px;
+  height: 25px;
+  flex-shrink: 0;
+  color: #000;
+  font-family: Noto Sans KR;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.host-create-table-title{
+  display: flex;
+  justify-content: start;
+  margin-top: 3px;
+  width: 45px;
+  height: 24px;
+  flex-shrink: 0;
+  color: #000;
+  font-family: Noto Sans KR;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.host-create-date-table-mobile{
+  display:flex;
+}
+
+.host-create-date-choose{
+  width: 57px;
+  height: 25px;
+  flex-shrink: 0;
+  border-radius: 7px;
+  border: 1px solid rgba(0, 0, 0, 0.60);
+}
+
+.host-create-date-choose-text{
+  width: 16px;
+  height: 19px;
+  flex-shrink: 0;
+  color: #000;
+  font-family: Noto Sans KR;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-right: 22px;
+}
+
+.host-create-date-time-text{
+  width: 35px;
+  height: 19px;
+  flex-shrink: 0;
+  color: #000;
+  font-family: Noto Sans KR;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.event-number-mobile{
+  width: 45px;
+  height: 24px;
+  flex-shrink: 0;
+  color: #000;
+  font-family: Noto Sans KR;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-top: 7px;
+}
+
+.event-schedule-mobile{
+  display: flex;
+  margin-top: 7px;
+}
+
+.space{
+  height: 17px;
+}

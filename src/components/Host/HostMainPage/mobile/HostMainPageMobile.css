@@ -3,6 +3,8 @@
 }
 
 .host-main-title{
+  display: flex;
+  justify-content: start;
   width: 161px;
   height: 31px;
   flex-shrink: 0;
