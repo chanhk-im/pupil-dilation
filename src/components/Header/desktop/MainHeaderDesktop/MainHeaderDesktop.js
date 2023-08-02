@@ -49,22 +49,30 @@ function MainHeaderDesktop() {
         setSearchResults(notes);
     };
 
-    const displaySearchContent = searchResults.map((value) => (
+    const displaySearchContent = searchResults.map((value, key) => (
         <div
             className="searched-list"
             onClick={() => navigate('/detail/' + value.id)}
-            onMouseEnter={() => (
-                <img
-                    className="show-image-mini"
-                    src={value.image}
-                    alt={value.title}
-                />
-            )}
+            // onMouseEnter={() => (
+            //     <img
+            //         className="show-image-mini"
+            //         src={value.image}
+            //         alt={value.title}
+            //     />
+            // )}
+            onMouseEnter={() => handleMouseEnter(value.image)}
+            onMouseLeave={handleMouseLeave}
         >
+            {/* {tooltipImage ? (
+                <div className="tool" style={{ color: 'blue' }}>
+                    {value.title}
+                </div>
+            ) : (
+                <div className="tool">{value.title}</div>
+            )} */}
             {value.title}
         </div>
     ));
-
     console.log(notes);
     return (
         <div className="header">
@@ -105,34 +113,43 @@ function MainHeaderDesktop() {
                             value={searchValue}
                             name="search"
                             placeholder="&nbsp;공연/동아리 검색"
-                            // onChange={(e) => {
-                            //     notes = showList.filter((note) =>
-                            //         note.title.includes(e.target.value),
-                            //     );
-                            //     console.log(notes);
-                            // }}
-                            // onClick={onClickSearch}
                             onFocus={handleInputFocus}
-                            // onChange={onChangeSearch}
                             onChange={handleInputChange}
                         />
-                        {/* <div className="search-data">{notes}</div> */}
                         <img
                             className="search-button"
                             alt="search-button"
                             src="/images/search.png"
                         />
                         {isModalOpen && (
-                            <div className="modal">
-                                {/* 모달에 검색 결과를 표시하는 부분을 구현하세요 */}
-                                {/* 예시로 연관 공연들을 리스트로 보여줍니다. */}
-                                <ul>
-                                    {/* notes.map()
-                                    <li>연관 공연 1</li>
-                                    <li>연관 공연 2</li>
-                                    ... */}
-                                    {displaySearchContent}
-                                </ul>
+                            <div className="header-modal">
+                                <ul>{displaySearchContent}</ul>
+                                {tooltipImage ? (
+                                    <div className="tooltip">
+                                        <img
+                                            className="show-image-mini"
+                                            src={tooltipImage}
+                                            alt="Tooltip"
+                                        />
+                                    </div>
+                                ) : (
+                                    <div className="tooltip">
+                                        <img
+                                            className="show-image-mini"
+                                            src={
+                                                searchResults.length > 0
+                                                    ? searchResults[0].image
+                                                    : ''
+                                            }
+                                            alt="Tooltip"
+                                        />
+                                    </div>
+                                )}
+                                <img
+                                    className="search-line"
+                                    src="/images/Vector 710.png"
+                                    alt="line"
+                                />
                                 <button onClick={closeModal}>닫기</button>
                             </div>
                         )}

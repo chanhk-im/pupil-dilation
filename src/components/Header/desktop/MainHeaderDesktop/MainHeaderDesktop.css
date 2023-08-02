@@ -87,7 +87,7 @@ input[name='search'] {
     font-weight: 400;
 }
 
-.modal {
+.header-modal {
     position: absolute;
     left: calc(100vw * 720 / 1229);
     top: 123px;
@@ -114,6 +114,16 @@ input[name='search'] {
 .show-image-mini {
     z-index: 999;
     position: absolute;
-    left: 0;
-    top: 0;
+    left: 29px;
+    top: 21px;
+    width: 203px;
+    height: 289px;
+    flex-shrink: 0;
+    border-radius: 8px;
+}
+
+.search-line {
+    position: absolute;
+    top: 21px;
+    left: 261px;
 }

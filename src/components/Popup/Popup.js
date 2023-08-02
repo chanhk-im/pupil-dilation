@@ -34,7 +34,7 @@ const Background = styled.div`
     }
 `;
 
-function Popup({ open, setPopup, message, title, callback }) {
+function Popup({ open, setPopup, message, callback }) {
     const handleClose = () => {
         setPopup({ open: false });
         if (callback) {
