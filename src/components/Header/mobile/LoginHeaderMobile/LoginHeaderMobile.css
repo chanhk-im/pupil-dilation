@@ -1,12 +1,12 @@
 .first-login-header{
-  width: 500px;
+  min-width: 400px;
   height: 40px;
   background: var(--theme-red, #EF5455);
 }
 
 .second-login-header{
   display: flex;
-  width: 393px;
+  min-width: 400px;
   height: 153px;
   padding: 16px 0px 15px 0px;
   justify-content: center;
@@ -17,7 +17,7 @@
 }
 
 .login-header-image{
-  width: 112.85px;
+  min-width: 112.85px;
   height: 122px;
   flex-shrink: 0;
 }

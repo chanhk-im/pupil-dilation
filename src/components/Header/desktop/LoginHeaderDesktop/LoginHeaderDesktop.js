@@ -9,7 +9,7 @@ function LoginHeaderDesktop() {
             <div className="second-header">
                 <Link to="/">
                     <img
-                        src="img/header_logo.svg"
+                        src="/img/header_logo.svg"
                         alt="동공확장"
                         className="header-image"
                     />
