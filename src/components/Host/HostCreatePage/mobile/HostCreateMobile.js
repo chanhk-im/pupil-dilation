@@ -219,10 +219,11 @@ function HostCreateMobile() {
                         >
                             {days}
                         </select>
-                        <div className="host-create-ticket-start-text">
+                        <div className="host-create-date-choose-text">
                             &nbsp;일
                         </div>
                     </div>
+                    <div className="host-create-date-time-text">시간</div>
                     <input
                         type="text"
                         className="host-create-date-choose"
@@ -237,118 +238,155 @@ function HostCreateMobile() {
     }
 
     return (
-        <div className="host-create-container-mobile">
-            <Popup
-                open={popup.open}
-                setPopup={setPopup}
-                message={popup.message}
-                title={popup.title}
-                callback={popup.callback}
-            />
-            <input
-                className="host-create-title-mobile"
-                type="text"
-                name="title"
-                placeholder="&nbsp;공연 제목 입력"
-                onChange={onChangeAccount}
-            />
-            <div className="second-input-mobile"></div>
-            <div className="third-input-mobile">
-                <div className="host-create-introduction-title-mobile">
-                    소개
-                </div>
-                <textarea
-                    className="host-create-introduction-content-mobile"
-                    type="textarea"
-                    placeholder="소개 입력"
-                    name="introduction"
+        <>
+            <div className="host-create-container-mobile">
+                <Popup
+                    open={popup.open}
+                    setPopup={setPopup}
+                    message={popup.message}
+                    title={popup.title}
+                    callback={popup.callback}
+                />
+                <input
+                    className="host-create-title-mobile"
+                    type="text"
+                    name="title"
+                    placeholder="&nbsp;공연 제목 입력"
                     onChange={onChangeAccount}
                 />
-            </div>
-            <div>
-                <div className="host-create-date-mobile">예매일정</div>
-                <div className="host-create-table-title">시작</div>
-                <div className="host-create-date-table-mobile">
-                    <div className="host-create-date-table-mobile">
-                        <select
-                            name="month"
-                            className="host-create-date-choose"
-                            onChange={onChangeStartDate}
-                        >
-                            {months}
-                        </select>
-                        <div className="host-create-date-choose-text">월</div>
+                <div className="second-input-mobile"></div>
+                <div className="third-input-mobile">
+                    <div className="host-create-introduction-title-mobile">
+                        소개
                     </div>
-                    <div className="host-create-date-table-mobile">
-                        <select
-                            name="day"
-                            className="host-create-date-choose"
-                            onChange={onChangeStartDate}
-                        >
-                            {days}
-                        </select>
-                        <div className="host-create-date-choose-text">일</div>
-                    </div>
-                    <div className="host-create-date-time-text">시간</div>
-                    <input
-                        type="text"
-                        className="host-create-date-choose"
-                        placeholder="&nbsp;24:00"
-                        name="time"
-                        onChange={onChangeStartDate}
+                    <textarea
+                        className="host-create-introduction-content-mobile"
+                        type="textarea"
+                        placeholder="소개 입력"
+                        name="introduction"
+                        onChange={onChangeAccount}
                     />
                 </div>
-                <div className="host-create-table-title">마감</div>
-                <div className="host-create-date-table-mobile">
+                <div>
+                    <div className="host-create-date-mobile">예매일정</div>
+                    <div className="host-create-table-title">시작</div>
                     <div className="host-create-date-table-mobile">
-                        <select
-                            name="month"
+                        <div className="host-create-date-table-mobile">
+                            <select
+                                name="month"
+                                className="host-create-date-choose"
+                                onChange={onChangeStartDate}
+                            >
+                                {months}
+                            </select>
+                            <div className="host-create-date-choose-text">
+                                월
+                            </div>
+                        </div>
+                        <div className="host-create-date-table-mobile">
+                            <select
+                                name="day"
+                                className="host-create-date-choose"
+                                onChange={onChangeStartDate}
+                            >
+                                {days}
+                            </select>
+                            <div className="host-create-date-choose-text">
+                                일
+                            </div>
+                        </div>
+                        <div className="host-create-date-time-text">시간</div>
+                        <input
+                            type="text"
                             className="host-create-date-choose"
+                            placeholder="&nbsp;24:00"
+                            name="time"
+                            onChange={onChangeStartDate}
+                        />
+                    </div>
+                    <div className="host-create-table-title">마감</div>
+                    <div className="host-create-date-table-mobile">
+                        <div className="host-create-date-table-mobile">
+                            <select
+                                name="month"
+                                className="host-create-date-choose"
+                                onChange={onChangeEndDate}
+                            >
+                                {months}
+                            </select>
+                            <div className="host-create-date-choose-text">
+                                &nbsp;월
+                            </div>
+                        </div>
+                        <div className="host-create-date-table-mobile">
+                            <select
+                                name="day"
+                                className="host-create-date-choose"
+                                onChange={onChangeEndDate}
+                            >
+                                {days}
+                            </select>
+                            <div className="host-create-date-choose-text">
+                                &nbsp;일
+                            </div>
+                        </div>
+                        <div className="host-create-date-time-text">시간</div>
+                        <input
+                            type="text"
+                            className="host-create-date-choose"
+                            placeholder="&nbsp;24:00"
+                            name="time"
                             onChange={onChangeEndDate}
-                        >
-                            {months}
-                        </select>
-                        <div className="host-create-date-choose-text">
-                            &nbsp;월
+                        />
+                    </div>
+                    <div className="space" />
+                    <div className="host-create-date-mobile">공연일정</div>
+                    <div className="host-create-date-table-mobile">
+                        <div className="event-schedules">{schedules}</div>
+                        <div>
+                            <button
+                                type="button"
+                                className="event-delete-button-mobile"
+                                onClick={onSubtractClick}
+                            >
+                                <img
+                                    src="/images/Trash.svg"
+                                    alt="열 삭제하기"
+                                />
+                            </button>
                         </div>
                     </div>
-                    <div className="host-create-date-table-mobile">
-                        <select
-                            name="day"
-                            className="host-create-date-choose"
-                            onChange={onChangeEndDate}
-                        >
-                            {days}
-                        </select>
-                        <div className="host-create-date-choose-text">
-                            &nbsp;일
-                        </div>
-                    </div>
-                    <div className="host-create-date-time-text">시간</div>
-                    <input
-                        type="text"
-                        className="host-create-date-choose"
-                        placeholder="&nbsp;24:00"
-                        name="time"
-                        onChange={onChangeEndDate}
-                    />
                 </div>
-                <div className="space" />
-                <div className="host-create-date-mobile">공연일정</div>
-                <div className="host-create-date-table-mobile">
-                    <div className="event-schedules">{schedules}</div>
-                    <div className="delete-button-space">
-                        <button
-                            type="button"
-                            className="event-delete-button"
-                            onClick={onSubtractClick}
-                        >
-                            <img src="/images/Trash.svg" alt="열 삭제하기" />
-                        </button>
-                    </div>
+                <div className="host-create-add-mobile">
+                    <button
+                        type="button"
+                        onClick={() => {
+                            setScheduleCount(scheduleCount + 1);
+                            const newScheduleItem = {
+                                year: 2023,
+                                month: 0,
+                                day: 0,
+                                time: '',
+                            };
+                            const newSchedule = [
+                                ...timeInfo.schedule,
+                                newScheduleItem,
+                            ];
+                            const newTimeInfo = {
+                                ...timeInfo,
+                                schedule: newSchedule,
+                            };
+
+                            setTimeInfo(newTimeInfo);
+                        }}
+                        className="event-add-button-mobile"
+                    >
+                        <p>+</p>
+                        <p>열 추가하기</p>
+                    </button>
                 </div>
             </div>
-        </div>
+        </>
     );
 }
 
