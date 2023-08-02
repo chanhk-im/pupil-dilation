@@ -87,7 +87,7 @@ input[name='search'] {
     font-weight: 400;
 }
 
-.modal {
+.header-modal {
     position: absolute;
     left: calc(100vw * 720 / 1229);
     top: 123px;
@@ -95,6 +95,35 @@ input[name='search'] {
     height: 400px;
     flex-shrink: 0;
     border-radius: 25px;
-    background: rgba(43, 50, 82, 0.83);
+    background: #2b3252;
+    z-index: 888;
+}
+
+.searched-list {
+    margin-left: 44%;
+    display: flex;
+    cursor: pointer;
+    color: #fff;
+    font-family: Noto Sans KR;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.show-image-mini {
     z-index: 999;
+    position: absolute;
+    left: 29px;
+    top: 21px;
+    width: 203px;
+    height: 289px;
+    flex-shrink: 0;
+    border-radius: 8px;
+}
+
+.search-line {
+    position: absolute;
+    top: 21px;
+    left: 261px;
 }
