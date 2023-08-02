@@ -450,8 +450,6 @@ select:focus{
   letter-spacing: -0.9px;
 }
 
-
-
 .event-delete-button{
   display: flex;
   text-align: end;
