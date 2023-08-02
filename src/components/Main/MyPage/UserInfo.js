@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import './UserInfo.css';
 
 function UserInfo() {
+    const navigate = useNavigate();
+    const userData = useSelector((state) => state.user.user);
+    const email = userData.email;
+    const phone = userData.phone;
+    const name = userData.name;
+    const id = userData.id;
     return (
         <div className="profile-info">
             <div className="user-info">회원정보</div>
@@ -14,10 +21,14 @@ function UserInfo() {
                 />
                 <div className="profile-right">
                     <div className="profile-top">
-                        <div className="profile-name">유하은</div>
+                        <div className="profile-name">{name}</div>
                         <div className="profile-name-area">님</div>
                         <div className="pw-change">
-                            <button>비밀번호 변경하기</button>
+                            <button
+                                onClick={() => navigate('/mypage/changepw')}
+                            >
+                                비밀번호 변경하기
+                            </button>
                         </div>
                     </div>
                     <img
@@ -33,7 +44,7 @@ function UserInfo() {
                                 alt="ID아이콘"
                             ></img>
                             <p className="title-id">아이디</p>
-                            <div className="content-id">fighting123</div>
+                            <div className="content-id">{id}</div>
                         </div>
                         <div className="info-email">
                             <img
@@ -42,9 +53,7 @@ function UserInfo() {
                                 alt="Email아이콘"
                             ></img>
                             <p className="title-email">이메일</p>
-                            <div className="content-email">
-                                fighting@gamil.com
-                            </div>
+                            <div className="content-email">{email}</div>
                         </div>
                         <div className="info-number">
                             <img
@@ -53,7 +62,7 @@ function UserInfo() {
                                 alt="call아이콘"
                             ></img>
                             <p className="title-number">전화번호</p>
-                            <div className="content-number">010-1234-5678</div>
+                            <div className="content-number">{phone}</div>
                         </div>
                     </div>
                 </div>

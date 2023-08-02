@@ -87,7 +87,7 @@ input[name='search'] {
     font-weight: 400;
 }
 
-.modal {
+.header-modal {
     position: absolute;
     left: calc(100vw * 720 / 1229);
     top: 123px;
