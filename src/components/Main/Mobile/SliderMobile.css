@@ -20,7 +20,7 @@
 }
 
 .ddayImg-mobile {
-  width: 121px;
+  min-width: 121px;
   height: 121px;
   display: flex;
   flex-shrink: 0;
