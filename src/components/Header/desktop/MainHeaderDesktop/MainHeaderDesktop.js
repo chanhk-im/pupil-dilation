@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import './MainHeaderDesktop.css';
 import { restoreUser } from '../../../../features/user/slices/userSlice';
-// import SearchModal from '../../../Popup/SearchModal';
 
 function MainHeaderDesktop() {
     const isLogged = useSelector((state) => state.user.isLogged);
@@ -13,27 +12,28 @@ function MainHeaderDesktop() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const showList = useSelector((state) => state.show.showList);
     const [searchValue, setSearchValue] = useState('');
-    console.log(showList);
+
+    const [tooltipImage, setTooltipImage] = useState(null);
+
+    const handleMouseEnter = (image) => {
+        setTooltipImage(image);
+    };
+
+    const handleMouseLeave = () => {
+        setTooltipImage(null);
+    };
+
     const onClickLogout = () => {
         dispatch(restoreUser());
         navigate('/login');
     };
+
     const openModal = () => {
         setIsModalOpen(true);
     };
     const closeModal = () => {
         setIsModalOpen(false);
     };
-    // const onChangeSearch = (event) => {
-    //     setSearchValue(event.target.value);
-    // };
-
-    // const onClickSearch = () => {
-    //     setPopup({
-    //         open: true,
-    //         message: '더 이상 삭제할 수 없습니다!',
-    //     });
-    // };
 
     const handleInputFocus = () => {
         openModal();
@@ -41,37 +41,33 @@ function MainHeaderDesktop() {
 
     var notes = [];
 
-    // const [popup, setPopup] = useState({
-    //     open: false,
-    //     message: '',
-    //     callback: false,
-    // });
     const handleInputChange = (event) => {
         setSearchValue(event.target.value);
         notes = showList.filter((note) =>
             note.title.includes(event.target.value),
         );
-        // 여기에서 검색 로직을 구현하여 검색 결과를 업데이트합니다.
-        // 예시로 검색 결과를 빈 배열로 설정합니다.
         setSearchResults(notes);
     };
 
     const displaySearchContent = searchResults.map((value) => (
-        <Link to={`/detail/${value.id}`}>
-            <li>{value.title}</li>
-        </Link>
+        <div
+            className="searched-list"
+            onClick={() => navigate('/detail/' + value.id)}
+            onMouseEnter={() => (
+                <img
+                    className="show-image-mini"
+                    src={value.image}
+                    alt={value.title}
+                />
+            )}
+        >
+            {value.title}
+        </div>
     ));
 
     console.log(notes);
     return (
         <div className="header">
-            {/* <SearchModal
-                open={popup.open}
-                setPopup={setPopup}
-                message={popup.message}
-                title={popup.title}
-                callback={popup.callback}
-            /> */}
             <div className="header-red">
                 {isLogged ? (
                     <button
