@@ -8,7 +8,7 @@ import Popup from '../../Popup/Popup';
 import './ChangePW.css';
 
 function ChangePW() {
-    const [UserInfo, setUserInfo] = useState({
+    const [userInfo, setUserInfo] = useState({
         currentPassword: '',
         newPassword: '',
         checkPassword: '',
@@ -33,7 +33,6 @@ function ChangePW() {
 
     const id = userData.id;
     const realPassword = userData.password;
-    const email = userData.email;
 
     const onButtonClick = async () => {
         await changePassword(
@@ -64,7 +63,7 @@ function ChangePW() {
                     message: '수정 완료!',
                 });
                 dispatch(changePasswordUser(userInfo.newPassword));
-                navigate('/host');
+                navigate('/mypage');
             }
         });
     };
@@ -83,7 +82,7 @@ function ChangePW() {
                 <div className="user-mypage-pw-text">
                     <img
                         className="lock-icon"
-                        src="images/lock.svg"
+                        src="/images/lock.svg"
                         alt="자물쇠"
                     ></img>
                     비밀번호
