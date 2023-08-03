@@ -4,6 +4,7 @@ import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import Seats from './Seats';
 import SeatTicketingFrame from './SeatTicketingFrame';
 import './SeatsPage.css';
+import Popup from '../Popup/Popup';
 
 function SeatsPage() {
     const { id } = useParams();
@@ -15,6 +16,11 @@ function SeatsPage() {
 
     const isLogged = useSelector((state) => state.user.isLogged);
     const user = useSelector((state) => state.user.user);
+    const [popup, setPopup] = useState({
+        open: false,
+        message: '',
+        callback: false,
+    });
 
     useEffect(() => {
         console.log(selected);
@@ -22,8 +28,11 @@ function SeatsPage() {
 
     useEffect(() => {
         if (!isLogged) {
-            alert('로그인 하쇼');
-            navigate('/login');
+            setPopup({
+                open: true,
+                message: '로그인 하쇼',
+                callback: () => navigate('/login'),
+            });
         }
     });
 
@@ -56,6 +65,13 @@ function SeatsPage() {
 
     return (
         <div className="seats-page">
+            <Popup
+                open={popup.open}
+                setPopup={setPopup}
+                message={popup.message}
+                title={popup.title}
+                callback={popup.callback}
+            />
             <div className="seats-left">
                 <h2 className="seats-select-text">좌석 선택</h2>
                 <div className="seats-place-name">ANH 오디토리움</div>

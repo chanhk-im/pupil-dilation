@@ -4,6 +4,7 @@ import MainPage from '../components/Main/MainPage';
 import Detail from '../components/Detail/Detail';
 import SeatsPage from '../components/Seats/SeatsPage';
 import TicketList from '../components/Main/MyPage/TicketList';
+import Seats from '../components/Seats/Seats';
 import Loading from '../components/Loading';
 import AdminPage from '../components/Admin/AdminPage';
 import PaymentPage from '../components/Seats/Pay/PaymentPage';
@@ -16,7 +17,6 @@ function MainPageRoute() {
                 <Route path="/" element={<MainPage />} />
                 <Route path="detail/:id" element={<Detail />} />
                 <Route path="/seats/:id" element={<SeatsPage />} />
-                <Route path="/ticketlist" element={<TicketList />} />
                 <Route path="/loading" element={<Loading />} />
                 <Route path="/admin" element={<AdminPage />} />
                 <Route path="/payment" element={<PaymentPage />} />

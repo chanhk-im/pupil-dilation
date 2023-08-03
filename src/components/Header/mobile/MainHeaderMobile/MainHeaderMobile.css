@@ -1,9 +1,13 @@
 .first-header{
   display: flex;
-  width: 393px;
+  width: 100%;
   height: 40px;
   background: var(--theme-red, #EF5455);
-  padding: 8px 30px 9px 221px;
+  padding: calc(100vw * 8 / 400) calc(100vw * 30 / 400) calc(100vw * 9 / 400) calc(100vw * 221 / 400);
+}
+
+.first-header-signed{
+  margin-left: calc(100vw * 75 / 400);
 }
 
 .first-header-button{
@@ -13,11 +17,11 @@
 .first-header-button button{
   border: none;
   background-color: transparent;
-  width: 70px;
+  width: calc(100vw * 70 / 400);
   height: 23px;
   color: #FFFFFF;
   font-family: Noto Sans KR;
-  font-size: 12px;
+  font-size: calc(100vw * 12 / 400);
   font-style: normal;
   font-weight: 700;
   line-height: normal;
@@ -27,14 +31,14 @@
 
 .second-header-button{
   display: flex;
-  width: 393px;
+  width: 100%;
   height: 70px;
   background: #FFF;
   box-shadow: 0px 3px 6px -1px rgba(0, 0, 0, 0.25);
 }
 
 .mobile-header-logo{
-  width: 70px;
+  width: calc(100vw * 70 / 400);
   height: 20px;
   margin-top: 24.5px;
   margin-right: 203px;
@@ -43,7 +47,7 @@
 }
 
 .mobile-header-search{
-  width: 20px;
+  min-width: 20px;
   height: 20px;
   margin-top: 24px;
   margin-right: 34px;
@@ -51,7 +55,7 @@
 }
 
 .mobile-mypage{
-  width: 20px;
+  min-width: 20px;
   height: 20px;
   margin-top: 24px;
   margin-right: 50px;

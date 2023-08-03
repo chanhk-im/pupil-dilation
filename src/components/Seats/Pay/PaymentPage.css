@@ -215,5 +215,101 @@
     color: transparent;
     font-weight: 500px;
 }
-.confirm-send {
+
+.sending-check {
+    display: flex;
+    padding-left: 100px;
+    margin-top: 39px;
+}
+
+.send-box {
+    width: 23px;
+    height: 23px;
+    flex-shrink: 0;
+}
+
+.send-text {
+    text-align: start;
+    margin-left: 14px;
+    color: #fff;
+    font-family: Noto Sans KR;
+    font-size: calc(100vw * 15 / 1440);
+    font-style: normal;
+    font-weight: 350;
+    line-height: normal;
+    letter-spacing: -0.675px;
+    width: calc(100vw * 178 / 1440);
+}
+
+.sending-check input[type='checkbox'] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+    display: flex;
+}
+.sending-check input[type='checkbox'] + label {
+    display: inline-block;
+    width: 23px;
+    height: 23px;
+    border: 2px solid #fff;
+    position: relative;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.sending-check input[id='send-yes']:checked + label::after {
+    content: '✔';
+    color: #fff;
+    font-size: 15px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    position: absolute;
+    padding-right: 8px;
+    padding-top: 2px;
+    left: 0;
+    top: 0;
+}
+
+.sending-check input[type='checkbox'] + label span {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 26px;
+    letter-spacing: -1px;
+    color: #fff;
+}
+.send-alert {
+    color: #fff;
+    text-align: start;
+    font-family: Noto Sans KR;
+    font-size: calc(100vw * 13 / 1440);
+    font-style: normal;
+    font-weight: 350;
+    line-height: normal;
+    letter-spacing: -0.585px;
+    width: calc(100vw * 310 / 1440);
+}
+.payment-submit {
+    width: calc(100vw * 212 / 1440);
+    height: calc(100vw * 36 / 1440);
+    margin-left: 10px;
+    margin-top: 12px;
+    margin-bottom: 23px;
+    border-radius: 46px;
+    border: none;
+    background: var(--theme-yellow, #fad744);
+
+    color: var(--theme-red, #ef5455);
+    text-align: center;
+    font-size: calc(100vw * 16 / 1440);
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.72px;
+    cursor: pointer;
 }

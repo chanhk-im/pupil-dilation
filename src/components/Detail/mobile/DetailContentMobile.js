@@ -33,15 +33,15 @@ function DetailContentMobile({ id }) {
                     <div className="second-detail-mobile">
                         <div>
                             <p className="content-title">가격</p>
-                            <p>{show.price}원</p>
+                            <p className="content-text">{show.price}원</p>
                         </div>
                         <div>
                             <p className="content-title">장소</p>
-                            <p>{show.place}</p>
+                            <p className="content-text">{show.place}</p>
                         </div>
                         <div>
                             <p className="content-title">공연기간</p>
-                            <p>
+                            <p className="content-text">
                                 {getDateShortFormat(show.startDate)} ~{' '}
                                 {getDateShortFormat(show.endDate)}
                             </p>
@@ -50,11 +50,11 @@ function DetailContentMobile({ id }) {
                 </div>
                 <div className="third-detail-mobile">
                     <div>
-                        <p className="content-title">소개</p>
-                        <div>{show.introduction}</div>
+                        <p className="content-intro">소개</p>
+                        <p className="intro-text">{show.introduction}</p>
                     </div>
                     <p className="content-title">공연일정</p>
-                    <p>{schedule}</p>
+                    <p className="schedule-text">{schedule}</p>
                 </div>
             </div>
         </div>

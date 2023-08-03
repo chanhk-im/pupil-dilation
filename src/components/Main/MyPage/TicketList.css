@@ -1,5 +1,8 @@
 .user-mypage-container {
     margin-left: calc(100vw * 144 / 1440);
+    position: absolute;
+    left: 0;
+    top: 310px;
 }
 
 .user-mypage-text {
@@ -55,6 +58,8 @@
     border: none;
     margin: 10px;
     height: 25px;
+    background-color: transparent;
+    cursor: pointer;
 }
 
 .ticket-show-title {
@@ -92,6 +97,7 @@
 }
 
 .ticket-show-info {
+    background-color: transparent;
     border: none;
     display: flex;
     color: var(--theme-navy, #2b3252);
@@ -109,6 +115,7 @@
     margin-bottom: calc(100vw * 17 / 1440);
     margin-right: calc(100vw * 21 / 1440);
     padding: 0;
+    cursor: pointer;
 }
 .ticket-show-info:hover {
     text-decoration: underline;

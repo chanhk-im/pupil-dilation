@@ -5,12 +5,18 @@ import PropTypes from 'prop-types';
 import './DetailFooterDesktop.css';
 import { getDateScheduleFormat } from '../../../functions/dateFeature';
 import useShowById from '../../../hooks/useShowById';
+import Popup from '../../Popup/Popup';
 
 function DetailFooterDesktop({ id }) {
     const show = useShowById(id);
     const navigate = useNavigate();
     const isLogged = useSelector((state) => state.user.isLogged);
     const [selectedSchedule, setSelectedSchedule] = useState(1);
+    const [popup, setPopup] = useState({
+        open: false,
+        message: '',
+        callback: false,
+    });
 
     const schedule = show.schedule.map((value, i) => (
         <option value={i + 1}>
@@ -29,6 +35,14 @@ function DetailFooterDesktop({ id }) {
                 className="select-schedule"
                 onChange={onChangeSchedule}
             >
+            <Popup
+                open={popup.open}
+                setPopup={setPopup}
+                message={popup.message}
+                title={popup.title}
+                callback={popup.callback}
+            />
+            <select name="schedule" className="select-schedule">
                 {schedule}
             </select>
             <button
@@ -36,8 +50,11 @@ function DetailFooterDesktop({ id }) {
                 onClick={() => {
                     if (isLogged) navigate('/seats/' + id + '?' + 'showNum=' + selectedSchedule);
                     else {
-                        alert('로그인해라');
-                        navigate('/login');
+                        setPopup({
+                            open: true,
+                            message: '로그인해라',
+                            callback: () => navigate('/login'),
+                        });
                     }
                 }}
                 className="ticketing-button"

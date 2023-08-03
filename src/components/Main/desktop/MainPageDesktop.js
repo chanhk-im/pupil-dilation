@@ -1,25 +1,9 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import {
-    addShow,
-} from '../../../features/show/slices/showSlice';
 import './MainPageDesktop.css';
-import {
-    createShowsDocument,
-} from '../../../features/show/api/showsDocumentApi';
 import SliderDesktop from './SliderDesktop';
 
 function MainPageDesktop() {
-    const dispatch = useDispatch();
 
-    const test = async () => {
-        setIsLoaded(false);
-        await createShowsDocument().then((res) => {
-            alert('success!');
-            dispatch(addShow(res));
-            setIsLoaded(true);
-        });
-    };
 
     return (
         <div>
@@ -29,9 +13,6 @@ function MainPageDesktop() {
                     <SliderDesktop />
                 </div>
             </div>
-            <button onClick={test} type="button">
-                test
-            </button>
         </div>
     );
 }

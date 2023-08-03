@@ -1,0 +1,165 @@
+.user-mypage-text {
+    margin-left: 144px;
+    display: flex;
+    width: 212px;
+    height: 57px;
+    flex-direction: column;
+    flex-shrink: 0;
+    color: #000;
+    font-size: 40px;
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.user-mypage-data {
+    position: absolute;
+    left: 0;
+    top: 321px;
+}
+
+.user-mypage-account-data {
+    margin-top: calc(100vw * 21 / 1440);
+    margin-left: calc(100vw * 117 / 1440);
+    margin-bottom: calc(100vw * 35 / 1440);
+    display: flex;
+    width: calc(100vw * 212 / 1440);
+    height: calc(100vw * 57 / 1440);
+    flex-direction: column;
+    flex-shrink: 0;
+    color: #000;
+    text-align: start;
+    font-size: calc(100vw * 36 / 1440);
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.user-mypage-box-name {
+    display: flex;
+    margin-top: 18px;
+    margin-left: 24px;
+    color: #000;
+    font-size: 40px;
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.user-mypage-id {
+    display: flex;
+    margin-top: 2px;
+    margin-left: 142px;
+}
+
+.user-mypage-id-text {
+    color: #000;
+    font-size: 24px;
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.user-mypage-id-data {
+    margin-left: 169px;
+    color: #000;
+    font-size: 24px;
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 350;
+    line-height: normal;
+}
+
+.user-mypage-pw {
+    display: flex;
+}
+
+.user-mypage-pw-text {
+    margin-left: calc(100vw * 357 / 1440);
+    color: #000;
+    font-size: calc(100vw * 32 / 1440);
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    width: calc(100vw * 144 / 1440);
+}
+.lock-icon {
+    margin-right: calc(100vw * 9.9 / 1440);
+    width: calc(100vw * 16.071 / 1440);
+    height: calc(100vw * 18 / 1440);
+    flex-shrink: 0;
+}
+.user-mypage-pw-inputs {
+    margin-left: 147px;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-mypage-pw-input {
+    border: none;
+    width: calc(100vw * 446 / 1440);
+    height: calc(100vw * 59 / 1440);
+    flex-shrink: 0;
+    border-radius: 7px;
+    background: #fff;
+    font-size: calc(100vw * 24 / 1440);
+    box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.25) inset;
+    margin-bottom: 12px;
+}
+.user-mypage-pw-input:hover {
+    border: 4px solid rgba(239, 84, 85, 0.25);
+}
+.user-mypage-pw-input::placeholder {
+    color: #737373;
+    font-size: calc(100vw * 24 / 1440);
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 350;
+    line-height: normal;
+}
+
+.user-mypage-change-pw-button {
+    border: none;
+    width: calc(100vw * 446 / 1440);
+    height: calc(100vw * 55 / 1440);
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: #d9d9d9;
+    color: #000;
+    text-align: center;
+    font-size: calc(100vw * 20 / 1440);
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.user-email {
+    display: flex;
+    margin-top: 54px;
+    margin-left: 142px;
+}
+
+.user-email-text {
+    color: #000;
+    font-size: 24px;
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.user-email-data {
+    margin-left: 98px;
+    color: #000;
+    font-size: 24px;
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 350;
+    line-height: normal;
+}

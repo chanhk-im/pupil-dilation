@@ -3,9 +3,16 @@ import { useNavigate } from 'react-router-dom';
 import { createUser } from '../../features/user/api/firebase_auth';
 import { createRequestUsersDocument } from '../../features/user/api/requestUsersDocumentApi';
 import HostSignUpForm from './HostSignUpForm';
+import Popup from '../Popup/Popup';
 
 function HostSignUp() {
     const navigate = useNavigate();
+
+    const [popup, setPopup] = useState({
+        open: false,
+        message: '',
+        callback: false,
+    });
 
     const [newUserInfo, setNewUserInfo] = useState({
         id: '',
@@ -28,21 +35,37 @@ function HostSignUp() {
             await createUser(newUserInfo).then(async (res) => {
                 // TODO: navigate main
                 if (res) {
-                    await createRequestUsersDocument(newUserInfo.id)
-                    alert('주최자 가입 요청이 완료되었습니다.');
-                    navigate('/login');
+                    await createRequestUsersDocument(newUserInfo.id);
+                    setPopup({
+                        open: true,
+                        message: '주최자 가입 요청이 완료되었습니다.',
+                        callback: ()=>navigate('/login'),
+                    });
+                    // navigate('/login');
                 }
             });
         } else {
-            alert('ㅁ');
+            setPopup({
+                open: true,
+                message: '주최자 가입 실패..',
+            });
         }
     };
 
     return (
-        <HostSignUpForm
-            onChangeAccount={onChangeAccount}
-            onButtonClick={onButtonClick}
-        />
+        <div>
+            <Popup
+                open={popup.open}
+                setPopup={setPopup}
+                message={popup.message}
+                title={popup.title}
+                callback={popup.callback}
+            />
+            <HostSignUpForm
+                onChangeAccount={onChangeAccount}
+                onButtonClick={onButtonClick}
+            />
+        </div>
     );
 }
 

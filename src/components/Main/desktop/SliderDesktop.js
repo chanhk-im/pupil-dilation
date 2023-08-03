@@ -11,11 +11,30 @@ import { getDateFormat } from '../../../functions/dateFeature';
 function SliderDesktop() {
     const showList = useSelector((state) => state.show.showList);
 
+    const MySwiper = {
+        slidesPerView: 1,
+        spaceBetween: 0.1,
+        breakpoints: {
+            893: {
+                slidesPerView: 2,
+                spaceBetween: 0.1,
+            },
+            1330: {
+                slidesPerView: 3,
+                spaceBetween: 0.1,
+            },
+            1650: {
+                slidesPerView: 4,
+                spaceBetween: 0.1,
+            },
+        },
+    };
+
     return (
         <Swiper
+            {...MySwiper}
             modules={[Navigation, Pagination, A11y, Zoom, Autoplay]}
-            spaceBetween={0.1}
-            slidesPerView={4} // 몇개를 한 슬라이드에 담는지
+            // 몇개를 한 슬라이드에 담는지
             navigation
             //     nextEl: '.swiper-button-next',
             //     prevEl: '.swiper-button-prev',

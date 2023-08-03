@@ -1,0 +1,61 @@
+.mypage {
+    display: flex;
+    flex-direction: column;
+    margin-top: calc(100vw * 26 / 1440);
+}
+.mypage-title {
+    margin-left: calc(100vw * 142 / 1440);
+    margin-bottom: calc(100vw * 22 / 1440);
+    color: #000;
+    font-family: Noto Sans KR;
+    font-size: calc(100vw * 40 / 1440);
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-align: start;
+    align-items: start;
+}
+.two-selection {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+.userinfo-icon,
+.ticketlist-icon {
+    margin-right: calc(100vw * 25 / 1440);
+}
+.user-info-button,
+.ticketlist-button {
+    margin-left: calc(100vw * 24 / 1440);
+    margin-bottom: calc(100vw * 22 / 1440);
+    width: calc(100vw * 236 / 1440);
+    height: calc(100vw * 48 / 1440);
+    flex-shrink: 0;
+    border-radius: 40px;
+    background: white;
+    color: var(--theme-navy, #2b3252);
+    text-align: center;
+    font-size: calc(100vw * 14 / 1440);
+    font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    cursor: pointer;
+}
+.change-box-container {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+.change-box {
+    width: calc(100vw * 1392 / 1440);
+    height: calc(100vw * 528 / 1440);
+    display: flex;
+    justify-content: center;
+    padding: 21px 112px 39px 118px;
+    align-items: center;
+    gap: 16px;
+    border-radius: 7px;
+    background: #fff;
+    box-shadow: 0px 0px 11px 0px rgba(0, 0, 0, 0.25);
+}

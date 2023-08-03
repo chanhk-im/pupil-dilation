@@ -1,10 +1,10 @@
 import React from 'react';
-import './MobileHeader.css';
+import './HostHeaderMobile.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { restoreUser } from '../features/user/slices/userSlice';
+import { restoreUser } from '../../../../features/user/slices/userSlice';
 
-function MobileHeader() {
+function HostHeaderMobile() {
     const isLogged = useSelector((state) => state.user.isLogged);
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -15,12 +15,17 @@ function MobileHeader() {
     };
     return (
         <>
-            <div className="first-header">
-                <div className="first-header-button">
+            <div className="host-first-header">
+                <div className="host-first-header-button">
                     {isLogged ? (
-                        <button onClick={onClickLogout}>로그아웃</button>
+                        <button
+                            className="host-first-header-signed"
+                            onClick={onClickLogout}
+                        >
+                            로그아웃
+                        </button>
                     ) : (
-                        <div className="first-header-button">
+                        <div className="host-first-header-button">
                             <Link to="/login">
                                 <button>로그인</button>
                             </Link>
@@ -32,10 +37,10 @@ function MobileHeader() {
                     )}
                 </div>
             </div>
-            <div className="second-header-button">
+            <div className="second-host-header">
                 <Link to="/">
                     <img
-                        src="/img/header_img.png"
+                        src="/img/header_logo.svg"
                         alt="동공확장"
                         className="mobile-header-logo"
                     />
@@ -55,4 +60,4 @@ function MobileHeader() {
     );
 }
 
-export default MobileHeader;
+export default HostHeaderMobile;

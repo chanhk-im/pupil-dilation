@@ -3,6 +3,7 @@ import {
     createShowSeatsToProgress,
     createShowTicketing,
     getShowSeatsByIdAndShowNumberNotExpired,
+    getShowSeatsByIdAndShowNumber,
 } from '../../features/show/api/showsDocumentApi';
 import './SeatTicketingFrame.css';
 import useShowById from '../../hooks/useShowById';
@@ -10,9 +11,15 @@ import {
     getDateSeatTickegingFrameDateFormat,
     getDateTimeFormat,
 } from '../../functions/dateFeature';
+import Popup from '../Popup/Popup';
 
 function SeatTicketingFrame({ id, showNum, selected, completedSeats, user }) {
     const show = useShowById(id);
+    const [popup, setPopup] = useState({
+        open: false,
+        message: '',
+        callback: false,
+    });
     const selectedName = selected.map((e) => (
         <div key={e.index}>
             {e.name}
@@ -21,6 +28,13 @@ function SeatTicketingFrame({ id, showNum, selected, completedSeats, user }) {
     ));
     return (
         <div className="seat-ticketing-frame">
+            <Popup
+                open={popup.open}
+                setPopup={setPopup}
+                message={popup.message}
+                title={popup.title}
+                callback={popup.callback}
+            />
             <img
                 className="seat-show-poster"
                 src={show.imageDownloaded ? show.image : '/images/Dongari3.jpg'}
@@ -88,16 +102,25 @@ function SeatTicketingFrame({ id, showNum, selected, completedSeats, user }) {
                                 selected,
                                 user.id,
                             )
-                                .then(() => {
-                                    console.log(ticketingId);
-                                    alert('성공');
-                                })
+                                .then(() =>
+                                  setPopup({
+                                      open: true,
+                                      message: '성공',
+                                  }),
+                                )
                                 .catch((e) => {
-                                    alert(e);
+                                    setPopup({
+                                        open: true,
+                                        message: e,
+                                    });
                                 });
+                          });
+                    } 
+                    else {
+                        setPopup({
+                            open: true,
+                            message: '이미 예매되었거나 예매 진행중인 좌석입니다.',
                         });
-                    } else {
-                        alert('이미 예매되었거나 예매 진행중인 좌석입니다.');
                     }
                 }}
             >
