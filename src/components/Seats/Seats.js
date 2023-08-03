@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Seats.css';
-import { getShowSeatsByIdAndShowNumber } from '../../features/show/api/showsDocumentApi';
+import { getShowSeatsByIdAndShowNumberNotExpired } from '../../features/show/api/showsDocumentApi';
 import Loading from '../Loading';
 
 const SeatState = {
@@ -52,12 +52,16 @@ function Seats({ id, showNum, selected, onSeatClick }) {
     const [completedSeats, setCompletedSeats] = useState([]);
 
     const loadSeats = async () => {
-        await getShowSeatsByIdAndShowNumber(id, showNum).then((res) => {
-            setCompletedSeats(res.map((e) => {
-                return { index: Number(e.id), ...e.data() };
-            }));
-            setIsLoaded(true);
-        });
+        await getShowSeatsByIdAndShowNumberNotExpired(id, showNum).then(
+            (res) => {
+                setCompletedSeats(
+                    res.map((e) => {
+                        return { index: Number(e.id), ...e.data() };
+                    }),
+                );
+                setIsLoaded(true);
+            },
+        );
     };
 
     useEffect(() => {
@@ -97,8 +101,7 @@ function Seats({ id, showNum, selected, onSeatClick }) {
                                 onSeatClick={onSeatClick}
                             />,
                         );
-                    }
-                    else {
+                    } else {
                         const selectedExistIndex = selected.findIndex((e) => {
                             if (e.index === index && e.name === name)
                                 return true;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -10,21 +10,31 @@ function DetailFooterDesktop({ id }) {
     const show = useShowById(id);
     const navigate = useNavigate();
     const isLogged = useSelector((state) => state.user.isLogged);
+    const [selectedSchedule, setSelectedSchedule] = useState(1);
 
     const schedule = show.schedule.map((value, i) => (
         <option value={i + 1}>
             {i + 1}공 {getDateScheduleFormat(value)}
         </option>
     ));
+
+    const onChangeSchedule = (e) => {
+        setSelectedSchedule(e.target.value);
+    }
+
     return (
         <div className="detail-footer">
-            <select name="schedule" className="select-schedule">
+            <select
+                name="schedule"
+                className="select-schedule"
+                onChange={onChangeSchedule}
+            >
                 {schedule}
             </select>
             <button
                 type="button"
                 onClick={() => {
-                    if (isLogged) navigate('/seats/' + id);
+                    if (isLogged) navigate('/seats/' + id + '?' + 'showNum=' + selectedSchedule);
                     else {
                         alert('로그인해라');
                         navigate('/login');

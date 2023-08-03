@@ -3,7 +3,6 @@ import { Route, Routes } from 'react-router-dom';
 import MainPage from '../components/Main/MainPage';
 import Detail from '../components/Detail/Detail';
 import SeatsPage from '../components/Seats/SeatsPage';
-import Seats from '../components/Seats/Seats';
 import TicketList from '../components/Main/MyPage/TicketList';
 import Loading from '../components/Loading';
 import AdminPage from '../components/Admin/AdminPage';

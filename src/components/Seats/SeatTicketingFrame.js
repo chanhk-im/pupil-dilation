@@ -1,8 +1,8 @@
 import React from 'react';
 import {
     createShowSeatsToProgress,
-    getShowDocumentById,
-    getShowSeatsByIdAndShowNumber,
+    createShowTicketing,
+    getShowSeatsByIdAndShowNumberNotExpired,
 } from '../../features/show/api/showsDocumentApi';
 import './SeatTicketingFrame.css';
 import useShowById from '../../hooks/useShowById';
@@ -11,7 +11,7 @@ import {
     getDateTimeFormat,
 } from '../../functions/dateFeature';
 
-function SeatTicketingFrame({ id, selected, completedSeats, user }) {
+function SeatTicketingFrame({ id, showNum, selected, completedSeats, user }) {
     const show = useShowById(id);
     const selectedName = selected.map((e) => (
         <div key={e.index}>
@@ -28,9 +28,11 @@ function SeatTicketingFrame({ id, selected, completedSeats, user }) {
             <div className="seat-show-title">{show.title}</div>
             <div className="seat-show-schedule">
                 <div>
-                    {getDateSeatTickegingFrameDateFormat(show.schedule[0])}
+                    {getDateSeatTickegingFrameDateFormat(
+                        show.schedule[showNum - 1],
+                    )}
                 </div>
-                <div>{getDateTimeFormat(show.schedule[0])}</div>
+                <div>{getDateTimeFormat(show.schedule[showNum - 1])}</div>
             </div>
             <div className="seat-num-people-title">관람인원 선택</div>
             <div className="seat-num-people">
@@ -58,7 +60,10 @@ function SeatTicketingFrame({ id, selected, completedSeats, user }) {
                 type="button"
                 className="seat-ticketing-submit"
                 onClick={async () => {
-                    const res = await getShowSeatsByIdAndShowNumber(id, 1);
+                    const res = await getShowSeatsByIdAndShowNumberNotExpired(
+                        id,
+                        showNum,
+                    );
                     let flag = false;
                     selected.forEach((e) => {
                         if (
@@ -70,18 +75,28 @@ function SeatTicketingFrame({ id, selected, completedSeats, user }) {
                         }
                     });
                     console.log(res);
-                    if (!flag)
-                        await createShowSeatsToProgress(
+                    if (!flag) {
+                        await createShowTicketing(
                             id,
-                            1,
+                            showNum,
                             selected,
                             user.id,
-                        )
-                            .then(() => alert('성공'))
-                            .catch((e) => {
-                                alert(e);
-                            });
-                    else {
+                        ).then(async (ticketingId) => {
+                            await createShowSeatsToProgress(
+                                id,
+                                showNum,
+                                selected,
+                                user.id,
+                            )
+                                .then(() => {
+                                    console.log(ticketingId);
+                                    alert('성공');
+                                })
+                                .catch((e) => {
+                                    alert(e);
+                                });
+                        });
+                    } else {
                         alert('이미 예매되었거나 예매 진행중인 좌석입니다.');
                     }
                 }}

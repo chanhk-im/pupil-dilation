@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import Seats from './Seats';
 import SeatTicketingFrame from './SeatTicketingFrame';
-import { getShowSeatsByIdAndShowNumber } from '../../features/show/api/showsDocumentApi';
 import './SeatsPage.css';
 
 function SeatsPage() {
     const { id } = useParams();
     const navigate = useNavigate();
+    const [searchParams, setSearchParams] = useSearchParams();
+    const showNum = Number(searchParams.get('showNum'));
+
     const [selected, setSelected] = useState([]);
+
     const isLogged = useSelector((state) => state.user.isLogged);
     const user = useSelector((state) => state.user.user);
 
@@ -57,7 +60,7 @@ function SeatsPage() {
                 <h2 className="seats-select-text">좌석 선택</h2>
                 <div className="seats-place-name">ANH 오디토리움</div>
                 <div className="seats-stage">STAGE</div>
-                <Seats id={id} showNum={1} selected={selected} onSeatClick={onSeatClick} />
+                <Seats id={id} showNum={showNum} selected={selected} onSeatClick={onSeatClick} />
                 <div className="seats-type-grid">
                     <div className="seats-type-content">
                         <div className="seats-type-box seats-type-box-selected" />
@@ -83,7 +86,7 @@ function SeatsPage() {
                 </div>
             </div>
 
-            <SeatTicketingFrame id={id} selected={selected} user={user} />
+            <SeatTicketingFrame id={id} showNum={showNum} selected={selected} user={user} />
         </div>
     );
 }

@@ -34,21 +34,91 @@ export async function getShowSeatsByIdAndShowNumber(id, showNum) {
     return querySnapshot.docs;
 }
 
+export async function getShowSeatBySeatIndex(id, showNum, index) {
+    const reference = collection(fireStore, 'seats');
+    const q = query(
+        reference,
+        and(
+            where('showId', '==', id),
+            where('showNum', '==', showNum),
+            where('index', '==', index),
+        ),
+    );
+    const querySnapshot = await getDocs(q);
+    return querySnapshot.docs;
+}
+
+export async function getShowSeatsByIdAndShowNumberNotExpired(id, showNum) {
+    const expireDate = new Date(Date.now());
+    expireDate.setMinutes(expireDate.getMinutes() - 15);
+    const reference = collection(fireStore, 'seats');
+    const q = query(
+        reference,
+        and(
+            where('showId', '==', id),
+            where('showNum', '==', showNum),
+            where('time', '>=', expireDate),
+        ),
+    );
+    const querySnapshot = await getDocs(q);
+    return querySnapshot.docs;
+}
+
+export async function getShowTicketingById(id) {
+    const reference = doc(fireStore, 'ticketing', id);
+    const ticketing = await getDoc(reference);
+
+    return ticketing;
+}
+
+export async function createShowTicketing(id, showNum, seats, userId) {
+    const reference = collection(fireStore, 'ticketing');
+    const newReference = await addDoc(reference, {
+        showId: id,
+        showNum,
+        userId,
+        seats,
+        time: new Date(Date.now()),
+        state: 0, 
+    });
+
+    return newReference.id;
+}
+
+export async function setShowTicketingToCompleted(ticketingId, ticketingInfo) {
+    const reference = doc(fireStore, 'ticketing', ticketingId);
+    await setDoc(reference, {
+        ...ticketingInfo,
+        state: 1,
+    })
+}
+
 export async function createShowSeatsToProgress(id, showNum, seats, userId) {
     seats.forEach(async (e) => {
-        const reference = collection(
-            fireStore,
-            'seats',
-        );
-        await addDoc(reference, {
-            index: e.index,
-            name: e.name,
-            showId: id,
-            showNum,
-            userId,
-            state: 3,
-            time: new Date(Date.now()),
-        });
+        const existSeat = await getShowSeatBySeatIndex(id, showNum, e.index);
+        if (existSeat.length > 0) {
+            const reference = doc(fireStore, 'seats', existSeat[0].id);
+            await setDoc(reference, {
+                index: e.index,
+                name: e.name,
+                showId: id,
+                showNum,
+                userId,
+                state: 3,
+                time: new Date(Date.now()),
+            });
+        } else {
+            const reference = collection(fireStore, 'seats');
+            await addDoc(reference, {
+                index: e.index,
+                name: e.name,
+                showId: id,
+                showNum,
+                userId,
+                state: 3,
+                time: new Date(Date.now()),
+            });
+        }
     });
 }
 
