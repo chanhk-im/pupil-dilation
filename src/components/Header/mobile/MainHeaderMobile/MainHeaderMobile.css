@@ -17,7 +17,7 @@
 .first-header-button button{
   border: none;
   background-color: transparent;
-  width: calc(100vw * 70 / 400);
+  width: calc(100vw * 80 / 400);
   height: 23px;
   color: #FFFFFF;
   font-family: Noto Sans KR;
@@ -32,7 +32,7 @@
 .second-header-button{
   display: flex;
   width: 100%;
-  height: 70px;
+  height: calc(100vw * 80 / 400);
   background: #FFF;
   box-shadow: 0px 3px 6px -1px rgba(0, 0, 0, 0.25);
 }
@@ -40,23 +40,23 @@
 .mobile-header-logo{
   width: calc(100vw * 70 / 400);
   height: 20px;
-  margin-top: 24.5px;
-  margin-right: 203px;
-  margin-left: 20px;
-  margin-bottom: 26.5px;
+  margin-top: calc(100vw * 24.5 / 400);
+  margin-right: calc(100vw * 203 / 400);
+  margin-left: calc(100vw * 20 / 400);
+  margin-bottom: calc(100vw * 26.5 / 400);
 }
 
 .mobile-header-search{
-  min-width: 20px;
+  width: calc(100vw * 20 / 400);
   height: 20px;
-  margin-top: 24px;
-  margin-right: 34px;
-  margin-bottom: 26px;
+  margin-top: calc(100vw * 24 / 400);
+  margin-right: calc(100vw * 34 / 400);
+  margin-bottom: calc(100vw * 26 / 400);
 }
 
 .mobile-mypage{
-  min-width: 20px;
-  height: 20px;
-  margin-top: 24px;
-  margin-right: 50px;
+  width: calc(100vw * 20 / 400);
+  height:20px;
+  margin-top: calc(100vw * 24 / 400);
+  margin-right: calc(100vw * 50 / 400);
 }
