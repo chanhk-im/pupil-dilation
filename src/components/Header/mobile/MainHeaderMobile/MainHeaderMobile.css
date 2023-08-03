@@ -34,7 +34,7 @@
   width: 100%;
   height: calc(100vw * 80 / 400);
   background: #FFF;
-  box-shadow: 0px 3px 6px -1px rgba(0, 0, 0, 0.25);
+  border-bottom: solid rgba(0, 0, 0, 0.25);
 }
 
 .mobile-header-logo{

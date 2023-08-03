@@ -1,16 +1,16 @@
 .mobile-main-header{
-  width: 215px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
   height: 48px;
   flex-shrink: 0;
   color: var(--theme-navy, #2B3252);
   text-align: center;
   font-family: Playfair Display;
-  font-size: 28px;
+  font-size: calc(100vw * 28 / 400);
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   margin-top: 15px;
-  margin-left: 88px;
-  margin-right: 90px;
   margin-bottom: 18px;
 }

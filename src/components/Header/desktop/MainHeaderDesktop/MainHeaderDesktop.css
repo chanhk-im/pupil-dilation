@@ -61,12 +61,12 @@
 }
 
 .search-button {
-    width: calc(100vw * 24 / 1440);
+    width: 24px;
 }
 
 .user-button {
     margin-left: calc(100vw * 70 / 1440);
-    width: calc(100vw * 24 / 1440);
+    width: 24px;
     height: 24px;
     z-index: 50;
 }

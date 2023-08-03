@@ -34,11 +34,21 @@ function SliderMobile() {
         });
     }, []);
 
+    const MySwiper = {
+        slidesPerView: 1,
+        spaceBetween: 0.1,
+        breakpoints: {
+            345: {
+                slidesPerView: 2,
+                spaceBetween: 0.1,
+            },
+        },
+    };
+
     return (
         <Swiper
+            {...MySwiper}
             modules={[Navigation, Pagination, A11y, Zoom, Autoplay]}
-            spaceBetween={0.1}
-            slidesPerView={2} // 몇개를 한 슬라이드에 담는지
             navigation
             //     nextEl: '.swiper-button-next',
             //     prevEl: '.swiper-button-prev',
