@@ -15,6 +15,14 @@
     justify-content: end;
 }
 
+.auth {
+    padding-left: 60.2px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
 .header__auth-logout {
     color: #fff;
     font-size: 16px;
@@ -50,12 +58,12 @@
 }
 
 .search-button {
-    width: calc(100vw * 24 / 1440);
+    width: 24px;
 }
 
 .user-button {
     margin-left: calc(100vw * 70 / 1440);
-    width: calc(100vw * 24 / 1440);
+    width: 24px;
     height: 24px;
 }
 

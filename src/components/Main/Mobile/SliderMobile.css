@@ -1,5 +1,6 @@
 .eventBoard-mobile {
   /*공연 슬롯들이 차지하는 공간*/
+  width: 100%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;

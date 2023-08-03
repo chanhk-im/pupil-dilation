@@ -3,8 +3,6 @@
     width: 393px;
     height: 552px;
     flex-shrink: 0;
-    /* margin-left: calc(100vw * 140 / 393);
-    margin-top: calc(100vh * 131 / 852); */
     justify-content: center;
 }
 
