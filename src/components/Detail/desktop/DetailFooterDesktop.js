@@ -30,11 +30,6 @@ function DetailFooterDesktop({ id }) {
 
     return (
         <div className="detail-footer">
-            <select
-                name="schedule"
-                className="select-schedule"
-                onChange={onChangeSchedule}
-            >
             <Popup
                 open={popup.open}
                 setPopup={setPopup}
@@ -42,13 +37,24 @@ function DetailFooterDesktop({ id }) {
                 title={popup.title}
                 callback={popup.callback}
             />
-            <select name="schedule" className="select-schedule">
+            <select
+                name="schedule"
+                className="select-schedule"
+                onChange={onChangeSchedule}
+            >
                 {schedule}
             </select>
             <button
                 type="button"
                 onClick={() => {
-                    if (isLogged) navigate('/seats/' + id + '?' + 'showNum=' + selectedSchedule);
+                    if (isLogged)
+                        navigate(
+                            '/seats/' +
+                                id +
+                                '?' +
+                                'showNum=' +
+                                selectedSchedule,
+                        );
                     else {
                         setPopup({
                             open: true,
