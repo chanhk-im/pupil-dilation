@@ -154,11 +154,13 @@ function MainHeaderDesktop() {
                             </div>
                         )}
                     </div>
-                    <img
-                        className="user-button"
-                        alt="search-button"
-                        src="/images/user.svg"
-                    />
+                    <Link to="/mypage">
+                        <img
+                            className="user-button"
+                            alt="user-button"
+                            src="/images/user.svg"
+                        />
+                    </Link>
                 </div>
             </div>
         </div>
