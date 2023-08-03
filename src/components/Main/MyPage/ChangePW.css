@@ -16,12 +16,12 @@
 .user-mypage-data {
     position: absolute;
     left: 0;
-    top: 321px;
+    top: 285px;
 }
 
 .user-mypage-account-data {
     margin-top: calc(100vw * 21 / 1440);
-    margin-left: calc(100vw * 117 / 1440);
+    margin-left: calc(100vw * 141 / 1440);
     margin-bottom: calc(100vw * 35 / 1440);
     display: flex;
     width: calc(100vw * 212 / 1440);
@@ -107,9 +107,10 @@
     flex-shrink: 0;
     border-radius: 7px;
     background: #fff;
-    font-size: calc(100vw * 24 / 1440);
+    font-size: calc(100vw * 30 / 1440);
     box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.25) inset;
     margin-bottom: 12px;
+    padding: calc(100vw * 15 / 1440);
 }
 .user-mypage-pw-input:hover {
     border: 4px solid rgba(239, 84, 85, 0.25);
@@ -137,6 +138,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    cursor: pointer;
 }
 
 .user-email {

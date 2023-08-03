@@ -21,6 +21,7 @@
     font-size: 16px;
     font-weight: 700;
     text-decoration: none;
+    z-index: 60;
 }
 
 .header__auth-logout {
@@ -35,6 +36,7 @@
     align-items: center;
     background-color: transparent;
     border: none;
+    z-index: 50;
 }
 
 .line {
@@ -49,6 +51,7 @@
 
 .pupil-dilation {
     width: 211px;
+    z-index: 50;
 }
 
 .line-right {
@@ -65,6 +68,7 @@
     margin-left: calc(100vw * 70 / 1440);
     width: 24px;
     height: 24px;
+    z-index: 50;
 }
 
 .search-input {
@@ -79,6 +83,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    z-index: 50;
 }
 
 input[name='search'] {
@@ -86,6 +91,7 @@ input[name='search'] {
     border: none;
     font-size: 24px;
     font-weight: 400;
+    z-index: 50;
 }
 
 .header-modal {
@@ -97,10 +103,22 @@ input[name='search'] {
     flex-shrink: 0;
     border-radius: 25px;
     background: #2b3252;
-    z-index: 888;
+    z-index: 88;
 }
 
-.searched-list {
+.searched-list-color {
+    margin-left: 44%;
+    display: flex;
+    cursor: pointer;
+    color: yellow;
+    font-family: Noto Sans KR;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.searched-list-white {
     margin-left: 44%;
     display: flex;
     cursor: pointer;
@@ -121,10 +139,55 @@ input[name='search'] {
     height: 289px;
     flex-shrink: 0;
     border-radius: 8px;
+    color: #fff;
 }
 
 .search-line {
     position: absolute;
     top: 21px;
     left: 261px;
+}
+
+.bottom-header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.header-show-title {
+    z-index: 999;
+    position: absolute;
+    left: 9px;
+    top: 320px;
+    width: 243px;
+    color: #fff;
+    text-align: center;
+    font-family: Noto Sans KR;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.header-show-time {
+    z-index: 999;
+    position: absolute;
+    left: 9px;
+    top: 355px;
+    width: 243px;
+    color: #fff;
+    text-align: center;
+    font-family: Noto Sans KR;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: -0.9px;
+}
+
+.test {
+    z-index: 15;
 }
