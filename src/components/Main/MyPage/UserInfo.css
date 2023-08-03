@@ -4,8 +4,8 @@
     top: 280px;
 }
 .user-info {
-    margin-top: calc(100vw * 21 / 1440);
-    margin-left: calc(100vw * 117 / 1440);
+    margin-top: calc(100vw * 23 / 1440);
+    margin-left: calc(100vw * 141 / 1440);
     margin-bottom: calc(100vw * 35 / 1440);
     display: flex;
     width: calc(100vw * 212 / 1440);
@@ -133,4 +133,5 @@
     font-style: normal;
     font-weight: 350;
     line-height: normal;
+    text-align: start;
 }
