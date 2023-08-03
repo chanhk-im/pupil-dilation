@@ -1,12 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { ticketReservDocument } from '../../../features/show/api/showsDocumentApi';
+import Loading from '../../Loading';
 import './TicketList.css';
 
 function TicketList() {
-    // const user = useSelector((state) => state.user.user);
-    // const reserv = query(showID, where('userId', '==', user));
+    const user = useSelector((state) => state.user.user);
+    // const ticketlist = ticketReservDocument.map(
+    //     (value, i) => {value.docs[i].data().showID,
+    //     value.docs[i].data().showNum},
+    // );
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [ticketList, setTicketList] = useState([]);
     const [ticketDown, setTicketDown] = useState(false);
-    return (
+    // const showList = useSelector((state) => state.show.showList);
+    // const index = showList.findIndex((element) => element.id === showId);
+    async function onRefresh() {
+        await ticketReservDocument(user.id).then((value) => {
+            setTicketList(value);
+            setIsLoaded(true);
+        });
+    }
+    useEffect(() => {
+        onRefresh();
+    }, []);
+
+    return isLoaded ? (
         <div className="user-mypage-container">
             <div className="ticket-list">
                 <div className="ticket-reservation">예매내역</div>
@@ -30,10 +50,16 @@ function TicketList() {
                                 />
                             )}
                         </button>
-                        <div className="ticket-show-title">즉새두</div>
+                        <div className="ticket-show-title">
+                            {/* {ticketList[0].data().showId.title} */}즉새두
+                        </div>
                         <div className="ticket-show-time">
                             2023.09.27(토) 22:00
                         </div>
+                        {/* <Link
+                            to={`/detail/${value.id}`}
+                            style={{ textDecoration: 'none' }}
+                        ></Link> */}
                         <button className="ticket-show-info">공연정보</button>
                     </div>
                     <nav className={ticketDown ? 'ticket-hidden' : ''}>
@@ -76,6 +102,8 @@ function TicketList() {
                 <div></div>
             </div>
         </div>
+    ) : (
+        <Loading />
     );
 }
 

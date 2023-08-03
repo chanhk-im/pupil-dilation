@@ -79,7 +79,7 @@ export async function createShowTicketing(id, showNum, seats, userId) {
         userId,
         seats,
         time: new Date(Date.now()),
-        state: 0, 
+        state: 0,
     });
 
     return newReference.id;
@@ -90,7 +90,7 @@ export async function setShowTicketingToCompleted(ticketingId, ticketingInfo) {
     await setDoc(reference, {
         ...ticketingInfo,
         state: 1,
-    })
+    });
 }
 
 export async function createShowSeatsToProgress(id, showNum, seats, userId) {
@@ -217,4 +217,12 @@ export async function deleteShowsDocument(deleteId) {
             return false;
         });
     return false;
+}
+
+export async function ticketReservDocument(userId) {
+    const reference = collection(fireStore, 'ticketing');
+    const q = query(reference, where('userId', '==', userId));
+
+    const querySnapshot = await getDocs(q);
+    return querySnapshot.docs;
 }

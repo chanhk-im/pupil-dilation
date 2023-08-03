@@ -14,10 +14,9 @@ function MypageForm() {
                 >
                     <img
                         className="userinfo-icon"
-                        src="/images/user_navy.svg"
+                        src="/images/userinfo_navy.svg"
                         alt="회원정보 아이콘"
                     ></img>
-                    회원정보
                 </button>
                 <button
                     type="button"
