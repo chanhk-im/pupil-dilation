@@ -189,20 +189,15 @@ function MainHeaderDesktop() {
                                     </div>
                                 ) : null}
                             </div>
-                            <img
-                                className="user-button"
-                                alt="search-button"
-                                src="/images/user.svg"
-                            />
+                            <Link className="test" to="/mypage">
+                                <img
+                                    className="user-button"
+                                    alt="search-button"
+                                    src="/images/user.svg"
+                                />
+                            </Link>
                         </div>
                     </div>
-                    <Link to="/mypage">
-                        <img
-                            className="user-button"
-                            alt="user-button"
-                            src="/images/user.svg"
-                        />
-                    </Link>
                 </div>
                 <div className="bottom-header" onClick={closeModal}></div>
             </div>

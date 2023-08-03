@@ -68,6 +68,7 @@
     margin-left: calc(100vw * 70 / 1440);
     width: calc(100vw * 24 / 1440);
     height: 24px;
+    z-index: 50;
 }
 
 .search-input {
