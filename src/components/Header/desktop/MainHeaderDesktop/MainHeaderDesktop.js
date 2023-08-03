@@ -196,6 +196,13 @@ function MainHeaderDesktop() {
                             />
                         </div>
                     </div>
+                    <Link to="/mypage">
+                        <img
+                            className="user-button"
+                            alt="user-button"
+                            src="/images/user.svg"
+                        />
+                    </Link>
                 </div>
                 <div className="bottom-header" onClick={closeModal}></div>
             </div>

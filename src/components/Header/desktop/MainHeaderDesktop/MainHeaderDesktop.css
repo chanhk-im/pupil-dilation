@@ -1,4 +1,5 @@
 .header {
+    width: 100%;
     height: 118px;
     /* background-color: yellow; */
     border-bottom: solid rgba(0, 0, 0, 0.25);
@@ -64,7 +65,7 @@
 }
 
 .user-button {
-    padding-left: calc(100vw * 70 / 1440);
+    margin-left: calc(100vw * 70 / 1440);
     width: calc(100vw * 24 / 1440);
     height: 24px;
 }
