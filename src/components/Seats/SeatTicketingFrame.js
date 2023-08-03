@@ -1,6 +1,8 @@
 import React from 'react';
 import {
     createShowSeatsToProgress,
+    createShowTicketing,
+    getShowSeatsByIdAndShowNumberNotExpired,
     getShowSeatsByIdAndShowNumber,
 } from '../../features/show/api/showsDocumentApi';
 import './SeatTicketingFrame.css';
@@ -11,7 +13,7 @@ import {
 } from '../../functions/dateFeature';
 import Popup from '../Popup/Popup';
 
-function SeatTicketingFrame({ id, selected, user }) {
+function SeatTicketingFrame({ id, showNum, selected, completedSeats, user }) {
     const show = useShowById(id);
     const [popup, setPopup] = useState({
         open: false,
@@ -40,9 +42,11 @@ function SeatTicketingFrame({ id, selected, user }) {
             <div className="seat-show-title">{show.title}</div>
             <div className="seat-show-schedule">
                 <div>
-                    {getDateSeatTickegingFrameDateFormat(show.schedule[0])}
+                    {getDateSeatTickegingFrameDateFormat(
+                        show.schedule[showNum - 1],
+                    )}
                 </div>
-                <div>{getDateTimeFormat(show.schedule[0])}</div>
+                <div>{getDateTimeFormat(show.schedule[showNum - 1])}</div>
             </div>
             <div className="seat-num-people-title">관람인원 선택</div>
             <div className="seat-num-people">
@@ -70,7 +74,10 @@ function SeatTicketingFrame({ id, selected, user }) {
                 type="button"
                 className="seat-ticketing-submit"
                 onClick={async () => {
-                    const res = await getShowSeatsByIdAndShowNumber(id, 1);
+                    const res = await getShowSeatsByIdAndShowNumberNotExpired(
+                        id,
+                        showNum,
+                    );
                     let flag = false;
                     selected.forEach((e) => {
                         if (
@@ -82,25 +89,33 @@ function SeatTicketingFrame({ id, selected, user }) {
                         }
                     });
                     console.log(res);
-                    if (!flag)
-                        await createShowSeatsToProgress(
+                    if (!flag) {
+                        await createShowTicketing(
                             id,
-                            1,
+                            showNum,
                             selected,
                             user.id,
-                        )
-                            .then(() =>
-                                setPopup({
-                                    open: true,
-                                    message: '성공',
-                                }),
+                        ).then(async (ticketingId) => {
+                            await createShowSeatsToProgress(
+                                id,
+                                showNum,
+                                selected,
+                                user.id,
                             )
-                            .catch((e) => {
-                                setPopup({
-                                    open: true,
-                                    message: e,
+                                .then(() =>
+                                  setPopup({
+                                      open: true,
+                                      message: '성공',
+                                  }),
+                                )
+                                .catch((e) => {
+                                    setPopup({
+                                        open: true,
+                                        message: e,
+                                    });
                                 });
-                            });
+                          });
+                    } 
                     else {
                         setPopup({
                             open: true,

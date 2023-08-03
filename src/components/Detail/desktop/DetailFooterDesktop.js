@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -11,6 +11,7 @@ function DetailFooterDesktop({ id }) {
     const show = useShowById(id);
     const navigate = useNavigate();
     const isLogged = useSelector((state) => state.user.isLogged);
+    const [selectedSchedule, setSelectedSchedule] = useState(1);
     const [popup, setPopup] = useState({
         open: false,
         message: '',
@@ -22,8 +23,18 @@ function DetailFooterDesktop({ id }) {
             {i + 1}공 {getDateScheduleFormat(value)}
         </option>
     ));
+
+    const onChangeSchedule = (e) => {
+        setSelectedSchedule(e.target.value);
+    }
+
     return (
         <div className="detail-footer">
+            <select
+                name="schedule"
+                className="select-schedule"
+                onChange={onChangeSchedule}
+            >
             <Popup
                 open={popup.open}
                 setPopup={setPopup}
@@ -37,7 +48,7 @@ function DetailFooterDesktop({ id }) {
             <button
                 type="button"
                 onClick={() => {
-                    if (isLogged) navigate('/seats/' + id);
+                    if (isLogged) navigate('/seats/' + id + '?' + 'showNum=' + selectedSchedule);
                     else {
                         setPopup({
                             open: true,
