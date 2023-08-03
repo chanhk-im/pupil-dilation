@@ -37,7 +37,7 @@
 }
 
 .host-header-image{
-  width: calc(100vw * 112.85 / 400)px;
+  width: calc(100vw * 112.85 / 400);
   height: 122px;
   flex-shrink: 0;
 }
