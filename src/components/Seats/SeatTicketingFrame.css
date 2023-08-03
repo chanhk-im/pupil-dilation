@@ -139,6 +139,7 @@
     font-weight: 700;
     line-height: normal;
     letter-spacing: -0.9px;
+    z-index: 50;
 }
 
 .seats-type-grid {
