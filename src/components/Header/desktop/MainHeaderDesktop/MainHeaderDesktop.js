@@ -199,7 +199,7 @@ function MainHeaderDesktop() {
                         </div>
                     </div>
                 </div>
-                <div className="bottom-header" onClick={closeModal}></div>
+                {/* <div className="bottom-header" onClick={closeModal}></div> */}
             </div>
         </div>
     );
