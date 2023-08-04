@@ -14,8 +14,9 @@ function TicketList() {
     const [isLoaded, setIsLoaded] = useState(false);
     const [ticketList, setTicketList] = useState([]);
     const [ticketDown, setTicketDown] = useState(false);
-    // const showList = useSelector((state) => state.show.showList);
+    const ticketShowList = useSelector((state) => state.show.showList);
     // const index = showList.findIndex((element) => element.id === showId);
+    const showTitle = ticketReservDocument.title;
     async function onRefresh() {
         await ticketReservDocument(user.id).then((value) => {
             setTicketList(value);
@@ -51,7 +52,8 @@ function TicketList() {
                             )}
                         </button>
                         <div className="ticket-show-title">
-                            {/* {ticketList[0].data().showId.title} */}즉새두
+                            {ticketList[0].data().showId.title}
+                            {showTitle}
                         </div>
                         <div className="ticket-show-time">
                             2023.09.27(토) 22:00
