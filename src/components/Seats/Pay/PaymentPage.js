@@ -1,36 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './PaymentPage.css';
+import Timer from './Timer';
 
 /*eslint-disable*/
 function PaymentPage() {
-    const Timer = () => {
-        const [min, setMin] = useState(15);
-        const [sec, setSec] = useState(0);
-        const time = useRef(180);
-        const timerId = useRef(null);
-
-        useEffect(() => {
-            timerId.current = setInterval(() => {
-                setMin(parseInt(time.current / 60));
-                setSec(time.current % 60);
-                time.current -= 1;
-            }, 1000);
-
-            return () => clearInterval(timerId.current);
-        }, []);
-
-        useEffect(() => {
-            if (time.current <= 0) {
-                clearInterval(timerId.current);
-            }
-        }, [sec]);
-
-        return (
-            <div className="timer">
-                {min}:{sec}
-            </div>
-        );
-    };
+    const timerSeconds = 15 * 60;
     return (
         <div className="payment-container">
             <div className="pay-ticket">
@@ -69,6 +43,7 @@ function PaymentPage() {
                         <div className="final">
                             <div className="final-title">최종결제금액</div>
                             <div className="final-title-content">10000원</div>
+                            <Timer className="timer" seconds={timerSeconds} />
                         </div>
                         <div className="account">
                             <div className="account-title">입금계좌</div>
@@ -76,7 +51,6 @@ function PaymentPage() {
                                 국민 123123123123123
                             </div>
                         </div>
-                        <div className="timer">{Timer}</div>
                         <div className="sending">
                             <div className="sending-title">송금계좌</div>
                             <input
