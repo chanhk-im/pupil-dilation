@@ -17,12 +17,13 @@ function TicketList() {
     const ticketShowList = useSelector((state) => state.show.showList);
     // const index = showList.findIndex((element) => element.id === showId);
     const showTitle = ticketReservDocument.title;
-    async function onRefresh() {
-        await ticketReservDocument(user.id).then((value) => {
-            setTicketList(value);
-            setIsLoaded(true);
-        });
-    }
+    const ticketingDocumentId = querySnapshot.docs[0].id;
+    // async function onRefresh() {
+    //     await ticketReservDocument(user.id).then((value) => {
+    //         setTicketList(value);
+    //         setIsLoaded(true);
+    //     });
+    // }
     useEffect(() => {
         onRefresh();
     }, []);

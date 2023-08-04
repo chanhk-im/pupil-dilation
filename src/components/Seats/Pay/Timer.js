@@ -27,7 +27,6 @@ function Timer({ seconds }) {
 
     useEffect(() => {
         if (timeLeft === 0) {
-            // TODO: 타이머가 종료되었을 때 실행할 코드를 추가합니다.
             console.log('Timer expired');
         }
     }, [timeLeft]);
