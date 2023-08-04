@@ -1,6 +1,6 @@
 .detail {
     display: flex;
     flex-direction: column;
-    justify-content: start;
-    align-items: end;
+    justify-content: center;
+    align-items: center;
 }

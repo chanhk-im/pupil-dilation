@@ -1,54 +1,48 @@
-.detailpage-button-mobile {
+.detail-footer {
     display: flex;
     flex-direction: column;
-    margin-left: 23px;
-    margin-right: 23px;
-}
-
-.schedule-button-mobile {
-    width: 347px;
-    height: 49px;
-    border-radius: 12px;
-    border: 1px solid #000;
-    margin-top: 8px;
-    margin-bottom: 18px;
-    color: #000;
-    font-family: Noto Sans KR;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    letter-spacing: -0.81px;
-    padding: 10px 14px 12px 14px;
-}
-
-.revervation-button-mobile {
-    width: 347px;
-    height: 63.513px;
-    flex-shrink: 0;
-    background-color: var(--theme-navy, #2b3252);
-    border-radius: 12px;
-    border: 1px solid #000;
-    margin-top: 8px;
-    margin-bottom: 18px;
-    color: #fad744;
-    text-align: center;
-    font-family: Noto Sans KR;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    letter-spacing: -0.81px;
-}
+    align-items: start;
+    justify-content: start;
+    margin-top: calc(100vh * 80 / 1440);
+  }
 
 .detail-z-index {
     z-index: 50;
 }
 
 .select-schedule {
+    width: calc(100vw * 448 / 1440);
+    height: 69px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    border: 1px solid #000;
+    padding: calc(100vw * 11 / 1440) calc(100vw * 174 / 1440) calc(100vw * 17 / 1440) calc(100vw * 14 / 1440);
+    color: #000;
+    font-family: Noto Sans KR;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -1.26px;
+    margin-bottom: calc(100vh * 10 / 1440);
     z-index: 50;
 }
 
 .ticketing-button {
+    display: flex;
+    padding: calc(100vw * 13.67 / 1440) calc(100vw * 152 / 1440) calc(100vw * 13.67 / 1440) calc(100vw * 152 / 1440);
+    width: calc(100vw * 448 / 1440);
+    height: 82px;
+    background-color: var(--theme-navy, #2B3252);
+    border-radius: 40px;
+    color: #FAD744;
+    text-align: center;
+    justify-content: center;
+    font-family: Noto Sans KR;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    flex-shrink: 0;
     z-index: 50;
 }
