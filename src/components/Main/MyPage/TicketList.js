@@ -7,28 +7,21 @@ import './TicketList.css';
 
 function TicketList() {
     const user = useSelector((state) => state.user.user);
-    // const ticketlist = ticketReservDocument.map(
-    //     (value, i) => {value.docs[i].data().showID,
-    //     value.docs[i].data().showNum},
-    // );
-    const [isLoaded, setIsLoaded] = useState(false);
-    const [ticketList, setTicketList] = useState([]);
     const [ticketDown, setTicketDown] = useState(false);
-    const ticketShowList = useSelector((state) => state.show.showList);
-    // const index = showList.findIndex((element) => element.id === showId);
-    const showTitle = ticketReservDocument.title;
-    const ticketingDocumentId = querySnapshot.docs[0].id;
-    // async function onRefresh() {
-    //     await ticketReservDocument(user.id).then((value) => {
-    //         setTicketList(value);
-    //         setIsLoaded(true);
-    //     });
-    // }
+    const ticketList = ticketReservDocument.map((value, i) => {
+        value.docs[i].data().showID, value.docs[i].data().showNum;
+    });
+    async function onRefresh() {
+        await ticketReservDocument(user.id).then((value) => {
+            setTicketList(value);
+            setIsLoaded(true);
+        });
+    }
     useEffect(() => {
         onRefresh();
     }, []);
 
-    return isLoaded ? (
+    return (
         <div className="user-mypage-container">
             <div className="ticket-list">
                 <div className="ticket-reservation">예매내역</div>
@@ -54,7 +47,6 @@ function TicketList() {
                         </button>
                         <div className="ticket-show-title">
                             {ticketList[0].data().showId.title}
-                            {showTitle}
                         </div>
                         <div className="ticket-show-time">
                             2023.09.27(토) 22:00
@@ -99,14 +91,11 @@ function TicketList() {
                                 결제확인중
                             </div>
                         </div>
-                        {/* </div> */}
                     </nav>
                 </div>
                 <div></div>
             </div>
         </div>
-    ) : (
-        <Loading />
     );
 }
 
