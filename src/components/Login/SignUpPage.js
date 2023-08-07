@@ -34,13 +34,7 @@ function SignUpPage() {
         if (!values.includes('') && !values.includes(undefined)) {
             await createUser(newUserInfo).then((res) => {
                 console.log(res);
-                if (res === true) {
-                    setPopup({
-                        open: true,
-                        message: '회원가입 완료!',
-                        callback: () => navigate('/login'),
-                    });
-                } else {
+                if (res) {
                     switch (res) {
                         case 1:
                             setPopup({
@@ -90,12 +84,23 @@ function SignUpPage() {
                                 message: '잘못된 요청입니다.',
                             });
                             return;
+                        case 9:
+                            // setPopup({
+                            //     open: true,
+                            //     message: '알 수 없는 오류로 실패했습니다.',
+                            // });
+                            setPopup({
+                                open: true,
+                                message: '회원가입 완료!',
+                                callback: () => navigate('/login'),
+                            });
+                            return;
                         default:
                             setPopup({
                                 open: true,
-                                message: '알 수 없는 오류로 실패했습니다.',
+                                message: '회원가입 완료!',
+                                callback: () => navigate('/login'),
                             });
-                            return;
                     }
                 }
             });

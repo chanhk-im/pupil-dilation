@@ -29,7 +29,7 @@ function LoginFormDesktop() {
 
     const onButtonClick = async () => {
         await loginUser(account.id, account.password).then((res) => {
-            if (res === true) {
+            if (res) {
                 dispatch(
                     stageUser({
                         user: res.user,
@@ -39,65 +39,65 @@ function LoginFormDesktop() {
                 );
                 console.log(res);
                 if (res) {
-                    if (res.user.userType == 0) navigate('/');
-                    else if (res.user.userType == 1) navigate('/host');
-                }
-            } else {
-                switch (res) {
-                    case 1:
-                        setPopup({
-                            open: true,
-                            message: '존재하지 않는 id입니다.',
-                        });
-                        return;
-                    case 2:
-                        setPopup({
-                            open: true,
-                            message: '이메일이 존재하지 않습니다.',
-                        });
-                        return;
-                    case 3:
-                        setPopup({
-                            open: true,
-                            message: '비밀번호가 일치하지 않습니다.',
-                        });
-                        return;
-                    case 4:
-                        setPopup({
-                            open: true,
-                            message: '이미 사용 중인 이메일입니다.',
-                        });
-                        return;
-                    case 5:
-                        setPopup({
-                            open: true,
-                            message: '비밀번호는 6글자 이상이어야 합니다.',
-                        });
-                        return;
-                    case 6:
-                        setPopup({
-                            open: true,
-                            message: '네트워크 연결에 실패하였습니다.',
-                        });
-                        return;
-                    case 7:
-                        setPopup({
-                            open: true,
-                            message: '잘못된 이메일 형식입니다.',
-                        });
-                        return;
-                    case 8:
-                        setPopup({
-                            open: true,
-                            message: '잘못된 요청입니다.',
-                        });
-                        return;
-                    default:
-                        setPopup({
-                            open: true,
-                            message: '알 수 없는 오류로 실패했습니다.',
-                        });
-                        return;
+                    switch (res) {
+                        case 1:
+                            setPopup({
+                                open: true,
+                                message: '존재하지 않는 id입니다.',
+                            });
+                            return;
+                        case 2:
+                            setPopup({
+                                open: true,
+                                message: '이메일이 존재하지 않습니다.',
+                            });
+                            return;
+                        case 3:
+                            setPopup({
+                                open: true,
+                                message: '비밀번호가 일치하지 않습니다.',
+                            });
+                            return;
+                        case 4:
+                            setPopup({
+                                open: true,
+                                message: '이미 사용 중인 이메일입니다.',
+                            });
+                            return;
+                        case 5:
+                            setPopup({
+                                open: true,
+                                message: '비밀번호는 6글자 이상이어야 합니다.',
+                            });
+                            return;
+                        case 6:
+                            setPopup({
+                                open: true,
+                                message: '네트워크 연결에 실패하였습니다.',
+                            });
+                            return;
+                        case 7:
+                            setPopup({
+                                open: true,
+                                message: '잘못된 이메일 형식입니다.',
+                            });
+                            return;
+                        case 8:
+                            setPopup({
+                                open: true,
+                                message: '잘못된 요청입니다.',
+                            });
+                            return;
+                        case 9:
+                            setPopup({
+                                open: true,
+                                message: '알 수 없는 오류로 실패했습니다.',
+                            });
+                            return;
+                        default:
+                            if (res.user.userType == 0) navigate('/');
+                            else if (res.user.userType == 1) navigate('/host');
+                    }
                 }
             }
         });
