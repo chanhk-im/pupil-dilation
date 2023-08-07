@@ -11,15 +11,15 @@
 }
 
 .select-schedule {
-    width: calc(100vw * 448 / 1440);
+    width: calc(100vw * 400 / 1440);
     height: 69px;
     flex-shrink: 0;
     border-radius: 12px;
     border: 1px solid #000;
-    padding: calc(100vw * 11 / 1440) calc(100vw * 174 / 1440) calc(100vw * 17 / 1440) calc(100vw * 14 / 1440);
+    padding: calc(100vw * 10 / 1440) 0px calc(100vw * 10 / 1440) calc(100vw * 14 / 1440);
     color: #000;
     font-family: Noto Sans KR;
-    font-size: 28px;
+    font-size: calc(100vw * 28 / 1440);
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -30,19 +30,21 @@
 
 .ticketing-button {
     display: flex;
-    padding: calc(100vw * 13.67 / 1440) calc(100vw * 152 / 1440) calc(100vw * 13.67 / 1440) calc(100vw * 152 / 1440);
-    width: calc(100vw * 448 / 1440);
+    width: calc(100vw * 400 / 1440);
+    padding: 13.67px 0px 13.67px 0px; 
+    line-height: normal;
     height: 82px;
     background-color: var(--theme-navy, #2B3252);
     border-radius: 40px;
     color: #FAD744;
-    text-align: center;
+    align-items: center;
     justify-content: center;
     font-family: Noto Sans KR;
-    font-size: 32px;
+    font-size: calc(100vw * 30 / 1440);
     font-style: normal;
     font-weight: 500;
     line-height: normal;
     flex-shrink: 0;
     z-index: 50;
 }
+
