@@ -191,3 +191,10 @@ input[name='search'] {
 .test {
     z-index: 15;
 }
+
+.closebutton {
+    position: absolute;
+    z-index: 888;
+    left: 575px;
+    top: 360px;
+}

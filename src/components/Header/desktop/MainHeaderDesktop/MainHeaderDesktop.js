@@ -44,11 +44,11 @@ function MainHeaderDesktop() {
         openModal();
     };
 
-    const handleModalClick = (e) => {
-        if (e.target === outside.current) {
-            closeModal();
-        }
-    };
+    // const handleModalClick = (e) => {
+    //     if (e.target === outside.current) {
+    //         closeModal();
+    //     }
+    // };
 
     var notes = [];
 
@@ -135,7 +135,7 @@ function MainHeaderDesktop() {
                                     <div
                                         className="header-modal"
                                         ref={outside}
-                                        onClick={handleModalClick}
+                                        onClick={closeModal}
                                     >
                                         <ul>{displaySearchContent}</ul>
                                         {tooltipImage ? (
@@ -186,6 +186,12 @@ function MainHeaderDesktop() {
                                             src="/images/Vector 710.png"
                                             alt="line"
                                         />
+                                        <button
+                                            className="closebutton"
+                                            onClick={closeModal}
+                                        >
+                                            X
+                                        </button>
                                     </div>
                                 ) : null}
                             </div>
