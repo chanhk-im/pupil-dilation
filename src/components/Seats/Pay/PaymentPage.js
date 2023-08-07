@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import {
@@ -14,8 +15,12 @@ import {
 import Popup from '../../Popup/Popup';
 import './PaymentPage.css';
 import Timer from './Timer';
+import React from 'react';
+import Desktop from '../../MediaQuery/Desktop';
+import Mobile from '../../MediaQuery/Mobile';
+import PaymentPageDesktop from './desktop/PaymentPageDesktop';
+import PaymentPageMobile from './mobile/PaymentPageMobile';
 
-/*eslint-disable*/
 function PaymentPage() {
     const timerSeconds = 15 * 60;
     const { id } = useParams();
@@ -193,6 +198,16 @@ function PaymentPage() {
             </div>
         );
     }
+    return (
+        <>
+            <Desktop>
+                <PaymentPageDesktop />
+            </Desktop>
+            <Mobile>
+                <PaymentPageMobile />
+            </Mobile>
+        </>
+    );
 }
 
 export default PaymentPage;

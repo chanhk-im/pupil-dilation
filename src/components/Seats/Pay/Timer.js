@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import './PaymentPage.css';
+import './desktop/PaymentPageDesktop.css';
 
 function Timer({ seconds }) {
     const [timeLeft, setTimeLeft] = useState(seconds);
@@ -40,7 +40,7 @@ function Timer({ seconds }) {
     };
 
     return (
-        <div className="timer">
+        <div>
             {timeLeftRef.current > 0 ? (
                 <p>{formatTime(timeLeftRef.current)}</p>
             ) : (
