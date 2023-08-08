@@ -17,7 +17,7 @@ function MainPageRoute() {
                 <Route path="/seats/:id" element={<SeatsPage />} />
                 <Route path="/loading" element={<Loading />} />
                 <Route path="/admin" element={<AdminPage />} />
-                <Route path="/payment" element={<PaymentPage />} />
+                <Route path="/payment/:id" element={<PaymentPage />} />
                 <Route path="*" element={<ErrorPage />} />
             </Routes>
         </div>
