@@ -85,10 +85,6 @@ function SignUpPage() {
                             });
                             return;
                         case 9:
-                            // setPopup({
-                            //     open: true,
-                            //     message: '알 수 없는 오류로 실패했습니다.',
-                            // });
                             setPopup({
                                 open: true,
                                 message: '회원가입 완료!',
