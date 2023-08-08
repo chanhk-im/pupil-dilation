@@ -1,5 +1,4 @@
-
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import {
     getShowDocumentById,
@@ -13,7 +12,6 @@ import {
     getDateTimeFormat,
 } from '../../../functions/dateFeature';
 import Popup from '../../Popup/Popup';
-import './PaymentPage.css';
 import Timer from './Timer';
 import React from 'react';
 import Desktop from '../../MediaQuery/Desktop';
