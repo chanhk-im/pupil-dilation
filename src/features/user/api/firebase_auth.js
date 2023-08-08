@@ -9,12 +9,19 @@ import { authService, fireStore } from '../../../Firebase';
 import { setDoc, doc, updateDoc } from 'firebase/firestore';
 import { hasHostPermission } from '../../../functions/checkAuthentication';
 
-const handleError = (code) => {
+const handleErrorLogin = (code) => {
     switch (code) {
         case 'auth/user-not-found':
             return 2;
         case 'auth/wrong-password':
             return 3;
+        default:
+            return 4;
+    }
+};
+
+const handleErrorSignUp = (code) => {
+    switch (code) {
         case 'auth/email-already-in-use':
             return 4;
         case 'auth/weak-password':
@@ -49,7 +56,7 @@ export async function createUser(newUserInfo) {
                 });
         })
         .catch((error) => {
-            res = handleError(error.code);
+            res = handleErrorSignUp(error.code);
         });
     return res;
 }
@@ -79,7 +86,7 @@ export async function loginUser(id, password) {
             isHost,
         };
     } catch (error) {
-        const errorCode = handleError(error.code);
+        const errorCode = handleErrorLogin(error.code);
         return errorCode;
     }
 

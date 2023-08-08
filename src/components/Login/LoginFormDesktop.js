@@ -61,36 +61,6 @@ function LoginFormDesktop() {
                         case 4:
                             setPopup({
                                 open: true,
-                                message: '이미 사용 중인 이메일입니다.',
-                            });
-                            return;
-                        case 5:
-                            setPopup({
-                                open: true,
-                                message: '비밀번호는 6글자 이상이어야 합니다.',
-                            });
-                            return;
-                        case 6:
-                            setPopup({
-                                open: true,
-                                message: '네트워크 연결에 실패하였습니다.',
-                            });
-                            return;
-                        case 7:
-                            setPopup({
-                                open: true,
-                                message: '잘못된 이메일 형식입니다.',
-                            });
-                            return;
-                        case 8:
-                            setPopup({
-                                open: true,
-                                message: '잘못된 요청입니다.',
-                            });
-                            return;
-                        case 9:
-                            setPopup({
-                                open: true,
                                 message: '알 수 없는 오류로 실패했습니다.',
                             });
                             return;
