@@ -36,24 +36,6 @@ function SignUpPage() {
                 console.log(res);
                 if (res) {
                     switch (res) {
-                        case 1:
-                            setPopup({
-                                open: true,
-                                message: '존재하지 않는 id입니다.',
-                            });
-                            return;
-                        case 2:
-                            setPopup({
-                                open: true,
-                                message: '이메일이 존재하지 않습니다.',
-                            });
-                            return;
-                        case 3:
-                            setPopup({
-                                open: true,
-                                message: '비밀번호가 일치하지 않습니다.',
-                            });
-                            return;
                         case 4:
                             setPopup({
                                 open: true,
