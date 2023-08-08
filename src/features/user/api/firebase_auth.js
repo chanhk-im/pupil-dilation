@@ -41,22 +41,14 @@ const handleError = (code) => {
 export async function createUser(newUserInfo) {
     let res = false;
 
-    try {
-        await createUserWithEmailAndPassword(
-            authService,
-            newUserInfo.email,
-            newUserInfo.password,
-        );
-
-        const isHost = await hasHostPermission(loginUserInfo.docs[0].data());
-
-        res = {
-            user: loginUserInfo.docs[0].data(),
-            userCredential,
-            isHost,
-        };
-
-        await setDoc(doc(fireStore, 'users', newUserInfo.id), newUserInfo)
+    await createUserWithEmailAndPassword(
+        authService,
+        newUserInfo.email,
+        newUserInfo.password,
+    )
+        .then(async () => {
+            // TODO: firebase에 user정보 추가
+            await setDoc(doc(fireStore, 'users', newUserInfo.id), newUserInfo)
                 .then(() => {
                     res = true;
                 })
@@ -64,12 +56,11 @@ export async function createUser(newUserInfo) {
                     alert(error);
                     res = false;
                 });
-    } catch (error) {
-        const errorCode = handleError(error.code);
-        // alert(errorCode);
-        // console.log(errorCode);
-        return errorCode;
-    }
+        })
+        .catch((error) => {
+            // alert(handleError(error.code));
+            res = handleError(error.code);
+        });
     return res;
 }
 
