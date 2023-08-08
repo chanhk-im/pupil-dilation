@@ -67,7 +67,6 @@ export async function getShowSeatsByIdAndShowNumberNotExpired(id, showNum) {
 export async function getShowTicketingById(id) {
     const reference = doc(fireStore, 'ticketing', id);
     const ticketing = await getDoc(reference);
-
     return ticketing;
 }
 

@@ -14,6 +14,8 @@ import {
 import Popup from '../../../Popup/Popup';
 import Timer from '../Timer';
 import React from 'react';
+import { Link } from 'react-router-dom';
+import './PaymentPageDesktop.css';
 
 function PaymentPageDesktop() {
     const timerSeconds = 15 * 60;
@@ -37,13 +39,14 @@ function PaymentPageDesktop() {
             );
             setShow(showList[index]);
             setIsLoaded(true);
+            console.log(res.data());
             const expireDate = new Date(Date.now());
             expireDate.setMinutes(expireDate.getMinutes() - 15);
             if (expireDate > res.data().time.toDate()) {
                 console.log(expireDate + ', ' + res.data().time.toDate());
                 setPopup({
                     open: true,
-                    message: '15분 지났다구리',
+                    message: '15분 지났당당구리',
                 });
             }
         });
@@ -57,7 +60,12 @@ function PaymentPageDesktop() {
             });
         });
     };
-
+    const onChangeAccount = (e) => {
+        setNewUserInfo({
+            ...newUserInfo,
+            [e.target.name]: e.target.value,
+        });
+    };
     useEffect(() => {
         onLoading();
     }, []);
@@ -125,10 +133,9 @@ function PaymentPageDesktop() {
                                 <div className="final-title-content">
                                     {ticketingInfo.seats.length * show.price}원
                                 </div>
-                                <Timer
-                                    className="timer"
-                                    seconds={timerSeconds}
-                                />
+                                <div className="timer">
+                                    <Timer seconds={timerSeconds} />
+                                </div>
                             </div>
                             <div className="account">
                                 <div className="account-title">입금계좌</div>
@@ -152,7 +159,7 @@ function PaymentPageDesktop() {
                                 />
                                 <input
                                     className="sending-account"
-                                    type="text"
+                                    type="number"
                                     name="account"
                                     placeholder='"-" 포함 계좌번호 입력'
                                 />
@@ -172,13 +179,15 @@ function PaymentPageDesktop() {
                                 송금계좌는 환불계좌로 사용됩니다.
                             </p>
                         </div>
-                        <button
-                            type="button"
-                            className="payment-submit"
-                            onClick={onButtonClick}
-                        >
-                            예매 완료
-                        </button>
+                        <Link to="/mypage">
+                            <button
+                                type="button"
+                                className="payment-submit"
+                                onClick={onButtonClick}
+                            >
+                                예매 완료
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </div>
