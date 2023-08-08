@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './css/TicketerListPage.css';
+import './TicketerListPage.css';
 import Popup from '../Popup/Popup';
 
 /*eslint-disable*/
@@ -23,6 +23,16 @@ function TicketerListPage() {
                 message: '복사 실패...',
             });
         }
+    };
+
+    const permit = {
+        permit1: false,
+        permit2: false,
+    };
+
+    const test = () => {
+        const [inputValues, setInputValues] = useState(initialValue);
+        const { permit1, permit2 } = inputValues;
     };
 
     const [totalRowCnt, setTotalRowCnt] = useState(0);
@@ -82,6 +92,7 @@ function TicketerListPage() {
                                             copyText.textContent,
                                         );
                                     }}
+                                    className="copy-button"
                                 >
                                     <img src="../../../images/copy.svg"></img>
                                 </button>

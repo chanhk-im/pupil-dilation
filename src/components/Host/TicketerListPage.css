@@ -98,8 +98,8 @@ table {
 }
 
 th, td {
-  padding: 6px 15px;
-  font-size: 25px;
+  padding: calc(100vw * 6 / 1440) calc(100vw * 15 / 1440); 
+  font-size: calc(100vw * 16 / 1440);
 }
 
 th {
@@ -141,6 +141,9 @@ tr:last-child td:last-child {
   border-bottom-right-radius: 6px;
 }
 
+.copy-button{
+  background-color: #fff;
+}
 /*===========================<Header에 대한 css>========================*/
 .ticketer-header{
   display: flex;
