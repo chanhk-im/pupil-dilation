@@ -68,14 +68,14 @@
 }
 
 .detail-info-period {
-    width: calc(100vw*448/1440);
+    width: calc(100vw * 448 / 1440);
     font-size: 24px;
     font-weight: 300;
     letter-spacing: -1.08px;
 }
 
 .detail-info {
-    width: calc(100vw*200/1440);
+    width: calc(100vw * 200 / 1440);
     font-size: 24px;
     font-weight: 300;
     letter-spacing: -1.08px;

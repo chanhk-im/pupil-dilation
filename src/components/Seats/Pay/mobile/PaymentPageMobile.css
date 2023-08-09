@@ -1,63 +1,62 @@
-.whole-paymentpage{
-  width: 100%;
-  padding: 13px 20px 39px 20px;
+.whole-paymentpage {
+    width: 100%;
+    padding: 13px 20px 39px 20px;
 }
 
-.first-payment{
-  display: flex;
+.first-payment {
+    display: flex;
 }
 
-.title-payment{
-  width: 50%;
-  height: 57px;
-  display: flex;
-  justify-content: start;
-  flex-shrink: 0;
-  color: #000;
-  font-family: Noto Sans KR;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
+.title-payment {
+    width: 50%;
+    height: 57px;
+    display: flex;
+    justify-content: start;
+    flex-shrink: 0;
+    color: #000;
+    font-family: Noto Sans KR;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }
 
-.timer-mobile{
-  width: 50%;
-  display: flex;
-  justify-content: end;
-  color: var(--theme-yellow, #FAD744);
-  font-family: Roboto;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 900;
-  line-height: normal;
-  letter-spacing: -1.08px;
+.timer-mobile {
+    width: 50%;
+    display: flex;
+    justify-content: end;
+    color: var(--theme-yellow, #fad744);
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    letter-spacing: -1.08px;
 }
 
-.second-payment{
-  position: relative;
-  display: flex;
-  justify-content: center;
-  height: calc(100vw * 232 / 500);
+.second-payment {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: calc(100vw * 232 / 500);
 }
 
-.ticket-image-mobile{
-  position: absolute;
-  width: calc(100vw * 358 / 500);
-  height: calc(100vw * 232 / 500);
+.ticket-image-mobile {
+    position: absolute;
+    width: calc(100vw * 358 / 500);
+    height: calc(100vw * 232 / 500);
 }
 
-.ticket-event-image{
-  position: absolute;
-  width: 60px;
-  height: 100px;
+.ticket-event-image {
+    position: absolute;
+    width: 60px;
+    height: 100px;
 }
 
-.third-payment{
-  width: 100%;
-  height: calc(100vw * 117 / 500);
-  flex-shrink: 0;
-  border-radius: 9px;
-  background: var(--theme-navy, #2B3252);
+.third-payment {
+    width: 100%;
+    height: calc(100vw * 117 / 500);
+    flex-shrink: 0;
+    border-radius: 9px;
+    background: var(--theme-navy, #2b3252);
 }
-
