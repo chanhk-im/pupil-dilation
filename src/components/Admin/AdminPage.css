@@ -112,7 +112,7 @@
   line-height: normal;
   padding-left: 12px;
   padding-top: 5px;
-  width: 30%;
+  width: 40%;
   display: flex;
 }
 
@@ -137,10 +137,9 @@
   font-size: 15px;
   font-style: normal;
   font-weight: 400;
-  line-height: normal;
 }
 
 .user-email{
-  width: 40%;
+  width: 30%;
   text-align: start;
 }
