@@ -14,14 +14,19 @@ import {
 import Popup from '../../../Popup/Popup';
 import Timer from '../Timer';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './PaymentPageDesktop.css';
 
 function PaymentPageDesktop() {
     const timerSeconds = 15 * 60;
+    const navigate = useNavigate();
     const { id } = useParams();
     const [isLoaded, setIsLoaded] = useState(false);
     const [ticketingInfo, setTicketingInfo] = useState({});
+    const [sendName, setSendName] = useState('');
+    const [sendBank, setSendBank] = useState('');
+    const [sendAccount, setSendAccount] = useState('');
     const [show, setShow] = useState({});
     const [popup, setPopup] = useState({
         open: false,
@@ -53,10 +58,24 @@ function PaymentPageDesktop() {
     };
 
     const onButtonClick = async () => {
-        await setShowTicketingToCompleted(id, ticketingInfo).then(() => {
+        if (!sendName || !sendBank || !sendAccount) {
+            setPopup({
+                open: true,
+                message: '송금정보를 모두 입력해주세요.',
+            });
+            return;
+        }
+
+        await setShowTicketingToCompleted(id, {
+            ...ticketingInfo,
+            sendName: sendName,
+            sendBank: sendBank,
+            sendAccount: sendAccount,
+        }).then(() => {
             setPopup({
                 open: true,
                 message: '예매 완료됐다구리',
+                callback: () => navigate('/mypage'),
             });
         });
     };
@@ -150,18 +169,30 @@ function PaymentPageDesktop() {
                                     type="text"
                                     name="name"
                                     placeholder="예금주 입력"
+                                    value={sendName}
+                                    onChange={(e) =>
+                                        setSendName(e.target.value)
+                                    }
                                 />
                                 <input
                                     className="sending-bank"
                                     type="text"
                                     name="bank"
                                     placeholder="은행명 입력"
+                                    value={sendBank}
+                                    onChange={(e) =>
+                                        setSendBank(e.target.value)
+                                    }
                                 />
                                 <input
                                     className="sending-account"
                                     type="number"
                                     name="account"
                                     placeholder='"-" 포함 계좌번호 입력'
+                                    value={sendAccount}
+                                    onChange={(e) =>
+                                        setSendAccount(e.target.value)
+                                    }
                                 />
                             </div>
                         </div>
@@ -179,15 +210,13 @@ function PaymentPageDesktop() {
                                 송금계좌는 환불계좌로 사용됩니다.
                             </p>
                         </div>
-                        <Link to="/mypage">
-                            <button
-                                type="button"
-                                className="payment-submit"
-                                onClick={onButtonClick}
-                            >
-                                예매 완료
-                            </button>
-                        </Link>
+                        <button
+                            type="button"
+                            className="payment-submit"
+                            onClick={onButtonClick}
+                        >
+                            예매 완료
+                        </button>
                     </div>
                 </div>
             </div>
