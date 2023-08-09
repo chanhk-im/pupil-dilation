@@ -6,7 +6,7 @@
 
 .admin-header-yellow {
     height: 37px;
-    background: var(--theme-yellow, #FAD744);
+    background: var(--theme-yellow, #fad744);
     padding-right: 55px;
     display: flex;
     flex-direction: row;

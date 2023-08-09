@@ -1,61 +1,61 @@
-.page-board{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 80vh;
-  min-width: 100vh;
+.page-board {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    min-width: 100vh;
 }
 
-.error-image{
-  width: 229px;
-  height: 248px;
-  flex-shrink: 0;
+.error-image {
+    width: 229px;
+    height: 248px;
+    flex-shrink: 0;
 }
 
-.error-message-title{
-  margin-top: 50px;
-  flex-shrink: 0;
-  color: #000;
-  text-align: center;
-  font-family: Noto Sans KR;
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
+.error-message-title {
+    margin-top: 50px;
+    flex-shrink: 0;
+    color: #000;
+    text-align: center;
+    font-family: Noto Sans KR;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }
 
-.error-message-content{
-  margin-top: 15px;
-  color: #000;
-  text-align: center;
-  font-family: Noto Sans KR;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 300;
-  line-height: normal;
+.error-message-content {
+    margin-top: 15px;
+    color: #000;
+    text-align: center;
+    font-family: Noto Sans KR;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
 }
 
-.error-buttons{
-  margin-top: 70px;
+.error-buttons {
+    margin-top: 70px;
 }
 
-.error-buttons button{
-  width: 185px;
-  height: 28px;
-  flex-shrink: 0;
-  color: var(--theme-red, #EF5455);
-  background-color: #fff;
-  text-align: center;
-  font-family: Noto Sans KR;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 300;
-  line-height: normal;
-  border: none;
+.error-buttons button {
+    width: 185px;
+    height: 28px;
+    flex-shrink: 0;
+    color: var(--theme-red, #ef5455);
+    background-color: #fff;
+    text-align: center;
+    font-family: Noto Sans KR;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    border: none;
 }
 
-.error-buttons button:hover{
-  text-decoration: underline;
-  text-decoration-color: var(--theme-red, #EF5455);
+.error-buttons button:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--theme-red, #ef5455);
 }

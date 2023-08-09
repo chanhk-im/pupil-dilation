@@ -1,52 +1,52 @@
-.host-main-container{
-  padding: 4px 20px 0px 20px;
+.host-main-container {
+    padding: 4px 20px 0px 20px;
 }
 
-.host-main-title{
-  display: flex;
-  justify-content: start;
-  width: 161px;
-  height: 31px;
-  flex-shrink: 0;
-  color: #000;
-  font-family: Noto Sans KR;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 00;
-  line-height: normal;
+.host-main-title {
+    display: flex;
+    justify-content: start;
+    width: 161px;
+    height: 31px;
+    flex-shrink: 0;
+    color: #000;
+    font-family: Noto Sans KR;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 00;
+    line-height: normal;
 }
 
-.created-event-mobile{
-  display: inline-flex;
-  height: 47px;
-  padding: 12px 71px 12px 13px;
-  align-items: center;
-  flex-shrink: 0;
-  border-radius: 10px;
-  border: 1px solid var(--theme-red, #EF5455);
-  background: #FFF;
-  margin-bottom: 10px;
+.created-event-mobile {
+    display: inline-flex;
+    height: 47px;
+    padding: 12px 71px 12px 13px;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 10px;
+    border: 1px solid var(--theme-red, #ef5455);
+    background: #fff;
+    margin-bottom: 10px;
 }
 
-.event-text-mobile{
-  display: flex;
-  justify-content: start;
-  width: 270px;
-  height: 23px;
-  color: var(--theme-navy, #2B3252);
-  font-family: Noto Sans KR;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
+.event-text-mobile {
+    display: flex;
+    justify-content: start;
+    width: 270px;
+    height: 23px;
+    color: var(--theme-navy, #2b3252);
+    font-family: Noto Sans KR;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
 }
 
-.event-create-mobile{
-  display: inline-flex;
-  padding: 12px 71px 12px 13px;
-  align-items: flex-start;
-  gap: 3px;
-  border-radius: 10px;
-  border: 1px dashed var(--theme-red, #EF5455);
-  background: #FFF;
+.event-create-mobile {
+    display: inline-flex;
+    padding: 12px 71px 12px 13px;
+    align-items: flex-start;
+    gap: 3px;
+    border-radius: 10px;
+    border: 1px dashed var(--theme-red, #ef5455);
+    background: #fff;
 }

@@ -4,7 +4,7 @@
     align-items: start;
     justify-content: start;
     margin-top: calc(100vh * 80 / 1440);
-  }
+}
 
 .detail-z-index {
     z-index: 50;
@@ -16,7 +16,8 @@
     flex-shrink: 0;
     border-radius: 12px;
     border: 1px solid #000;
-    padding: calc(100vw * 10 / 1440) 0px calc(100vw * 10 / 1440) calc(100vw * 14 / 1440);
+    padding: calc(100vw * 10 / 1440) 0px calc(100vw * 10 / 1440)
+        calc(100vw * 14 / 1440);
     color: #000;
     font-family: Noto Sans KR;
     font-size: calc(100vw * 28 / 1440);
@@ -31,12 +32,12 @@
 .ticketing-button {
     display: flex;
     width: calc(100vw * 400 / 1440);
-    padding: 13.67px 0px 13.67px 0px; 
+    padding: 13.67px 0px 13.67px 0px;
     line-height: normal;
     height: calc(100vw * 82 / 1440);
-    background-color: var(--theme-navy, #2B3252);
+    background-color: var(--theme-navy, #2b3252);
     border-radius: 40px;
-    color: #FAD744;
+    color: #fad744;
     align-items: center;
     justify-content: center;
     font-family: Noto Sans KR;
@@ -47,4 +48,3 @@
     flex-shrink: 0;
     z-index: 50;
 }
-

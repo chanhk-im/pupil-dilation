@@ -28,7 +28,7 @@
     font-size: calc(100vw * 32 / 1440);
     flex-shrink: 0;
     border-radius: 7px;
-    background: #FFF;
+    background: #fff;
     box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.25) inset;
 }
 
@@ -45,7 +45,7 @@
     font-size: calc(100vw * 32 / 1440);
     flex-shrink: 0;
     border-radius: 7px;
-    background: #FFF;
+    background: #fff;
     box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.25) inset;
 }
 
@@ -61,21 +61,20 @@
     height: calc(100vh * 46 / 820);
     flex-shrink: 0;
     border-radius: 23px;
-    background: var(--theme-navy, #2B3252);
+    background: var(--theme-navy, #2b3252);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.sign-up-text1-desktop{
-    color: var(--theme-yellow, #FAD744);
+.sign-up-text1-desktop {
+    color: var(--theme-yellow, #fad744);
     font-size: calc(100vw * 20 / 1440);
     font-family: Noto Sans KR;
 }
 
 .checker-desktop {
     display: flex;
-
 }
 
 .id-check-desktop {
@@ -84,7 +83,7 @@
     height: calc(100vh * 25 / 820);
     flex-shrink: 0;
     border-radius: 4px;
-    background: #FFF;
+    background: #fff;
     box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.25) inset;
 }
 
@@ -101,11 +100,11 @@
     height: calc(100vh * 84 / 820);
     flex-shrink: 0;
     border-radius: 34px;
-    background: var(--theme-yellow, #FAD744);
+    background: var(--theme-yellow, #fad744);
 }
 
 .login-text2-desktop {
-    color: var(--theme-red, #EF5455);
+    color: var(--theme-red, #ef5455);
     font-size: calc(100vw * 32 / 1440);
     font-family: Noto Sans KR;
     font-weight: 700;
