@@ -5,7 +5,7 @@ import Detail from '../components/Detail/Detail';
 import SeatsPage from '../components/Seats/SeatsPage';
 import Loading from '../components/Loading';
 import AdminPage from '../components/Admin/AdminPage';
-import PaymentPage from '../components/Seats/Pay/PaymentPage';
+import PaymentPageDesktop from '../components/Seats/Pay/desktop/PaymentPageDesktop';
 import ErrorPage from '../components/Error/ErrorPage';
 
 function MainPageRoute() {
@@ -17,7 +17,7 @@ function MainPageRoute() {
                 <Route path="/seats/:id" element={<SeatsPage />} />
                 <Route path="/loading" element={<Loading />} />
                 <Route path="/admin" element={<AdminPage />} />
-                <Route path="/payment/:id" element={<PaymentPage />} />
+                <Route path="/payment/:id" element={<PaymentPageDesktop />} />
                 <Route path="*" element={<ErrorPage />} />
             </Routes>
         </div>
