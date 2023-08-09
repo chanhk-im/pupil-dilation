@@ -14,11 +14,13 @@ import {
 import Popup from '../../../Popup/Popup';
 import Timer from '../Timer';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './PaymentPageDesktop.css';
 
 function PaymentPageDesktop() {
     const timerSeconds = 15 * 60;
+    const navigate = useNavigate();
     const { id } = useParams();
     const [isLoaded, setIsLoaded] = useState(false);
     const [ticketingInfo, setTicketingInfo] = useState({});
@@ -73,6 +75,7 @@ function PaymentPageDesktop() {
             setPopup({
                 open: true,
                 message: '예매 완료됐다구리',
+                callback: () => navigate('/mypage'),
             });
         });
     };
@@ -207,10 +210,6 @@ function PaymentPageDesktop() {
                                 송금계좌는 환불계좌로 사용됩니다.
                             </p>
                         </div>
-                        {/* <Link
-                            to="/mypage"
-                            onClick={() => setPopup({ open: false })}
-                        > */}
                         <button
                             type="button"
                             className="payment-submit"
@@ -218,7 +217,6 @@ function PaymentPageDesktop() {
                         >
                             예매 완료
                         </button>
-                        {/* </Link> */}
                     </div>
                 </div>
             </div>
