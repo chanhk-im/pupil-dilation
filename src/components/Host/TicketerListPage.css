@@ -143,8 +143,11 @@ tr:last-child td:last-child {
 
 .copy-button{
   background-color: #fff;
+  cursor: pointer;
 }
+
 /*===========================<Header에 대한 css>========================*/
+
 .ticketer-header{
   display: flex;
   margin-top: calc(100vw * 50 / 1440);

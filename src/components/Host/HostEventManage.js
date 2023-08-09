@@ -60,7 +60,11 @@ function HostEventManage() {
                 </button>
             </div>
             <HostEventContent show={showList[index]} />
-            <button type="button" onClick={() => {}} className="CheckButton">
+            <button
+                type="button"
+                onClick={() => navigate(`/host/ticketer/${id}`)}
+                className="CheckButton"
+            >
                 예매자 목록 보기
             </button>
         </div>

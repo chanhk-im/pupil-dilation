@@ -40,36 +40,13 @@ function AdminPage() {
             <div clasName="already-request">
                 <h1>등록된 주최자 계정</h1>
                 <div className="already">
-                    <p className="already-title">CRA</p>
+                    <div className="already-title">CRA</div>
                     <div className="user-id">
-                        <p className="user-info-title">ID</p>
-                        <p className="user-info-text">jdwj2154</p>
+                        <div className="user-info-title">ID</div>
+                        <div className="user-info-text">jdwj2154</div>
                     </div>
                     <div className="user-email">
-                        <p className="user-info-title">Email</p>
-                        <p className="user-info-text">22000712@handong.ac.kr</p>
-                    </div>
-                </div>
-                <div className="already">
-                    <p className="already-title">CRA</p>
-                    <div className="user-id">
-                        <p className="user-info-title">ID</p>
-                        <p className="user-info-text">jdwj2154</p>
-                    </div>
-                    <div className="user-email">
-                        <p className="user-info-title">Email</p>
-                        <p className="user-info-text">22000712@handong.ac.kr</p>
-                    </div>
-                </div>
-                <div className="already">
-                    <p className="already-title">CRA</p>
-                    <div className="user-id">
-                        <p className="user-info-title">ID</p>
-                        <p className="user-info-text">jdwj2154</p>
-                    </div>
-                    <div className="user-email">
-                        <p className="user-info-title">Email</p>
-                        <p className="user-info-text">22000712@handong.ac.kr</p>
+                        <div className="user-info-title">test</div>
                     </div>
                 </div>
             </div>

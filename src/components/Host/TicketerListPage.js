@@ -1,9 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import './TicketerListPage.css';
 import Popup from '../Popup/Popup';
+import { useParams, useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchShowList } from '../../features/show/slices/showSlice';
+import { getShowsDocument } from '../../features/show/api/showsDocumentApi';
+import Loading from '../Loading';
+import { fireStore } from '../../Firebase';
+import {
+    collection,
+    doc,
+    getDocs,
+    addDoc,
+    getDoc,
+    setDoc,
+    deleteDoc,
+    updateDoc,
+    query,
+    where,
+    and,
+} from 'firebase/firestore';
 
 /*eslint-disable*/
 function TicketerListPage() {
+    const { id } = useParams();
+    const reference = collection(fireStore, 'ticketing');
+    const q = query(reference, where('showid', '==', id));
+
     const [popup, setPopup] = useState({
         open: false,
         message: '',
@@ -25,21 +48,15 @@ function TicketerListPage() {
         }
     };
 
-    const permit = {
-        permit1: false,
-        permit2: false,
-    };
-
-    const test = () => {
-        const [inputValues, setInputValues] = useState(initialValue);
-        const { permit1, permit2 } = inputValues;
-    };
-
     const [totalRowCnt, setTotalRowCnt] = useState(0);
-    const [toggleState, setToggleState] = useState(false);
+    const [toggleState1, setToggleState1] = useState(false);
+    const [toggleState2, setToggleState2] = useState(false);
 
-    function toggleStateChange() {
-        setToggleState(!toggleState);
+    function toggleState1Change() {
+        setToggleState1(!toggleState1);
+    }
+    function toggleState2Change() {
+        setToggleState2(!toggleState2);
     }
 
     useEffect(() => {
@@ -105,7 +122,7 @@ function TicketerListPage() {
                                         <input
                                             type="checkbox"
                                             id="check"
-                                            onClick={toggleStateChange}
+                                            onClick={toggleState1Change}
                                         />
                                         <label htmlFor="check" />
                                     </div>
@@ -115,12 +132,62 @@ function TicketerListPage() {
                             <td>
                                 <p
                                     style={
-                                        toggleState
+                                        toggleState1
                                             ? { color: 'blue' }
                                             : { color: 'red' }
                                     }
                                 >
-                                    {toggleState ? '예매 완료' : '예매 중'}
+                                    {toggleState1 ? '예매 완료' : '예매 중'}
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>조동운</td>
+                            <td>12A</td>
+                            <td id="copy">(예금주) 신한 1234-1234121-12341 </td>
+                            <td>
+                                <button
+                                    style={{ border: 'none' }}
+                                    onClick={() => {
+                                        const copyText =
+                                            document.getElementById('copy');
+
+                                        handleCopyClipBoard(
+                                            copyText.textContent,
+                                        );
+                                    }}
+                                    className="copy-button"
+                                >
+                                    <img src="../../../images/copy.svg"></img>
+                                </button>
+                            </td>
+                            <td>5/27 19:58</td>
+                            <td>
+                                <section className="model-1">
+                                    <p>입금 전</p>
+                                    <div className="checkbox">
+                                        <input
+                                            type="checkbox"
+                                            id="check"
+                                            onClick={toggleState2Change}
+                                        />
+                                        <label htmlFor="check" />
+                                    </div>
+                                    <p>입금 완료</p>
+                                </section>
+                            </td>
+                            <td>
+                                <p
+                                    style={
+                                        toggleState2
+                                            ? { color: 'blue' }
+                                            : { color: 'red' }
+                                    }
+                                >
+                                    {toggleState2 ? '예매 완료' : '예매 중'}
                                 </p>
                             </td>
                         </tr>
