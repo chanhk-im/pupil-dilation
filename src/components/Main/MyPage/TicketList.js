@@ -16,8 +16,8 @@ import {
 import './TicketList.css';
 import Popup from '../../Popup/Popup';
 
-function TicketList() {
-    const { id } = useParams();
+async function TicketList() {
+    const userId = '사용자ID';
     const user = useSelector((state) => state.user.user);
     const showList = useSelector((state) => state.show.showList);
     const [ticketDown, setTicketDown] = useState(false);
@@ -29,6 +29,8 @@ function TicketList() {
         message: '',
         callback: false,
     });
+    const tickets = await ticketReservDocument(userId);
+    const showIds = reservDocs.map((doc) => doc.data().showId);
     // const ticketList = ticketReservDocument.map((value, i) => {
     //     value.docs[i].data().showID, value.docs[i].data().showNum;
     // });
