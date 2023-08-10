@@ -33,18 +33,59 @@ function SignUpPage() {
         const values = Object.values(newUserInfo);
         if (!values.includes('') && !values.includes(undefined)) {
             await createUser(newUserInfo).then((res) => {
+                console.log(res);
                 if (res) {
-                    setPopup({
-                        open: true,
-                        message: '회원가입 완료!',
-                        callback: () => navigate('/login'),
-                    });
+                    switch (res) {
+                        case 4:
+                            setPopup({
+                                open: true,
+                                message: '이미 사용 중인 이메일입니다.',
+                            });
+                            return;
+                        case 5:
+                            setPopup({
+                                open: true,
+                                message: '비밀번호는 6글자 이상이어야 합니다.',
+                            });
+                            return;
+                        case 6:
+                            setPopup({
+                                open: true,
+                                message: '네트워크 연결에 실패하였습니다.',
+                            });
+                            return;
+                        case 7:
+                            setPopup({
+                                open: true,
+                                message: '잘못된 이메일 형식입니다.',
+                            });
+                            return;
+                        case 8:
+                            setPopup({
+                                open: true,
+                                message: '잘못된 요청입니다.',
+                            });
+                            return;
+                        case 9:
+                            setPopup({
+                                open: true,
+                                message: '회원가입 완료!',
+                                callback: () => navigate('/login'),
+                            });
+                            return;
+                        default:
+                            setPopup({
+                                open: true,
+                                message: '회원가입 완료!',
+                                callback: () => navigate('/login'),
+                            });
+                    }
                 }
             });
         } else {
             setPopup({
                 open: true,
-                message: '회원가입 실패..',
+                message: '빈칸을 모두 채워주세요!',
             });
         }
     };

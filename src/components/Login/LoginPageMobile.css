@@ -1,6 +1,7 @@
 .container-mobile {
     display: grid;
     grid-template-rows: 2;
+    width: 100%;
 }
 
 .logo-mobile {

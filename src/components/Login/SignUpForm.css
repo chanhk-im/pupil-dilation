@@ -41,13 +41,13 @@
     width: 113px;
     height: 39px;
     border-radius: 23px;
-    background: var(--theme-navy, #2B3252);
+    background: var(--theme-navy, #2b3252);
     cursor: pointer;
     margin-right: 8px;
 }
 
 .host-signup-text {
-    color: var(--theme-yellow, #FAD744);
+    color: var(--theme-yellow, #fad744);
     font-size: 14px;
     text-align: center;
     font-family: Noto Sans KR;

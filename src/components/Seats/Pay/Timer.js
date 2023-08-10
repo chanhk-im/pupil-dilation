@@ -1,30 +1,53 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import './desktop/PaymentPageDesktop.css';
 
-const Timer = () => {
-    const [min, setMin] = useState(15);
-    const [sec, setSec] = useState(0);
-    const time = useRef(180);
-    const timerId = useRef(null);
+function Timer({ seconds }) {
+    const [timeLeft, setTimeLeft] = useState(seconds);
+    const timeLeftRef = useRef(timeLeft);
 
     useEffect(() => {
-        timerId.current = setInterval(() => {
-            setMin(parseInt(time.current / 60));
-            setSec(time.current % 60);
-            time.current -= 1;
+        timeLeftRef.current = timeLeft;
+    }, [timeLeft]);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setTimeLeft((prevTimeLeft) => {
+                const newTimeLeft = prevTimeLeft - 1;
+
+                if (newTimeLeft <= 0) {
+                    clearInterval(interval);
+                }
+
+                return newTimeLeft;
+            });
         }, 1000);
 
-        return () => clearInterval(timerId.current);
+        return () => clearInterval(interval);
     }, []);
 
     useEffect(() => {
-        if (time.current <= 0) {
-            clearInterval(timerId.current);
+        if (timeLeft === 0) {
+            console.log('Timer expired');
         }
-    }, [sec]);
+    }, [timeLeft]);
+
+    const formatTime = (time) => {
+        const date = new Date(time * 1000);
+        const minutes = date.getUTCMinutes().toString().padStart(2, '0');
+        const seconds = date.getUTCSeconds().toString().padStart(2, '0');
+
+        return `${minutes}:${seconds}`;
+    };
 
     return (
-        <div className="timer">
-            {min}:{sec}
+        <div>
+            {timeLeftRef.current > 0 ? (
+                <p>{formatTime(timeLeftRef.current)}</p>
+            ) : (
+                <p>Timer expired</p>
+            )}
         </div>
     );
-};
+}
+
+export default Timer;

@@ -3,8 +3,6 @@
     width: 393px;
     height: 552px;
     flex-shrink: 0;
-    /* margin-left: calc(100vw * 140 / 393);
-    margin-top: calc(100vh * 131 / 852); */
     justify-content: center;
 }
 
@@ -29,7 +27,7 @@
     font-size: calc(100vw * 24 / 393);
     flex-shrink: 0;
     border-radius: 7px;
-    background: #FFF;
+    background: #fff;
     box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.25) inset;
     margin-bottom: calc(100vh * 28 / 852);
 }
@@ -47,7 +45,7 @@
     font-size: calc(100vw * 24 / 393);
     flex-shrink: 0;
     border-radius: 7px;
-    background: #FFF;
+    background: #fff;
     box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.25) inset;
     margin-bottom: calc(100vh * 28 / 852);
 }
@@ -64,7 +62,7 @@
     height: calc(100vh * 46 / 852);
     flex-shrink: 0;
     border-radius: 23px;
-    background: var(--theme-navy, #2B3252);
+    background: var(--theme-navy, #2b3252);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -72,7 +70,7 @@
 }
 
 .sign-up-text1 {
-    color: var(--theme-yellow, #FAD744);
+    color: var(--theme-yellow, #fad744);
     font-size: calc(100vw * 20 / 393);
     font-family: Noto Sans KR;
 }
@@ -88,7 +86,7 @@
     height: calc(100vh * 25 / 852);
     flex-shrink: 0;
     border-radius: 4px;
-    background: #FFF;
+    background: #fff;
     box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.25) inset;
 }
 
@@ -105,11 +103,11 @@
     height: calc(100vh * 60 / 852);
     flex-shrink: 0;
     border-radius: 34px;
-    background: var(--theme-yellow, #FAD744);
+    background: var(--theme-yellow, #fad744);
 }
 
 .login-text2 {
-    color: var(--theme-red, #EF5455);
+    color: var(--theme-red, #ef5455);
     font-size: calc(100vw * 32 / 393);
     font-family: Noto Sans KR;
     font-weight: 700;

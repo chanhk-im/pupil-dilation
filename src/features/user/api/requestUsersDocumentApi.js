@@ -22,15 +22,45 @@ export async function getNotAcceptedRequestUsersDocument() {
     try {
         const querySnapshot = await getDocs(q);
         querySnapshot.forEach((elementDoc) => {
-            const reqUser = elementDoc.data().id;
+            const reqUser = elementDoc.id;
             requestList.push(reqUser);
         });
+        return requestList;
     } catch (e) {
         alert(e);
         return;
     }
+}
 
-    return requestList;
+export async function getAcceptedRequestUsersDocument() {
+    const requestList = [];
+    const q = query(
+        collection(fireStore, 'requestUsers'),
+        where('accepted', '==', true),
+    );
+    try {
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((elementDoc) => {
+            const reqUser = elementDoc.id;
+            requestList.push(reqUser);
+        });
+        return requestList;
+    } catch (e) {
+        alert(e);
+        return;
+    }
+}
+
+export async function fetchUserData(userId) {
+    const q = query(collection(fireStore, 'users'), where('id', '==', userId));
+
+    const querySnapshot = await getDocs(q);
+    if (!querySnapshot.empty) {
+        const userData = querySnapshot.docs[0].data();
+        return userData;
+    } else {
+        return null;
+    }
 }
 
 export async function getRequestUsersDocumenetById(reqUserId) {
@@ -48,6 +78,17 @@ export async function createRequestUsersDocument(reqUserId) {
     try {
         await setDoc(doc(fireStore, 'requestUsers', reqUserId), {
             accepted: false,
+        });
+    } catch (e) {
+        alert(e);
+        return;
+    }
+}
+
+export async function changeRequestUsersDocument(reqUserId) {
+    try {
+        await setDoc(doc(fireStore, 'requestUsers', reqUserId), {
+            accepted: true,
         });
     } catch (e) {
         alert(e);

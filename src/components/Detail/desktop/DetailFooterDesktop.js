@@ -19,14 +19,14 @@ function DetailFooterDesktop({ id }) {
     });
 
     const schedule = show.schedule.map((value, i) => (
-        <option value={i + 1}>
+        <option value={i + 1} className="detail-z-index">
             {i + 1}공 {getDateScheduleFormat(value)}
         </option>
     ));
 
     const onChangeSchedule = (e) => {
         setSelectedSchedule(e.target.value);
-    }
+    };
 
     return (
         <div className="detail-footer">

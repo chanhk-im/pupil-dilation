@@ -1,71 +1,72 @@
 .eventBoard-mobile {
-  /*공연 슬롯들이 차지하는 공간*/
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  margin-bottom: 50px;
-  background: rgba(43, 50, 82, 0);
-  position: relative;
+    /*공연 슬롯들이 차지하는 공간*/
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 50px;
+    background: rgba(43, 50, 82, 0);
+    position: relative;
 }
 
 .dday-mobile {
-  display: flex;
-  color: var(--theme-yellow, #fad744);
-  font-size: 20px;
-  font-family: 'Playfair Display';
-  font-weight: 700;
-  line-height: normal;
-  position: absolute;
-  z-index: 2;
+    display: flex;
+    color: var(--theme-yellow, #fad744);
+    font-size: 20px;
+    font-family: 'Playfair Display';
+    font-weight: 700;
+    line-height: normal;
+    position: absolute;
+    z-index: 2;
 }
 
 .ddayImg-mobile {
-  min-width: 121px;
-  height: 121px;
-  display: flex;
-  flex-shrink: 0;
-  position: absolute;
-  z-index: 1;
+    min-width: 121px;
+    height: 121px;
+    display: flex;
+    flex-shrink: 0;
+    position: absolute;
+    z-index: 1;
 }
 
 .eventImage-mobile {
-  /*공연 이미지*/
-  width: 168px;
-  height: 238px;
-  border-radius: 12px;
-  flex-shrink: 0;
-  transition: all 0.2s linear;
+    /*공연 이미지*/
+    width: 168px;
+    height: 238px;
+    border-radius: 12px;
+    flex-shrink: 0;
+    transition: all 0.2s linear;
 }
 
 .eventName-mobile {
-  /*공연 제목*/
-  width: 168px;
-  height: 29.867px;
-  color: #000;
-  text-align: center;
-  font-family: Noto Sans KR;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
+    /*공연 제목*/
+    width: 168px;
+    height: 29.867px;
+    color: #000;
+    text-align: center;
+    font-family: Noto Sans KR;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }
 
 .eventDate-mobile {
-  /*공연 날짜*/
-  width: 168px;
-  height: 29.867px;
-  flex-shrink: 0;
-  color: #000;
-  text-align: center;
-  font-family: Noto Sans KR;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 300;
-  line-height: normal;
+    /*공연 날짜*/
+    width: 168px;
+    height: 29.867px;
+    flex-shrink: 0;
+    color: #000;
+    text-align: center;
+    font-family: Noto Sans KR;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
 }
 
 .poster-mobile {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

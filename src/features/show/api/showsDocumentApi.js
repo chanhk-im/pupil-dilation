@@ -68,7 +68,6 @@ export async function getShowSeatsByIdAndShowNumberNotExpired(id, showNum) {
 export async function getShowTicketingById(id) {
     const reference = doc(fireStore, 'ticketing', id);
     const ticketing = await getDoc(reference);
-
     return ticketing;
 }
 
@@ -237,4 +236,12 @@ export async function deleteShowsDocument(deleteId) {
             return false;
         });
     return false;
+}
+
+export async function ticketReservDocument(userId) {
+    const reference = collection(fireStore, 'ticketing');
+    const q = query(reference, where('userId', '==', userId));
+
+    const querySnapshot = await getDocs(q);
+    return querySnapshot.docs;
 }

@@ -77,7 +77,7 @@ function ChangePW() {
                 title={popup.title}
                 callback={popup.callback}
             />
-            <div className="user-mypage-account-data">계정 정보</div>
+            <div className="user-mypage-account-data">비밀번호 변경</div>
             <div className="user-mypage-pw">
                 <div className="user-mypage-pw-text">
                     <img
@@ -92,21 +92,21 @@ function ChangePW() {
                         type="password"
                         className="user-mypage-pw-input"
                         name="currentPassword"
-                        placeholder="&nbsp;현재 비밀번호"
+                        placeholder="현재 비밀번호"
                         onChange={onChangeAccount}
                     ></input>
                     <input
                         type="password"
                         className="user-mypage-pw-input"
                         name="newPassword"
-                        placeholder="&nbsp;새 비밀번호"
+                        placeholder="새 비밀번호"
                         onChange={onChangeAccount}
                     ></input>
                     <input
                         type="password"
                         className="user-mypage-pw-input"
                         name="checkPassword"
-                        placeholder="&nbsp;비밀번호 확인"
+                        placeholder="비밀번호 확인"
                         onChange={onChangeAccount}
                     ></input>
                     <button

@@ -1,62 +1,63 @@
-.first-header{
-  display: flex;
-  width: 100%;
-  height: 40px;
-  background: var(--theme-red, #EF5455);
-  padding: calc(100vw * 8 / 400) calc(100vw * 30 / 400) calc(100vw * 9 / 400) calc(100vw * 221 / 400);
+.first-header {
+    display: flex;
+    width: 100%;
+    height: 40px;
+    background: var(--theme-red, #ef5455);
+    padding: calc(100vw * 8 / 400) calc(100vw * 30 / 400) calc(100vw * 9 / 400)
+        calc(100vw * 221 / 400);
 }
 
-.first-header-signed{
-  margin-left: calc(100vw * 75 / 400);
+.first-header-signed {
+    margin-left: calc(100vw * 75 / 400);
 }
 
-.first-header-button{
-  display: flex;
+.first-header-button {
+    display: flex;
 }
 
-.first-header-button button{
-  border: none;
-  background-color: transparent;
-  width: calc(100vw * 70 / 400);
-  height: 23px;
-  color: #FFFFFF;
-  font-family: Noto Sans KR;
-  font-size: calc(100vw * 12 / 400);
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+.first-header-button button {
+    border: none;
+    background-color: transparent;
+    width: calc(100vw * 80 / 400);
+    height: 23px;
+    color: #ffffff;
+    font-family: Noto Sans KR;
+    font-size: calc(100vw * 12 / 400);
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
 }
 
 /*===============================================*/
 
-.second-header-button{
-  display: flex;
-  width: 100%;
-  height: 70px;
-  background: #FFF;
-  box-shadow: 0px 3px 6px -1px rgba(0, 0, 0, 0.25);
+.second-header-button {
+    display: flex;
+    width: 100%;
+    height: calc(100vw * 80 / 400);
+    background: #fff;
+    border-bottom: solid rgba(0, 0, 0, 0.25);
 }
 
-.mobile-header-logo{
-  width: calc(100vw * 70 / 400);
-  height: 20px;
-  margin-top: 24.5px;
-  margin-right: 203px;
-  margin-left: 20px;
-  margin-bottom: 26.5px;
+.mobile-header-logo {
+    width: calc(100vw * 70 / 400);
+    height: 20px;
+    margin-top: calc(100vw * 24.5 / 400);
+    margin-right: calc(100vw * 203 / 400);
+    margin-left: calc(100vw * 20 / 400);
+    margin-bottom: calc(100vw * 26.5 / 400);
 }
 
-.mobile-header-search{
-  min-width: 20px;
-  height: 20px;
-  margin-top: 24px;
-  margin-right: 34px;
-  margin-bottom: 26px;
+.mobile-header-search {
+    width: calc(100vw * 20 / 400);
+    height: 20px;
+    margin-top: calc(100vw * 24 / 400);
+    margin-right: calc(100vw * 34 / 400);
+    margin-bottom: calc(100vw * 26 / 400);
 }
 
-.mobile-mypage{
-  min-width: 20px;
-  height: 20px;
-  margin-top: 24px;
-  margin-right: 50px;
+.mobile-mypage {
+    width: calc(100vw * 20 / 400);
+    height: 20px;
+    margin-top: calc(100vw * 24 / 400);
+    margin-right: calc(100vw * 50 / 400);
 }

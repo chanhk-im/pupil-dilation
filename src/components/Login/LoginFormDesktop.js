@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { loginUser } from '../../features/user/api/firebase_auth';
 import { stageUser } from '../../features/user/slices/userSlice';
 import './LoginFormDesktop.css';
+import Popup from '../Popup/Popup';
 
 function LoginFormDesktop() {
     const navigate = useNavigate();
@@ -11,6 +12,12 @@ function LoginFormDesktop() {
     const [account, setAccount] = useState({
         id: '',
         password: '',
+    });
+
+    const [popup, setPopup] = useState({
+        open: false,
+        message: '',
+        callback: false,
     });
 
     const onChangeAccount = (e) => {
@@ -32,16 +39,49 @@ function LoginFormDesktop() {
                 );
                 console.log(res);
                 if (res) {
-                    if (res.user.userType == 0) navigate('/');
-                    else if (res.user.userType == 1) navigate('/host');
+                    switch (res) {
+                        case 1:
+                            setPopup({
+                                open: true,
+                                message: '존재하지 않는 id입니다.',
+                            });
+                            return;
+                        case 2:
+                            setPopup({
+                                open: true,
+                                message: '이메일이 존재하지 않습니다.',
+                            });
+                            return;
+                        case 3:
+                            setPopup({
+                                open: true,
+                                message: '비밀번호가 일치하지 않습니다.',
+                            });
+                            return;
+                        case 4:
+                            setPopup({
+                                open: true,
+                                message: '알 수 없는 오류로 실패했습니다.',
+                            });
+                            return;
+                        default:
+                            if (res.user.userType == 0) navigate('/');
+                            else if (res.user.userType == 1) navigate('/host');
+                    }
                 }
-                
             }
         });
     };
 
     return (
         <div className="right-page-desktop">
+            <Popup
+                open={popup.open}
+                setPopup={setPopup}
+                message={popup.message}
+                title={popup.title}
+                callback={popup.callback}
+            />
             <div className="right-high-desktop">
                 <div className="login-text1-desktop">로그인</div>
                 <Link className="sign-up1-desktop" to="/login/signup">

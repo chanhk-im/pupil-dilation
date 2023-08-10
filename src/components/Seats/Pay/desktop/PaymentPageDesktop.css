@@ -41,7 +41,7 @@
     padding-top: calc(100vw * 40 / 1440);
 }
 .ticket-white {
-    background-image: url('../../../../public/images/ticketWhite.png');
+    background-image: url('../../../../../public/images/ticketWhite.png');
     background-size: calc(100vw * 470 / 1440);
     background-repeat: no-repeat;
     width: calc(100vw * 500 / 1440);
@@ -114,20 +114,11 @@
     letter-spacing: calc(100vw * -1.08 / 1440); */
 }
 
-.timeLine {
-}
-
-.seatLine {
-}
-
-.pay-price {
-}
 .final,
 .account {
     display: flex;
     flex-direction: row;
     padding-top: 20px;
-    width: 50%;
 }
 .sending {
     display: flex;
@@ -312,4 +303,18 @@
     line-height: normal;
     letter-spacing: -0.72px;
     cursor: pointer;
+}
+.timer {
+    margin-left: calc(100vw * 382 / 1440);
+    color: var(--theme-yellow, #fad744);
+    font-family: Roboto;
+    font-size: calc(100vw * 24 / 1440);
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    letter-spacing: -1.08px;
+    width: calc(100vw * 90 / 1440);
+    height: calc(100vw * 28 / 1440);
+    display: flex;
+    justify-content: end;
 }

@@ -1,0 +1,84 @@
+.host-header {
+    height: 118px;
+    /* background-color: yellow; */
+    border-bottom: solid rgba(0, 0, 0, 0.25);
+}
+
+.admin-header-yellow {
+    height: 37px;
+    background: var(--theme-yellow, #fad744);
+    padding-right: 55px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+}
+
+.host-header-auth {
+    padding-left: 60.2px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.host-header__auth-logout {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+}
+
+.host-header-line {
+    height: 81px;
+    padding-left: calc(100vw * 143 / 1440);
+    padding-right: calc(100vw * 47 / 1440);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.host-header-pupil-dilation {
+    width: 211px;
+}
+
+.host-header-line-right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.host-header-user-button {
+    margin-right: 47px;
+    width: 24px;
+    height: 24px;
+}
+
+.host-header-search-input {
+    width: 357px;
+    height: 52px;
+    box-sizing: border-box;
+    border-radius: 39px;
+    border: 2px solid #ef5455;
+    padding-left: calc(100vw * 20 / 1440);
+    padding-right: calc(100vw * 20 / 1440);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+input[name='search'] {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    font-size: 24px;
+    font-weight: 400;
+}

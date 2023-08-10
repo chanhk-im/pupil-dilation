@@ -14,7 +14,7 @@ function HostPageRoute() {
             <Routes>
                 <Route path="/" element={<HostMainPage />} />
                 <Route path="/manage/:id" element={<HostEventManage />} />
-                <Route path="/ticketer" element={<TicketerListPage />} />
+                <Route path="/ticketer/:id" element={<TicketerListPage />} />
                 <Route path="/create" element={<HostCreate />} />
                 <Route path="/update/:id" element={<HostUpdate />} />
                 <Route path="/mypage" element={<HostMyPage />} />
