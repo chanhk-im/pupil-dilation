@@ -46,10 +46,7 @@ export async function createUser(newUserInfo) {
         newUserInfo.password,
     )
         .then(async () => {
-<<<<<<< HEAD
-=======
             // TODO: firebase에 user정보 추가
->>>>>>> 7e82d1d (feat[#206]: update)
             await setDoc(doc(fireStore, 'users', newUserInfo.id), newUserInfo)
                 .then(() => {
                     res = true;
@@ -60,12 +57,7 @@ export async function createUser(newUserInfo) {
                 });
         })
         .catch((error) => {
-<<<<<<< HEAD
             res = handleErrorSignUp(error.code);
-=======
-            // alert(handleError(error.code));
-            res = handleError(error.code);
->>>>>>> 7e82d1d (feat[#206]: update)
         });
     return res;
 }
