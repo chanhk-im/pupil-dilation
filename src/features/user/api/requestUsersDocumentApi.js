@@ -107,3 +107,14 @@ export async function deleteRequestUsersDocument(reqUserId) {
         });
     return false;
 }
+
+export async function checkRequestUsersDocument(reqUserId) {
+    const q = query(
+        collection(fireStore, 'requestUsers'),
+        where('id', '==', reqUserId),
+        where('accepted', '==', true),
+    );
+
+    const querySnapshot = await getDocs(q);
+    return !querySnapshot.empty;
+}
