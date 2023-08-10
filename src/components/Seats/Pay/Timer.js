@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
+import Popup from '../../Popup/Popup';
 import './desktop/PaymentPageDesktop.css';
 
 function Timer({ seconds }) {
     const [timeLeft, setTimeLeft] = useState(seconds);
+    const [isExpired, setIsExpired] = useState(false);
     const timeLeftRef = useRef(timeLeft);
 
     useEffect(() => {
@@ -16,6 +18,7 @@ function Timer({ seconds }) {
 
                 if (newTimeLeft <= 0) {
                     clearInterval(interval);
+                    setIsExpired(true);
                 }
 
                 return newTimeLeft;
@@ -24,12 +27,6 @@ function Timer({ seconds }) {
 
         return () => clearInterval(interval);
     }, []);
-
-    useEffect(() => {
-        if (timeLeft === 0) {
-            console.log('Timer expired');
-        }
-    }, [timeLeft]);
 
     const formatTime = (time) => {
         const date = new Date(time * 1000);
@@ -46,6 +43,7 @@ function Timer({ seconds }) {
             ) : (
                 <p>Timer expired</p>
             )}
+            {isExpired && <Popup message="15분이 지났습니다." />}
         </div>
     );
 }

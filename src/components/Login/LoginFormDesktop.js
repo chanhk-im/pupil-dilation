@@ -67,6 +67,11 @@ function LoginFormDesktop() {
                         default:
                             if (res.user.userType == 0) navigate('/');
                             else if (res.user.userType == 1) navigate('/host');
+                            else
+                                setPopup({
+                                    open: true,
+                                    message: '알 수 없는 오류로 실패했습니다.',
+                                });
                     }
                 }
             }

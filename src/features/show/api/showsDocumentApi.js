@@ -12,6 +12,7 @@ import {
     and,
 } from 'firebase/firestore';
 import { fireStore } from '../../../Firebase';
+import { resolveConfig } from 'prettier';
 
 export async function getShowDocumentById(id) {
     const documentSnapshot = await getDoc(doc(fireStore, 'shows', id));
@@ -70,15 +71,34 @@ export async function getShowTicketingById(id) {
     return ticketing;
 }
 
-export async function createShowTicketing(id, showNum, seats, userId) {
+export async function getShowTicketerListByShow(showId, showNum) {
+    const reference = collection(fireStore, 'ticketing');
+    // const q = query(
+    //     reference,
+    //     and(where('showId', '==', showId), where('showNum', '==', showNum)),
+    // );
+
+    const res = await getDocs(reference);
+    return res.docs;
+}
+
+export async function createShowTicketing(
+    id,
+    showNum,
+    seats,
+    userId,
+    userName,
+) {
     const reference = collection(fireStore, 'ticketing');
     const newReference = await addDoc(reference, {
         showId: id,
         showNum,
         userId,
+        userName,
         seats,
         time: new Date(Date.now()),
         state: 0,
+        remitted: false,
     });
 
     return newReference.id;
