@@ -118,16 +118,16 @@ function AdminPage() {
         <div key={i}>
             {acceptedUserDetails[value] && (
                 <div className="already">
-                    <p className="already-title">
+                    <div className="already-title">
                         {acceptedUserDetails[value].name}
-                    </p>
+                    </div>
                     <div className="user-id">
                         <p className="user-info-title">ID</p>
                         <p className="user-info-text">
                             {acceptedUserDetails[value].id}
                         </p>
                     </div>
-                    <div className="user-email">
+                    <div className="user-email-info">
                         <p className="user-info-title">Email</p>
                         <p className="user-info-text">
                             {acceptedUserDetails[value].email}
