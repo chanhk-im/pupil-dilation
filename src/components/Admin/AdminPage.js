@@ -8,12 +8,39 @@ import {
 } from '../../features/user/api/requestUsersDocumentApi';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { fireStore } from '../../Firebase';
+import Popup from '../Popup/Popup';
+import DeletePopupAdmin from '../Popup/DeletePopupAdmin';
 
 function AdminPage() {
     const [notAcceptedRequestList, setNotAcceptedRequestList] = useState([]);
     const [acceptedRequestList, setAcceptedRequestList] = useState([]);
     const [notAcceptedUserDetails, setNotAcceptedUserDetails] = useState({});
     const [acceptedUserDetails, setAcceptedUserDetails] = useState({});
+    const [popup, setPopup] = useState({
+        open: false,
+        message: '',
+        callback: false,
+    });
+    const [deletePopup, setDeletePopup] = useState({
+        open: false,
+        message: '',
+        callback: false,
+    });
+
+    async function onAcceptClick(id) {
+        await changeRequestUsersDocument(id);
+        window.location.reload();
+    }
+
+    const handleDeleteButtonOnClick = () => {
+        setDeletePopup({
+            open: true,
+            message: '정말로 삭제하시겠습니까?',
+            callback: () => {
+                window.location.reload();
+            },
+        });
+    };
 
     useEffect(() => {
         async function fetchData() {
@@ -96,16 +123,33 @@ function AdminPage() {
                             <div className="request-button">
                                 <button
                                     className="confirm"
-                                    onClick={async () => {
-                                        await changeRequestUsersDocument(
-                                            notAcceptedUserDetails[value].id,
-                                        );
-                                        window.location.reload();
-                                    }}
+                                    // onClick={async () => {
+                                    //     await changeRequestUsersDocument(
+                                    //         notAcceptedUserDetails[value].id,
+                                    //     );
+                                    //     window.location.reload();
+                                    // }}
+                                    onClick={() =>
+                                        setPopup({
+                                            open: true,
+                                            message: '승인 완료',
+                                            callback: () =>
+                                                onAcceptClick(
+                                                    notAcceptedUserDetails[
+                                                        value
+                                                    ].id,
+                                                ),
+                                        })
+                                    }
                                 >
                                     확인
                                 </button>
-                                <button className="delete">삭제</button>
+                                <button
+                                    className="delete"
+                                    onClick={handleDeleteButtonOnClick}
+                                >
+                                    삭제
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -139,6 +183,19 @@ function AdminPage() {
     ));
     return (
         <div className="whole-container">
+            <Popup
+                open={popup.open}
+                setPopup={setPopup}
+                message={popup.message}
+                title={popup.title}
+                callback={popup.callback}
+            />
+            <DeletePopupAdmin
+                open={deletePopup.open}
+                setPopup={setDeletePopup}
+                message={deletePopup.message}
+                callback={deletePopup.callback}
+            />
             <div className="admin-request">
                 <h1>주최자 권한 요청</h1>
                 <div className="not-accepted">
