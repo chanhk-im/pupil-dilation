@@ -95,3 +95,15 @@ export async function changeRequestUsersDocument(reqUserId) {
         return;
     }
 }
+
+export async function deleteRequestUsersDocument(reqUserId) {
+    await deleteDoc(doc(fireStore, 'requestUsers', reqUserId))
+        .then(() => {
+            return true;
+        })
+        .catch((e) => {
+            alert(e);
+            return false;
+        });
+    return false;
+}

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './AdminPage.css';
 import {
     changeRequestUsersDocument,
+    deleteRequestUsersDocument,
     fetchUserData,
     getAcceptedRequestUsersDocument,
     getNotAcceptedRequestUsersDocument,
@@ -32,11 +33,12 @@ function AdminPage() {
         window.location.reload();
     }
 
-    const handleDeleteButtonOnClick = () => {
+    const handleDeleteButtonOnClick = (id) => {
         setDeletePopup({
             open: true,
             message: '정말로 삭제하시겠습니까?',
-            callback: () => {
+            callback: async () => {
+                await deleteRequestUsersDocument(id);
                 window.location.reload();
             },
         });
@@ -146,7 +148,11 @@ function AdminPage() {
                                 </button>
                                 <button
                                     className="delete"
-                                    onClick={handleDeleteButtonOnClick}
+                                    onClick={() =>
+                                        handleDeleteButtonOnClick(
+                                            notAcceptedUserDetails[value].id,
+                                        )
+                                    }
                                 >
                                     삭제
                                 </button>
