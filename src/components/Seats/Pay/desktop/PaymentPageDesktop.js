@@ -45,14 +45,22 @@ function PaymentPageDesktop() {
             setShow(showList[index]);
             setIsLoaded(true);
             console.log(res.data());
+
             const expireDate = new Date(Date.now());
             expireDate.setMinutes(expireDate.getMinutes() - 15);
             if (expireDate > res.data().time.toDate()) {
                 console.log(expireDate + ', ' + res.data().time.toDate());
                 setPopup({
                     open: true,
-                    message: '15분 지났당당구리',
+                    message: '타이머 시작',
                 });
+            } else {
+                setTimeout(() => {
+                    setPopup({
+                        open: true,
+                        message: '15분 지났당당구리',
+                    });
+                }, timerSeconds * 1000);
             }
         });
     };
