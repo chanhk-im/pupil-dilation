@@ -112,13 +112,8 @@
     line-height: normal;
     padding-left: 12px;
     padding-top: 5px;
-    width: 40%;
     display: flex;
-}
-
-.user-id {
-    text-align: start;
-    width: 30%;
+    width: 35%;
 }
 
 .user-info-title {
@@ -128,7 +123,22 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    padding-top: 5px;
+}
+
+.user-id {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    width: 25%;
+}
+
+.user-email-info {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    width: 40%;
 }
 
 .user-info-text {
@@ -139,10 +149,6 @@
     font-weight: 400;
 }
 
-.user-email {
-    width: 30%;
-    text-align: start;
-}
 
 .not-accepted {
     display: flex;
