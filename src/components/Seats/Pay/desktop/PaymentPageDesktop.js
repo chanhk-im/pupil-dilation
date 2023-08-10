@@ -15,7 +15,6 @@ import Popup from '../../../Popup/Popup';
 import Timer from '../Timer';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import './PaymentPageDesktop.css';
 
 function PaymentPageDesktop() {
@@ -47,13 +46,13 @@ function PaymentPageDesktop() {
             console.log(res.data());
             const expireDate = new Date(Date.now());
             expireDate.setMinutes(expireDate.getMinutes() - 15);
-            if (expireDate > res.data().time.toDate()) {
-                console.log(expireDate + ', ' + res.data().time.toDate());
-                setPopup({
-                    open: true,
-                    message: '15분 지났당당구리',
-                });
-            }
+            // if (expireDate > res.data().time.toDate()) {
+            //     console.log(expireDate + ', ' + res.data().time.toDate());
+            //     setPopup({
+            //         open: true,
+            //         message: '15분 지났당당구리',
+            //     });
+            // }
         });
     };
 
