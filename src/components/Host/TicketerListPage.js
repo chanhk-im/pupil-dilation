@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import './TicketerListPage.css';
 import Popup from '../Popup/Popup';
+import { getShowTicketerListByShow } from '../../features/show/api/showsDocumentApi';
+import { getDateSeatTickegingFrameDateFormat } from '../../functions/dateFeature';
+import './TicketerListPage.css';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchShowList } from '../../features/show/slices/showSlice';
@@ -32,6 +34,18 @@ function TicketerListPage() {
         message: '',
         callback: false,
     });
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [ticketerList, setTicketerList] = useState([]);
+
+    const loading = async () => {
+        const tList = await getShowTicketerListByShow(id, showNum);
+        setTicketerList(tList);
+        setIsLoaded(true);
+    };
+
+    useEffect(() => {
+        loading();
+    }, []);
 
     const handleCopyClipBoard = async (text) => {
         try {
@@ -65,7 +79,55 @@ function TicketerListPage() {
         setTotalRowCnt(totalRowCnt);
     }, []);
 
-    return (
+    const ticketerTableList = ticketerList.map((e, index) => (
+        <tr>
+            <td>{index + 1}</td>
+            <td>{e.data().userId}</td>
+            <td>
+                {e
+                    .data()
+                    .seats.map((e) => e.name)
+                    .join(', ')}
+            </td>
+            <td id="copy">(예금주) 신한 1234-1234121-12341 </td>
+            <td>
+                <button
+                    style={{ border: 'none' }}
+                    onClick={() => {
+                        const copyText = document.getElementById('copy');
+
+                        handleCopyClipBoard(copyText.textContent);
+                    }}
+                >
+                    <img src="../../../images/copy.svg"></img>
+                </button>
+            </td>
+            <td>
+                {getDateSeatTickegingFrameDateFormat(e.data().time.toDate())}
+            </td>
+            <td>
+                <section className="model-1">
+                    <p>입금 전</p>
+                    <div className="checkbox">
+                        <input
+                            type="checkbox"
+                            id="check"
+                            onClick={toggleStateChange}
+                        />
+                        <label htmlFor="check" />
+                    </div>
+                    <p>입금 완료</p>
+                </section>
+            </td>
+            <td>
+                <p style={toggleState ? { color: 'blue' } : { color: 'red' }}>
+                    {toggleState ? '예매 완료' : '예매 중'}
+                </p>
+            </td>
+        </tr>
+    ));
+    console.log(ticketerTableList);
+    return isLoaded ? (
         <>
             <Popup
                 open={popup.open}
@@ -195,6 +257,8 @@ function TicketerListPage() {
                 </table>
             </div>
         </>
+    ) : (
+        <></>
     );
 }
 

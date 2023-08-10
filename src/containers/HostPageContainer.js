@@ -19,6 +19,7 @@ function HostPageContainer() {
     const isHost = useSelector((state) => state.user.isHost);
 
     const handleIfNotHost = () => {
+        console.log(isHost);
         if (!isHost) {
             setPopup({
                 open: true,
@@ -30,7 +31,7 @@ function HostPageContainer() {
 
     useEffect(() => {
         handleIfNotHost();
-    });
+    }, []);
 
     return (
         <div>

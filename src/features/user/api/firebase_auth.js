@@ -71,24 +71,25 @@ export async function loginUser(id, password) {
         return 1;
     }
 
-    try {
-        const userCredential = await signInWithEmailAndPassword(
-            authService,
-            loginUserInfo.docs[0].data().email,
-            password,
-        );
-
-        const isHost = await hasHostPermission(loginUserInfo.docs[0].data());
-
-        res = {
-            user: loginUserInfo.docs[0].data(),
-            userCredential,
-            isHost,
-        };
-    } catch (error) {
-        const errorCode = handleErrorLogin(error.code);
-        return errorCode;
-    }
+    await signInWithEmailAndPassword(
+        authService,
+        loginUserInfo.docs[0].data().email,
+        password,
+    )
+        .then(async (userCredential) => {
+            const isHost =
+                loginUserInfo.docs[0].data().userType === 0 ? false : true;
+            console.log(isHost);
+            res = {
+                user: loginUserInfo.docs[0].data(),
+                userCredential,
+                isHost,
+            };
+        })
+        .catch((error) => {
+            const errorCode = handleErrorLogin(error.code);
+            return errorCode;
+        });
 
     return res;
 }
