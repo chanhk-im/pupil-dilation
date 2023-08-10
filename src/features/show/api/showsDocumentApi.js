@@ -71,15 +71,12 @@ export async function getShowTicketingById(id) {
     return ticketing;
 }
 
-export async function getShowTicketerListByShow(showId, showNum) {
+export async function getShowTicketerListByShow(showId) {
     const reference = collection(fireStore, 'ticketing');
-    // const q = query(
-    //     reference,
-    //     and(where('showId', '==', showId), where('showNum', '==', showNum)),
-    // );
+    const q = query(reference, where('showId', '==', showId));
 
-    const res = await getDocs(reference);
-    return res.docs;
+    const res = await getDocs(q);
+    return res;
 }
 
 export async function createShowTicketing(
