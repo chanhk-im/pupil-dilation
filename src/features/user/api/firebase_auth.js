@@ -74,9 +74,8 @@ export async function loginUser(id, password) {
         password,
     )
         .then(async (userCredential) => {
-            const isHost = await hasHostPermission(
-                loginUserInfo.docs[0].data(),
-            );
+            const isHost = (loginUserInfo.docs[0].data().userType === 0) ? false : true;
+            console.log(isHost);
             res = {
                 user: loginUserInfo.docs[0].data(),
                 userCredential,

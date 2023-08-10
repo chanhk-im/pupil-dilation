@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     createShowSeatsToProgress,
     createShowTicketing,
@@ -95,6 +95,7 @@ function SeatTicketingFrame({ id, showNum, selected, completedSeats, user }) {
                             showNum,
                             selected,
                             user.id,
+                            user.name,
                         ).then(async (ticketingId) => {
                             await createShowSeatsToProgress(
                                 id,
@@ -103,10 +104,10 @@ function SeatTicketingFrame({ id, showNum, selected, completedSeats, user }) {
                                 user.id,
                             )
                                 .then(() =>
-                                  setPopup({
-                                      open: true,
-                                      message: '성공',
-                                  }),
+                                    setPopup({
+                                        open: true,
+                                        message: '성공',
+                                    }),
                                 )
                                 .catch((e) => {
                                     setPopup({
@@ -114,12 +115,12 @@ function SeatTicketingFrame({ id, showNum, selected, completedSeats, user }) {
                                         message: e,
                                     });
                                 });
-                          });
-                    } 
-                    else {
+                        });
+                    } else {
                         setPopup({
                             open: true,
-                            message: '이미 예매되었거나 예매 진행중인 좌석입니다.',
+                            message:
+                                '이미 예매되었거나 예매 진행중인 좌석입니다.',
                         });
                     }
                 }}
