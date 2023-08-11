@@ -1,4 +1,5 @@
 import { React, useState } from 'react';
+import { useSelector } from 'react-redux';
 import './HostCreateMobile.css';
 import { useNavigate } from 'react-router-dom';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
@@ -7,6 +8,8 @@ import { fStorage } from '../../../../Firebase';
 import Popup from '../../../Popup/Popup';
 
 function HostCreateMobile() {
+    const user = useSelector((state) => state.user.user);
+
     function makeDate(info) {
         const timeArray = (info.time || '').split(':');
         const hour = Number(timeArray[0]);
@@ -149,7 +152,7 @@ function HostCreateMobile() {
             endDate: makeDate(timeInfo.end),
         };
         if (!values.includes('') && !values.includes(undefined)) {
-            await createShowsDocument(info).then((res) => {
+            await createShowsDocument(info, user.id).then((res) => {
                 if (res) {
                     setPopup({
                         open: true,

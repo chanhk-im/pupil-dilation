@@ -10,10 +10,13 @@ function HostMainPageDesktop() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const showList = useSelector((state) => state.show.showList);
+    const user = useSelector((state) => state.user.user);
     const [isLoaded, setIsLoaded] = useState(false);
+
     async function onRefresh() {
         await getShowsDocument().then((value) => {
-            dispatch(fetchShowList(value));
+            const ownShows = value.filter((v) => v.userId === user.id);
+            dispatch(fetchShowList(ownShows));
             setIsLoaded(true);
         });
     }

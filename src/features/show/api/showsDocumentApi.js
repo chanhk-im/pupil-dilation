@@ -157,23 +157,11 @@ export async function getShowsDocument() {
     return showList;
 }
 
-export async function createShowsDocument(newShow) {
+export async function createShowsDocument(newShow, userId) {
     let show = {};
-    await addDoc(collection(fireStore, 'shows'), newShow)
+    await addDoc(collection(fireStore, 'shows'), { ...newShow, userId })
         .then(async (value) => {
             const createdSnapshot = await getDoc(value);
-            createdSnapshot.data().schedule.forEach(async (e, index) => {
-                await setDoc(
-                    doc(
-                        fireStore,
-                        'shows',
-                        createdSnapshot.id,
-                        'showNumber',
-                        (index + 1).toString(),
-                    ),
-                    { date: e },
-                );
-            });
             show = {
                 id: createdSnapshot.id,
                 title: createdSnapshot.data().title,
@@ -185,6 +173,7 @@ export async function createShowsDocument(newShow) {
                 price: createdSnapshot.data().price,
                 image: createdSnapshot.data().image,
                 imageDownloaded: false,
+                userId,
             };
             const scheduleConvertToDate = show.schedule.map((e) => e.toDate());
             show.schedule = scheduleConvertToDate;
