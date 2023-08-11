@@ -74,6 +74,13 @@ function SeatTicketingFrame({ id, showNum, selected, completedSeats, user, setIs
                 type="button"
                 className="seat-ticketing-submit"
                 onClick={async () => {
+                    if (selected.length == 0) {
+                        setPopup({
+                            open: true,
+                            message: "최소 하나의 좌석을 선택해야 합니다!!"
+                        });
+                        return;
+                    }
                     setIsLoaded(false);
                     const res = await getShowSeatsByIdAndShowNumberNotExpired(
                         id,
