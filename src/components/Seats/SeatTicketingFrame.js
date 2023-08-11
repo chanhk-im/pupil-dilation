@@ -13,7 +13,7 @@ import {
 } from '../../functions/dateFeature';
 import Popup from '../Popup/Popup';
 
-function SeatTicketingFrame({ id, showNum, selected, completedSeats, user }) {
+function SeatTicketingFrame({ id, showNum, selected, completedSeats, user, setIsLoaded }) {
     const show = useShowById(id);
     const [popup, setPopup] = useState({
         open: false,
@@ -74,6 +74,7 @@ function SeatTicketingFrame({ id, showNum, selected, completedSeats, user }) {
                 type="button"
                 className="seat-ticketing-submit"
                 onClick={async () => {
+                    setIsLoaded(false);
                     const res = await getShowSeatsByIdAndShowNumberNotExpired(
                         id,
                         showNum,
@@ -123,6 +124,7 @@ function SeatTicketingFrame({ id, showNum, selected, completedSeats, user }) {
                                 '이미 예매되었거나 예매 진행중인 좌석입니다.',
                         });
                     }
+                    setIsLoaded(true);
                 }}
             >
                 결제하기

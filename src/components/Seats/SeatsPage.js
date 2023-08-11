@@ -5,11 +5,13 @@ import Seats from './Seats';
 import SeatTicketingFrame from './SeatTicketingFrame';
 import './SeatsPage.css';
 import Popup from '../Popup/Popup';
+import LoadingOverlay from '../LoadingOverlay';
 
 function SeatsPage() {
     const { id } = useParams();
     const navigate = useNavigate();
     const [searchParams, setSearchParams] = useSearchParams();
+    const [isLoaded, setIsLoaded] = useState(true);
     const showNum = Number(searchParams.get('showNum'));
 
     const [selected, setSelected] = useState([]);
@@ -65,6 +67,7 @@ function SeatsPage() {
 
     return (
         <div className="seats-page">
+            {!isLoaded ? <LoadingOverlay /> : <></>}
             <Popup
                 open={popup.open}
                 setPopup={setPopup}
@@ -102,7 +105,7 @@ function SeatsPage() {
                 </div>
             </div>
 
-            <SeatTicketingFrame id={id} showNum={showNum} selected={selected} user={user} />
+            <SeatTicketingFrame id={id} showNum={showNum} selected={selected} user={user} setIsLoaded={setIsLoaded} />
         </div>
     );
 }

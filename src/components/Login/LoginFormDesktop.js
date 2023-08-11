@@ -7,7 +7,7 @@ import './LoginFormDesktop.css';
 import Popup from '../Popup/Popup';
 import { checkRequestUsersDocument } from '../../features/user/api/requestUsersDocumentApi';
 
-function LoginFormDesktop() {
+function LoginFormDesktop({ setIsLoaded }) {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [account, setAccount] = useState({
@@ -29,6 +29,7 @@ function LoginFormDesktop() {
     };
 
     const onButtonClick = async () => {
+        setIsLoaded(false);
         const check = await checkRequestUsersDocument(account.id);
         if (check) {
             await loginUser(account.id, account.password).then((res) => {
@@ -80,6 +81,7 @@ function LoginFormDesktop() {
                         }
                     }
                 }
+                setIsLoaded(true);
             });
         } else
             await loginUser(account.id, account.password).then((res) => {
@@ -130,6 +132,8 @@ function LoginFormDesktop() {
                     }
                 }
             });
+            setIsLoaded(true);
+        }
     };
 
     return (
