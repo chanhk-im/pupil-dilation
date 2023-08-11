@@ -1,7 +1,7 @@
 .myModal {
     position: absolute;
     z-index: 999;
-    top: 8rem;
+    top: 14rem;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 32px;
@@ -52,4 +52,23 @@
 
 .myModal-message {
     margin-top: 30px;
+}
+
+.myModal-background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+    animation: modal-bg-show 1s;
+    @keyframes modal-bg-show {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
 }
