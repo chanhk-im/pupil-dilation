@@ -78,6 +78,7 @@ export async function createRequestUsersDocument(reqUserId) {
     try {
         await setDoc(doc(fireStore, 'requestUsers', reqUserId), {
             accepted: false,
+            id: reqUserId,
         });
     } catch (e) {
         alert(e);
@@ -89,6 +90,7 @@ export async function changeRequestUsersDocument(reqUserId) {
     try {
         await setDoc(doc(fireStore, 'requestUsers', reqUserId), {
             accepted: true,
+            id: reqUserId,
         });
     } catch (e) {
         alert(e);

@@ -83,10 +83,54 @@ function LoginFormDesktop({ setIsLoaded }) {
                 }
                 setIsLoaded(true);
             });
-        } else {
-            setPopup({
-                open: true,
-                message: '권한이 없거나 id가 존재하지 않습니다.',
+        } else
+            await loginUser(account.id, account.password).then((res) => {
+                if (res) {
+                    dispatch(
+                        stageUser({
+                            user: res.user,
+                            userCredential: res.userCredential,
+                            isHost: res.isHost,
+                        }),
+                    );
+                    console.log(res);
+                    if (res) {
+                        switch (res) {
+                            case 1:
+                                setPopup({
+                                    open: true,
+                                    message: '존재하지 않는 id입니다.',
+                                });
+                                return;
+                            case 2:
+                                setPopup({
+                                    open: true,
+                                    message: '이메일이 존재하지 않습니다.',
+                                });
+                                return;
+                            case 3:
+                                setPopup({
+                                    open: true,
+                                    message: '비밀번호가 일치하지 않습니다.',
+                                });
+                                return;
+                            case 4:
+                                setPopup({
+                                    open: true,
+                                    message: '알 수 없는 오류로 실패했습니다.',
+                                });
+                                return;
+                            default:
+                                if (res.user.userType == 0) navigate('/');
+                                else
+                                    setPopup({
+                                        open: true,
+                                        message:
+                                            '권한이 없거나 id가 존재하지 않습니다.',
+                                    });
+                        }
+                    }
+                }
             });
             setIsLoaded(true);
         }
