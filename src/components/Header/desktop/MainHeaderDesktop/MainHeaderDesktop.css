@@ -92,12 +92,13 @@ input[name='search'] {
     font-size: 24px;
     font-weight: 400;
     z-index: 50;
+    outline: none;
 }
 
 .header-modal {
     position: absolute;
     left: calc(100vw * 720 / 1229);
-    top: 123px;
+    top: 3px;
     width: 617px;
     height: 400px;
     flex-shrink: 0;

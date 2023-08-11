@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import styled from 'styled-components';
 import './MainHeaderDesktop.css';
 import { restoreUser } from '../../../../features/user/slices/userSlice';
 import { getDateFormat } from '../../../../functions/dateFeature';
@@ -49,6 +50,17 @@ function MainHeaderDesktop() {
     //         closeModal();
     //     }
     // };
+
+    const Background = styled.div`
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: 100;
+        top: 120px;
+        left: 0;
+        background-color: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(5px);
+    `;
 
     var notes = [];
 
@@ -117,7 +129,7 @@ function MainHeaderDesktop() {
 
                         <div className="line-right">
                             <div className="search-input">
-                                <input
+                                <input className='input-search'
                                     type="text"
                                     id="search"
                                     value={searchValue}
@@ -132,67 +144,67 @@ function MainHeaderDesktop() {
                                     src="/images/search.png"
                                 />
                                 {isModalOpen === true ? (
-                                    <div
-                                        className="header-modal"
-                                        ref={outside}
-                                        onClick={closeModal}
-                                    >
-                                        <ul>{displaySearchContent}</ul>
-                                        {tooltipImage ? (
-                                            <div className="tooltip">
-                                                <img
-                                                    className="show-image-mini"
-                                                    src={tooltipImage}
-                                                    alt=""
-                                                />
-                                                <div className="header-show-title">
-                                                    {mouseValue.title}
-                                                </div>
-                                                <div className="header-show-time">
-                                                    {getDateFormat(
-                                                        mouseValue.startDate,
-                                                    )}
-                                                </div>
-                                            </div>
-                                        ) : (
-                                            <div className="tooltip">
-                                                <img
-                                                    className="show-image-mini"
-                                                    src={
-                                                        searchResults.length > 0
-                                                            ? searchResults[0]
-                                                                  .image
-                                                            : ''
-                                                    }
-                                                    alt="No Search"
-                                                />
-                                                <div className="header-show-title">
-                                                    {searchResults.length > 0
-                                                        ? searchResults[0].title
-                                                        : ''}
-                                                </div>
-                                                <div className="header-show-time">
-                                                    {searchResults.length > 0
-                                                        ? getDateFormat(
-                                                              searchResults[0]
-                                                                  .startDate,
-                                                          )
-                                                        : ''}
-                                                </div>
-                                            </div>
-                                        )}
-                                        <img
-                                            className="search-line"
-                                            src="/images/Vector 710.png"
-                                            alt="line"
-                                        />
-                                        <button
-                                            className="closebutton"
+                                    <Background onClick={closeModal}>
+                                        <div
+                                            className="header-modal"
+                                            ref={outside}
                                             onClick={closeModal}
                                         >
-                                            X
-                                        </button>
-                                    </div>
+                                            <ul>{displaySearchContent}</ul>
+                                            {tooltipImage ? (
+                                                <div className="tooltip">
+                                                    <img
+                                                        className="show-image-mini"
+                                                        src={tooltipImage}
+                                                        alt=""
+                                                    />
+                                                    <div className="header-show-title">
+                                                        {mouseValue.title}
+                                                    </div>
+                                                    <div className="header-show-time">
+                                                        {getDateFormat(
+                                                            mouseValue.startDate,
+                                                        )}
+                                                    </div>
+                                                </div>
+                                            ) : (
+                                                <div className="tooltip">
+                                                    <img
+                                                        className="show-image-mini"
+                                                        src={
+                                                            searchResults.length >
+                                                            0
+                                                                ? searchResults[0]
+                                                                      .image
+                                                                : ''
+                                                        }
+                                                        alt="No Search"
+                                                    />
+                                                    <div className="header-show-title">
+                                                        {searchResults.length >
+                                                        0
+                                                            ? searchResults[0]
+                                                                  .title
+                                                            : ''}
+                                                    </div>
+                                                    <div className="header-show-time">
+                                                        {searchResults.length >
+                                                        0
+                                                            ? getDateFormat(
+                                                                  searchResults[0]
+                                                                      .startDate,
+                                                              )
+                                                            : ''}
+                                                    </div>
+                                                </div>
+                                            )}
+                                            <img
+                                                className="search-line"
+                                                src="/images/Vector 710.png"
+                                                alt="line"
+                                            />
+                                        </div>
+                                    </Background>
                                 ) : null}
                             </div>
                             <Link className="test" to="/mypage">
