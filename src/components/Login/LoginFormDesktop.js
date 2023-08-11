@@ -132,10 +132,8 @@ function LoginFormDesktop({ setIsLoaded }) {
                     }
                 }
             });
-            setIsLoaded(true);
-        }
+        setIsLoaded(true);
     };
-
     return (
         <div className="right-page-desktop">
             <Popup
