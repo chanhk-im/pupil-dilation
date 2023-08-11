@@ -32,8 +32,10 @@ export default function useMainPageLoading() {
             showList.forEach((element, index) => {
                 getImageUrl(element.image).then((url) => {
                     dispatch(markAsDownloadImage({ index, url }));
+                    console.log(element);
                 });
             });
+            console.log(showList);
         });
     }, []);
 

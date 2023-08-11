@@ -17,7 +17,7 @@ function HostMainPageDesktop() {
         await getShowsDocument().then((value) => {
             const ownShows = value.filter((v) => v.userId === user.id);
             dispatch(fetchShowList(ownShows));
-            setIsLoaded(true);
+             setIsLoaded(true);
         });
     }
 

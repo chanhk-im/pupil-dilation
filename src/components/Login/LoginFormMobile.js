@@ -5,7 +5,7 @@ import { loginUser } from '../../features/user/api/firebase_auth';
 import { stageUser } from '../../features/user/slices/userSlice';
 import './LoginFormMobile.css';
 
-function LoginFormMobile() {
+function LoginFormMobile({ setIsLoaded }) {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [account, setAccount] = useState({
@@ -21,6 +21,7 @@ function LoginFormMobile() {
     };
 
     const onClickButton = async () => {
+        setIsLoaded(false);
         await loginUser(account.id, account.password).then((res) => {
             if (res) {
                 dispatch(
@@ -37,6 +38,7 @@ function LoginFormMobile() {
                 }
             }
         });
+        setIsLoaded(true);
     };
 
     return (
