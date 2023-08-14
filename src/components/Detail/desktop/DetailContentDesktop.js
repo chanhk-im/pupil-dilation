@@ -6,7 +6,6 @@ import {
     getDateShortFormat,
     getDateScheduleFormat,
 } from '../../../functions/dateFeature';
-import DetailFooterDesktop from './DetailFooterDesktop';
 
 function DetailContentDesktop({ id }) {
     const show = useShowById(id);
@@ -56,7 +55,6 @@ function DetailContentDesktop({ id }) {
                     </div>
                     <h3 className="detail-title">공연일정</h3>
                     <p className="detail-info">{schedule}</p>
-                    <DetailFooterDesktop id={id} />
                 </div>
             </div>
         </div>
