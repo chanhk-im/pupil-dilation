@@ -31,6 +31,11 @@ function ChangePW() {
         });
     };
 
+    const onCallback = (userInfo) => {
+        dispatch(changePasswordUser(userInfo.newPassword));
+        navigate('/mypage');
+    };
+
     const id = userData.id;
     const realPassword = userData.password;
 
@@ -61,9 +66,10 @@ function ChangePW() {
                 setPopup({
                     open: true,
                     message: '수정 완료!',
+                    callback: () => {
+                        onCallback(userInfo);
+                    },
                 });
-                dispatch(changePasswordUser(userInfo.newPassword));
-                navigate('/mypage');
             }
         });
     };

@@ -4,10 +4,18 @@ import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
 } from 'firebase/auth';
-import { collection, addDoc, getDocs, where, query } from 'firebase/firestore';
+import {
+    collection,
+    addDoc,
+    getDocs,
+    where,
+    query,
+    getDoc,
+} from 'firebase/firestore';
 import { authService, fireStore } from '../../../Firebase';
 import { setDoc, doc, updateDoc } from 'firebase/firestore';
 import { hasHostPermission } from '../../../functions/checkAuthentication';
+import { encrypt, decrypt } from '../../../components/Crypto/Crypto';
 
 const handleErrorLogin = (code) => {
     switch (code) {
@@ -46,8 +54,12 @@ export async function createUser(newUserInfo) {
         newUserInfo.password,
     )
         .then(async () => {
-            // TODO: firebase에 user정보 추가
-            await setDoc(doc(fireStore, 'users', newUserInfo.id), newUserInfo)
+            const encryptionKey = newUserInfo.id;
+            const data = {
+                encryptedData: encrypt(newUserInfo, encryptionKey),
+                encryptionKey: encryptionKey,
+            };
+            await setDoc(doc(fireStore, 'users', newUserInfo.id), data)
                 .then(() => {
                     res = true;
                 })
@@ -64,25 +76,22 @@ export async function createUser(newUserInfo) {
 
 export async function loginUser(id, password) {
     let res = {};
-    const col = collection(fireStore, 'users');
-    const q = query(col, where('id', '==', id));
-    const loginUserInfo = await getDocs(q);
-
-    if (loginUserInfo.docs.length === 0) {
+    const docRef = doc(fireStore, 'users', id);
+    const loginUserSnapshot = await getDoc(docRef);
+    if (!loginUserSnapshot.exists()) {
         return 1;
     }
 
-    await signInWithEmailAndPassword(
-        authService,
-        loginUserInfo.docs[0].data().email,
-        password,
-    )
+    const loginUserInfo = decrypt(
+        loginUserSnapshot.data().encryptedData,
+        loginUserSnapshot.data().encryptionKey,
+    );
+
+    await signInWithEmailAndPassword(authService, loginUserInfo.email, password)
         .then(async (userCredential) => {
-            const isHost =
-                loginUserInfo.docs[0].data().userType === 0 ? false : true;
-            console.log(isHost);
+            const isHost = loginUserInfo.userType === 0 ? false : true;
             res = {
-                user: loginUserInfo.docs[0].data(),
+                user: loginUserInfo,
                 userCredential,
                 isHost,
             };
@@ -135,7 +144,35 @@ export async function changePassword(
 }
 
 export async function updateUsersDocument(updateData) {
-    await updateDoc(doc(fireStore, 'users', updateData.id), {
-        password: updateData.password,
-    });
+    let res = {};
+    const docRef = doc(fireStore, 'users', updateData.id);
+    const updateUserSnapshot = await getDoc(docRef);
+
+    const updateUserInfo = decrypt(
+        updateUserSnapshot.data().encryptedData,
+        updateUserSnapshot.data().encryptionKey,
+    );
+
+    updateUserInfo.password = updateData.password;
+
+    const encryptionKey = updateUserInfo.id;
+    const data = {
+        encryptedData: encrypt(updateUserInfo, encryptionKey),
+        encryptionKey: encryptionKey,
+    };
+
+    await setDoc(doc(fireStore, 'users', updateData.id), data)
+        .then(() => {
+            res = true;
+        })
+        .catch((error) => {
+            alert(error);
+            res = false;
+        });
+
+    // await updateDoc(doc(fireStore, 'users', updateData.id), {
+    //     password: updateUserInfo.password,
+    // });
+
+    return res;
 }

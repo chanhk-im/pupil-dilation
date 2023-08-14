@@ -121,6 +121,14 @@ function LoginFormDesktop({ setIsLoaded }) {
                                 });
                                 return;
                             default:
+                                if (!res.user) {
+                                    setPopup({
+                                        open: true,
+                                        message:
+                                            '비밀번호가 일치하지 않습니다.',
+                                    });
+                                    return;
+                                }
                                 if (res.user.userType == 0) navigate('/');
                                 else
                                     setPopup({

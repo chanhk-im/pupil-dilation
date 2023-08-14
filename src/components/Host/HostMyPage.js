@@ -31,6 +31,11 @@ function HostMyPage() {
         });
     };
 
+    const onCallback = (hostInfo) => {
+        dispatch(changePasswordUser(hostInfo.newPassword));
+        navigate('/host');
+    };
+
     const id = userData.id;
     const realPassword = userData.password;
     const email = userData.email;
@@ -62,9 +67,10 @@ function HostMyPage() {
                 setPopup({
                     open: true,
                     message: '수정 완료!',
+                    callback: () => {
+                        onCallback(hostInfo);
+                    },
                 });
-                dispatch(changePasswordUser(hostInfo.newPassword));
-                navigate('/host');
             }
         });
     };
