@@ -8,16 +8,16 @@
     flex-shrink: 0;
     display: flex;
     margin-left: calc(100vw * 260 / 1440);
-    margin-top: 159px;
+    margin-top: calc(100vw * 172 / 1440);
 }
 
 .right-page1 {
-    width: calc(100vw * 455 / 1440);
-    height: calc(100vh * 700 / 820);
+    width: calc(100vw * 448 / 1440);
+    height: calc(100vh * 647 / 820);
     flex-shrink: 0;
-    margin-left: calc(100vw * 140 / 1440);
-    margin-top: calc(100vw * 14 / 1440);
-    margin-bottom: calc(100vw * 14 / 1440);
+    margin-left: calc(100vw * 139 / 1440);
+    margin-top: calc(100vw * 28 / 1440);
+    margin-bottom: calc(100vw * 27 / 1440);
     display: grid;
     grid-template-columns: 5;
     align-items: center;
@@ -26,7 +26,7 @@
 .right-high {
     display: flex;
     justify-content: start;
-    margin-top: calc(100vw * 25 / 1440);
+    margin: 0;
 }
 
 .sign-up-text {
@@ -38,18 +38,18 @@
 
 .host-signup-button {
     border: none;
-    width: 113px;
-    height: 39px;
-    border-radius: 23px;
+    width: calc(100vw * 113 / 1440);
+    height: calc(100vw * 39 / 1440);
+    border-radius: calc(100vw * 23 / 1440);
     background: var(--theme-navy, #2b3252);
     cursor: pointer;
-    margin-right: 8px;
+    margin-right: calc(100vw * 8 / 1440);
     margin-left: calc(100vw * 96 / 1440);
 }
 
 .host-signup-text {
     color: var(--theme-yellow, #fad744);
-    font-size: 14px;
+    font-size: calc(100vw * 14 / 1440);
     text-align: center;
     font-family: Noto Sans KR;
     text-decoration: none;
@@ -58,16 +58,16 @@
 
 .login {
     border: none;
-    width: 113px;
-    height: 39px;
-    border-radius: 23px;
+    width: calc(100vw * 113 / 1440);
+    height: calc(100vw * 39 / 1440);
+    border-radius: calc(100vw * 23 / 1440);
     background: var(--theme-yellow, #fad744);
     cursor: pointer;
 }
 
 .login-text {
     color: var(--theme-navy, #2b3252);
-    font-size: 20px;
+    font-size: calc(100vw * 18 / 1440);
     text-align: center;
     font-family: Noto Sans KR;
     text-decoration: none;
@@ -75,44 +75,44 @@
 
 .sign-up-title {
     color: #000;
-    font-size: 24px;
+    font-size: calc(100vw * 24 / 1440);
     font-family: Noto Sans KR;
     font-style: normal;
     font-weight: 350;
     line-height: normal;
     display: flex;
-    margin-bottom: 3px;
+    margin-bottom: calc(100vw * 3 / 1440);
+    margin-top: calc(100vw * 8 / 1440);
 }
 
 .sign-up-input {
     border: none;
-    width: 448px;
-    height: 45px;
-    font-size: 20px;
+    width: calc(100vw * 448 / 1440);
+    height: calc(100vw * 45 / 1440);
+    font-size: calc(100vw * 20 / 1440);
     flex-shrink: 0;
-    border-radius: 7px;
+    border-radius: calc(100vw * 7 / 1440);
     background: #fff;
     box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.25) inset;
-    margin-bottom: 5px;
-    padding-left: 13px;
+    margin-bottom: calc(100vw * 2 / 1440);
+    padding-left: calc(100vw * 13 / 1440);
 }
 
 .sign-up-input::placeholder {
     color: rgba(0, 0, 0, 0.55);
-    font-size: 20px;
-    font-family: Noto Sans KR;
+    font-size: calc(100vw * 20 / 1440);
     font-style: normal;
     font-weight: 350;
     line-height: normal;
 }
 
 .sign-up {
-    margin-top: 17px;
+    margin-top: calc(100vw * 17 / 1440);
     border: none;
     width: calc(100vw * 448 / 1440);
-    height: 67px;
+    height: calc(100vw * 67 / 1440);
     flex-shrink: 0;
-    border-radius: 34px;
+    border-radius: calc(100vw * 34 / 1440);
     background: var(--theme-yellow, #fad744);
 }
 

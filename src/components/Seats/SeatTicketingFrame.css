@@ -46,7 +46,7 @@
 .seat-num-people {
     margin-left: calc(100vw * 10 / 1440);
     width: calc(100vw * 192 / 1440);
-    height: calc(100vw * 54 / 1440);
+    height: calc(100vw * 45 / 1440);
     border-radius: 10px;
     border: 1px solid #000;
     display: flex;
