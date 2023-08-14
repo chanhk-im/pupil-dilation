@@ -29,44 +29,46 @@ function DetailFooterDesktop({ id }) {
     };
 
     return (
-        <div className="detail-footer">
-            <Popup
-                open={popup.open}
-                setPopup={setPopup}
-                message={popup.message}
-                title={popup.title}
-                callback={popup.callback}
-            />
-            <select
-                name="schedule"
-                className="select-schedule"
-                onChange={onChangeSchedule}
-            >
-                {schedule}
-            </select>
-            <button
-                type="button"
-                onClick={() => {
-                    if (isLogged)
-                        navigate(
-                            '/seats/' +
-                                id +
-                                '?' +
-                                'showNum=' +
-                                selectedSchedule,
-                        );
-                    else {
-                        setPopup({
-                            open: true,
-                            message: '로그인해라',
-                            callback: () => navigate('/login'),
-                        });
-                    }
-                }}
-                className="ticketing-button"
-            >
-                예매하기
-            </button>
+        <div>
+            <div className="detail-footer">
+                <Popup
+                    open={popup.open}
+                    setPopup={setPopup}
+                    message={popup.message}
+                    title={popup.title}
+                    callback={popup.callback}
+                />
+                <select
+                    name="schedule"
+                    className="select-schedule"
+                    onChange={onChangeSchedule}
+                >
+                    {schedule}
+                </select>
+                <button
+                    type="button"
+                    onClick={() => {
+                        if (isLogged)
+                            navigate(
+                                '/seats/' +
+                                    id +
+                                    '?' +
+                                    'showNum=' +
+                                    selectedSchedule,
+                            );
+                        else {
+                            setPopup({
+                                open: true,
+                                message: '로그인해라',
+                                callback: () => navigate('/login'),
+                            });
+                        }
+                    }}
+                    className="ticketing-button"
+                >
+                    예매하기
+                </button>
+            </div>
         </div>
     );
 }
