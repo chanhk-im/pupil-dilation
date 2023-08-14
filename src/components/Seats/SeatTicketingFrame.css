@@ -1,7 +1,7 @@
 .seat-ticketing-frame {
-    width: 212px;
-    height: 594px;
-    margin-top: 32px;
+    width: calc(100vw * 212 / 1440);
+    height: calc(100vw * 594 / 1440);
+    margin-top: calc(100vw * 32 / 1440);
     border-radius: 27px;
     background: #fff;
     box-shadow: 4px 7px 4px 0px rgba(43, 50, 82, 0.33);
@@ -13,10 +13,10 @@
 }
 
 .seat-show-poster {
-    width: 146px;
-    height: 207px;
-    margin-left: 16px;
-    margin-top: 15px;
+    width: calc(100vw * 146 / 1440);
+    height: calc(100vw * 207 / 1440);
+    margin-left: calc(100vw * 16 / 1440);
+    margin-top: calc(100vw * 15 / 1440);
     border-radius: 8px;
     background: #d89999;
 }
@@ -25,50 +25,41 @@
     margin-top: 5px;
     margin-left: 10px;
     text-align: start;
-    font-size: 24px;
+    font-size: calc(100vw * 24 / 1440);
     font-weight: 500;
 }
 
 .seat-show-schedule {
     margin-right: 10px;
     text-align: end;
-    font-size: 20px;
+    font-size: calc(100vw * 20 / 1440);
     font-weight: 300;
 }
 
 .seat-num-people-title {
     margin-left: 10px;
     text-align: left;
-    font-size: 20px;
+    font-size: calc(100vw * 20 / 1440);
     font-weight: 350;
 }
 
 .seat-num-people {
-    margin-left: 10px;
-    width: 192px;
-    height: 54px;
+    margin-left: calc(100vw * 10 / 1440);
+    width: calc(100vw * 192 / 1440);
+    height: calc(100vw * 54 / 1440);
     border-radius: 10px;
     border: 1px solid #000;
-    background-color: #2b3252;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: stretch;
-    font-size: 24px;
+    justify-content: center;
+    align-items: center;
+    font-size: calc(100vw * 24 / 1440);
     font-family: Roboto;
     font-weight: 400;
 }
 
-.seat-plus-minus {
-    width: 36px;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .seat-number {
-    width: 120px;
+    width: calc(100vw * 34 / 1440);
     background-color: white;
     display: flex;
     justify-content: center;
@@ -76,10 +67,11 @@
 }
 
 .seat-final-check {
-    margin-left: 10px;
-    margin-top: 13px;
-    width: 192px;
-    height: 90px;
+    margin-left: calc(100vw * 10 / 1440);
+    margin-top: calc(100vw * 13 / 1440);
+    padding-top: calc(100vw * 8 / 1440);
+    width: calc(100vw * 192 / 1440);
+    height: calc(100vw * 90 / 1440);
     border-radius: 10px;
     background: #2b3252;
     display: flex;
@@ -88,10 +80,9 @@
 }
 
 .seat-final-check-content {
-    margin-top: 4px;
-    margin-bottom: 4px;
-    margin-left: 8px;
-    margin-right: 8px;
+    margin-bottom: calc(100vw * 9 / 1440);
+    margin-left: calc(100vw * 8 / 1440);
+    margin-right: calc(100vw * 9 / 1440);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -99,7 +90,7 @@
 
 .seat-final-check-title-text {
     color: #fff;
-    font-size: 15px;
+    font-size: calc(100vw * 15 / 1440);
     font-family: Noto Sans KR;
     font-style: normal;
     font-weight: 350;
@@ -108,13 +99,13 @@
 
 .seat-final-check-content-text {
     color: var(--theme-yellow, #fad744);
-    font-size: 15px;
+    font-size: calc(100vw * 15 / 1440);
     font-family: Roboto;
     font-weight: 500;
 }
 
 .seat-final-check-content-selected-name {
-    width: 120px;
+    width: calc(100vw * 120 / 1440);
     display: flex;
     flex-direction: row;
     justify-content: end;
@@ -122,24 +113,25 @@
 }
 
 .seat-ticketing-submit {
-    width: 192px;
-    height: 67px;
-    margin-left: 10px;
-    margin-top: 12px;
-    margin-bottom: 23px;
-    border-radius: 46px;
+    width: calc(100vw * 192 / 1440);
+    height: calc(100vw * 67 / 1440);
+    margin-left: calc(100vw * 10 / 1440);
+    margin-top: calc(100vw * 12 / 1440);
+    margin-bottom: calc(100vw * 23 / 1440);
+    border-radius: calc(100vw * 46 / 1440);
     border: none;
     background: var(--theme-yellow, #fad744);
 
     color: var(--theme-red, #ef5455);
     text-align: center;
-    font-size: 20px;
+    font-size: calc(100vw * 20 / 1440);
     font-family: Noto Sans KR;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
     letter-spacing: -0.9px;
     z-index: 50;
+    cursor: pointer;
 }
 
 .seats-type-grid {

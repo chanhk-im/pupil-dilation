@@ -1,9 +1,13 @@
 .seats-container {
-    height: 400px;
+    height: calc(100vw * 400 / 1440);
     display: grid;
-    row-gap: 10px;
-    column-gap: 10px;
-    grid-template-columns: 1fr 1fr 1fr 48px repeat(8, 1fr) 48px 1fr 1fr;
+    row-gap: calc(100vw * 10 / 1440);
+    column-gap: calc(100vw * 10 / 1440);
+    grid-template-columns:
+        1fr 1fr 1fr calc(100vw * 48 / 1440) repeat(8, 1fr) calc(
+            100vw * 48 / 1440
+        )
+        1fr 1fr;
     grid-template-rows: repeat(9, 1fr);
 }
 
@@ -21,7 +25,7 @@
     justify-content: center;
 
     text-align: center;
-    font-size: 20px;
+    font-size: calc(100vw * 20 / 1440);
     font-family: Roboto;
     font-style: normal;
     font-weight: 600;
@@ -35,7 +39,7 @@
     justify-content: center;
 
     text-align: center;
-    font-size: 20px;
+    font-size: calc(100vw * 20 / 1440);
     font-family: Roboto;
     font-style: normal;
     font-weight: 600;
@@ -43,13 +47,14 @@
 }
 
 .seat {
-    width: 36px;
-    height: 36px;
+    width: calc(100vw * 34 / 1440);
+    height: calc(100vw * 33.3 / 1440);
 }
 
 .seat-available {
     background-color: #727272;
     z-index: 50;
+    cursor: pointer;
 }
 
 .seat-unavailable {
@@ -60,6 +65,7 @@
 .seat-selected {
     background-color: #fad744;
     z-index: 50;
+    cursor: pointer;
 }
 
 .seat-progress {

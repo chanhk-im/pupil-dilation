@@ -13,7 +13,14 @@ import {
 } from '../../functions/dateFeature';
 import Popup from '../Popup/Popup';
 
-function SeatTicketingFrame({ id, showNum, selected, completedSeats, user, setIsLoaded }) {
+function SeatTicketingFrame({
+    id,
+    showNum,
+    selected,
+    completedSeats,
+    user,
+    setIsLoaded,
+}) {
     const show = useShowById(id);
     const [popup, setPopup] = useState({
         open: false,
@@ -26,6 +33,7 @@ function SeatTicketingFrame({ id, showNum, selected, completedSeats, user, setIs
             {', '}
         </div>
     ));
+    const countSeat = selected.length;
     return (
         <div className="seat-ticketing-frame">
             <Popup
@@ -48,11 +56,9 @@ function SeatTicketingFrame({ id, showNum, selected, completedSeats, user, setIs
                 </div>
                 <div>{getDateTimeFormat(show.schedule[showNum - 1])}</div>
             </div>
-            <div className="seat-num-people-title">관람인원 선택</div>
+            <div className="seat-num-people-title">관람인원</div>
             <div className="seat-num-people">
-                <div className="seat-plus-minus">-</div>
-                <div className="seat-number">1</div>
-                <div className="seat-plus-minus">+</div>
+                <div className="seat-number">{countSeat}</div>
             </div>
             <div className="seat-final-check">
                 <div className="seat-final-check-content">
@@ -77,7 +83,7 @@ function SeatTicketingFrame({ id, showNum, selected, completedSeats, user, setIs
                     if (selected.length == 0) {
                         setPopup({
                             open: true,
-                            message: "최소 하나의 좌석을 선택해야 합니다!!"
+                            message: '최소 하나의 좌석을 선택해야 합니다!!',
                         });
                         return;
                     }
