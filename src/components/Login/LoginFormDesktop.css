@@ -101,6 +101,7 @@
     flex-shrink: 0;
     border-radius: 34px;
     background: var(--theme-yellow, #fad744);
+    cursor: pointer;
 }
 
 .login-text2-desktop {
