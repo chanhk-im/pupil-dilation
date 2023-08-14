@@ -45,11 +45,13 @@ function HostHeaderDesktop() {
                     />
                 </Link>
                 <div className="host-header-line-right">
-                    <img
-                        className="host-header-user-button"
-                        alt="search-button"
-                        src="/images/host-header-mypage.svg"
-                    />
+                    <Link className="test" to="/host/mypage">
+                        <img
+                            className="host-header-user-button"
+                            alt="search-button"
+                            src="/images/host-header-mypage.svg"
+                        />{' '}
+                    </Link>
                 </div>
             </div>
         </div>

@@ -12,6 +12,7 @@ import {
     and,
 } from 'firebase/firestore';
 import { fireStore } from '../../../Firebase';
+import { decrypt } from '../../../components/Crypto/Crypto';
 
 export async function getNotAcceptedRequestUsersDocument() {
     const requestList = [];
@@ -52,12 +53,13 @@ export async function getAcceptedRequestUsersDocument() {
 }
 
 export async function fetchUserData(userId) {
-    const q = query(collection(fireStore, 'users'), where('id', '==', userId));
-
-    const querySnapshot = await getDocs(q);
-    if (!querySnapshot.empty) {
-        const userData = querySnapshot.docs[0].data();
-        return userData;
+    const q = doc(fireStore, 'users', userId);
+    const decryptionKey = userId;
+    const querySnapshot = await getDoc(q);
+    if (querySnapshot.exists()) {
+        const encryptedUserData = querySnapshot.data().encryptedData;
+        const decryptedUserData = decrypt(encryptedUserData, decryptionKey);
+        return decryptedUserData;
     } else {
         return null;
     }
