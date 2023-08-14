@@ -1,13 +1,13 @@
 .seats-page {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: start;
+    margin-left: calc(100vw * 260 / 1440);
 }
 
 .seats-left {
-    margin-right: calc(100vw * 152 / 1440);
-    display: flex;
+    margin-right: calc(100vw * 142 / 1440);
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -15,29 +15,40 @@
 
 .seats-select-text {
     margin-bottom: 10px;
-    font-size: 40px;
+    margin-top: 10px;
+    font-family: Noto Sans KR;
+    font-size: calc(100vw * 40 / 1440);
     font-style: normal;
     font-weight: 500;
     line-height: normal;
 }
 
 .seats-place-name {
+    display: flex;
     color: #000;
-    font-size: 20px;
+    font-size: calc(100vw * 20 / 1440);
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-align: left;
+}
+
+.seats-stage {
+    display: flex;
+    width: calc(100vw * 278 / 1440);
+    height: calc(100vw * 44 / 1440);
+    background: #d9d9d9;
+    color: #000;
+    justify-content: center;
+    text-align: center;
+    font-size: calc(100vw * 32 / 1440);
+    font-family: 'Playfair Display';
     font-style: normal;
     font-weight: 500;
     line-height: normal;
 }
 
-.seats-stage {
-    width: 278px;
-    height: 44px;
-    background: #d9d9d9;
-    color: #000;
-    text-align: center;
-    font-size: 32px;
-    font-family: 'Playfair Display';
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
+.test {
+    display: flex;
+    justify-content: center;
 }
