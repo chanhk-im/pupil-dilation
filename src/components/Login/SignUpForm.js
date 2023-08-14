@@ -29,38 +29,6 @@ function SignUpForm({ onChangeAccount, onButtonClick }) {
                     </div>
                 </div>
                 <div>
-                    <div className="sign-up-title">아이디</div>
-                    <input
-                        type="text"
-                        className="sign-up-input"
-                        id="id"
-                        name="id"
-                        placeholder="4~12자리 영소문자, 숫자"
-                        onChange={onChangeAccount}
-                    />
-                </div>
-                <div>
-                    <div className="sign-up-title">비밀번호</div>
-                    <input
-                        type="password"
-                        className="sign-up-input"
-                        id="password"
-                        name="password"
-                        placeholder="8~20자리 영문 대/소문자, 숫자, 특수문자 조합"
-                        onChange={onChangeAccount}
-                    />
-                </div>
-                <div>
-                    <div className="sign-up-title">비밀번호 재입력</div>
-                    <input
-                        type="password"
-                        className="sign-up-input"
-                        id="password-check"
-                        name="password-check"
-                        placeholder="확인을 위한 비밀번호 재입력"
-                    />
-                </div>
-                <div>
                     <div className="sign-up-title">이름</div>
                     <input
                         type="text"
@@ -93,6 +61,39 @@ function SignUpForm({ onChangeAccount, onButtonClick }) {
                         onChange={onChangeAccount}
                     />
                 </div>
+                <div>
+                    <div className="sign-up-title">아이디</div>
+                    <input
+                        type="text"
+                        className="sign-up-input"
+                        id="id"
+                        name="id"
+                        placeholder="4~12자리 영소문자, 숫자"
+                        onChange={onChangeAccount}
+                    />
+                </div>
+                <div>
+                    <div className="sign-up-title">비밀번호</div>
+                    <input
+                        type="password"
+                        className="sign-up-input"
+                        id="password"
+                        name="password"
+                        placeholder="8~20자리 영문 대/소문자, 숫자, 특수문자 조합"
+                        onChange={onChangeAccount}
+                    />
+                </div>
+                <div>
+                    <div className="sign-up-title">비밀번호 재입력</div>
+                    <input
+                        type="password"
+                        className="sign-up-input"
+                        id="password-check"
+                        name="password-check"
+                        placeholder="확인을 위한 비밀번호 재입력"
+                    />
+                </div>
+
                 <button
                     className="sign-up"
                     type="button"

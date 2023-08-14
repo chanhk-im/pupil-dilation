@@ -90,6 +90,7 @@
 }
 .lock-icon {
     margin-right: calc(100vw * 9.9 / 1440);
+    margin-bottom: calc(100vw * 5 / 1440);
     width: calc(100vw * 16.071 / 1440);
     height: calc(100vw * 18 / 1440);
     flex-shrink: 0;

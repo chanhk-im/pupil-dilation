@@ -61,10 +61,10 @@
     font-size: 24px;
     font-family: Noto Sans KR;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 350;
     line-height: normal;
     display: flex;
-    margin-bottom: 8px;
+    margin-bottom: 3px;
 }
 
 .host-signup-input-container {
@@ -109,8 +109,8 @@
 .host-signup-request {
     margin-top: 17px;
     border: none;
-    width: 100%;
-    height: 67px;
+    width: calc(100vw * 448 / 1440);
+    height: calc(100vw * 67 / 1440);
     flex-shrink: 0;
     border-radius: 34px;
     background: var(--theme-yellow, #fad744);

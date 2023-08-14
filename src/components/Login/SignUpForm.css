@@ -16,8 +16,8 @@
     height: calc(100vh * 700 / 820);
     flex-shrink: 0;
     margin-left: calc(100vw * 140 / 1440);
-    margin-top: 14px;
-    margin-bottom: 14px;
+    margin-top: calc(100vw * 14 / 1440);
+    margin-bottom: calc(100vw * 14 / 1440);
     display: grid;
     grid-template-columns: 5;
     align-items: center;
@@ -25,13 +25,13 @@
 
 .right-high {
     display: flex;
-    justify-content: space-between;
-    margin-top: 25px;
+    justify-content: start;
+    margin-top: calc(100vw * 25 / 1440);
 }
 
 .sign-up-text {
     color: #000;
-    font-size: 32px;
+    font-size: calc(100vw * 32 / 1440);
     font-family: Noto Sans KR;
     font-weight: 700;
 }
@@ -44,6 +44,7 @@
     background: var(--theme-navy, #2b3252);
     cursor: pointer;
     margin-right: 8px;
+    margin-left: calc(100vw * 96 / 1440);
 }
 
 .host-signup-text {
@@ -77,10 +78,10 @@
     font-size: 24px;
     font-family: Noto Sans KR;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 350;
     line-height: normal;
     display: flex;
-    margin-bottom: 8px;
+    margin-bottom: 3px;
 }
 
 .sign-up-input {
