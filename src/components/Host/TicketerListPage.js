@@ -102,15 +102,15 @@ function TicketerListPage() {
     };
 
     const [totalRowCnt, setTotalRowCnt] = useState(0);
-    const [toggleState1, setToggleState1] = useState(false);
-    const [toggleState2, setToggleState2] = useState(false);
     const [ticketerList, setTicketerList] = useState([]);
+    const [ticketerToggle, setTicketerToggle] = useState([]);
 
-    function toggleState1Change() {
-        setToggleState1(!toggleState1);
-    }
-    function toggleState2Change() {
-        setToggleState2(!toggleState2);
+    function toggleStateChange(inx) {
+        console.log('teest ' + ticketerToggle);
+        console.log(inx - 1 + ' is clicked');
+        const newTicketState = [...ticketerToggle];
+        newTicketState[inx - 1] = !newTicketState[inx - 1];
+        setTicketerToggle(newTicketState);
     }
 
     const ticketerTableList = ticketerList.map((e, index) => (
@@ -147,7 +147,9 @@ function TicketerListPage() {
                         <input
                             type="checkbox"
                             id="check"
-                            onClick={toggleState1Change}
+                            onClick={(e) => {
+                                toggleStateChange(index + 1);
+                            }}
                         />
                         <label htmlFor="check" />
                     </div>
@@ -155,8 +157,14 @@ function TicketerListPage() {
                 </section>
             </td>
             <td>
-                <p style={toggleState1 ? { color: 'blue' } : { color: 'red' }}>
-                    {toggleState1 ? '예매 완료' : '예매 중'}
+                <p
+                    style={
+                        ticketerToggle[index]
+                            ? { color: 'blue' }
+                            : { color: 'red' }
+                    }
+                >
+                    {ticketerToggle[index] ? '예매 완료' : '예매 중'}
                 </p>
             </td>
         </tr>
