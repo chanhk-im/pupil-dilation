@@ -134,7 +134,7 @@ function MainHeaderDesktop() {
                                     id="search"
                                     value={searchValue}
                                     name="search"
-                                    placeholder="&nbsp;공연/동아리 검색"
+                                    placeholder="공연/동아리 검색"
                                     onFocus={handleInputFocus}
                                     onChange={handleInputChange}
                                 />

@@ -188,7 +188,7 @@ function PaymentPageDesktop() {
                                     className="sending-account"
                                     type="number"
                                     name="account"
-                                    placeholder='"-" 포함 계좌번호 입력'
+                                    placeholder="계좌번호 입력"
                                     value={sendAccount}
                                     onChange={(e) =>
                                         setSendAccount(e.target.value)

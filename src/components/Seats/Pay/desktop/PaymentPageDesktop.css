@@ -25,6 +25,7 @@
 .ticket-content {
     display: flex;
     margin-top: calc(100vw * 20 / 1440);
+    margin-left: calc(100vw * 10 / 1440);
 }
 .event-title {
     width: calc(100vw * 480 / 1440);
@@ -82,7 +83,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    margin: calc(100vw * 5 / 1440);
+    margin: calc(100vw * 3 / 1440);
     letter-spacing: -0.72px;
     text-align: left;
 }
@@ -91,7 +92,7 @@
 .timeLine-content,
 .seatLine-content {
     padding-left: calc(100vw * 24 / 1440);
-    padding-bottom: calc(100vw * 24 / 1440);
+    padding-bottom: calc(100vw * 14 / 1440);
     color: #000;
     font-family: Noto Sans KR;
     font-size: calc(100vw * 20 / 1440);
@@ -138,6 +139,7 @@
     text-align: left;
     padding-left: calc(100vw * 15 / 1440);
     width: calc(100vw * 100 / 1440);
+    padding-top: calc(100vw * 2 / 1440);
 }
 
 .final-title-content,
@@ -166,6 +168,7 @@
     line-height: normal;
     letter-spacing: -0.675px;
     padding-left: 10px;
+    padding-top: calc(100vw * 3 / 1440);
 }
 .sending-name::placeholder,
 .sending-bank::placeholder,
@@ -189,7 +192,7 @@
 .sending-name:hover,
 .sending-bank:hover,
 .sending-account:hover {
-    border-width: 2px;
+    border-width: 3px;
     border-color: rgba(255, 230, 131, 0.5);
 }
 
@@ -197,14 +200,15 @@
 .sending-bank:focus,
 .sending-account:focus {
     background-color: rgba(255, 255, 255, 0.25);
-    outline-width: 2px;
-    outline-color: var(--theme-yellow, #fad744);
+    outline-width: 0px;
+    border-color: var(--theme-yellow, #fad744);
 }
 .sending-name:focus::placeholder,
 .sending-bank:focus::placeholder,
 .sending-account:focus::placeholder {
     color: transparent;
     font-weight: 500px;
+    padding-top: calc(100vw * 5 / 1440);
 }
 
 .sending-check {
@@ -288,7 +292,7 @@
     width: calc(100vw * 212 / 1440);
     height: calc(100vw * 36 / 1440);
     margin-left: 10px;
-    margin-top: 12px;
+    margin-top: 20px;
     margin-bottom: 23px;
     border-radius: 46px;
     border: none;
