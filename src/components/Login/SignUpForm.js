@@ -88,9 +88,10 @@ function SignUpForm({ onChangeAccount, onButtonClick }) {
                     <input
                         type="password"
                         className="sign-up-input"
-                        id="password-check"
-                        name="password-check"
+                        id="passwordCheck"
+                        name="passwordCheck"
                         placeholder="확인을 위한 비밀번호 재입력"
+                        onChange={onChangeAccount}
                     />
                 </div>
 

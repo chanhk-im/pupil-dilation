@@ -68,6 +68,13 @@ function LoginFormDesktop({ setIsLoaded }) {
                                     message: '알 수 없는 오류로 실패했습니다.',
                                 });
                                 return;
+                            case 10:
+                                setPopup({
+                                    open: true,
+                                    message:
+                                        '아이디와 비밀번호를 모두 입력해주세요.',
+                                });
+                                return;
                             default:
                                 if (res.user.userType == 0) navigate('/');
                                 else if (res.user.userType == 1)
@@ -93,7 +100,6 @@ function LoginFormDesktop({ setIsLoaded }) {
                             isHost: res.isHost,
                         }),
                     );
-                    console.log(res);
                     if (res) {
                         switch (res) {
                             case 1:
@@ -118,6 +124,13 @@ function LoginFormDesktop({ setIsLoaded }) {
                                 setPopup({
                                     open: true,
                                     message: '알 수 없는 오류로 실패했습니다.',
+                                });
+                                return;
+                            case 10:
+                                setPopup({
+                                    open: true,
+                                    message:
+                                        '아이디와 비밀번호를 모두 입력해주세요.',
                                 });
                                 return;
                             default:
