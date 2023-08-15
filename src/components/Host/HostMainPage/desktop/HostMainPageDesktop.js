@@ -17,18 +17,20 @@ function HostMainPageDesktop() {
         await getShowsDocument().then((value) => {
             const ownShows = value.filter((v) => v.userId === user.id);
             dispatch(fetchShowList(ownShows));
-             setIsLoaded(true);
+            setIsLoaded(true);
         });
     }
 
     const displayShowContent = showList.map((value, i) => (
-        <button
-            type="button"
-            className="createdEvent"
-            onClick={() => navigate(`/host/manage/${showList[i].id}`)}
-        >
-            <p className="Text">{value.title}</p>
-        </button>
+        <div className="created-event-button">
+            <button
+                type="button"
+                className="createdEvent"
+                onClick={() => navigate(`/host/manage/${showList[i].id}`)}
+            >
+                <p className="Text">{value.title}</p>
+            </button>
+        </div>
     ));
 
     useEffect(() => {
@@ -38,16 +40,18 @@ function HostMainPageDesktop() {
     return isLoaded ? (
         <div className="whole">
             <div>
-                <h1 className="title">주최한 공연</h1>
+                <p className="title">주최한 공연</p>
             </div>
             {displayShowContent}
-            <button
-                type="button"
-                className="create"
-                onClick={() => navigate('create')}
-            >
-                <p className="Text"> + 공연 추가하기</p>
-            </button>
+            <div className="create-button">
+                <button
+                    type="button"
+                    className="create"
+                    onClick={() => navigate('create')}
+                >
+                    <p className="Text"> + 공연 추가하기</p>
+                </button>
+            </div>
         </div>
     ) : (
         <Loading />
