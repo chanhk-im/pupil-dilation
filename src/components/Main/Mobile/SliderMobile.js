@@ -89,7 +89,7 @@ function SliderMobile() {
                             ) : (
                                 <img
                                     className="eventImage-mobile"
-                                    src="images/Dongari3.jpg"
+                                    src="images/loadImage.png"
                                     alt={slide.title}
                                 />
                             )}
