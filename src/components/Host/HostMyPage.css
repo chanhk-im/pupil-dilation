@@ -1,12 +1,13 @@
 .host-mypage-text {
-    margin-left: 144px;
+    margin-left: calc(100vw * 144 / 1440);
+    margin-top: calc(100vw * 16 / 1440);
     display: flex;
-    width: 212px;
-    height: 57px;
+    width: calc(100vw * 212 / 1440);
+    height: calc(100vw * 57 / 1440);
     flex-direction: column;
     flex-shrink: 0;
     color: #000;
-    font-size: 40px;
+    font-size: calc(100vw * 40 / 1440);
     font-family: Noto Sans KR;
     font-style: normal;
     font-weight: 500;
@@ -16,13 +17,14 @@
 .host-mypage-data {
     display: flex;
     margin-top: 17px;
-    margin-left: 260px;
+    margin-left: calc(100vw * 260 / 1440);
 }
 
 .host-mypage-account-data {
-    width: 120px;
+    width: calc(100vw * 125 / 1440);
+    height: calc(100vw * 46 / 1440);
     color: #000;
-    font-size: 32px;
+    font-size: calc(100vw * 32 / 1440);
     font-family: Noto Sans KR;
     font-style: normal;
     font-weight: 500;
@@ -30,20 +32,20 @@
 }
 
 .host-mypage-data-box {
-    width: 732px;
-    height: 483px;
+    width: calc(100vw * 732 / 1440);
+    height: calc(100vw * 483 / 1440);
     flex-shrink: 0;
-    margin-left: 87px;
-    border-radius: 36px;
+    margin-left: calc(100vw * 87 / 1440);
+    border-radius: calc(100vw * 36 / 1440);
     background: rgba(43, 50, 82, 0.2);
 }
 
 .host-mypage-box-name {
     display: flex;
-    margin-top: 18px;
-    margin-left: 24px;
+    margin-top: calc(100vw * 18 / 1440);
+    margin-left: calc(100vw * 24 / 1440);
     color: #000;
-    font-size: 40px;
+    font-size: calc(100vw * 40 / 1440);
     font-family: Noto Sans KR;
     font-style: normal;
     font-weight: 500;
@@ -52,13 +54,13 @@
 
 .host-mypage-id {
     display: flex;
-    margin-top: 2px;
-    margin-left: 142px;
+    margin-top: calc(100vw * 2 / 1440);
+    margin-left: calc(100vw * 142 / 1440);
 }
 
 .host-mypage-id-text {
     color: #000;
-    font-size: 24px;
+    font-size: calc(100vw * 24 / 1440);
     font-family: Noto Sans KR;
     font-style: normal;
     font-weight: 700;
@@ -66,9 +68,9 @@
 }
 
 .host-mypage-id-data {
-    margin-left: 169px;
+    margin-left: calc(100vw * 169 / 1440);
     color: #000;
-    font-size: 24px;
+    font-size: calc(100vw * 24 / 1440);
     font-family: Noto Sans KR;
     font-style: normal;
     font-weight: 350;
@@ -77,41 +79,43 @@
 
 .host-mypage-pw {
     display: flex;
-    margin-top: 22px;
-    margin-left: 142px;
+    margin-top: calc(100vw * 22 / 1440);
+    margin-left: calc(100vw * 140 / 1440);
 }
 
 .host-mypage-pw-text {
     color: #000;
-    font-size: 24px;
+    font-size: calc(100vw * 24 / 1440);
     font-family: Noto Sans KR;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    width: 86px;
+    width: calc(100vw * 89 / 1440);
+    height: calc(100vw * 35 / 1440);
 }
 
 .host-mypage-pw-inputs {
-    margin-left: 147px;
+    margin-left: calc(100vw * 147 / 1440);
     display: flex;
     flex-direction: column;
 }
 
 .host-mypage-pw-input {
     border: none;
-    width: 330px;
-    height: 44px;
+    width: calc(100vw * 330 / 1440);
+    height: calc(100vw * 44 / 1440);
     flex-shrink: 0;
-    border-radius: 7px;
+    border-radius: calc(100vw * 7 / 1440);
     background: #fff;
-    font-size: 20px;
+    font-size: calc(100vw * 20 / 1440);
     box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.25) inset;
-    margin-bottom: 12px;
+    margin-bottom: calc(100vw * 12 / 1440);
+    padding-left: calc(100vw * 11 / 1440);
 }
 
 .host-mypage-pw-input::placeholder {
     color: #737373;
-    font-size: 20px;
+    font-size: calc(100vw * 20 / 1440);
     font-family: Noto Sans KR;
     font-style: normal;
     font-weight: 350;
@@ -119,14 +123,14 @@
 }
 
 .host-mypage-change-pw-button {
-    width: 212px;
-    height: 39px;
+    width: calc(100vw * 212 / 1440);
+    height: calc(100vw * 39 / 1440);
     flex-shrink: 0;
-    border-radius: 23px;
+    border-radius: calc(100vw * 23 / 1440);
     background: var(--theme-navy, #2b3252);
     color: var(--theme-yellow, #fad744);
     text-align: center;
-    font-size: 13px;
+    font-size: calc(100vw * 13 / 1440);
     font-family: Noto Sans KR;
     font-style: normal;
     font-weight: 700;
@@ -135,24 +139,53 @@
 
 .host-email {
     display: flex;
-    margin-top: 54px;
-    margin-left: 142px;
+    margin-top: calc(100vw * 54 / 1440);
+    margin-left: calc(100vw * 142 / 1440);
 }
 
 .host-email-text {
     color: #000;
-    font-size: 24px;
+    font-size: calc(100vw * 24 / 1440);
     font-family: Noto Sans KR;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    width: calc(100vw * 138 / 1440);
+    height: calc(100vw * 35 / 1440);
 }
 
 .host-email-data {
-    margin-left: 98px;
+    margin-left: calc(100vw * 98 / 1440);
     color: #000;
-    font-size: 24px;
+    font-size: calc(100vw * 24 / 1440);
     font-family: Noto Sans KR;
+    font-style: normal;
+    font-weight: 350;
+    line-height: normal;
+}
+.pw-visible {
+    display: flex;
+    justify-content: start;
+    margin-top: calc(100vw * -2 / 1440);
+    align-items: center;
+    margin-bottom: calc(100vw * 12 / 1440);
+}
+.see-pw-img {
+    background-color: transparent;
+    border: 0;
+}
+.blindPW {
+    width: calc(100vw * 19 / 1440);
+    height: calc(100vw * 19 / 1440);
+}
+.seePW {
+    width: calc(100vw * 19 / 1440);
+    height: calc(100vw * 19 / 1440);
+}
+.see-pw-text {
+    color: #000;
+    font-family: Noto Sans KR;
+    font-size: calc(100vw * 16 / 1440);
     font-style: normal;
     font-weight: 350;
     line-height: normal;

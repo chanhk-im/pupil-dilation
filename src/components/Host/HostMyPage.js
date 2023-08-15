@@ -4,6 +4,7 @@ import { changePassword } from '../../features/user/api/firebase_auth';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { changePasswordUser } from '../../features/user/slices/userSlice';
+import { useRef } from 'react';
 import Popup from '../Popup/Popup';
 import './HostMyPage.css';
 
@@ -75,6 +76,22 @@ function HostMyPage() {
         });
     };
 
+    //password type 변경용 state
+    const [passwordType, setPasswordType] = useState({
+        type: 'password',
+        visible: false,
+    });
+
+    //password type 변경하는 함수
+    const handlePasswordType = (e) => {
+        setPasswordType(() => {
+            if (!passwordType.visible) {
+                return { type: 'text', visible: true };
+            }
+            return { type: 'password', visible: false };
+        });
+    };
+
     return (
         <div className="host-mypage-container">
             <Popup
@@ -95,28 +112,50 @@ function HostMyPage() {
                     </div>
                     <div className="host-mypage-pw">
                         <div className="host-mypage-pw-text">비밀번호</div>
+
                         <div className="host-mypage-pw-inputs">
                             <input
-                                type="password"
+                                type={passwordType.type}
                                 className="host-mypage-pw-input"
                                 name="currentPassword"
-                                placeholder="&nbsp;현재 비밀번호"
+                                placeholder="현재 비밀번호"
                                 onChange={onChangeAccount}
                             ></input>
                             <input
-                                type="password"
+                                type={passwordType.type}
                                 className="host-mypage-pw-input"
                                 name="newPassword"
-                                placeholder="&nbsp;새 비밀번호"
+                                placeholder="새 비밀번호"
                                 onChange={onChangeAccount}
                             ></input>
                             <input
-                                type="password"
+                                type={passwordType.type}
                                 className="host-mypage-pw-input"
                                 name="checkPassword"
-                                placeholder="&nbsp;비밀번호 확인"
+                                placeholder="비밀번호 확인"
                                 onChange={onChangeAccount}
                             ></input>
+                            <div className="pw-visible">
+                                <button
+                                    className="see-pw-img"
+                                    onClick={handlePasswordType}
+                                >
+                                    {passwordType.visible ? (
+                                        <img
+                                            className="blindPW"
+                                            src="../../../images/blindPW.svg"
+                                        />
+                                    ) : (
+                                        <img
+                                            className="seePW"
+                                            src="../../../images/seePW.svg"
+                                        />
+                                    )}
+                                </button>
+                                <label className="see-pw-text">
+                                    비밀번호 표시하기
+                                </label>
+                            </div>
                             <button
                                 type="button"
                                 className="host-mypage-change-pw-button"
