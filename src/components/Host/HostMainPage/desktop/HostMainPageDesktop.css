@@ -22,6 +22,7 @@
 }
 
 .create {
+    display: flex;
     border: 1px dashed var(--theme-red, #ef5455);
     background-color: #fff;
     display: flex;
@@ -36,7 +37,7 @@
 
 .create-button :hover{
     cursor: pointer;
-    background-color: pink;
+    background-color: #F5D6D5;
 }
 
 .createdEvent {
@@ -45,8 +46,8 @@
     display: flex;
     width: calc(100vw * 1156 / 1440);
     height: calc(100vw * 80 / 1440);
-    padding: calc(100vw * 16 / 1440) calc(100vw * 819 / 1440)
-        calc(100vw * 16 / 1440) calc(100vw * 24 / 1440);
+    padding: 0px calc(100vw * 819 / 1440)
+        0px calc(100vw * 24 / 1440);
     align-items: center;
     font-size: 20px;
     gap: 11px;
