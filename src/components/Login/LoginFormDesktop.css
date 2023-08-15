@@ -21,6 +21,10 @@
     font-weight: 700;
 }
 
+.tasd{
+    background-image: url('blob:https://www.figma.com/3475c795-9458-4c5d-baa8-42a2f46fb695');
+}
+
 .id1-desktop {
     border: none;
     width: calc(100vw * 448 / 1440);
@@ -28,10 +32,11 @@
     font-size: calc(100vw * 32 / 1440);
     flex-shrink: 0;
     border-radius: 7px;
-    background: #fff;
     box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.25) inset;
     text-indent: 50px;
-    background-repeat: no-repeat;
+    position: absolute;
+    right: 5px;
+    top: -20px;
 }
 
 .id1-desktop::placeholder {
@@ -68,6 +73,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
 }
 
 .sign-up-text1-desktop {
@@ -78,6 +84,37 @@
 
 .checker-desktop {
     display: flex;
+    align-items: center;
+}
+
+.checker-desktop-left{
+    display: flex;
+    width: 50%;
+    justify-content: start;
+}
+
+.checker-desktop-right{
+    display: flex;
+    width: 50%;
+    justify-content: end;
+    margin-right: 7px;
+}
+
+.checker-desktop-right button{
+    border: none;
+    background-color: #fff;
+    color: #000;
+    font-family: Noto Sans KR;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.checker-desktop-right button:hover{
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: black;
 }
 
 .id-check-desktop {
@@ -112,4 +149,24 @@
     font-size: calc(100vw * 32 / 1440);
     font-family: Noto Sans KR;
     font-weight: 700;
+}
+
+.vertical-line{
+    border-left: thin solid;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 4px; 
+    height: 20px;
+}
+
+.id-blank{
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: calc(100vw * 448 / 1440);
+    height: calc(100vh * 63 / 820);
+}
+
+.id-blank-image{
+    position: absolute;
 }

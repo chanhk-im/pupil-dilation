@@ -40,7 +40,7 @@ function DetailFooterDesktop({ id }) {
                 />
                 <select
                     name="schedule"
-                    className="select-schedule"
+                    className="detail-select-schedule"
                     onChange={onChangeSchedule}
                 >
                     {schedule}
@@ -64,7 +64,7 @@ function DetailFooterDesktop({ id }) {
                             });
                         }
                     }}
-                    className="ticketing-button"
+                    className="detail-ticketing-button"
                 >
                     예매하기
                 </button>

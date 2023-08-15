@@ -11,7 +11,7 @@
     z-index: 50;
 }
 
-.select-schedule {
+.detail-select-schedule {
     width: calc(100vw * 448 / 1440);
     height: calc(100vw * 69 / 1440);
     flex-shrink: 0;
@@ -27,10 +27,14 @@
     line-height: normal;
     letter-spacing: -1.26px;
     margin-bottom: calc(100vh * 10 / 1440);
-    z-index: 50;
 }
 
-.ticketing-button {
+.detail-select-schedule:hover{
+    cursor: pointer;
+}
+
+
+.detail-ticketing-button {
     display: flex;
     width: calc(100vw * 448 / 1440);
     padding: 13.67px 0px 13.67px 0px;
@@ -47,5 +51,8 @@
     font-weight: 500;
     line-height: normal;
     flex-shrink: 0;
-    z-index: 50;
+}
+
+.detail-ticketing-button:hover{
+    cursor: pointer;
 }

@@ -170,25 +170,40 @@ function LoginFormDesktop({ setIsLoaded }) {
                     <div className="sign-up-text1-desktop"> 회원가입</div>
                 </Link>
             </div>
-            <input
-                type="text"
-                className="id1-desktop"
-                id="id"
-                name="id"
-                placeholder="아이디"
-                onChange={onChangeAccount}
-            />
-            <input
-                type="password"
-                className="password1-desktop"
-                id="password"
-                name="password"
-                placeholder="비밀번호"
-                onChange={onChangeAccount}
-            />
+            <div className="id-blank">
+                <input
+                    type="text"
+                    className="id1-desktop"
+                    id="id"
+                    name="id"
+                    placeholder="아이디"
+                    onChange={onChangeAccount}
+                />
+                <div className="id-blank-image">
+                    <img src="/images/login-id-icon.svg" alt="." />
+                </div>
+            </div>
+
+            <div>
+                <input
+                    type="password"
+                    className="password1-desktop"
+                    id="password"
+                    name="password"
+                    placeholder="비밀번호"
+                    onChange={onChangeAccount}
+                />
+            </div>
             <div className="checker-desktop">
-                <input className="id-check-desktop" type="checkbox" />
-                <div className="save-id-desktop">아이디 저장</div>
+                <div className="checker-desktop-left">
+                    <input className="id-check-desktop" type="checkbox" />
+                    <div className="save-id-desktop">아이디 저장</div>
+                </div>
+                <div className="checker-desktop-right">
+                    <button>아이디 찾기</button>
+                    <div className="vertical-line" />
+                    <button>비밀번호 찾기</button>
+                </div>
             </div>
             <button
                 className="login1-desktop"
