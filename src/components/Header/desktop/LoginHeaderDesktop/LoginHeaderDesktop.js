@@ -5,7 +5,7 @@ import './LoginHeaderDesktop.css';
 function LoginHeaderDesktop() {
     return (
         <div>
-            <div className="first-header" />
+            <div className="first-login-header" />
             <div className="second-header">
                 <Link to="/">
                     <img
