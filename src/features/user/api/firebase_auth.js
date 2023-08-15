@@ -45,6 +45,14 @@ const handleErrorSignUp = (code) => {
     }
 };
 
+export async function checkID(newUserInfo) {
+    const docRef = doc(fireStore, 'users', newUserInfo.id);
+    const loginUserSnapshot = await getDoc(docRef);
+    if (loginUserSnapshot.exists()) {
+        return true;
+    }
+}
+
 export async function createUser(newUserInfo) {
     let res = false;
 
@@ -76,6 +84,9 @@ export async function createUser(newUserInfo) {
 
 export async function loginUser(id, password) {
     let res = {};
+    if (id === '' || password === '') {
+        return 10;
+    }
     const docRef = doc(fireStore, 'users', id);
     const loginUserSnapshot = await getDoc(docRef);
     if (!loginUserSnapshot.exists()) {

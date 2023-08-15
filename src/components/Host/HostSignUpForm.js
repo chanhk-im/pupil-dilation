@@ -17,7 +17,7 @@ function HostSignUpForm({ onChangeAccount, onButtonClick }) {
                     <button
                         className="host-signup-return-button"
                         type="button"
-                        onClick={() => navigate('/signup')}
+                        onClick={() => navigate('/login/signup')}
                     >
                         <div className="host-signup-return-text">
                             회원가입으로 돌아가기
@@ -62,9 +62,10 @@ function HostSignUpForm({ onChangeAccount, onButtonClick }) {
                     <input
                         type="password"
                         className="host-signup-input"
-                        id="password-check"
-                        name="password-check"
+                        id="passwordCheck"
+                        name="passwordCheck"
                         placeholder="확인을 위한 비밀번호 재입력"
+                        onChange={onChangeAccount}
                     />
                 </div>
                 <div>
