@@ -1,9 +1,10 @@
 .detail-footer {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: calc(100vh * 80 / 1440);
+    margin-left: calc(100vw * 280 / 1440);
 }
 
 .detail-z-index {
@@ -11,8 +12,8 @@
 }
 
 .select-schedule {
-    width: calc(100vw * 400 / 1440);
-    height: calc(100vw * 60 / 1440);
+    width: calc(100vw * 448 / 1440);
+    height: calc(100vw * 69 / 1440);
     flex-shrink: 0;
     border-radius: 12px;
     border: 1px solid #000;
@@ -31,7 +32,7 @@
 
 .ticketing-button {
     display: flex;
-    width: calc(100vw * 400 / 1440);
+    width: calc(100vw * 448 / 1440);
     padding: 13.67px 0px 13.67px 0px;
     line-height: normal;
     height: calc(100vw * 82 / 1440);

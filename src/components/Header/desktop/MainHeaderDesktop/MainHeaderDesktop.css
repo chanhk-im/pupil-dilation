@@ -99,8 +99,8 @@ input[name='search'] {
     position: absolute;
     left: calc(100vw * 720 / 1229);
     top: 3px;
-    width: 617px;
-    height: 400px;
+    width: calc(100vw * 617 / 1440);
+    height: 400px; 
     flex-shrink: 0;
     border-radius: 25px;
     background: #2b3252;
