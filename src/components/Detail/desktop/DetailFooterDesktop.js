@@ -59,7 +59,7 @@ function DetailFooterDesktop({ id }) {
                         else {
                             setPopup({
                                 open: true,
-                                message: '로그인해라',
+                                message: '로그인 부탁드립니다.',
                                 callback: () => navigate('/login'),
                             });
                         }

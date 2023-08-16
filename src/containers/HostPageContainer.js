@@ -7,6 +7,7 @@ import Popup from '../components/Popup/Popup';
 import HostHeaderMobile from '../components/Header/mobile/HostHeaderMobile/HostHeaderMobile';
 import Desktop from '../components/MediaQuery/Desktop';
 import Mobile from '../components/MediaQuery/Mobile';
+import { checkRequestUsersDocument } from '../features/user/api/requestUsersDocumentApi';
 
 function HostPageContainer() {
     const navigate = useNavigate();
@@ -16,14 +17,24 @@ function HostPageContainer() {
         callback: false,
     });
 
-    const isHost = useSelector((state) => state.user.isHost);
-
-    const handleIfNotHost = () => {
-        if (!isHost) {
+    const isHost = useSelector((state) => state.user.user.id);
+    const isLogged = useSelector((state) => state.user.isLogged);
+    console.log(isHost);
+    const handleIfNotHost = async () => {
+        const check = await checkRequestUsersDocument(isHost);
+        if (isLogged) {
+            if (!check) {
+                setPopup({
+                    open: true,
+                    message: '권한이 없습니다.',
+                    callback: () => navigate('/'),
+                });
+            }
+        } else {
             setPopup({
                 open: true,
-                message: '권한이 없습니다!',
-                callback: () => navigate('/'),
+                message: '로그인 부탁드립니다.',
+                callback: () => navigate('/login'),
             });
         }
     };
