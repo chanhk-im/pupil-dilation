@@ -37,6 +37,16 @@ function PaymentPageDesktop() {
 
     const onLoading = async () => {
         await getShowTicketingById(id).then((res) => {
+            const ticketingData = res.data();
+
+            if (!ticketingData || !ticketingData.showId) {
+                setPopup({
+                    open: true,
+                    message: '시간이 만료되었습니다.',
+                    callback: () => navigate('/'),
+                });
+                return;
+            }
             setTicketingInfo(res.data());
             const index = showList.findIndex(
                 (element) => element.id === res.data().showId,
@@ -226,7 +236,6 @@ function PaymentPageDesktop() {
                     title={popup.title}
                     callback={popup.callback}
                 />
-                <p>test</p>
             </div>
         );
     }
