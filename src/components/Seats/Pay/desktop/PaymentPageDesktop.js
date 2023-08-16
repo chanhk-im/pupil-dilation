@@ -47,17 +47,11 @@ function PaymentPageDesktop() {
 
             const expireDate = new Date(Date.now());
             expireDate.setMinutes(expireDate.getMinutes());
-            console.log(expireDate);
-            console.log(res.data().time.toDate());
-            console.log(expireDate - res.data().time.toDate());
-            console.log((expireDate - res.data().time.toDate()) / 1000);
             setMyTimer((expireDate - res.data().time.toDate()) / 1000);
         });
     };
 
     const timerSeconds = 15 * 60 - myTimer;
-    console.log(myTimer);
-    console.log(timerSeconds);
     const onButtonClick = async () => {
         if (!sendName || !sendBank || !sendAccount) {
             setPopup({
@@ -154,7 +148,7 @@ function PaymentPageDesktop() {
                                     {ticketingInfo.seats.length * show.price}원
                                 </div>
                                 <div className="timer">
-                                    <Timer seconds={timerSeconds} />
+                                    <Timer seconds={timerSeconds} id={id} />
                                 </div>
                             </div>
                             <div className="account">
