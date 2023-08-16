@@ -18,7 +18,6 @@ import { useNavigate } from 'react-router-dom';
 import './PaymentPageDesktop.css';
 
 function PaymentPageDesktop() {
-    const timerSeconds = 15 * 60;
     const navigate = useNavigate();
     const { id } = useParams();
     const [isLoaded, setIsLoaded] = useState(false);
@@ -26,6 +25,7 @@ function PaymentPageDesktop() {
     const [sendName, setSendName] = useState('');
     const [sendBank, setSendBank] = useState('');
     const [sendAccount, setSendAccount] = useState('');
+    const [myTimer, setMyTimer] = useState(0);
     const [show, setShow] = useState({});
     const [popup, setPopup] = useState({
         open: false,
@@ -46,17 +46,18 @@ function PaymentPageDesktop() {
             console.log(res.data());
 
             const expireDate = new Date(Date.now());
-            expireDate.setMinutes(expireDate.getMinutes() - 15);
-            // if (expireDate > res.data().time.toDate()) {
-            //     console.log(expireDate + ', ' + res.data().time.toDate());
-            //     setPopup({
-            //         open: true,
-            //         message: '15분 지났당당구리',
-            //     });
-            // }
+            expireDate.setMinutes(expireDate.getMinutes());
+            console.log(expireDate);
+            console.log(res.data().time.toDate());
+            console.log(expireDate - res.data().time.toDate());
+            console.log((expireDate - res.data().time.toDate()) / 1000);
+            setMyTimer((expireDate - res.data().time.toDate()) / 1000);
         });
     };
 
+    const timerSeconds = 15 * 60 - myTimer;
+    console.log(myTimer);
+    console.log(timerSeconds);
     const onButtonClick = async () => {
         if (!sendName || !sendBank || !sendAccount) {
             setPopup({
@@ -74,7 +75,7 @@ function PaymentPageDesktop() {
         }).then(() => {
             setPopup({
                 open: true,
-                message: '예매 완료됐다구리',
+                message: '예매가 완료되었습니다.',
                 callback: () => navigate('/mypage'),
             });
         });
@@ -231,6 +232,7 @@ function PaymentPageDesktop() {
                     title={popup.title}
                     callback={popup.callback}
                 />
+                <p>test</p>
             </div>
         );
     }

@@ -1,12 +1,18 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Popup from '../../Popup/Popup';
 import './desktop/PaymentPageDesktop.css';
 
 function Timer({ seconds }) {
+    const navigate = useNavigate();
     const [timeLeft, setTimeLeft] = useState(seconds);
     const [isExpired, setIsExpired] = useState(false);
     const timeLeftRef = useRef(timeLeft);
-
+    const [popup, setPopup] = useState({
+        open: false,
+        message: '',
+        callback: false,
+    });
     useEffect(() => {
         timeLeftRef.current = timeLeft;
     }, [timeLeft]);
@@ -16,9 +22,14 @@ function Timer({ seconds }) {
             setTimeLeft((prevTimeLeft) => {
                 const newTimeLeft = prevTimeLeft - 1;
 
-                if (newTimeLeft <= 0) {
+                if (newTimeLeft <= -1) {
                     clearInterval(interval);
                     setIsExpired(true);
+                    setPopup({
+                        open: true,
+                        message: '시간이 만료되었습니다.',
+                        callback: () => navigate('/'),
+                    });
                 }
 
                 return newTimeLeft;
@@ -38,12 +49,17 @@ function Timer({ seconds }) {
 
     return (
         <div>
+            <Popup
+                open={popup.open}
+                setPopup={setPopup}
+                message={popup.message}
+                callback={popup.callback}
+            />
             {timeLeftRef.current > 0 ? (
                 <p>{formatTime(timeLeftRef.current)}</p>
             ) : (
                 <p>Timer expired</p>
             )}
-            {isExpired && <Popup message="15분이 지났습니다." />}
         </div>
     );
 }
