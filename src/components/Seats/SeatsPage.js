@@ -13,9 +13,10 @@ function SeatsPage() {
     const [searchParams, setSearchParams] = useSearchParams();
     const [isLoaded, setIsLoaded] = useState(true);
     const showNum = Number(searchParams.get('showNum'));
-
+    const [showIndex, setShowIndex] = useState(0);
     const [selected, setSelected] = useState([]);
 
+    const showList = useSelector((state) => state.show.showList);
     const isLogged = useSelector((state) => state.user.isLogged);
     const user = useSelector((state) => state.user.user);
     const [popup, setPopup] = useState({
@@ -23,16 +24,23 @@ function SeatsPage() {
         message: '',
         callback: false,
     });
-
+    const onLoading = () => {
+        const index = showList.findIndex((element) => element.id === id);
+        setShowIndex(index);
+    };
+    useEffect(() => {
+        onLoading;
+    });
     useEffect(() => {
         console.log(selected);
     }, [selected]);
-
+    const bankName = showList[showIndex].bankName;
+    const bankNumber = showList[showIndex].bankNumber;
     useEffect(() => {
         if (!isLogged) {
             setPopup({
                 open: true,
-                message: '로그인 하쇼',
+                message: '로그인 부탁드립니다.',
                 callback: () => navigate('/login'),
             });
         }
@@ -117,6 +125,8 @@ function SeatsPage() {
                 showNum={showNum}
                 selected={selected}
                 user={user}
+                bankName={bankName}
+                bankNumber={bankNumber}
                 setIsLoaded={setIsLoaded}
             />
         </div>

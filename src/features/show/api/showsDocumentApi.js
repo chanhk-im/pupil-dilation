@@ -85,6 +85,8 @@ export async function createShowTicketing(
     seats,
     userId,
     userName,
+    bankName,
+    bankNumber,
 ) {
     const reference = collection(fireStore, 'ticketing');
     const newReference = await addDoc(reference, {
@@ -92,6 +94,8 @@ export async function createShowTicketing(
         showNum,
         userId,
         userName,
+        bankName,
+        bankNumber,
         seats,
         time: new Date(Date.now()),
         state: 0,

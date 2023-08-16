@@ -19,7 +19,6 @@ function HostPageContainer() {
 
     const isHost = useSelector((state) => state.user.user.id);
     const isLogged = useSelector((state) => state.user.isLogged);
-    console.log(isHost);
     const handleIfNotHost = async () => {
         const check = await checkRequestUsersDocument(isHost);
         if (isLogged) {
