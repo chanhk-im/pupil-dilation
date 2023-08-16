@@ -25,19 +25,6 @@
     background-image: url('blob:https://www.figma.com/3475c795-9458-4c5d-baa8-42a2f46fb695');
 }
 
-.id1-desktop {
-    border: none;
-    width: calc(100vw * 448 / 1440);
-    height: calc(100vh * 63 / 820);
-    font-size: calc(100vw * 32 / 1440);
-    flex-shrink: 0;
-    border-radius: 7px;
-    box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.25) inset;
-    text-indent: 50px;
-    position: absolute;
-    right: 5px;
-    top: -20px;
-}
 
 .id1-desktop::placeholder {
     color: rgba(0, 0, 0, 0.55);
@@ -45,17 +32,6 @@
     font-family: Noto Sans KR;
 }
 
-.password1-desktop {
-    border: none;
-    width: calc(100vw * 448 / 1440);
-    height: calc(100vh * 63 / 820);
-    font-size: calc(100vw * 32 / 1440);
-    flex-shrink: 0;
-    border-radius: 7px;
-    background: #fff;
-    box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.25) inset;
-    text-indent: 50px;
-}
 
 .password1-desktop::placeholder {
     color: rgba(0, 0, 0, 0.55);
@@ -91,6 +67,7 @@
     display: flex;
     width: 50%;
     justify-content: start;
+    align-items: center;
 }
 
 .checker-desktop-right{
@@ -105,7 +82,7 @@
     background-color: #fff;
     color: #000;
     font-family: Noto Sans KR;
-    font-size: 14px;
+    font-size: calc(100vw * 14 / 1440);
     font-style: normal;
     font-weight: 500;
     line-height: normal;
@@ -119,11 +96,10 @@
 
 .id-check-desktop {
     border: none;
-    width: calc(100vw * 25 / 1440);
-    height: calc(100vh * 25 / 820);
-    flex-shrink: 0;
+    width: calc(100vw * 20 / 1440);
+    height: calc(100vw * 20 / 1440);
     border-radius: 4px;
-    background: #fff;
+    background-color: #fff;
     box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.25) inset;
 }
 
@@ -159,6 +135,8 @@
     height: 20px;
 }
 
+/*==================아이디 입력란 CSS==================*/
+
 .id-blank{
     display: flex;
     align-items: center;
@@ -167,6 +145,62 @@
     height: calc(100vh * 63 / 820);
 }
 
+.id1-desktop {
+    border: none;
+    width: calc(100vw * 448 / 1440);
+    height: calc(100vh * 63 / 820);
+    font-size: calc(100vw * 32 / 1440);
+    flex-shrink: 0;
+    border-radius: 7px;
+    box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.25) inset;
+    text-indent: calc(100vw * 50 / 1400);
+    position: absolute;
+}
+
 .id-blank-image{
     position: absolute;
+    margin-left: calc(100vw * 13 / 1440);
+    width: calc(100vw * 24 / 1440);
+    height: calc(100vh * 24 / 820);
+}
+
+.input-id-img{
+    width: calc(100vw * 27 / 1440);
+    height: calc(100vh * 27 / 820);
+}
+
+/*===============패스워드 입력란 CSS====================*/
+
+.password-blank{
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: calc(100vw * 448 / 1440);
+    height: calc(100vh * 63 / 820);
+}
+
+.password1-desktop {
+    border: none;
+    width: calc(100vw * 448 / 1440);
+    height: calc(100vh * 63 / 820);
+    font-size: calc(100vw * 32 / 1440);
+    flex-shrink: 0;
+    border-radius: 7px;
+    background: #fff;
+    box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.25) inset;
+    text-indent: calc(100vw * 50 / 1400);
+    position: absolute;
+}
+
+.password-blank-image{
+    position: absolute;
+    margin-left: calc(100vw * 15 / 1440);
+    width: calc(100vw * 24 / 1440);
+    height: calc(100vh * 24 / 820);
+    object-fit: cover;
+}
+
+.input-pass-img{
+    width: calc(100vw * 24 / 1440);
+    height: calc(100vh * 24 / 820);
 }
