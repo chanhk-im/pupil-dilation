@@ -180,11 +180,14 @@ function LoginFormDesktop({ setIsLoaded }) {
                     onChange={onChangeAccount}
                 />
                 <div className="id-blank-image">
-                    <img src="/images/login-id-icon.svg" alt="." />
+                    <img
+                        src="/images/login-id-icon.svg"
+                        alt="."
+                        className="input-id-img"
+                    />
                 </div>
             </div>
-
-            <div>
+            <div className="password-blank">
                 <input
                     type="password"
                     className="password1-desktop"
@@ -193,6 +196,13 @@ function LoginFormDesktop({ setIsLoaded }) {
                     placeholder="비밀번호"
                     onChange={onChangeAccount}
                 />
+                <div className="password-blank-image">
+                    <img
+                        src="/images/login-lock-icon.svg"
+                        alt="."
+                        className="input-pass-img"
+                    />
+                </div>
             </div>
             <div className="checker-desktop">
                 <div className="checker-desktop-left">
