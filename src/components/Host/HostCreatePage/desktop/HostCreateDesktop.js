@@ -266,20 +266,10 @@ function HostCreateDesktop() {
                     callback={popup.callback}
                 />
                 <div className="host-create-left">
-                    <input
-                        type="file"
-                        onChange={(event) => {
-                            setImageUpload(event.target.files[0]);
-                        }}
-                    />
+                    <input type="text" />
                 </div>
                 <div className="host-create-right">
                     <div className="host-create-right-1">
-                        <img
-                            src="/images/upload-image.png"
-                            alt="업로드"
-                            className="upload-image"
-                        />
                         <input
                             className="host-create-title"
                             type="text"
@@ -452,47 +442,49 @@ function HostCreateDesktop() {
                                 <div className="event-schedules">
                                     {schedules}
                                 </div>
-                                <div className="delete-button-space">
-                                    <button
-                                        type="button"
-                                        className="event-delete-button"
-                                        onClick={onSubtractClick}
-                                    >
-                                        <img
-                                            src="/images/Trash.svg"
-                                            alt="열 삭제하기"
-                                        />
-                                    </button>
-                                </div>
                             </div>
                         </div>
                         <div className="host-create-add-buttons">
-                            <button
-                                type="button"
-                                onClick={() => {
-                                    setScheduleCount(scheduleCount + 1);
-                                    const newScheduleItem = {
-                                        year: 2023,
-                                        month: 0,
-                                        day: 0,
-                                        time: '',
-                                    };
-                                    const newSchedule = [
-                                        ...timeInfo.schedule,
-                                        newScheduleItem,
-                                    ];
-                                    const newTimeInfo = {
-                                        ...timeInfo,
-                                        schedule: newSchedule,
-                                    };
+                            <div className="event-add-button-div">
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        setScheduleCount(scheduleCount + 1);
+                                        const newScheduleItem = {
+                                            year: 2023,
+                                            month: 0,
+                                            day: 0,
+                                            time: '',
+                                        };
+                                        const newSchedule = [
+                                            ...timeInfo.schedule,
+                                            newScheduleItem,
+                                        ];
+                                        const newTimeInfo = {
+                                            ...timeInfo,
+                                            schedule: newSchedule,
+                                        };
 
-                                    setTimeInfo(newTimeInfo);
-                                }}
-                                className="event-add-button"
-                            >
-                                <p>+</p>
-                                <p>열 추가하기</p>
-                            </button>
+                                        setTimeInfo(newTimeInfo);
+                                    }}
+                                    className="event-add-button"
+                                >
+                                    <p>+</p>
+                                    <p>열 추가하기</p>
+                                </button>
+                            </div>
+                            <div className="delete-button-space">
+                                <button
+                                    type="button"
+                                    className="event-delete-button"
+                                    onClick={onSubtractClick}
+                                >
+                                    <img
+                                        src="/images/Trash.svg"
+                                        alt="열 삭제하기"
+                                    />
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <div className="host-create-right-4">
