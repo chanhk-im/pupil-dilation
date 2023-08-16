@@ -128,7 +128,9 @@ function TicketerListPage() {
                     .seats.map((e) => e.name)
                     .join(', ')}
             </td>
-            <td id="copy">(예금주) 신한 1234-1234121-12341 </td>
+            <td id="copy">
+                {e.data().bankName} {e.data().bankNumber}{' '}
+            </td>
             <td>
                 <button
                     style={{ border: 'none' }}

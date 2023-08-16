@@ -19,6 +19,8 @@ function SeatTicketingFrame({
     selected,
     completedSeats,
     user,
+    bankName,
+    bankNumber,
     setIsLoaded,
 }) {
     const show = useShowById(id);
@@ -110,6 +112,8 @@ function SeatTicketingFrame({
                             selected,
                             user.id,
                             user.name,
+                            bankName,
+                            bankNumber,
                         ).then(async (ticketingId) => {
                             await createShowSeatsToProgress(
                                 id,
@@ -120,7 +124,7 @@ function SeatTicketingFrame({
                                 .then(() =>
                                     setPopup({
                                         open: true,
-                                        message: '성공',
+                                        message: '좌석이 예약되었습니다.',
                                     }),
                                 )
                                 .catch((e) => {
