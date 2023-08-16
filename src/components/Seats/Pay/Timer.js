@@ -2,8 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Popup from '../../Popup/Popup';
 import './desktop/PaymentPageDesktop.css';
+import { deleteSeat } from '../../../features/user/api/firebase_auth';
 
-function Timer({ seconds }) {
+function Timer({ seconds, id }) {
     const navigate = useNavigate();
     const [timeLeft, setTimeLeft] = useState(seconds);
     const [isExpired, setIsExpired] = useState(false);
@@ -25,6 +26,7 @@ function Timer({ seconds }) {
                 if (newTimeLeft <= -1) {
                     clearInterval(interval);
                     setIsExpired(true);
+                    deleteSeat(id);
                     setPopup({
                         open: true,
                         message: '시간이 만료되었습니다.',

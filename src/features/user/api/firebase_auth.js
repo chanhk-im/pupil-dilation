@@ -8,9 +8,11 @@ import {
     collection,
     addDoc,
     getDocs,
+    deleteDoc,
     where,
     query,
     getDoc,
+    Firestore,
 } from 'firebase/firestore';
 import { authService, fireStore } from '../../../Firebase';
 import { setDoc, doc, updateDoc } from 'firebase/firestore';
@@ -186,4 +188,16 @@ export async function updateUsersDocument(updateData) {
     // });
 
     return res;
+}
+
+export async function deleteSeat(id) {
+    await deleteDoc(doc(fireStore, 'ticketing', id))
+        .then(() => {
+            return true;
+        })
+        .catch((e) => {
+            console.log(e);
+            return false;
+        });
+    return false;
 }
