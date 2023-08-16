@@ -43,6 +43,7 @@ function HostEventManage() {
                 message={popup.message}
                 callback={popup.callback}
             />
+            <HostEventContent show={showList[index]} />
             <div className="buttonBoard">
                 <button
                     className="updateButton"
@@ -58,15 +59,15 @@ function HostEventManage() {
                 >
                     공연 삭제
                 </button>
+
+                <button
+                    type="button"
+                    onClick={() => navigate(`/host/ticketer/${id}`)}
+                    className="CheckButton"
+                >
+                    예매자 목록 보기
+                </button>
             </div>
-            <HostEventContent show={showList[index]} />
-            <button
-                type="button"
-                onClick={() => navigate(`/host/ticketer/${id}`)}
-                className="CheckButton"
-            >
-                예매자 목록 보기
-            </button>
         </div>
     );
 }
