@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Popup from '../Popup/Popup';
-import { getShowTicketerListByShow } from '../../features/show/api/showsDocumentApi';
+import {
+    changeRemmited,
+    getShowTicketerListByShow,
+} from '../../features/show/api/showsDocumentApi';
 import { getDateSeatTickegingFrameDateFormat } from '../../functions/dateFeature';
 import './TicketerListPage.css';
 import { useParams, useNavigate } from 'react-router-dom';
@@ -40,11 +43,13 @@ function TicketerListPage() {
         });
         setIsLoaded(true);
     };
-
+    const onClickToggle = async (index, dataId, toggle) => {
+        toggleStateChange(index + 1);
+        await changeRemmited(dataId, toggle);
+    };
     useEffect(() => {
         onLoading().then(() => {});
     }, []);
-
     const headers = [
         {
             text: '목록',
@@ -147,9 +152,13 @@ function TicketerListPage() {
                         <input
                             type="checkbox"
                             id="check"
-                            onClick={(e) => {
-                                toggleStateChange(index + 1);
-                            }}
+                            onClick={() =>
+                                onClickToggle(
+                                    index,
+                                    e.data().id,
+                                    !ticketerToggle[index],
+                                )
+                            }
                         />
                         <label htmlFor="check" />
                     </div>

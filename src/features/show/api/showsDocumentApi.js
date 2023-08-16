@@ -97,6 +97,8 @@ export async function createShowTicketing(
         state: 0,
         remitted: false,
     });
+    const newDocId = newReference.id;
+    await updateDoc(newReference, { id: newDocId });
 
     return newReference.id;
 }
@@ -105,6 +107,7 @@ export async function setShowTicketingToCompleted(ticketingId, ticketingInfo) {
     const reference = doc(fireStore, 'ticketing', ticketingId);
     await setDoc(reference, {
         ...ticketingInfo,
+        id: ticketingId,
         state: 1,
     });
 }
@@ -230,4 +233,15 @@ export async function ticketReservDocument(userId) {
 
     const querySnapshot = await getDocs(q);
     return querySnapshot.docs;
+}
+
+export async function changeRemmited(dataId, toggle) {
+    try {
+        await updateDoc(doc(fireStore, 'ticketing', dataId), {
+            remitted: toggle,
+        });
+    } catch (e) {
+        alert(e);
+        return;
+    }
 }
