@@ -32,6 +32,7 @@ function PaymentPageDesktop() {
         message: '',
         callback: false,
     });
+    const [data, setData] = useState({});
 
     const showList = useSelector((state) => state.show.showList);
 
@@ -42,7 +43,7 @@ function PaymentPageDesktop() {
             if (!ticketingData || !ticketingData.showId) {
                 setPopup({
                     open: true,
-                    message: '시간이 만료되었습니다.',
+                    message: '페이지를 불러올 수 없습니다.',
                     callback: () => navigate('/'),
                 });
                 return;
@@ -54,13 +55,15 @@ function PaymentPageDesktop() {
             setShow(showList[index]);
             setIsLoaded(true);
             console.log(res.data());
+            setData(res.data());
+            console.log(data);
 
             const expireDate = new Date(Date.now());
             expireDate.setMinutes(expireDate.getMinutes());
             setMyTimer((expireDate - res.data().time.toDate()) / 1000);
         });
     };
-
+    const remit = data.remitted;
     const timerSeconds = 15 * 60 - myTimer;
     const onButtonClick = async () => {
         if (!sendName || !sendBank || !sendAccount) {
@@ -158,7 +161,11 @@ function PaymentPageDesktop() {
                                     {ticketingInfo.seats.length * show.price}원
                                 </div>
                                 <div className="timer">
-                                    <Timer seconds={timerSeconds} id={id} />
+                                    <Timer
+                                        seconds={timerSeconds}
+                                        id={id}
+                                        remit={remit}
+                                    />
                                 </div>
                             </div>
                             <div className="account">

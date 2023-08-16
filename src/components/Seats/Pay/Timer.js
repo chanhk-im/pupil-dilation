@@ -4,7 +4,7 @@ import Popup from '../../Popup/Popup';
 import './desktop/PaymentPageDesktop.css';
 import { deleteSeat } from '../../../features/user/api/firebase_auth';
 
-function Timer({ seconds, id }) {
+function Timer({ seconds, id, remit }) {
     const navigate = useNavigate();
     const [timeLeft, setTimeLeft] = useState(seconds);
     const [isExpired, setIsExpired] = useState(false);
@@ -19,19 +19,28 @@ function Timer({ seconds, id }) {
     }, [timeLeft]);
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            setTimeLeft((prevTimeLeft) => {
+        const interval = setInterval(async () => {
+            setTimeLeft(async (prevTimeLeft) => {
                 const newTimeLeft = prevTimeLeft - 1;
-
+                console.log(remit);
                 if (newTimeLeft <= -1) {
                     clearInterval(interval);
                     setIsExpired(true);
-                    deleteSeat(id);
-                    setPopup({
-                        open: true,
-                        message: '시간이 만료되었습니다.',
-                        callback: () => navigate('/'),
-                    });
+
+                    if (!remit) {
+                        deleteSeat(id);
+                        setPopup({
+                            open: true,
+                            message: '시간이 만료되었습니다.',
+                            callback: () => navigate('/'),
+                        });
+                    } else {
+                        setPopup({
+                            open: true,
+                            message: '주최자가 송금을 확인 중입니다.',
+                            callback: () => navigate('/'),
+                        });
+                    }
                 }
 
                 return newTimeLeft;
