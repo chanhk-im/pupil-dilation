@@ -99,8 +99,8 @@ input[name='search'] {
     position: absolute;
     left: calc(100vw * 720 / 1229);
     top: 3px;
-    width: calc(100vw * 617 / 1440);
-    height: 400px; 
+    width: calc(100vw * 460 / 1440);
+    height: calc(100vh * 390 / 820);
     flex-shrink: 0;
     border-radius: 25px;
     background: #2b3252;
@@ -113,7 +113,7 @@ input[name='search'] {
     cursor: pointer;
     color: yellow;
     font-family: Noto Sans KR;
-    font-size: 24px;
+    font-size: calc(100vw * 24 / 1440);
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -125,7 +125,7 @@ input[name='search'] {
     cursor: pointer;
     color: #fff;
     font-family: Noto Sans KR;
-    font-size: 24px;
+    font-size: calc(100vw * 24 / 1440);
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -134,10 +134,10 @@ input[name='search'] {
 .show-image-mini {
     z-index: 999;
     position: absolute;
-    left: 29px;
-    top: 21px;
-    width: 203px;
-    height: 289px;
+    left: calc(100vw * 20 / 1440);
+    top: calc(100vh * 21 / 820);
+    width: calc(100vw * 170 / 1440);
+    height: calc(100vh * 255 / 820);
     flex-shrink: 0;
     border-radius: 8px;
     color: #fff;
@@ -145,8 +145,10 @@ input[name='search'] {
 
 .search-line {
     position: absolute;
-    top: 21px;
-    left: 261px;
+    top: calc(100vh * 21 / 820);
+    left: calc(100vw * 211 / 1440);
+    width: calc(100vw * 2.5 / 1440);
+    height: calc(100vh * 350 / 820);
 }
 
 .bottom-header {
@@ -161,13 +163,13 @@ input[name='search'] {
 .header-show-title {
     z-index: 999;
     position: absolute;
-    left: 9px;
-    top: 320px;
-    width: 243px;
+    left: calc(100vw * -9 / 1440);
+    top: calc(100vh * 295 / 820);
+    width: calc(100vw * 243 / 1440);
     color: #fff;
     text-align: center;
     font-family: Noto Sans KR;
-    font-size: 24px;
+    font-size: calc(100vw * 24 / 1440);
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -176,13 +178,13 @@ input[name='search'] {
 .header-show-time {
     z-index: 999;
     position: absolute;
-    left: 9px;
-    top: 355px;
-    width: 243px;
+    left: calc(100vw * -9 / 1440);
+    top: calc(100vh * 330 / 820);
+    width: calc(100vw * 243 / 1440);
     color: #fff;
     text-align: center;
     font-family: Noto Sans KR;
-    font-size: 20px;
+    font-size: calc(100vw * 20 / 1440);
     font-style: normal;
     font-weight: 300;
     line-height: normal;
