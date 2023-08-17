@@ -32,8 +32,8 @@ function DetailContentDesktop({ id }) {
                         alt={show.title}
                     />
                 )}
+                <div className="show-title">{show.title}</div>
                 <div className="show-main">
-                    <h2 className="show-title">{show.title}</h2>
                     <h3 className="info-title">소개</h3>
                     <div className="info-content">{show.introduction}</div>
                 </div>
