@@ -30,7 +30,6 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    z-index: 50;
 }
 
 .row-alpha {
@@ -53,27 +52,22 @@
 
 .seat-available {
     background-color: #727272;
-    z-index: 50;
     cursor: pointer;
 }
 
 .seat-unavailable {
     background-color: #d9d9d9;
-    z-index: 50;
 }
 
 .seat-selected {
     background-color: #fad744;
-    z-index: 50;
     cursor: pointer;
 }
 
 .seat-progress {
     border: 1px solid #000;
     background-color: #f2f2f2;
-    z-index: 50;
 }
 
 .seat-completed {
-    z-index: 50;
 }
