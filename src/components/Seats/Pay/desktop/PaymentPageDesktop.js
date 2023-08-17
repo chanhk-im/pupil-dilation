@@ -37,6 +37,7 @@ function PaymentPageDesktop() {
     const showList = useSelector((state) => state.show.showList);
 
     const onLoading = async () => {
+        console.log(id);
         await getShowTicketingById(id).then((res) => {
             const ticketingData = res.data();
 
@@ -82,7 +83,7 @@ function PaymentPageDesktop() {
         }).then(() => {
             setPopup({
                 open: true,
-                message: '예매가 완료되었습니다.',
+                message: '예약되었습니다.',
                 callback: () => navigate('/mypage'),
             });
         });

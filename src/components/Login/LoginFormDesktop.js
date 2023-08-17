@@ -151,7 +151,7 @@ function LoginFormDesktop({ setIsLoaded }) {
                                     });
                         }
                     }
-                }
+                } else setPopup({ open: true, message: '실패' });
             });
         setIsLoaded(true);
     };

@@ -4,7 +4,7 @@ import Popup from '../../Popup/Popup';
 import './desktop/PaymentPageDesktop.css';
 import { deleteSeat } from '../../../features/user/api/firebase_auth';
 
-function Timer({ seconds, id, remit }) {
+export function Timer({ seconds, id, remit }) {
     const navigate = useNavigate();
     const [timeLeft, setTimeLeft] = useState(seconds);
     const [isExpired, setIsExpired] = useState(false);
@@ -14,26 +14,35 @@ function Timer({ seconds, id, remit }) {
         message: '',
         callback: false,
     });
+
+    const handleDeleteSeat = async () => {
+        try {
+            await deleteSeat(id);
+            setPopup({
+                open: true,
+                message: '시간이 만료되었습니다.',
+                callback: () => navigate('/'),
+            });
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
     useEffect(() => {
         timeLeftRef.current = timeLeft;
+        console.log(timeLeftRef.current);
     }, [timeLeft]);
 
     useEffect(() => {
-        const interval = setInterval(async () => {
-            setTimeLeft(async (prevTimeLeft) => {
+        const interval = setInterval(() => {
+            setTimeLeft(prevTimeLeft => {
                 const newTimeLeft = prevTimeLeft - 1;
-                console.log(remit);
                 if (newTimeLeft <= -1) {
                     clearInterval(interval);
                     setIsExpired(true);
 
                     if (!remit) {
-                        deleteSeat(id);
-                        setPopup({
-                            open: true,
-                            message: '시간이 만료되었습니다.',
-                            callback: () => navigate('/'),
-                        });
+                        handleDeleteSeat();
                     } else {
                         setPopup({
                             open: true,
@@ -42,19 +51,17 @@ function Timer({ seconds, id, remit }) {
                         });
                     }
                 }
-
                 return newTimeLeft;
             });
         }, 1000);
 
         return () => clearInterval(interval);
-    }, []);
+    }, [remit, handleDeleteSeat]);
 
-    const formatTime = (time) => {
+    const formatTime = time => {
         const date = new Date(time * 1000);
         const minutes = date.getUTCMinutes().toString().padStart(2, '0');
         const seconds = date.getUTCSeconds().toString().padStart(2, '0');
-
         return `${minutes}:${seconds}`;
     };
 
