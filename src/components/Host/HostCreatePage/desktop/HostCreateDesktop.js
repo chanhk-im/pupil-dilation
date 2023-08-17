@@ -208,7 +208,7 @@ function HostCreateDesktop() {
                 <div className="host-create-date-end-month">
                     <select
                         name="month"
-                        className="select-month-end"
+                        className="select-slection"
                         onChange={onChangeSchedule}
                         id={i}
                     >
@@ -221,7 +221,7 @@ function HostCreateDesktop() {
                 <div className="host-create-date-end-day">
                     <select
                         name="day"
-                        className="select-day-end"
+                        className="select-slection"
                         onChange={onChangeSchedule}
                         id={i}
                     >
@@ -232,10 +232,7 @@ function HostCreateDesktop() {
                     </div>
                 </div>
                 <div className="host-create-date-end-dayOfWeek">
-                    <select
-                        name="dayOfWeek-end"
-                        className="select-dayOfWeek-end"
-                    >
+                    <select name="dayOfWeek-end" className="select-slection">
                         {dayOfWeeks}
                     </select>
                     <div className="host-create-ticket-start-text">
@@ -280,9 +277,7 @@ function HostCreateDesktop() {
                     </div>
                     <div className="host-create-right-2">
                         <div className="host-create-right-2-left">
-                            <div className="host-create-introduction-title">
-                                소개
-                            </div>
+                            <div className="host-create-input-title">소개</div>
                             <textarea
                                 className="host-create-introduction-content"
                                 type="textarea"
@@ -293,7 +288,7 @@ function HostCreateDesktop() {
                         </div>
                         <div className="host-create-right-2-right">
                             <div className="host-create-place">
-                                <div className="host-create-place-title">
+                                <div className="host-create-input-title">
                                     장소
                                 </div>
                                 <select
@@ -305,7 +300,7 @@ function HostCreateDesktop() {
                                 </select>
                             </div>
                             <div className="host-create-price">
-                                <div className="host-create-price-title">
+                                <div className="host-create-input-title">
                                     가격
                                 </div>
                                 <input
@@ -318,7 +313,7 @@ function HostCreateDesktop() {
                                 />
                             </div>
                             <div className="host-create-bank">
-                                <div className="host-create-price-title">
+                                <div className="host-create-input-title">
                                     입금계좌
                                 </div>
                                 <div className="host-create-bank-set">
@@ -342,7 +337,9 @@ function HostCreateDesktop() {
                     </div>
                     <div className="host-create-right-3">
                         <div className="host-create-ticket-date">
-                            <div className="host-create-date">예매일정</div>
+                            <div className="host-create-input-title">
+                                예매일정
+                            </div>
                             <div className="host-create-ticket-date-end">
                                 <div className="host-create-ticket-start-text2">
                                     시작
@@ -350,7 +347,7 @@ function HostCreateDesktop() {
                                 <div className="host-create-date-start-month">
                                     <select
                                         name="month"
-                                        className="select-month-start"
+                                        className="select-slection"
                                         onChange={onChangeStartDate}
                                     >
                                         {months}
@@ -362,7 +359,7 @@ function HostCreateDesktop() {
                                 <div className="host-create-date-start-day">
                                     <select
                                         name="day"
-                                        className="select-day-start"
+                                        className="select-slection"
                                         onChange={onChangeStartDate}
                                     >
                                         {days}
@@ -374,7 +371,7 @@ function HostCreateDesktop() {
                                 <div className="host-create-date-start-dayOfWeek">
                                     <select
                                         name="dayOfWeek-start"
-                                        className="select-dayOfWeek-start"
+                                        className="select-slection"
                                     >
                                         {dayOfWeeks}
                                     </select>
@@ -397,7 +394,7 @@ function HostCreateDesktop() {
                                 <div className="host-create-date-end-month">
                                     <select
                                         name="month"
-                                        className="select-month-end"
+                                        className="select-slection"
                                         onChange={onChangeEndDate}
                                     >
                                         {months}
@@ -409,7 +406,7 @@ function HostCreateDesktop() {
                                 <div className="host-create-date-end-day">
                                     <select
                                         name="day"
-                                        className="select-day-end"
+                                        className="select-slection"
                                         onChange={onChangeEndDate}
                                     >
                                         {days}
@@ -421,7 +418,7 @@ function HostCreateDesktop() {
                                 <div className="host-create-date-end-dayOfWeek">
                                     <select
                                         name="dayOfWeek-end"
-                                        className="select-dayOfWeek-end"
+                                        className="select-slection"
                                     >
                                         {dayOfWeeks}
                                     </select>
@@ -437,7 +434,9 @@ function HostCreateDesktop() {
                                     onChange={onChangeEndDate}
                                 />
                             </div>
-                            <div className="host-create-date">공연일정</div>
+                            <div className="host-create-input-title">
+                                공연일정
+                            </div>
                             <div className="event-function">
                                 <div className="event-schedules">
                                     {schedules}
