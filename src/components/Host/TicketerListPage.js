@@ -4,7 +4,10 @@ import {
     changeRemmited,
     getShowTicketerListByShow,
 } from '../../features/show/api/showsDocumentApi';
-import { getDateSeatTickegingFrameDateFormat } from '../../functions/dateFeature';
+import {
+    formatDateTime,
+    getDateSeatTickegingFrameDateFormat,
+} from '../../functions/dateFeature';
 import './TicketerListPage.css';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -76,8 +79,8 @@ function TicketerListPage() {
             value: '예매일시',
         },
         {
-            text: '임금 현황',
-            value: '임금 현황',
+            text: '입금 현황',
+            value: '입금 현황',
         },
         {
             text: '예매 상태',
@@ -144,9 +147,7 @@ function TicketerListPage() {
                     <img src="../../../images/copy.svg"></img>
                 </button>
             </td>
-            <td>
-                {getDateSeatTickegingFrameDateFormat(e.data().time.toDate())}
-            </td>
+            <td>{formatDateTime(e.data().time.toDate())}</td>
             <td>
                 <section className="model-1">
                     <p>입금 전</p>
