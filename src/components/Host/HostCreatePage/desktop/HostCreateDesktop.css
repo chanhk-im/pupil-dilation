@@ -50,14 +50,11 @@ input[type='file'] {
     height: calc(100vh * 48 / 820);
     border-radius: 7px;
     border: 1px solid rgba(0, 0, 0, 0.6);
-    display: flex;
-    justify-content: center;
-    align-content: center;
 }
 
 .host-create-title::placeholder {
     color: rgba(0, 0, 0, 0.55);
-    font-size: calc(100vw * 36 / 1440);
+    font-size: calc(100vw * 30 / 1440);
     font-family: Noto Sans KR;
     font-style: normal;
     font-weight: 500;
@@ -69,7 +66,7 @@ input[type='file'] {
     margin-top: calc(100vw * 10 / 1440);
 }
 
-.host-create-introduction-title {
+.host-create-input-title {
     display: flex;
     color: #000;
     font-size: calc(100vw * 32 / 1440);
@@ -94,12 +91,12 @@ input[type='file'] {
     outline-color: var(--theme-red, #ef5455);
 }
 
-input:hover {
+.select-slection input:hover {
     border-width: 2px;
     border-color: rgba(239, 84, 85, 0.25);
 }
 
-input:focus {
+.select-slection input:focus {
     outline-width: 2px;
     outline-color: var(--theme-red, #ef5455);
 }
@@ -115,8 +112,8 @@ select:focus {
 }
 
 .host-create-introduction-content {
-    width: 448px;
-    height: 277px;
+    width: calc(100vw * 448 / 1440);
+    height: calc(100vh * 340 / 820);
     flex-shrink: 0;
     border-radius: 7px;
     border: 1px solid rgba(0, 0, 0, 0.6);
@@ -175,9 +172,9 @@ select:focus {
 }
 
 .host-create-bank-name {
-    margin-bottom: 8px;
-    width: 329px;
-    height: 48px;
+    margin-bottom: calc(100vh * 8 / 820);
+    width: calc(100vw * 329 / 1440);
+    height: calc(100vh * 48 / 820);
     flex-shrink: 0;
     border-radius: 7px;
     border: 1px solid rgba(0, 0, 0, 0.6);
@@ -212,21 +209,21 @@ select:focus {
 
 .host-create-ticket-date-start {
     display: flex;
-    margin-bottom: 8px;
+    margin-bottom: calc(100vh * 8 / 820);
 }
 
 .host-create-date-start-month {
-    margin-left: 25px;
+    margin-left: calc(100vw * 25 / 1440);
     display: flex;
 }
 
 .host-create-ticket-start-text2 {
-    width: 100px;
-    height: 36px;
+    width: calc(100vw * 100 / 1440);
+    height: calc(100vh * 36 / 820);
     display: flex;
     align-items: center;
     color: #000;
-    font-size: 24px;
+    font-size: calc(100vw * 24 / 1440);
     font-family: Noto Sans KR;
     font-style: normal;
     font-weight: 500;
@@ -248,20 +245,21 @@ select:focus {
 }
 
 .host-create-ticket-start-text {
-    height: 36px;
-    width: 40px;
+    height: calc(100vh * 36 / 820);
+    width: calc(100vw * 40 / 1440);
     margin-right: calc(100vw * 15 / 1440);
+    font-size: calc(100vw * 17 / 1440);
     display: flex;
     align-items: center;
 }
 
-.select-month-start {
-    width: 80px;
-    height: 36px;
+.select-slection{
+    width: calc(100vw * 80 / 1440);
+    height: calc(100vh * 36 / 820);
     border-radius: 7px;
     border: 1px solid rgba(0, 0, 0, 0.6);
     color: #000;
-    font-size: 20px;
+    font-size: calc(100vw * 17 / 1440);
     font-family: Noto Sans KR;
     font-style: normal;
     font-weight: 400;
@@ -269,12 +267,12 @@ select:focus {
 }
 
 .select-day-start {
-    width: 80px;
-    height: 36px;
+    width: calc(100vw * 80 / 1440);
+    height: clac(100vh * 36 / 820);
     border-radius: 7px;
     border: 1px solid rgba(0, 0, 0, 0.6);
     color: #000;
-    font-size: 20px;
+    font-size: calc(100vw * 20 / 1440);
     font-family: Noto Sans KR;
     font-style: normal;
     font-weight: 400;
@@ -282,12 +280,12 @@ select:focus {
 }
 
 .select-dayOfWeek-start {
-    width: 80px;
-    height: 36px;
+    width: calc(100vw * 80 / 1440);
+    height: calc(100vh * 36 / 820);
     border-radius: 7px;
     border: 1px solid rgba(0, 0, 0, 0.6);
     color: #000;
-    font-size: 20px;
+    font-size: calc(100vw * 20 / 1440);
     font-family: Noto Sans KR;
     font-style: normal;
     font-weight: 400;
@@ -295,12 +293,12 @@ select:focus {
 }
 
 .select-month-end {
-    width: 80px;
-    height: 36px;
+    width: calc(100vw * 80 / 1440);
+    height: calc(100vh * 36 / 820);
     border-radius: 7px;
     border: 1px solid rgba(0, 0, 0, 0.6);
     color: #000;
-    font-size: 20px;
+    font-size: clac(100vw * 20 / 1440);
     font-family: Noto Sans KR;
     font-style: normal;
     font-weight: 400;
@@ -323,12 +321,12 @@ select:focus {
 }
 
 .select-day-end {
-    width: 80px;
-    height: 36px;
+    width: calc(100vw * 80 / 1440);
+    height: calc(100vh * 36 / 820);
     border-radius: 7px;
     border: 1px solid rgba(0, 0, 0, 0.6);
     color: #000;
-    font-size: 20px;
+    font-size: calc(100vw * 20 / 1440);
     font-family: Noto Sans KR;
     font-style: normal;
     font-weight: 400;
@@ -336,12 +334,12 @@ select:focus {
 }
 
 .select-dayOfWeek-end {
-    width: 80px;
-    height: 36px;
+    width: calc(100vw * 80 / 1440);
+    height: calc(100vh * 36 / 820);
     border-radius: 7px;
     border: 1px solid rgba(0, 0, 0, 0.6);
     color: #000;
-    font-size: 20px;
+    font-size: clac(100vw * 20 / 1440);
     font-family: Noto Sans KR;
     font-style: normal;
     font-weight: 400;
@@ -358,7 +356,7 @@ select:focus {
 
 .host-create-ticket-date-end {
     display: flex;
-    margin-bottom: 8px;
+    margin-bottom: calc(100vh * 8 / 820);
 }
 
 .host-create-date-end-month {
@@ -376,7 +374,7 @@ select:focus {
 
 .host-create-date-start-time {
     margin-left: calc(100vw * 20 / 1440);
-    width: 250px;
+    width: calc(100vw * 250 / 1440);
     height: 36px;
     flex-shrink: 0;
     border-radius: 7px;
@@ -385,7 +383,7 @@ select:focus {
 
 .host-create-date-start-time::placeholder {
     color: rgba(0, 0, 0, 0.55);
-    font-size: 24px;
+    font-size: calc(100vw * 24 / 1440);
     font-family: Noto Sans KR;
     font-style: normal;
     font-weight: 300;
@@ -395,8 +393,8 @@ select:focus {
 
 .host-create-date-end-time {
     margin-left: calc(100vw * 20 / 1440);
-    width: 250px;
-    height: 36px;
+    width: calc(100vw * 250 / 1440);
+    height: calc(100vh * 36 / 820);
     flex-shrink: 0;
     border-radius: 7px;
     border: 1px solid rgba(0, 0, 0, 0.6);
@@ -404,7 +402,7 @@ select:focus {
 
 .host-create-date-end-time::placeholder {
     color: rgba(0, 0, 0, 0.55);
-    font-size: 24px;
+    font-size: calc(100vw * 24 / 1440);
     font-family: Noto Sans KR;
     font-style: normal;
     font-weight: 300;
@@ -417,15 +415,15 @@ select:focus {
 }
 
 .host-create-button {
-    margin-left: 100px;
-    margin-top: 24px;
+    margin-left: clac(100vw * 100 / 1440);
+    margin-top: calc(100vh * 24 / 820);
     margin-bottom: calc(100vw * 28 / 1440);
-    width: 448px;
-    height: 82px;
+    width: calc(100vw * 448 / 1440);
+    height: calc(100vh * 82 / 820);
     flex-shrink: 0;
     color: #fad744;
     text-align: center;
-    font-size: 32px;
+    font-size: calc(100vw * 32 / 1440);
     font-family: Noto Sans KR;
     font-style: normal;
     font-weight: 500;
@@ -438,8 +436,8 @@ select:focus {
     display: flex;
     justify-content: space-around;
     padding-top: 7px;
-    width: 212px;
-    height: 48px;
+    width: calc(100vw * 212 / 1440);
+    height: calc(100vh * 48 / 820);
     flex-shrink: 0;
     border-radius: 7px;
     background: #231f20;
