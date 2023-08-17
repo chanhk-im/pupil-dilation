@@ -173,26 +173,26 @@ function HostCreateDesktop() {
         setIsLoaded(true);
     };
 
-    days.push(<option value={0}>&nbsp;선택&emsp;</option>);
+    days.push(<option value={0}>선택&emsp;</option>);
 
     for (let i = 1; i <= 31; i += 1) {
         days.push(<option value={i}>{i}</option>);
     }
 
-    months.push(<option value={0}>&nbsp;선택&emsp;</option>);
+    months.push(<option value={0}>선택&emsp;</option>);
 
     for (let i = 1; i <= 12; i += 1) {
         months.push(<option value={i}>{i}</option>);
     }
 
-    dayOfWeeks.push(<option value={0}>&nbsp;선택&emsp;</option>);
+    dayOfWeeks.push(<option value={0}>선택&emsp;</option>);
 
     for (let i = 1; i <= 7; i += 1) {
         dayOfWeeks.push(<option value={i}>{weeks[i - 1]}</option>);
     }
 
     places.push(
-        <option value={0}>&nbsp;장소선택&emsp;&emsp;&emsp;&emsp;&emsp;</option>,
+        <option value={0}>장소선택&emsp;&emsp;&emsp;&emsp;&emsp;</option>,
     );
 
     for (let i = 1; i <= 3; i += 1) {
@@ -214,9 +214,7 @@ function HostCreateDesktop() {
                     >
                         {months}
                     </select>
-                    <div className="host-create-ticket-start-text">
-                        &nbsp;월
-                    </div>
+                    <div className="host-create-ticket-start-text">월</div>
                 </div>
                 <div className="host-create-date-end-day">
                     <select
@@ -227,22 +225,18 @@ function HostCreateDesktop() {
                     >
                         {days}
                     </select>
-                    <div className="host-create-ticket-start-text">
-                        &nbsp;일
-                    </div>
+                    <div className="host-create-ticket-start-text">일</div>
                 </div>
                 <div className="host-create-date-end-dayOfWeek">
                     <select name="dayOfWeek-end" className="select-slection">
                         {dayOfWeeks}
                     </select>
-                    <div className="host-create-ticket-start-text">
-                        &nbsp;요일
-                    </div>
+                    <div className="host-create-ticket-start-text">요일</div>
                 </div>
                 <input
                     type="text"
-                    className="host-create-date-end-time"
-                    placeholder="&nbsp;시간 입력(24:00)"
+                    className="host-create-date-start-time"
+                    placeholder="시간 입력(24:00)"
                     name="time"
                     onChange={onChangeSchedule}
                     id={i}
@@ -263,7 +257,7 @@ function HostCreateDesktop() {
                     callback={popup.callback}
                 />
                 <div className="host-create-left">
-                    <input type="text" />
+                    <input type="file" accept="image/*" required multiple />
                 </div>
                 <div className="host-create-right">
                     <div className="host-create-right-1">
@@ -271,7 +265,7 @@ function HostCreateDesktop() {
                             className="host-create-title"
                             type="text"
                             name="title"
-                            placeholder="&nbsp;공연 제목 입력"
+                            placeholder="공연 제목 입력"
                             onChange={onChangeAccount}
                         />
                     </div>
@@ -281,7 +275,7 @@ function HostCreateDesktop() {
                             <textarea
                                 className="host-create-introduction-content"
                                 type="textarea"
-                                placeholder="&nbsp;소개 입력"
+                                placeholder="소개 입력"
                                 name="introduction"
                                 onChange={onChangeAccount}
                             />
@@ -307,7 +301,7 @@ function HostCreateDesktop() {
                                     className="host-create-price-content"
                                     type="number"
                                     step="500"
-                                    placeholder="&nbsp;가격 입력"
+                                    placeholder="가격 입력"
                                     name="price"
                                     onChange={onChangeAccount}
                                 />
@@ -320,14 +314,14 @@ function HostCreateDesktop() {
                                     <input
                                         className="host-create-bank-name"
                                         type="text"
-                                        placeholder="&nbsp;은행명 입력"
+                                        placeholder="은행명 입력"
                                         name="bankName"
                                         onChange={onChangeAccount}
                                     />
                                     <input
                                         className="host-create-price-content"
                                         type="text"
-                                        placeholder='&nbsp;"-"포함 계좌번호 입력'
+                                        placeholder='"-"포함 계좌번호 입력'
                                         name="bankNumber"
                                         onChange={onChangeAccount}
                                     />
@@ -353,7 +347,7 @@ function HostCreateDesktop() {
                                         {months}
                                     </select>
                                     <div className="host-create-ticket-start-text">
-                                        &nbsp;월
+                                        월
                                     </div>
                                 </div>
                                 <div className="host-create-date-start-day">
@@ -365,7 +359,7 @@ function HostCreateDesktop() {
                                         {days}
                                     </select>
                                     <div className="host-create-ticket-start-text">
-                                        &nbsp;일
+                                        일
                                     </div>
                                 </div>
                                 <div className="host-create-date-start-dayOfWeek">
@@ -376,13 +370,13 @@ function HostCreateDesktop() {
                                         {dayOfWeeks}
                                     </select>
                                     <div className="host-create-ticket-start-text">
-                                        &nbsp;요일
+                                        요일
                                     </div>
                                 </div>
                                 <input
                                     type="text"
                                     className="host-create-date-start-time"
-                                    placeholder="&nbsp;시간 입력(24:00)"
+                                    placeholder="시간 입력(24:00)"
                                     name="time"
                                     onChange={onChangeStartDate}
                                 />
@@ -400,7 +394,7 @@ function HostCreateDesktop() {
                                         {months}
                                     </select>
                                     <div className="host-create-ticket-start-text">
-                                        &nbsp;월
+                                        월
                                     </div>
                                 </div>
                                 <div className="host-create-date-end-day">
@@ -412,7 +406,7 @@ function HostCreateDesktop() {
                                         {days}
                                     </select>
                                     <div className="host-create-ticket-start-text">
-                                        &nbsp;일
+                                        일
                                     </div>
                                 </div>
                                 <div className="host-create-date-end-dayOfWeek">
@@ -423,13 +417,13 @@ function HostCreateDesktop() {
                                         {dayOfWeeks}
                                     </select>
                                     <div className="host-create-ticket-start-text">
-                                        &nbsp;요일
+                                        요일
                                     </div>
                                 </div>
                                 <input
                                     type="text"
-                                    className="host-create-date-end-time"
-                                    placeholder="&nbsp;시간 입력(24:00)"
+                                    className="host-create-date-start-time"
+                                    placeholder="시간 입력(24:00)"
                                     name="time"
                                     onChange={onChangeEndDate}
                                 />
@@ -468,8 +462,7 @@ function HostCreateDesktop() {
                                     }}
                                     className="event-add-button"
                                 >
-                                    <p>+</p>
-                                    <p>열 추가하기</p>
+                                    +&nbsp;&nbsp;&nbsp;&nbsp;열 추가하기
                                 </button>
                             </div>
                             <div className="delete-button-space">

@@ -19,23 +19,25 @@
 }
 
 input[type='file']::file-selector-button {
-    src: 'images/upload-image.png';
+    src: '/images/upload-image.png';
     width: calc(100vw * 330 / 1440);
-    height: calc(100vw * 467 / 1440);
+    height: calc(100vh * 467 / 820);
     opacity: 0;
     cursor: pointer;
+    background-color: skyblue;
 }
 
+
 input[type='file'] {
-    opacity: 0;
+    /*opacity: 0;
     position: relative;
-    z-index: 2;
+    z-index: 2;*/
+    background-color: red;
 }
 
 .host-create-right {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     width: 70%;
     margin-top: calc(100vw * 44 / 1440);
 }
@@ -69,7 +71,7 @@ input[type='file'] {
 .host-create-input-title {
     display: flex;
     color: #000;
-    font-size: calc(100vw * 32 / 1440);
+    font-size: calc(100vw * 28 / 1440);
     font-family: Noto Sans KR;
     font-style: normal;
     font-weight: 500;
@@ -81,49 +83,66 @@ input[type='file'] {
     outline-color: var(—theme-red, #ef5455);
 }
 
-.host-create-introduction-content:hover {
+.host-create-container input{
+    text-indent: calc(100vw * 10 / 1440);
+}
+
+.host-create-container input:hover {
     border-width: 2px;
     border-color: rgba(239, 84, 85, 0.25);
 }
 
-.host-create-introduction-content:focus {
+.host-create-container input:focus {
     outline-width: 2px;
     outline-color: var(--theme-red, #ef5455);
 }
 
-.select-slection input:hover {
+.host-create-container select{
+    text-indent: calc(100vw * 10 / 1440);
+}
+
+.host-create-container select:hover {
     border-width: 2px;
     border-color: rgba(239, 84, 85, 0.25);
+    cursor: pointer;
 }
 
-.select-slection input:focus {
+.host-create-container button:hover {
+    cursor: pointer;
+}
+
+.host-create-container select:focus {
     outline-width: 2px;
     outline-color: var(--theme-red, #ef5455);
 }
 
-select:hover {
+.host-create-container textarea{
+    text-indent: clac(100vw * 10 / 1440);
+}
+
+.host-create-container textarea:focus {
+    outline-width: 2px;
+    outline-color: var(--theme-red, #ef5455);
+}
+
+.host-create-container textarea:hover {
     border-width: 2px;
     border-color: rgba(239, 84, 85, 0.25);
-}
-
-select:focus {
-    outline-width: 2px;
-    outline-color: var(--theme-red, #ef5455);
 }
 
 .host-create-introduction-content {
     width: calc(100vw * 448 / 1440);
-    height: calc(100vh * 340 / 820);
+    height: calc(100vh * 306 / 820);
     flex-shrink: 0;
     border-radius: 7px;
     border: 1px solid rgba(0, 0, 0, 0.6);
-    font-size: 24px;
+    font-size: calc(100vw * 24 / 1440);
     font-family: Noto Sans KR;
 }
 
 .host-create-introduction-content::placeholder {
     color: rgba(0, 0, 0, 0.55);
-    font-size: 24px;
+    font-size: calc(100vw * 24 / 1440);
     font-family: Noto Sans KR;
     font-style: normal;
     font-weight: 300;
@@ -154,7 +173,7 @@ select:focus {
     border-radius: 7px;
     border: 1px solid rgba(0, 0, 0, 0.6);
     color: rgba(0, 0, 0, 0.55);
-    font-size: 24px;
+    font-size: calc(100vw * 24 / 1440);
     font-family: Noto Sans KR;
     font-style: normal;
     font-weight: 300;
@@ -179,7 +198,7 @@ select:focus {
     border-radius: 7px;
     border: 1px solid rgba(0, 0, 0, 0.6);
     color: rgba(0, 0, 0, 0.55);
-    font-size: 24px;
+    font-size: calc(100vw * 24 / 1440);
     font-family: Noto Sans KR;
     font-style: normal;
     font-weight: 300;
@@ -190,7 +209,7 @@ select:focus {
 .host-create-place-title {
     display: flex;
     color: #000;
-    font-size: 32px;
+    font-size: calc(100vw * 32 / 1440);
     font-family: Noto Sans KR;
     font-style: normal;
     font-weight: 500;
@@ -223,7 +242,7 @@ select:focus {
     display: flex;
     align-items: center;
     color: #000;
-    font-size: calc(100vw * 24 / 1440);
+    font-size: calc(100vw * 22 / 1440);
     font-family: Noto Sans KR;
     font-style: normal;
     font-weight: 500;
@@ -237,7 +256,7 @@ select:focus {
     height: 48px;
     flex-shrink: 0;
     color: #000;
-    font-size: 32px;
+    font-size: calc(100vw * 32 / 1440);
     font-family: Noto Sans KR;
     font-style: normal;
     font-weight: 500;
@@ -254,8 +273,8 @@ select:focus {
 }
 
 .select-slection{
-    width: calc(100vw * 80 / 1440);
-    height: calc(100vh * 36 / 820);
+    width: calc(100vw * 94 / 1440);
+    height: calc(100vh * 46 / 820);
     border-radius: 7px;
     border: 1px solid rgba(0, 0, 0, 0.6);
     color: #000;
@@ -298,7 +317,7 @@ select:focus {
     border-radius: 7px;
     border: 1px solid rgba(0, 0, 0, 0.6);
     color: #000;
-    font-size: clac(100vw * 20 / 1440);
+    font-size: calc(100vw * 20 / 1440);
     font-family: Noto Sans KR;
     font-style: normal;
     font-weight: 400;
@@ -312,7 +331,7 @@ select:focus {
     border-radius: 7px;
     border: 1px solid rgba(0, 0, 0, 0.6);
     color: #000;
-    font-size: 24px;
+    font-size: calc(100vw * 24 / 1440);
     font-family: Noto Sans KR;
     font-style: normal;
     font-weight: 300;
@@ -339,7 +358,7 @@ select:focus {
     border-radius: 7px;
     border: 1px solid rgba(0, 0, 0, 0.6);
     color: #000;
-    font-size: clac(100vw * 20 / 1440);
+    font-size: calc(100vw * 20 / 1440);
     font-family: Noto Sans KR;
     font-style: normal;
     font-weight: 400;
@@ -374,8 +393,9 @@ select:focus {
 
 .host-create-date-start-time {
     margin-left: calc(100vw * 20 / 1440);
-    width: calc(100vw * 250 / 1440);
-    height: 36px;
+    width: calc(100vw * 265 / 1440);
+    height: calc(100vh * 36 / 820);
+    font-size: calc(100vw * 24 / 1440);
     flex-shrink: 0;
     border-radius: 7px;
     border: 1px solid rgba(0, 0, 0, 0.6);
@@ -383,7 +403,7 @@ select:focus {
 
 .host-create-date-start-time::placeholder {
     color: rgba(0, 0, 0, 0.55);
-    font-size: calc(100vw * 24 / 1440);
+    font-size: calc(100vw * 20 / 1440);
     font-family: Noto Sans KR;
     font-style: normal;
     font-weight: 300;
@@ -415,7 +435,7 @@ select:focus {
 }
 
 .host-create-button {
-    margin-left: clac(100vw * 100 / 1440);
+    margin-left: calc(100vw * 190 / 1440);
     margin-top: calc(100vh * 24 / 820);
     margin-bottom: calc(100vw * 28 / 1440);
     width: calc(100vw * 448 / 1440);
@@ -434,8 +454,8 @@ select:focus {
 
 .event-add-button {
     display: flex;
-    justify-content: space-around;
-    padding-top: 7px;
+    justify-content: center;
+    align-items: center;
     width: calc(100vw * 212 / 1440);
     height: calc(100vh * 48 / 820);
     flex-shrink: 0;
@@ -444,9 +464,8 @@ select:focus {
     color: white;
     font-family: Noto Sans KR;
     font-weight: 400;
-    font-size: 20px;
+    font-size: calc(100vw * 18 / 1440);
     line-height: normal;
-    letter-spacing: -0.9px;
 }
 
 .event-add-button-div{
@@ -464,7 +483,7 @@ select:focus {
 
 .delete-button-space{
     display: flex;
-    width: 37%;
+    margin-left: calc(100vw * 285 / 1440);
     justify-content: end;
 }
 
