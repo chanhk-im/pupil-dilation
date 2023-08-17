@@ -32,28 +32,30 @@ function DetailContentDesktop({ id }) {
                         alt={show.title}
                     />
                 )}
-                <div className="show-title">{show.title}</div>
-                <div className="show-main">
-                    <h3 className="info-title">소개</h3>
-                    <div className="info-content">{show.introduction}</div>
+                <div className="show-first">
+                    <div className="show-title">{show.title}</div>
+                    <div className="show-main">
+                        <h3 className="info-title">소개</h3>
+                        <div className="info-content">{show.introduction}</div>
+                    </div>
                 </div>
                 <div className="show-detail">
-                    <h3 className="detail-title">공연기간</h3>
-                    <p className="detail-info-period">
+                    <h3 className="detail-period-title">공연기간</h3>
+                    <div className="detail-info-period">
                         {getDateShortFormat(show.startDate)} ~{' '}
                         {getDateShortFormat(show.endDate)}
-                    </p>
+                    </div>
                     <div className="place-and-price">
                         <div className="show-detail-content">
-                            <h3 className="detail-title">가격</h3>
-                            <p className="detail-info">{show.price}원</p>
+                            <h3 className="detail-price-title">가격</h3>
+                            <div className="detail-info">{show.price}원</div>
                         </div>
                         <div className="show-detail-content">
-                            <h3 className="detail-title">장소</h3>
-                            <p className="detail-info">{show.place}</p>
+                            <h3 className="detail-place-title">장소</h3>
+                            <div className="detail-info">{show.place}</div>
                         </div>
                     </div>
-                    <h3 className="detail-title">공연일정</h3>
+                    <h3 className="detail-schedule-title">공연일정</h3>
                     <p className="detail-info">{schedule}</p>
                 </div>
             </div>

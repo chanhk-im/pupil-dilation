@@ -18,9 +18,12 @@
     height: calc(100vw * 466 / 1440);
     border-radius: 8px;
 }
-
-.show-main {
+.show-first {
+    display: flex;
+    flex-direction: column;
     margin-left: calc(100vw * 24 / 1440);
+}
+.show-main {
     text-align: left;
 }
 
@@ -28,7 +31,7 @@
     display: flex;
     height: calc(100vw * 65 / 1440);
     flex-direction: column;
-    /* justify-content: center; */
+    text-align: start;
     margin: 0;
     font-size: calc(100vw * 48 / 1440);
     font-weight: 500;
@@ -59,11 +62,15 @@
     margin-left: calc(100vw * 24 / 1440);
     text-align: left;
 }
-
-.detail-title {
+.detail-period-title {
+    margin-top: calc(100vw * 67 / 1440);
+}
+.detail-period-title,
+.detail-price-title,
+.detail-place-title,
+.detail-schedule-title {
     flex-direction: column;
     justify-content: center;
-    margin-top: calc(100vw * 65 / 1440);
     font-size: calc(100vw * 28 / 1440);
     font-weight: 600;
     margin-bottom: 0;
@@ -75,6 +82,7 @@
     font-weight: 300;
     letter-spacing: calc(100vw * -1.08 / 1440);
     margin-top: calc(100vw * 7 / 1440);
+    margin-bottom: calc(100vw * 20 / 1440);
 }
 
 .detail-info {
@@ -95,6 +103,7 @@
     display: flex;
     flex-direction: column;
     width: 120px;
+    margin-right: calc(100vw * 28 / 1440);
 }
 
 .bold {

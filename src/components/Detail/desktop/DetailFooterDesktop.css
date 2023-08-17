@@ -29,11 +29,26 @@
     margin-bottom: calc(100vh * 10 / 1440);
 }
 
-.detail-select-schedule:hover{
+.detail-select-schedule:hover {
     cursor: pointer;
 }
-
-
+select {
+    appearance: none;
+    -webkit-appearance: none;
+}
+select::-ms-expand {
+    display: none;
+}
+.select-arrow {
+    pointer-events: none;
+    border-width: 8px 5px 0 5px;
+    border-style: solid;
+    border-color: #999 transparent transparent tramsparent;
+}
+select {
+    background: url('../../../../public/images/arrow_down_select.svg') no-repeat
+        97% 50%/40px auto;
+}
 .detail-ticketing-button {
     display: flex;
     width: calc(100vw * 448 / 1440);
@@ -41,7 +56,8 @@
     line-height: normal;
     height: calc(100vw * 82 / 1440);
     background-color: var(--theme-navy, #2b3252);
-    border-radius: 40px;
+    border-radius: calc(100vw * 40 / 1440);
+    border: 0;
     color: #fad744;
     align-items: center;
     justify-content: center;
@@ -53,6 +69,6 @@
     flex-shrink: 0;
 }
 
-.detail-ticketing-button:hover{
+.detail-ticketing-button:hover {
     cursor: pointer;
 }
