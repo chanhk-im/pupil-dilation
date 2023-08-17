@@ -116,8 +116,8 @@ function PaymentPageDesktop() {
                         <div className="ticket-content">
                             <img
                                 className="ticket-pic"
-                                alt="pic1"
-                                src="/images/Dongari1.png"
+                                alt={show.title}
+                                src={show.image}
                             />
                             <div className="ticket-lines">
                                 <div className="dateLine">
