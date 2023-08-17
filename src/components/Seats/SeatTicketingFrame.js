@@ -123,18 +123,11 @@ function SeatTicketingFrame({
                                 user.id,
                             )
                                 .then(() =>
-                                    setPopup({
-                                        open: true,
-                                        message: '좌석이 예약되었습니다.',
-                                        callback: () => navigate(navigatePath),
-                                    }),
-                                )
-                                .catch((e) => {
-                                    setPopup({
-                                        open: true,
-                                        message: e,
-                                    });
-                                });
+                            setPopup({
+                                open: true,
+                                message: '좌석이 예약되었습니다.',
+                                callback: () => navigate(navigatePath),
+                            }))
                         });
                     } else {
                         setPopup({
