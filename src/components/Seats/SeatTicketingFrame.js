@@ -12,6 +12,7 @@ import {
     getDateTimeFormat,
 } from '../../functions/dateFeature';
 import Popup from '../Popup/Popup';
+import { useNavigate } from 'react-router-dom';
 
 function SeatTicketingFrame({
     id,
@@ -19,8 +20,6 @@ function SeatTicketingFrame({
     selected,
     completedSeats,
     user,
-    bankName,
-    bankNumber,
     setIsLoaded,
 }) {
     const show = useShowById(id);
@@ -29,6 +28,7 @@ function SeatTicketingFrame({
         message: '',
         callback: false,
     });
+    const navigate = useNavigate();
     const selectedName = selected.map((e) => (
         <div key={e.index}>
             {e.name}
@@ -94,6 +94,8 @@ function SeatTicketingFrame({
                         id,
                         showNum,
                     );
+                    console.log(res);
+                    console.log(selected);
                     let flag = false;
                     selected.forEach((e) => {
                         if (
@@ -103,8 +105,8 @@ function SeatTicketingFrame({
                         ) {
                             flag = true;
                         }
+                        console.log(e.index);
                     });
-                    console.log(res);
                     if (!flag) {
                         await createShowTicketing(
                             id,
@@ -112,9 +114,8 @@ function SeatTicketingFrame({
                             selected,
                             user.id,
                             user.name,
-                            bankName,
-                            bankNumber,
-                        ).then(async (ticketingId) => {
+                        ).then(async (ticketId) => {
+                            const navigatePath = `/payment/${ticketId}`;
                             await createShowSeatsToProgress(
                                 id,
                                 showNum,
@@ -125,6 +126,7 @@ function SeatTicketingFrame({
                                     setPopup({
                                         open: true,
                                         message: '좌석이 예약되었습니다.',
+                                        callback: () => navigate(navigatePath),
                                     }),
                                 )
                                 .catch((e) => {

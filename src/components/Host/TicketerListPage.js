@@ -4,31 +4,10 @@ import {
     changeRemmited,
     getShowTicketerListByShow,
 } from '../../features/show/api/showsDocumentApi';
-import {
-    formatDateTime,
-    getDateSeatTickegingFrameDateFormat,
-} from '../../functions/dateFeature';
+import { formatDateTime } from '../../functions/dateFeature';
 import './TicketerListPage.css';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchShowList } from '../../features/show/slices/showSlice';
-import { getShowsDocument } from '../../features/show/api/showsDocumentApi';
-import Loading from '../Loading';
-import { fireStore } from '../../Firebase';
-import {
-    collection,
-    doc,
-    getDocs,
-    addDoc,
-    getDoc,
-    setDoc,
-    deleteDoc,
-    updateDoc,
-    query,
-    where,
-    and,
-    QuerySnapshot,
-} from 'firebase/firestore';
 
 /*eslint-disable*/
 function TicketerListPage() {
@@ -132,7 +111,7 @@ function TicketerListPage() {
                     .join(', ')}
             </td>
             <td id="copy">
-                {e.data().bankName} {e.data().bankNumber}{' '}
+                {e.data().sendName} {e.data().sendBank} {e.data().sendAccount}{' '}
             </td>
             <td>
                 <button

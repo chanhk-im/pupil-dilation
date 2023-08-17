@@ -32,7 +32,6 @@ function SeatsPage() {
         onLoading;
     });
     useEffect(() => {
-        console.log(selected);
     }, [selected]);
     const bankName = showList[showIndex].bankName;
     const bankNumber = showList[showIndex].bankNumber;
@@ -125,8 +124,6 @@ function SeatsPage() {
                 showNum={showNum}
                 selected={selected}
                 user={user}
-                bankName={bankName}
-                bankNumber={bankNumber}
                 setIsLoaded={setIsLoaded}
             />
         </div>

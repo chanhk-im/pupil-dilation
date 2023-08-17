@@ -30,7 +30,6 @@ export function Timer({ seconds, id, remit }) {
 
     useEffect(() => {
         timeLeftRef.current = timeLeft;
-        console.log(timeLeftRef.current);
     }, [timeLeft]);
 
     useEffect(() => {

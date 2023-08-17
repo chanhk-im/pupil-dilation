@@ -34,20 +34,8 @@ function SliderDesktop() {
         <Swiper
             {...MySwiper}
             modules={[Navigation, Pagination, A11y, Zoom, Autoplay]}
-            // 몇개를 한 슬라이드에 담는지
             navigation
-            //     nextEl: '.swiper-button-next',
-            //     prevEl: '.swiper-button-prev',
-            // }}
-            // let $slides = document.querySelectorAll('.swiper-slide');
-            // for(let i of $sliders){
-            //     i.addEventListener('mouseover', funtion(){
-            //         swiper.autoplay.stop();
-            //     });
-            //     i.addEventListener('mouseover', funtion(){
-            //         swiper.autoplay.start();
-            //     });
-            // }
+         
             pagination={{ clickable: true }}
             autoplay={{ delay: 2000, disableOnInteraction: false }}
             onSlideChange={() => console.log('slide change')}

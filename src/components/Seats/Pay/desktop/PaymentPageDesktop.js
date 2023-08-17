@@ -83,7 +83,7 @@ function PaymentPageDesktop() {
         }).then(() => {
             setPopup({
                 open: true,
-                message: '예약되었습니다.',
+                message: '등록되었습니다.',
                 callback: () => navigate('/mypage'),
             });
         });

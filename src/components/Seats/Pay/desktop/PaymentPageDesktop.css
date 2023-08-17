@@ -138,7 +138,7 @@
     letter-spacing: -0.675px;
     text-align: left;
     padding-left: calc(100vw * 15 / 1440);
-    width: calc(100vw * 100 / 1440);
+    width: calc(100vw * 120 / 1440);
     padding-top: calc(100vw * 2 / 1440);
 }
 
