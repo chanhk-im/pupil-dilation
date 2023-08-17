@@ -98,6 +98,7 @@ export async function createShowTicketing(
         bankNumber,
         seats,
         time: new Date(Date.now()),
+        state: 0,
         remitted: false,
     });
     const newDocId = newReference.id;
@@ -109,7 +110,9 @@ export async function createShowTicketing(
 export async function setShowTicketingToCompleted(ticketingId, ticketingInfo) {
     const reference = doc(fireStore, 'ticketing', ticketingId);
     await setDoc(reference, {
-        ticketingInfo,
+        ...ticketingInfo,
+        id: ticketingId,
+        state: 1,
     });
 }
 
