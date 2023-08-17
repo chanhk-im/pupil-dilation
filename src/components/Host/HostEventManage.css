@@ -1,10 +1,10 @@
 .CheckButton {
     width: calc(100vw * 212 / 1440);
     height: calc(100vw * 52 / 1440);
-    border-radius: 11px;
+    border-radius: calc(100vw * 11 / 1440);
     background-color: #2b3252;
 
-    margin-right: calc(100vw * 260 / 1440);
+    margin-right: calc(100vw * 141 / 1440);
     color: #fad744;
     font-size: calc(100vw * 20 / 1440);
     text-align: center;
@@ -17,17 +17,19 @@
 }
 
 .buttonBoard {
-    width: calc(100vw * 230 / 1440);
-    height: 50px;
+    display: flex;
+    width: calc(100vw * 1440 / 1440);
+    justify-content: flex-end;
+    height: calc(100vw * 51 / 1440);
     margin-top: 50px;
-    margin-right: calc(100vw * 265 / 1440);
 }
 
 .updateButton {
     width: calc(100vw * 94 / 1440);
-    height: calc(100vw * 39 / 1440);
+    height: calc(100vw * 51 / 1440);
     background: #d9d9d9;
     border-radius: 11px;
+    margin-right: calc(100vw * 24 / 1440);
     color: var(--theme-navy, #2b3252);
     text-align: center;
     font-size: calc(100vw * 16 / 1440);
@@ -41,10 +43,10 @@
 
 .delateButton {
     width: calc(100vw * 94 / 1440);
-    height: calc(100vw * 39 / 1440);
+    height: calc(100vw * 51 / 1440);
     background: #d9d9d9;
     border-radius: 11px;
-    margin-left: 20px;
+    margin-right: calc(100vw * 24 / 1440);
     color: #fa4444;
     text-align: center;
     font-size: calc(100vw * 16 / 1440);
@@ -54,4 +56,7 @@
     line-height: normal;
     cursor: pointer;
     border: 0;
+}
+.detail {
+    display: flex;
 }

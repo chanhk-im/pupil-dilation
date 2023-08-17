@@ -46,20 +46,19 @@ function HostEventManage() {
             <HostEventContent show={showList[index]} />
             <div className="buttonBoard">
                 <button
-                    className="updateButton"
-                    type="button"
-                    onClick={() => navigate(`/host/update/${id}`)}
-                >
-                    정보 수정
-                </button>
-                <button
                     className="delateButton"
                     type="button"
                     onClick={handleDeleteButtonOnClick}
                 >
                     공연 삭제
                 </button>
-
+                <button
+                    className="updateButton"
+                    type="button"
+                    onClick={() => navigate(`/host/update/${id}`)}
+                >
+                    정보 수정
+                </button>
                 <button
                     type="button"
                     onClick={() => navigate(`/host/ticketer/${id}`)}
