@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Popup from '../Popup/Popup';
 import {
     changeRemmited,
-    getShowTicketerListByShow,
+    getShowTicketerListByShowNotExpired,
 } from '../../features/show/api/showsDocumentApi';
 import { formatDateTime } from '../../functions/dateFeature';
 import './TicketerListPage.css';
@@ -18,7 +18,7 @@ function TicketerListPage() {
     const showList = useSelector((state) => state.show.showList);
 
     const onLoading = async () => {
-        await getShowTicketerListByShow(id).then((value) => {
+        await getShowTicketerListByShowNotExpired(id).then((value) => {
             const totalRowCnt = value.docs.length;
             setTotalRowCnt(totalRowCnt);
             setTicketerList(value.docs);

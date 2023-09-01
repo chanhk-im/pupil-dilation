@@ -104,7 +104,7 @@ function SeatsPage() {
                         <div>선택가능</div>
                     </div>
                     <div className="seats-type-content">
-                        <div className="seats-type-box seats-type-box-ticketed" />
+                        <img className="seats-type-box" src="/images/seat-completed.svg" />
                         <div>예매완료</div>
                     </div>
                     <div />
