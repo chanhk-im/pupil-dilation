@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 import {
     getShowDocumentById,
     getShowTicketingById,
-    setShowTicketingToCompleted,
+    getShowTicketingByUserIdNotExpired,
 } from '../../../features/show/api/showsDocumentApi';
 import {
     getDateSeatTickegingFrameDateFormat,
@@ -15,13 +15,14 @@ import {
 } from '../../../functions/dateFeature';
 import './TicketList.css';
 import Popup from '../../Popup/Popup';
+import TicketComponent from './TicketComponent';
 
-async function TicketList() {
-    const userId = '사용자ID';
+function TicketList() {
     const user = useSelector((state) => state.user.user);
     const showList = useSelector((state) => state.show.showList);
     const [ticketDown, setTicketDown] = useState(false);
-    const [ticketingInfo, setTicketingInfo] = useState({});
+    const [ticketingInfo, setTicketingInfo] = useState([]);
+    const [ticketComponentList, setTicketComponentList] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false);
     const [show, setShow] = useState({});
     const [popup, setPopup] = useState({
@@ -29,114 +30,51 @@ async function TicketList() {
         message: '',
         callback: false,
     });
-    const tickets = await ticketReservDocument(userId);
-    const showIds = reservDocs.map((doc) => doc.data().showId);
+    let tickets;
+
+    //const showIds = reservDocs.map((doc) => doc.data().showId);
     // const ticketList = ticketReservDocument.map((value, i) => {
     //     value.docs[i].data().showID, value.docs[i].data().showNum;
     // });
+
     const onLoading = async () => {
-        await getShowTicketingById(id).then((res) => {
-            setTicketingInfo(res.data());
-            const index = showList.findIndex(
-                (element) => element.id === res.data().showId,
-            );
-            setShow(showList[index]);
+        tickets = await ticketReservDocument(user.id);
+        await getShowTicketingByUserIdNotExpired(user.id).then((res) => {
+            const ticketingData = res.docs.map((e) => e.data());
+            setTicketingInfo(ticketingData);
+            let tempList = [];
+            ticketingData.forEach((ticketingE) => {
+                console.log(ticketingE);
+                const show = showList.find(
+                    (showE) => showE.id === ticketingE.showId,
+                );
+                console.log(show);
+                tempList.push(
+                    <TicketComponent show={show} ticketingData={ticketingE} />,
+                );
+            });
+            setTicketComponentList(tempList);
             setIsLoaded(true);
-            console.log(res.data());
         });
     };
-    async function onRefresh() {
-        await ticketReservDocument(user.id).then((value) => {
-            setTicketList(value);
-            setIsLoaded(true);
-        });
-    }
+
+    // async function onRefresh() {
+    //     await ticketReservDocument(user.id).then((value) => {
+    //         setTicketList(value);
+    //         setIsLoaded(true);
+    //     });
+    // }
+
     useEffect(() => {
         onLoading();
     }, []);
+
     if (isLoaded) {
-        const seatsNameListString = ticketingInfo.seats
-            .map((e) => e.name)
-            .join(', ');
         return (
             <div className="user-mypage-container">
                 <div className="ticket-list">
                     <div className="ticket-reservation">예매내역</div>
-                    <div className="opened-ticket">
-                        <div className="opened-ticket-high">
-                            <button
-                                className="arrow"
-                                onClick={() => {
-                                    setTicketDown((ticketDown) => !ticketDown);
-                                }}
-                            >
-                                {ticketDown ? (
-                                    <img
-                                        src="/images/arrow-right.svg"
-                                        alt="arrow-right"
-                                    />
-                                ) : (
-                                    <img
-                                        src="/images/arrow-down.svg"
-                                        alt="arrow-down"
-                                    />
-                                )}
-                            </button>
-                            <div className="ticket-show-title">
-                                {show.title}
-                            </div>
-                            <div className="ticket-show-time">
-                                2023.09.27(토) 22:00
-                            </div>
-                            {/* <Link
-                            to={`/detail/${value.id}`}
-                            style={{ textDecoration: 'none' }}
-                        ></Link> */}
-                            <button className="ticket-show-info">
-                                공연정보
-                            </button>
-                        </div>
-                        <nav className={ticketDown ? 'ticket-hidden' : ''}>
-                            {/* <div className="ticket-hidden"> */}
-                            <div className="ticket-picture">
-                                <img
-                                    className="dongari1"
-                                    src="/images/Dongari3.jpg"
-                                    alt="즉새두"
-                                />
-
-                                <div className="seat-data">A8</div>
-                            </div>
-                            <div className="ticket-hidden-middle">
-                                <div className="location">
-                                    <div className="location-title">장소</div>
-                                    <div className="location-content">현동</div>
-                                </div>
-                                <div className="seat-detail">
-                                    <div className="seat-detail-title">
-                                        좌석번호
-                                    </div>
-                                    <div className="seat-detail-content">
-                                        A열 8번
-                                    </div>
-                                </div>
-                                <div className="enter-time">
-                                    <div className="enter-time-title">
-                                        입장시작
-                                    </div>
-                                    <div className="enter-time-content">
-                                        21:30
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="ticket-hidden-right">
-                                <div className="ticket-hidden-right-text">
-                                    결제확인중
-                                </div>
-                            </div>
-                        </nav>
-                    </div>
-                    <div></div>
+                    <div>{ticketComponentList}</div>
                 </div>
             </div>
         );

@@ -10,6 +10,7 @@ import {
     query,
     where,
     and,
+    or,
 } from 'firebase/firestore';
 import { fireStore } from '../../../Firebase';
 import { resolveConfig } from 'prettier';
@@ -71,9 +72,37 @@ export async function getShowTicketingById(id) {
     return ticketing;
 }
 
+export async function getShowTicketingByUserIdNotExpired(userId) {
+    const expireDate = new Date(Date.now());
+    expireDate.setMinutes(expireDate.getMinutes() - 15);
+    const reference = collection(fireStore, 'ticketing');
+    const q = query(
+        reference,
+        and(
+            where('userId', '==', userId),
+            or(where('remitted', '==', true), where('time', '>=', expireDate)),
+        ),
+    );
+    const ticketing = await getDocs(q);
+    return ticketing;
+}
+
 export async function getShowTicketerListByShow(showId) {
     const reference = collection(fireStore, 'ticketing');
     const q = query(reference, where('showId', '==', showId));
+
+    const res = await getDocs(q);
+    return res;
+}
+
+export async function getShowTicketerListByShowNotExpired(showId) {
+    const expireDate = new Date(Date.now());
+    expireDate.setMinutes(expireDate.getMinutes() - 15);
+    const reference = collection(fireStore, 'ticketing');
+    const q = query(
+        reference,
+        and(where('showId', '==', showId), where('time', '>=', expireDate)),
+    );
 
     const res = await getDocs(q);
     return res;
@@ -239,6 +268,28 @@ export async function changeRemmited(dataId, toggle) {
     try {
         await updateDoc(doc(fireStore, 'ticketing', dataId), {
             remitted: toggle,
+        });
+        const updatedDoc = await getDoc(doc(fireStore, 'ticketing', dataId));
+        const findSeatsName = updatedDoc
+            .data()
+            .seats.map((value) => value.name);
+        const reference = collection(fireStore, 'seats');
+        const q = query(
+            reference,
+            and(
+                where('name', 'in', findSeatsName),
+                where('showId', '==', updatedDoc.data().showId),
+            ),
+        );
+
+        console.log(findSeatsName);
+        const seatsToChange = await getDocs(q);
+        console.log(seatsToChange.docs);
+        seatsToChange.docs.forEach(async (value) => {
+            console.log(value.id);
+            await updateDoc(doc(fireStore, 'seats', value.id), {
+                state: toggle ? 4 : 3,
+            });
         });
     } catch (e) {
         alert(e);
