@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import './AdminHeaderDesktop.css';
 import { restoreUser } from '../../../../features/user/slices/userSlice';
 
-function HostHeaderDesktop() {
+function AdminHeaderDesktop() {
     const isLogged = useSelector((state) => state.user.isLogged);
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -56,4 +56,4 @@ function HostHeaderDesktop() {
     );
 }
 
-export default HostHeaderDesktop;
+export default AdminHeaderDesktop;

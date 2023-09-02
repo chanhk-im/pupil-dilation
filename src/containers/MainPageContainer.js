@@ -1,6 +1,7 @@
 import React from 'react';
 import MainPageRoute from '../routes/MainPageRoute';
 import MainHeaderDesktop from '../components/Header/desktop/MainHeaderDesktop/MainHeaderDesktop';
+import Footer from '../components/Footer/Footer';
 import useMainPageLoading from '../hooks/useMainPageLoading';
 import Loading from '../components/Loading';
 import Mobile from '../components/MediaQuery/Mobile';
@@ -20,6 +21,9 @@ function MainPageContainer() {
                     <MainHeaderMobile />
                 </Mobile>
                 <MainPageRoute />
+                <Desktop>
+                    <Footer />
+                </Desktop>
             </div>
         );
     else return <Loading />;
