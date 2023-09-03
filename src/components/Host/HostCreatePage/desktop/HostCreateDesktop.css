@@ -274,7 +274,7 @@ input[type='file'] {
 
 .select-slection{
     width: calc(100vw * 94 / 1440);
-    height: calc(100vh * 46 / 820);
+    height: calc(100vh * 37 / 820);
     border-radius: 7px;
     border: 1px solid rgba(0, 0, 0, 0.6);
     color: #000;
@@ -393,7 +393,7 @@ input[type='file'] {
 
 .host-create-date-start-time {
     margin-left: calc(100vw * 20 / 1440);
-    width: calc(100vw * 265 / 1440);
+    width: calc(100vw * 220 / 1440);
     height: calc(100vh * 36 / 820);
     font-size: calc(100vw * 24 / 1440);
     flex-shrink: 0;
