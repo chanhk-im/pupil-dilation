@@ -1,0 +1,61 @@
+.footer-container {
+    display: flex;
+}
+.footer-box {
+    margin-top: calc(100vw * 66 / 1440);
+    width: calc(100vw * 1440 / 1440);
+    height: calc(100vw * 98 / 1440);
+    background: var(--grey, #d9d9d9);
+}
+.footer-start {
+    margin-left: calc(100vw * 66 / 1440);
+    margin-top: calc(100vw * 27 / 1440);
+    width: calc(100vw * 287 / 1440);
+}
+.developers-container,
+.designer-container {
+    display: flex;
+    margin-bottom: calc(100vw * 11 / 1440);
+}
+.developer-title,
+.designer-title {
+    color: #707070;
+    font-family: Noto Sans KR;
+    font-size: calc(100vw * 12 / 1440);
+    font-style: normal;
+    font-weight: calc(100vw * 500 / 1440);
+    line-height: normal;
+    width: calc(100vw * 54 / 1440);
+    height: calc(100vw * 14 / 1440);
+    text-align: start;
+}
+.developer-content,
+.designer-content {
+    margin-left: calc(100vw * 64 / 1440);
+    color: #707070;
+    font-family: Noto Sans KR;
+    font-size: calc(100vw * 12 / 1440);
+    font-style: normal;
+    font-weight: calc(100vw * 400 / 1440);
+    line-height: normal;
+    width: calc(100vw * 180 / 1440);
+    height: calc(100vw * 14 / 1440);
+    text-align: start;
+}
+.footer-line {
+    width: 0px;
+    height: 50px;
+    border-right: 0px;
+}
+.footer-email,
+.footer-address {
+    color: #707070;
+    font-family: Noto Sans KR;
+    font-size: calc(100vw * 12 / 1440);
+    font-style: normal;
+    font-weight: calc(100vw * 500 / 1440);
+    line-height: normal;
+    width: calc(100vw * 54 / 1440);
+    height: calc(100vw * 14 / 1440);
+    text-align: start;
+}

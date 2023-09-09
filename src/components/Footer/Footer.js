@@ -7,23 +7,31 @@ function Footer() {
             <div className="footer-box">
                 <div className="footer-start">
                     <div className="developers-container">
-                        <div className="developer-title"></div>
-                        <div className="developer-content"></div>
+                        <div className="developer-title">Developers</div>
+                        <div className="developer-content">
+                            Obsun wor__yth EastBean chanhk
+                        </div>
                     </div>
                     <div className="designer-container">
-                        <div className="designer-title"></div>
-                        <div className="designer-content"></div>
+                        <div className="designer-title">Designer</div>
+                        <div className="designer-content">haeunU</div>
                     </div>
                 </div>
-                <div className="footer-line"></div>
+                {/* <div className="footer-line">
+                    <hr className="line"></hr>
+                </div> */}
                 <div className="footer-center">
-                    <div className="footer-email"></div>
-                    <div className="footer-address"></div>
+                    <div className="footer-email">
+                        이용문의 / dghj.cra.handong.gmail.com
+                    </div>
+                    <div className="footer-address">
+                        경북 포항시 북구 흥해읍 한동로 558 한동대학교 37554
+                    </div>
                 </div>
                 <div calssName="footer-line"></div>
                 <div className="footer-end">
-                    <div className="user-privacy"></div>
-                    <div className="terms-of-use"></div>
+                    <div className="user-privacy">개인정보처리방침</div>
+                    <div className="terms-of-use">이용약관</div>
                     <div className="end-img"></div>
                 </div>
             </div>
