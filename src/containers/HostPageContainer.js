@@ -10,6 +10,7 @@ import Mobile from '../components/MediaQuery/Mobile';
 import { checkRequestUsersDocument } from '../features/user/api/requestUsersDocumentApi';
 import Loading from '../components/Loading';
 import useMainPageLoading from '../hooks/useMainPageLoading';
+import Footer from '../components/Footer/Footer';
 
 function HostPageContainer() {
     const navigate = useNavigate();
@@ -62,6 +63,7 @@ function HostPageContainer() {
                     <HostHeaderMobile />
                 </Mobile>
                 <HostPageRoute />
+                <Footer />
             </div>
         );
         else <Loading />
