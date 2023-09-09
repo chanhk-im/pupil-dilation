@@ -48,12 +48,12 @@ function SliderDesktop() {
                         style={{ textDecoration: 'none' }}
                     >
                         <div className="poster">
-                            <h2 className="dday">TODAY</h2>
-                            <img
+                            {/* <h2 className="dday">TODAY</h2> */}
+                            {/* <img
                                 className="ddayImg"
                                 src="images/dday2.svg"
                                 alt="dday"
-                            />
+                            /> */}
                             {slide.imageDownloaded ? (
                                 <img
                                     className="eventImage"
