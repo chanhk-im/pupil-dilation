@@ -257,7 +257,15 @@ function HostCreateDesktop() {
                     callback={popup.callback}
                 />
                 <div className="host-create-left">
-                    <input type="file" accept="image/*" required multiple />
+                    <input
+                        type="file"
+                        onChange={(event) => {
+                            setImageUpload(event.target.files[0]);
+                        }}
+                        accept="image/*"
+                        required
+                        multiple
+                    />
                 </div>
                 <div className="host-create-right">
                     <div className="host-create-right-1">
