@@ -8,6 +8,8 @@ import HostHeaderMobile from '../components/Header/mobile/HostHeaderMobile/HostH
 import Desktop from '../components/MediaQuery/Desktop';
 import Mobile from '../components/MediaQuery/Mobile';
 import { checkRequestUsersDocument } from '../features/user/api/requestUsersDocumentApi';
+import Loading from '../components/Loading';
+import useMainPageLoading from '../hooks/useMainPageLoading';
 
 function HostPageContainer() {
     const navigate = useNavigate();
@@ -19,6 +21,7 @@ function HostPageContainer() {
 
     const isHost = useSelector((state) => state.user.user.id);
     const isLogged = useSelector((state) => state.user.isLogged);
+    const [isLoaded, setIsLoaded, onRefresh] = useMainPageLoading();
     const handleIfNotHost = async () => {
         const check = await checkRequestUsersDocument(isHost);
         if (isLogged) {
@@ -42,24 +45,26 @@ function HostPageContainer() {
         handleIfNotHost();
     }, []);
 
-    return (
-        <div>
-            <Popup
-                open={popup.open}
-                setPopup={setPopup}
-                message={popup.message}
-                title={popup.title}
-                callback={popup.callback}
-            />
-            <Desktop>
-                <HostHeaderDesktop />
-            </Desktop>
-            <Mobile>
-                <HostHeaderMobile />
-            </Mobile>
-            <HostPageRoute />
-        </div>
-    );
+    if (isLoaded)
+        return (
+            <div>
+                <Popup
+                    open={popup.open}
+                    setPopup={setPopup}
+                    message={popup.message}
+                    title={popup.title}
+                    callback={popup.callback}
+                />
+                <Desktop>
+                    <HostHeaderDesktop />
+                </Desktop>
+                <Mobile>
+                    <HostHeaderMobile />
+                </Mobile>
+                <HostPageRoute />
+            </div>
+        );
+        else <Loading />
 }
 
 export default HostPageContainer;

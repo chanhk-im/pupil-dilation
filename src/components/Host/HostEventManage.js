@@ -20,6 +20,7 @@ function HostEventManage() {
     });
     const { id } = useParams();
     const showList = useSelector((state) => state.show.showList);
+    console.log(showList);
     const index = getIndex(showList, id);
     const imageRef = ref(fStorage, showList[index].image);
 
