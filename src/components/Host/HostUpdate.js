@@ -8,6 +8,7 @@ import { updateShowsDocument } from '../../features/show/api/showsDocumentApi';
 
 import { fStorage } from '../../Firebase';
 import Popup from '../Popup/Popup';
+import './HostUpdate.css';
 
 function HostUpdate() {
     const navigate = useNavigate();
@@ -250,52 +251,49 @@ function HostUpdate() {
 
     for (let i = 0; i < scheduleCount; i += 1) {
         schedules.push(
-            <div className="host-create-ticket-date-end" id={i}>
-                <div className="host-create-ticket-start-text2">
+            <div className="host-update-ticket-date-end" id={i}>
+                <div className="host-update-ticket-start-text2">
                     {i + 1}공&nbsp;&nbsp;
                 </div>
-                <div className="host-create-date-end-month">
+                <div className="host-update-date-end-month">
                     <select
                         name="month"
-                        className="select-month-end"
+                        className="select-slection"
                         defaultValue={timeInfo.schedule[i].month + 1}
                         id={i}
                         onChange={onChangeScheduleDate}
                     >
                         {months}
                     </select>
-                    <div className="host-create-ticket-start-text">
+                    <div className="host-update-ticket-start-text">
                         &nbsp;월
                     </div>
                 </div>
-                <div className="host-create-date-end-day">
+                <div className="host-update-date-end-day">
                     <select
                         name="day"
-                        className="select-day-end"
+                        className="select-slection"
                         defaultValue={timeInfo.schedule[i].day}
                         id={i}
                         onChange={onChangeScheduleDate}
                     >
                         {days}
                     </select>
-                    <div className="host-create-ticket-start-text">
+                    <div className="host-update-ticket-start-text">
                         &nbsp;일
                     </div>
                 </div>
-                <div className="host-create-date-end-dayOfWeek">
-                    <select
-                        name="dayOfWeek-end"
-                        className="select-dayOfWeek-end"
-                    >
+                <div className="host-update-date-end-dayOfWeek">
+                    <select name="dayOfWeek-end" className="select-slection">
                         {dayOfWeeks}
                     </select>
-                    <div className="host-create-ticket-start-text">
+                    <div className="host-update-ticket-start-text">
                         &nbsp;요일
                     </div>
                 </div>
                 <input
                     type="text"
-                    className="host-create-date-end-time"
+                    className="host-update-date-start-time"
                     placeholder="&nbsp;시간 입력(24:00)"
                     name="time"
                     defaultValue={timeInfo.schedule[i].time}
@@ -307,7 +305,7 @@ function HostUpdate() {
     }
 
     return (
-        <div className="host-create-container">
+        <div className="host-update-container">
             <Popup
                 open={popup.open}
                 setPopup={setPopup}
@@ -315,7 +313,7 @@ function HostUpdate() {
                 title={popup.title}
                 callback={popup.callback}
             />
-            <div className="host-create-left">
+            <div className="host-update-left">
                 <input
                     type="file"
                     onChange={(event) => {
@@ -323,15 +321,15 @@ function HostUpdate() {
                     }}
                 />
             </div>
-            <div className="host-create-right">
-                <div className="host-create-right-1">
+            <div className="host-update-right">
+                <div className="host-update-right-1">
                     <img
                         src="/images/upload-image.png"
                         alt="업로드"
                         className="upload-image"
                     />
                     <input
-                        className="host-create-title"
+                        className="host-update-title"
                         type="text"
                         name="title"
                         placeholder="&nbsp;공연 제목 입력"
@@ -339,13 +337,11 @@ function HostUpdate() {
                         value={newShowInfo.title}
                     />
                 </div>
-                <div className="host-create-right-2">
-                    <div className="host-create-right-2-left">
-                        <div className="host-create-introduction-title">
-                            소개
-                        </div>
+                <div className="host-update-right-2">
+                    <div className="host-update-right-2-left">
+                        <div className="host-update-input-title">소개</div>
                         <textarea
-                            className="host-create-introduction-content"
+                            className="host-update-introduction-content"
                             type="textarea"
                             placeholder="&nbsp;소개 입력"
                             name="introduction"
@@ -353,9 +349,9 @@ function HostUpdate() {
                             value={newShowInfo.introduction}
                         />
                     </div>
-                    <div className="host-create-right-2-right">
-                        <div className="host-create-place">
-                            <div className="host-create-place-title">장소</div>
+                    <div className="host-update-right-2-right">
+                        <div className="host-update-place">
+                            <div className="host-update-input-title">장소</div>
                             <select
                                 name="place"
                                 className="select-place"
@@ -365,10 +361,10 @@ function HostUpdate() {
                                 {places}
                             </select>
                         </div>
-                        <div className="host-create-price">
-                            <div className="host-create-price-title">가격</div>
+                        <div className="host-update-price">
+                            <div className="host-update-input-title">가격</div>
                             <input
-                                className="host-create-price-content"
+                                className="host-update-price-content"
                                 type="number"
                                 step="500"
                                 placeholder="&nbsp;가격 입력"
@@ -377,13 +373,13 @@ function HostUpdate() {
                                 value={newShowInfo.price}
                             />
                         </div>
-                        <div className="host-create-bank">
-                            <div className="host-create-price-title">
+                        <div className="host-update-bank">
+                            <div className="host-update-input-title">
                                 입금계좌
                             </div>
-                            <div className="host-create-bank-set">
+                            <div className="host-update-bank-set">
                                 <input
-                                    className="host-create-bank-name"
+                                    className="host-update-bank-name"
                                     type="text"
                                     placeholder="&nbsp;은행명 입력"
                                     name="bankName"
@@ -391,7 +387,7 @@ function HostUpdate() {
                                     value={newShowInfo.bankName}
                                 />
                                 <input
-                                    className="host-create-price-content"
+                                    className="host-update-price-content"
                                     type="text"
                                     placeholder='&nbsp;"-"포함 계좌번호 입력'
                                     name="bankNumber"
@@ -402,112 +398,112 @@ function HostUpdate() {
                         </div>
                     </div>
                 </div>
-                <div className="host-create-right-3">
-                    <div className="host-create-ticket-date">
-                        <div className="host-create-date">예매일정</div>
-                        <div className="host-create-ticket-date-end">
-                            <div className="host-create-ticket-start-text2">
+                <div className="host-update-right-3">
+                    <div className="host-update-ticket-date">
+                        <div className="host-update-input-title">예매일정</div>
+                        <div className="host-update-ticket-date-end">
+                            <div className="host-update-ticket-start-text2">
                                 시작
                             </div>
-                            <div className="host-create-date-start-month">
+                            <div className="host-update-date-start-month">
                                 <select
                                     name="month"
-                                    className="select-month-end"
+                                    className="select-slection"
                                     onChange={onChangeStartDate}
                                     defaultValue={timeInfo.start.month + 1}
                                 >
                                     {months}
                                 </select>
-                                <div className="host-create-ticket-start-text">
+                                <div className="host-update-ticket-start-text">
                                     &nbsp;월
                                 </div>
                             </div>
-                            <div className="host-create-date-start-day">
+                            <div className="host-update-date-start-day">
                                 <select
                                     name="day"
-                                    className="select-day-start"
+                                    className="select-slection"
                                     onChange={onChangeStartDate}
                                     defaultValue={timeInfo.start.day}
                                 >
                                     {days}
                                 </select>
-                                <div className="host-create-ticket-start-text">
+                                <div className="host-update-ticket-start-text">
                                     &nbsp;일
                                 </div>
                             </div>
-                            <div className="host-create-date-start-dayOfWeek">
+                            <div className="host-update-date-start-dayOfWeek">
                                 <select
                                     name="dayOfWeek-start"
-                                    className="select-dayOfWeek-start"
+                                    className="select-slection"
                                 >
                                     {dayOfWeeks}
                                 </select>
-                                <div className="host-create-ticket-start-text">
+                                <div className="host-update-ticket-start-text">
                                     &nbsp;요일
                                 </div>
                             </div>
                             <input
                                 type="text"
-                                className="host-create-date-start-time"
+                                className="host-update-date-start-time"
                                 placeholder="&nbsp;시간 입력(24:00)"
                                 name="time"
                                 onChange={onChangeStartDate}
                                 value={timeInfo.start.time}
                             />
                         </div>
-                        <div className="host-create-ticket-date-end">
-                            <div className="host-create-ticket-start-text2">
+                        <div className="host-update-ticket-date-end">
+                            <div className="host-update-ticket-start-text2">
                                 마감
                             </div>
-                            <div className="host-create-date-end-month">
+                            <div className="host-update-date-end-month">
                                 <select
                                     name="month"
-                                    className="select-month-end"
+                                    className="select-slection"
                                     onChange={onChangeEndDate}
                                     defaultValue={timeInfo.end.month + 1}
                                 >
                                     {months}
                                 </select>
-                                <div className="host-create-ticket-start-text">
+                                <div className="host-update-ticket-start-text">
                                     &nbsp;월
                                 </div>
                             </div>
-                            <div className="host-create-date-end-day">
+                            <div className="host-update-date-end-day">
                                 <select
                                     name="day"
-                                    className="select-day-end"
+                                    className="select-slection"
                                     onChange={onChangeEndDate}
                                     defaultValue={timeInfo.end.day}
                                 >
                                     {days}
                                 </select>
-                                <div className="host-create-ticket-start-text">
+                                <div className="host-update-ticket-start-text">
                                     &nbsp;일
                                 </div>
                             </div>
-                            <div className="host-create-date-end-dayOfWeek">
+                            <div className="host-update-date-end-dayOfWeek">
                                 <select
                                     name="dayOfWeek-end"
-                                    className="select-dayOfWeek-end"
+                                    className="select-slection"
                                 >
                                     {dayOfWeeks}
                                 </select>
-                                <div className="host-create-ticket-start-text">
+                                <div className="host-update-ticket-start-text">
                                     &nbsp;요일
                                 </div>
                             </div>
                             <input
                                 type="text"
-                                className="host-create-date-end-time"
+                                className="host-update-date-start-time"
                                 placeholder="&nbsp;시간 입력(24:00)"
                                 name="time"
                                 onChange={onChangeEndDate}
                                 value={timeInfo.end.time}
                             />
                         </div>
-                        <div className="host-create-date">공연일정</div>
+                        <div className="host-update-input-title">공연일정</div>
                         {schedules}
-                        <div className="host-create-add-buttons">
+                        <div className="host-update-add-buttons">
                             <div className="event-add-button-div">
                                 <button
                                     type="button"
@@ -550,10 +546,10 @@ function HostUpdate() {
                         </div>
                     </div>
                 </div>
-                <div className="host-create-right-4">
+                <div className="host-update-right-4">
                     <button
                         type="button"
-                        className="host-create-button"
+                        className="host-update-button"
                         onClick={onButtonClick}
                     >
                         등록
