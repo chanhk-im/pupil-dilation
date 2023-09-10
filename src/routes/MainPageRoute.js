@@ -7,6 +7,7 @@ import Loading from '../components/Loading';
 // import AdminPage from '../components/Admin/AdminPage';
 import PaymentPage from '../components/Seats/Pay/PaymentPage';
 import ErrorPage from '../components/Error/ErrorPage';
+import Terms from '../components/Terms/Terms';
 
 function MainPageRoute() {
     return (
@@ -18,6 +19,7 @@ function MainPageRoute() {
                 <Route path="/loading" element={<Loading />} />
                 {/* <Route path="/admin" element={<AdminPage />} /> */}
                 <Route path="/payment/:id" element={<PaymentPage />} />
+                <Route path="/termsofuse" element={<Terms />} />
                 <Route path="*" element={<ErrorPage />} />
             </Routes>
         </div>
