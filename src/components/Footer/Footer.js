@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 function Footer() {
@@ -17,9 +18,9 @@ function Footer() {
                         <div className="designer-content">haeunU</div>
                     </div>
                 </div>
-                {/* <div className="footer-line">
-                    <hr className="line"></hr>
-                </div> */}
+                <div className="footer-line">
+                    <img src="/images/footerLine.svg"></img>
+                </div>
                 <div className="footer-center">
                     <div className="footer-email">
                         이용문의 / dghj.cra.handong.gmail.com
@@ -28,11 +29,23 @@ function Footer() {
                         경북 포항시 북구 흥해읍 한동로 558 한동대학교 37554
                     </div>
                 </div>
-                <div calssName="footer-line"></div>
+                <div className="footer-line">
+                    <img src="/images/footerLine.svg"></img>
+                </div>
                 <div className="footer-end">
-                    <div className="user-privacy">개인정보처리방침</div>
-                    <div className="terms-of-use">이용약관</div>
-                    <div className="end-img"></div>
+                    <div className="user-privacy">
+                        <button className="privacy-button">
+                            개인정보처리방침
+                        </button>
+                    </div>
+                    <div className="terms-of-use">
+                        <Link className="go-terms" to="/mypage">
+                            <button className="terms-button">이용약관</button>
+                        </Link>
+                    </div>
+                    <div className="end-img">
+                        <img src="/images/footer-logo.svg"></img>
+                    </div>
                 </div>
             </div>
         </div>
