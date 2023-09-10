@@ -10,29 +10,30 @@
 }
 
 .upload-image {
-    width: calc(100vw * 330 / 1440);
-    height: calc(100vw * 467 / 1440);
+    width: calc(100vw * 280 / 1440);
+    height: calc(100vw * 380 / 1440);
     position: absolute;
-    left: calc(100vw * 150 / 1440);
-    z-index: 1;
+    left: calc(100vw * 80 / 1440);
+    z-index: 2;
     cursor: pointer;
 }
 
 input[type='file']::file-selector-button {
-    src: '/images/upload-image.png';
-    width: calc(100vw * 330 / 1440);
-    height: calc(100vh * 467 / 820);
+    width: calc(100vw * 280 / 1440);
+    height: calc(100vw * 380 / 1440);
     opacity: 0;
     cursor: pointer;
     background-color: skyblue;
+    z-index: 3;
 }
 
 
-input[type='file'] {
-    /*opacity: 0;
-    position: relative;
-    z-index: 2;*/
-    background-color: red;
+.img-get {
+    position: absolute;
+    width: calc(100vw * 280 / 1440);
+    height: calc(100vw * 380 / 1440);
+    left: calc(100vw * 80 / 1440);
+    z-index: 5;
 }
 
 .host-create-right {
