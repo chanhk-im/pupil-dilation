@@ -1,7 +1,7 @@
 import { React, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
-import './HostUpdate.css';
+import './HostCreatePage/desktop/HostCreateDesktop.css';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 import { updateShowsDocument } from '../../features/show/api/showsDocumentApi';
@@ -412,7 +412,7 @@ function HostUpdate() {
                             <div className="host-create-date-start-month">
                                 <select
                                     name="month"
-                                    className="select-month-start"
+                                    className="select-month-end"
                                     onChange={onChangeStartDate}
                                     defaultValue={timeInfo.start.month + 1}
                                 >
@@ -508,40 +508,45 @@ function HostUpdate() {
                         <div className="host-create-date">공연일정</div>
                         {schedules}
                         <div className="host-create-add-buttons">
-                            <button
-                                type="button"
-                                className="host-create-add-button"
-                                onClick={() => {
-                                    setScheduleCount(scheduleCount + 1);
-                                    const newScheduleItem = {
-                                        year: 2023,
-                                        month: 0,
-                                        day: 0,
-                                        time: '',
-                                    };
-                                    const newSchedule = [
-                                        ...timeInfo.schedule,
-                                        newScheduleItem,
-                                    ];
-                                    const newTimeInfo = {
-                                        ...timeInfo,
-                                        schedule: newSchedule,
-                                    };
+                            <div className="event-add-button-div">
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        setScheduleCount(scheduleCount + 1);
+                                        const newScheduleItem = {
+                                            year: 2023,
+                                            month: 0,
+                                            day: 0,
+                                            time: '',
+                                        };
+                                        const newSchedule = [
+                                            ...timeInfo.schedule,
+                                            newScheduleItem,
+                                        ];
+                                        const newTimeInfo = {
+                                            ...timeInfo,
+                                            schedule: newSchedule,
+                                        };
 
-                                    setTimeInfo(newTimeInfo);
-                                }}
-                            >
-                                <div>+</div>
-                                <div>열 추가하기</div>
-                            </button>
-                            <button
-                                type="button"
-                                className="host-create-subtract-button"
-                                onClick={onSubtractClick}
-                            >
-                                <div>-</div>
-                                <div>열 삭제하기</div>
-                            </button>
+                                        setTimeInfo(newTimeInfo);
+                                    }}
+                                    className="event-add-button"
+                                >
+                                    +&nbsp;&nbsp;&nbsp;&nbsp;열 추가하기
+                                </button>
+                            </div>
+                            <div className="delete-button-space">
+                                <button
+                                    type="button"
+                                    className="event-delete-button"
+                                    onClick={onSubtractClick}
+                                >
+                                    <img
+                                        src="/images/Trash.svg"
+                                        alt="열 삭제하기"
+                                    />
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>

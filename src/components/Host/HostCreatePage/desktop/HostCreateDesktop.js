@@ -259,12 +259,18 @@ function HostCreateDesktop() {
                 <div className="host-create-left">
                     <input
                         type="file"
+                        className='img-get'
                         onChange={(event) => {
                             setImageUpload(event.target.files[0]);
                         }}
                         accept="image/*"
                         required
                         multiple
+                    />
+                    <img
+                        src="/images/upload-image.png"
+                        alt="업로드"
+                        className="upload-image"
                     />
                 </div>
                 <div className="host-create-right">
