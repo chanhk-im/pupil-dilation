@@ -34,12 +34,13 @@ function Footer() {
                 </div>
                 <div className="footer-end">
                     <div className="user-privacy">
+                      <Link to={'/termsofuse'}>
                         <button className="privacy-button">
                             개인정보처리방침
                         </button>
                     </div>
                     <div className="terms-of-use">
-                        <Link className="go-terms" to="/mypage">
+                        <Link to={'/termsofuse'}>
                             <button className="terms-button">이용약관</button>
                         </Link>
                     </div>

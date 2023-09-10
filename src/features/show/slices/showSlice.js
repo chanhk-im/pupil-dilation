@@ -8,7 +8,6 @@ export const showSlice = createSlice({
     },
     reducers: {
         addShow: (state, action) => {
-            console.log(action.payload);
             state.showList.push(action.payload);
         },
         fetchShowList: (state, action) => {
@@ -16,6 +15,7 @@ export const showSlice = createSlice({
             state.showLoaded = true;
         },
         markAsDownloadImage: (state, action) => {
+            console.log(state.showList);
             state.showList[action.payload.index].imageDownloaded = true;
             state.showList[action.payload.index].image = action.payload.url;
         },

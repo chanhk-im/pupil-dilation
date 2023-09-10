@@ -1,0 +1,32 @@
+.terms-whole{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.userule-title{
+  margin-top: calc(100vh * 39 / 880);
+  width: calc(100vw * 400 / 1440);
+  height: calc(100vh * 57 / 880);
+  font-family: Noto Sans KR;
+  font-weight: 600;
+  font-size: calc(100vw * 30 / 1440);
+}
+
+.userule-context{
+  width: 1204px;
+  height: 1790px;
+  padding: 14px 22px 18px 26px;
+  flex-shrink: 0;
+  border-radius: 28px;
+  background: rgba(43, 50, 82, 0.55);
+  color: #FFF;
+  font-family: Noto Sans KR;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-align: start;
+}

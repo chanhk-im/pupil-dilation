@@ -37,7 +37,7 @@ function AdminHeaderDesktop() {
                 )}
             </div>
             <div className="host-header-line">
-                <Link to="/host">
+                <Link to="/admin">
                     <img
                         className="host-header-pupil-dilation"
                         alt="my-header"

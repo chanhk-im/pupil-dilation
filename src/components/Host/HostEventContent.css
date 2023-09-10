@@ -1,0 +1,116 @@
+.detail-contents-host {
+    padding-top: 31px;
+    padding-bottom: 5px;
+    padding-left: calc(100vw * 143 / 1440);
+    padding-right: calc(100vw * 24 / 1440);
+    display: flex;
+    flex-direction: column; 
+}
+
+.information-host {
+    display: flex;
+    flex-direction: row;
+}
+
+.show-image-host {
+    background-color: blue;
+    width: calc(100vw * 329 / 1440);
+    height: calc(100vw * 466 / 1440);
+    border-radius: 8px;
+}
+
+.show-first {
+    display: flex;
+    flex-direction: column;
+    margin-left: calc(100vw * 24 / 1440);
+}
+
+.show-main-host {
+    text-align: left;
+    margin-left: 7%;
+}
+
+.show-title-host {
+    display: flex;
+    height: calc(100vw * 65 / 1440);
+    flex-direction: column;
+    text-align: start;
+    margin: 0;
+    font-size: calc(100vw * 48 / 1440);
+    font-weight: 500;
+    font-style: normal;
+    line-height: normal;
+}
+
+.info-title-host {
+    flex-direction: column;
+    justify-content: center;
+    height: calc(100vw * 40 / 1440);
+    margin: 0;
+    font-size: calc(100vw * 28 / 1440);
+    font-weight: 500;
+}
+
+.info-content-host {
+    width: calc(100vw * 448 / 1440);
+    font-size: calc(100vw * 20 / 1440);
+    font-weight: 300;
+    text-align: left;
+    font-family: Noto Sans KR;
+    letter-spacing: calc(100vw * -0.9 / 1440);
+    line-height: calc(100vw * 27 / 1440);
+}
+
+.show-detail-host {
+    margin-left: calc(100vw * 24 / 1440);
+    text-align: left;
+}
+
+.detail-period-title-host {
+    margin-top: calc(100vw * 67 / 1440);
+}
+
+.detail-period-title-host,
+.detail-price-title-host,
+.detail-place-title-host,
+.detail-schedule-title-host {
+    flex-direction: column;
+    justify-content: center;
+    font-size: calc(100vw * 28 / 1440);
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.detail-info-period-host {
+    width: calc(100vw * 448 / 1440);
+    font-size: calc(100vw * 24 / 1440);
+    font-weight: 300;
+    letter-spacing: calc(100vw * -1.08 / 1440);
+    margin-top: calc(100vw * 7 / 1440);
+    margin-bottom: calc(100vw * 20 / 1440);
+}
+
+.detail-info-host {
+    width: calc(100vw * 200 / 1440);
+    font-size: calc(100vw * 24 / 1440);
+    font-weight: 300;
+    letter-spacing: calc(100vw * -1.08 / 1440);
+    margin-top: calc(100vw * 7 / 1440);
+}
+
+.place-and-price-host {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+.show-detail-content-host {
+    display: flex;
+    flex-direction: column;
+    width: 120px;
+    margin-right: calc(100vw * 28 / 1440);
+}
+
+.bold-host {
+    font-weight: 500;
+}

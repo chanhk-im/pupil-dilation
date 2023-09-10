@@ -76,6 +76,7 @@ function LoginFormDesktop({ setIsLoaded }) {
                                 });
                                 return;
                             default:
+                                if (res.user.id === 'admin') navigate('/admin');
                                 if (res.user.userType == 0) navigate('/');
                                 else if (res.user.userType == 1)
                                     navigate('/host');
