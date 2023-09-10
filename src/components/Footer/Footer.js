@@ -1,5 +1,6 @@
 import React from 'react';
 import './Footer.css';
+import { Link } from 'react-router-dom';
 
 function Footer() {
     return (
@@ -30,8 +31,18 @@ function Footer() {
                 </div>
                 <div calssName="footer-line"></div>
                 <div className="footer-end">
-                    <div className="user-privacy">개인정보처리방침</div>
-                    <div className="terms-of-use">이용약관</div>
+                    <div className="user-privacy">
+                        <Link to={'/termsofuse'}>
+                            <button className="tnc-button">
+                                개인정보처리방침
+                            </button>
+                        </Link>
+                    </div>
+                    <div className="terms-of-use">
+                        <Link to={'/termsofuse'}>
+                            <button className="tnc-button">이용약관</button>
+                        </Link>
+                    </div>
                     <div className="end-img"></div>
                 </div>
             </div>

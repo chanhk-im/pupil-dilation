@@ -59,3 +59,12 @@
     height: calc(100vw * 14 / 1440);
     text-align: start;
 }
+
+/*=======================개인정보 및 이용약관 CSS========================*/
+
+.tnc-button{
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    text-decoration: underline;
+}
