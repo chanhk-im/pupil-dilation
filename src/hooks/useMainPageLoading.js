@@ -35,7 +35,6 @@ export default function useMainPageLoading() {
                     console.log(element);
                 });
             });
-            console.log(showList);
         });
     }, []);
 
