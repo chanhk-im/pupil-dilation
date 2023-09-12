@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
+import ScrollToTop from '../Terms/ScrollToTop';
+import ScrollToBottom from '../Terms/ScrollToBottom';
 
 function Footer() {
     return (
@@ -35,14 +37,20 @@ function Footer() {
                 <div className="footer-end">
                     <div className="user-privacy">
                         <Link to={'/termsofuse'}>
-                            <button className="privacy-button">
-                                개인정보처리방침
-                            </button>
+                            <ScrollToTop>
+                                <button className="privacy-button">
+                                    개인정보처리방침
+                                </button>
+                            </ScrollToTop>
                         </Link>
                     </div>
                     <div className="terms-of-use">
                         <Link to={'/termsofuse'}>
-                            <button className="terms-button">이용약관</button>
+                            <ScrollToBottom>
+                                <button className="terms-button">
+                                    이용약관
+                                </button>
+                            </ScrollToBottom>
                         </Link>
                     </div>
                     <div className="end-img">
