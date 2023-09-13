@@ -12,15 +12,15 @@ function HostMainPageMobile() {
     const showList = useSelector((state) => state.show.showList);
     const user = useSelector((state) => state.user.user);
     const [isLoaded, setIsLoaded] = useState(false);
+    const [ownShows, setOwnShows] = useState([]);
+
     async function onRefresh() {
-        await getShowsDocument().then((value) => {
-            const ownShows = value.filter((v) => v.userId === user.id);
-            dispatch(fetchShowList(ownShows));
-            setIsLoaded(true);
-        });
+        const newOwnShows = showList.filter((v) => v.userId === user.id);
+        setOwnShows(newOwnShows);
+        setIsLoaded(true);
     }
 
-    const displayShowContent = showList.map((value, i) => (
+    const displayShowContent = ownShows.map((value, i) => (
         <button
             type="button"
             className="created-event-mobile"

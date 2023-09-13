@@ -66,7 +66,7 @@ function HostPageContainer() {
                 <Footer />
             </div>
         );
-        else <Loading />
+    else <Loading />;
 }
 
 export default HostPageContainer;
