@@ -24,7 +24,7 @@ function HostMainPageMobile() {
         <button
             type="button"
             className="created-event-mobile"
-            onClick={() => navigate(`/host/manage/${showList[i].id}`)}
+            onClick={() => navigate(`/host/manage/${ownShows[i].id}`)}
         >
             <p className="event-text-mobile">{value.title}</p>
         </button>

@@ -25,7 +25,7 @@ function HostMainPageDesktop() {
             <button
                 type="button"
                 className="createdEvent"
-                onClick={() => navigate(`/host/manage/${showList[i].id}`)}
+                onClick={() => navigate(`/host/manage/${ownShows[i].id}`)}
             >
                 <p className="Text">{value.title}</p>
             </button>
