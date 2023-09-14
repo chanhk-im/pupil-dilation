@@ -41,14 +41,14 @@ function TicketComponent({ show, ticketingData }) {
                 <div className="ticket-show-time">
                     {getDateFormat(show.schedule[ticketingData.showNum - 1])}
                 </div>
-                {/* <Link
-                            to={`/detail/${value.id}`}
-                            style={{ textDecoration: 'none' }}
-                        ></Link> */}
-                <button className="ticket-show-info">공연정보</button>
+                <Link
+                    to={`/detail/${show.id}`}
+                    style={{ textDecoration: 'none' }}
+                >
+                    <button className="ticket-show-info">공연정보</button>
+                </Link>
             </div>
             <nav className={ticketDown ? 'ticket-hidden' : ''}>
-                {/* <div className="ticket-hidden"> */}
                 <div className="ticket-picture">
                     {show.imageDownloaded ? (
                         <img
